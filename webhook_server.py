@@ -130,6 +130,56 @@ def calcola_bollinger(valori, periodo=20, num_deviazioni=2):
     return centro, superiore, inferiore
 
 
+def calcola_atr(candele, periodo=14):
+    tr = []
+    for i in range(len(candele)):
+        if i == 0:
+            tr.append(candele[i]["high"] - candele[i]["low"])
+        else:
+            prev_close = candele[i - 1]["close"]
+            tr.append(max(
+                candele[i]["high"] - candele[i]["low"],
+                abs(candele[i]["high"] - prev_close),
+                abs(candele[i]["low"] - prev_close),
+            ))
+    atr = []
+    for i in range(len(tr)):
+        inizio = max(0, i - periodo + 1)
+        finestra = tr[inizio:i + 1]
+        atr.append(sum(finestra) / len(finestra))
+    return atr
+
+
+def donchian_mid(candele, periodo):
+    valori = []
+    for i in range(len(candele)):
+        inizio = max(0, i - periodo + 1)
+        finestra = candele[inizio:i + 1]
+        massimo = max(c["high"] for c in finestra)
+        minimo = min(c["low"] for c in finestra)
+        valori.append((massimo + minimo) / 2)
+    return valori
+
+
+def trova_swing_high_low(candele, i, lookback=50):
+    inizio = max(0, i - lookback + 1)
+    finestra = candele[inizio:i + 1]
+    idx_max = max(range(len(finestra)), key=lambda k: finestra[k]["high"])
+    idx_min = min(range(len(finestra)), key=lambda k: finestra[k]["low"])
+    return {
+        "massimo": finestra[idx_max]["high"], "minimo": finestra[idx_min]["low"],
+        "idx_massimo": inizio + idx_max, "idx_minimo": inizio + idx_min,
+    }
+
+
+def conferma_rialzista(candele, i):
+    return is_engulfing_rialzista(candele[i - 1], candele[i]) or is_pin_bar_rialzista(candele[i])
+
+
+def conferma_ribassista(candele, i):
+    return is_engulfing_ribassista(candele[i - 1], candele[i]) or is_pin_bar_ribassista(candele[i])
+
+
 def corpo(c):
     return abs(c["close"] - c["open"])
 
@@ -184,6 +234,11 @@ def calcola_analisi_completa():
     macd_segnale = calcola_ema(macd_linea, 9)
     macd_istogramma = [a - b for a, b in zip(macd_linea, macd_segnale)]
     bb_centro, bb_superiore, bb_inferiore = calcola_bollinger(chiusure, 20, 2)
+    atr14 = calcola_atr(candele, 14)
+    tenkan = donchian_mid(candele, 9)
+    kijun = donchian_mid(candele, 26)
+    senkou_b = donchian_mid(candele, 52)
+    senkou_a = [(a + b) / 2 for a, b in zip(tenkan, kijun)]
 
     i = len(candele) - 2
     prezzo = chiusure[i]
@@ -281,6 +336,64 @@ def calcola_analisi_completa():
     else:
         v6 = ("NEUTRO", "Dati insufficienti")
     risultati.append(("Wyckoff-lite (approssimato)", *v6))
+
+    # 7) ATR Breakout
+    range_candela = c["high"] - c["low"]
+    if range_candela > 0 and atr14[i] > 0:
+        range_anomalo = range_candela > atr14[i] * 1.5
+        posizione = (c["close"] - c["low"]) / range_candela
+        if range_anomalo and posizione > 0.7 and is_rialzista(c):
+            v7 = ("LONG", "Candela range anomalo, chiusura vicina al massimo")
+        elif range_anomalo and posizione < 0.3 and is_ribassista(c):
+            v7 = ("SHORT", "Candela range anomalo, chiusura vicina al minimo")
+        else:
+            v7 = ("NEUTRO", "Nessun breakout di volatilita")
+    else:
+        v7 = ("NEUTRO", "Dati insufficienti")
+    risultati.append(("ATR Breakout", *v7))
+
+    # 8) Fibonacci
+    if i >= 51:
+        swing = trova_swing_high_low(candele, i, lookback=50)
+        ampiezza = swing["massimo"] - swing["minimo"]
+        if ampiezza > 0:
+            tolleranza = ampiezza * 0.05
+            swing_ribassista = swing["idx_minimo"] > swing["idx_massimo"]
+            if swing_ribassista:
+                liv_50 = swing["minimo"] + 0.5 * ampiezza
+                liv_618 = swing["minimo"] + 0.382 * ampiezza
+                vicino = abs(c["close"] - liv_50) < tolleranza or abs(c["close"] - liv_618) < tolleranza
+                if vicino and conferma_rialzista(candele, i):
+                    v8 = ("LONG", "Rimbalzo su livello Fibonacci con conferma")
+                else:
+                    v8 = ("NEUTRO", "Nessun rimbalzo Fibonacci confermato")
+            else:
+                liv_50 = swing["massimo"] - 0.5 * ampiezza
+                liv_618 = swing["massimo"] - 0.382 * ampiezza
+                vicino = abs(c["close"] - liv_50) < tolleranza or abs(c["close"] - liv_618) < tolleranza
+                if vicino and conferma_ribassista(candele, i):
+                    v8 = ("SHORT", "Ritracciamento su livello Fibonacci con conferma")
+                else:
+                    v8 = ("NEUTRO", "Nessun ritracciamento Fibonacci confermato")
+        else:
+            v8 = ("NEUTRO", "Range piatto")
+    else:
+        v8 = ("NEUTRO", "Dati insufficienti")
+    risultati.append(("Fibonacci 50/61.8", *v8))
+
+    # 9) Ichimoku (approssimato)
+    if i >= 52:
+        nuvola_sup = max(senkou_a[i], senkou_b[i])
+        nuvola_inf = min(senkou_a[i], senkou_b[i])
+        if prezzo > nuvola_sup and tenkan[i] > kijun[i]:
+            v9 = ("LONG", "Prezzo sopra la nuvola, Tenkan sopra Kijun")
+        elif prezzo < nuvola_inf and tenkan[i] < kijun[i]:
+            v9 = ("SHORT", "Prezzo sotto la nuvola, Tenkan sotto Kijun")
+        else:
+            v9 = ("NEUTRO", "Dentro la nuvola o segnali contrastanti")
+    else:
+        v9 = ("NEUTRO", "Dati insufficienti")
+    risultati.append(("Ichimoku (approssimato)", *v9))
 
     return prezzo, rsi14[i], risultati
 
