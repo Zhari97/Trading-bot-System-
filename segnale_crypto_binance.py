@@ -120,6 +120,55 @@ def calcola_bollinger(valori, periodo=20, num_deviazioni=2):
     return centro, superiore, inferiore
 
 
+def calcola_atr(candele, periodo=14):
+    """Average True Range: misura la volatilità media recente."""
+    tr = []
+    for i in range(len(candele)):
+        if i == 0:
+            tr.append(candele[i]["high"] - candele[i]["low"])
+        else:
+            prev_close = candele[i - 1]["close"]
+            tr.append(max(
+                candele[i]["high"] - candele[i]["low"],
+                abs(candele[i]["high"] - prev_close),
+                abs(candele[i]["low"] - prev_close),
+            ))
+    atr = []
+    for i in range(len(tr)):
+        inizio = max(0, i - periodo + 1)
+        finestra = tr[inizio:i + 1]
+        atr.append(sum(finestra) / len(finestra))
+    return atr
+
+
+def donchian_mid(candele, periodo):
+    """Punto medio tra massimo e minimo delle ultime N candele — usato
+    per Tenkan-sen, Kijun-sen e Senkou Span B dell'Ichimoku semplificato."""
+    valori = []
+    for i in range(len(candele)):
+        inizio = max(0, i - periodo + 1)
+        finestra = candele[inizio:i + 1]
+        massimo = max(c["high"] for c in finestra)
+        minimo = min(c["low"] for c in finestra)
+        valori.append((massimo + minimo) / 2)
+    return valori
+
+
+def trova_swing_high_low(candele, i, lookback=50):
+    """Trova il massimo e il minimo (con relativi indici) nelle ultime
+    'lookback' candele fino all'indice i incluso. Usato per Fibonacci."""
+    inizio = max(0, i - lookback + 1)
+    finestra = candele[inizio:i + 1]
+    idx_max = max(range(len(finestra)), key=lambda k: finestra[k]["high"])
+    idx_min = min(range(len(finestra)), key=lambda k: finestra[k]["low"])
+    return {
+        "massimo": finestra[idx_max]["high"],
+        "minimo": finestra[idx_min]["low"],
+        "idx_massimo": inizio + idx_max,
+        "idx_minimo": inizio + idx_min,
+    }
+
+
 def corpo(c):
     return abs(c["close"] - c["open"])
 
@@ -166,6 +215,14 @@ def is_pin_bar_ribassista(c):
     return ombra_superiore > 2 * corpo(c) and ombra_superiore > range_totale * 0.5
 
 
+def conferma_rialzista(candele, i):
+    return is_engulfing_rialzista(candele[i - 1], candele[i]) or is_pin_bar_rialzista(candele[i])
+
+
+def conferma_ribassista(candele, i):
+    return is_engulfing_ribassista(candele[i - 1], candele[i]) or is_pin_bar_ribassista(candele[i])
+
+
 # ============================================================
 # CONTESTO DI MERCATO — calcolato una volta sola, passato a ogni modulo
 # ============================================================
@@ -192,11 +249,20 @@ class ContestoMercato:
         # Bollinger Bands: SMA20 +/- 2 deviazioni standard
         self.bb_centro, self.bb_superiore, self.bb_inferiore = calcola_bollinger(self.chiusure, 20, 2)
 
+        # ATR (volatilita)
+        self.atr14 = calcola_atr(candele, 14)
+
+        # Ichimoku semplificato (senza il forward-shift classico, approssimato)
+        self.tenkan = donchian_mid(candele, 9)
+        self.kijun = donchian_mid(candele, 26)
+        self.senkou_b = donchian_mid(candele, 52)
+        self.senkou_a = [(a + b) / 2 for a, b in zip(self.tenkan, self.kijun)]
+
         # indice dell'ultima candela CHIUSA (l'ultima potrebbe essere in formazione)
         self.i = len(candele) - 2
 
     def abbastanza_dati(self) -> bool:
-        return len(self.chiusure) >= 65  # margine oltre EMA50 + RSI14 + MACD + Bollinger
+        return len(self.chiusure) >= 60  # margine sufficiente per tutti i moduli attivi
 
 
 # ============================================================
@@ -419,6 +485,103 @@ def strategia_wyckoff_lite(ctx: ContestoMercato) -> dict:
     return {"nome": "Wyckoff-lite (approssimato)", "voto": voto, "motivo": motivo, "attivo": False}
 
 
+def strategia_atr_breakout(ctx: ContestoMercato) -> dict:
+    """Modulo ATR Breakout: rileva candele con range anomalo rispetto
+    alla volatilita recente (movimento 'esplosivo'), con chiusura decisa
+    vicino a un estremo della candela. Diverso dagli altri moduli perche
+    non guarda la direzione media, ma l'ampiezza del movimento. IN OMBRA."""
+    i = ctx.i
+    c = ctx.candele[i]
+    range_candela = c["high"] - c["low"]
+    if range_candela <= 0 or ctx.atr14[i] <= 0:
+        return {"nome": "ATR Breakout", "voto": "NEUTRO", "motivo": "Dati insufficienti", "attivo": False}
+
+    range_anomalo = range_candela > ctx.atr14[i] * 1.5
+    posizione_chiusura = (c["close"] - c["low"]) / range_candela  # 0=minimo, 1=massimo
+
+    if range_anomalo and posizione_chiusura > 0.7 and is_rialzista(c):
+        voto, motivo = "LONG", "Candela con range anomalo, chiusura vicina al massimo"
+    elif range_anomalo and posizione_chiusura < 0.3 and is_ribassista(c):
+        voto, motivo = "SHORT", "Candela con range anomalo, chiusura vicina al minimo"
+    else:
+        voto, motivo = "NEUTRO", "Nessun breakout di volatilita rilevante"
+
+    return {"nome": "ATR Breakout", "voto": voto, "motivo": motivo, "attivo": False}
+
+
+def strategia_fibonacci(ctx: ContestoMercato) -> dict:
+    """Modulo Fibonacci Retracement: individua l'ultimo swing high/low
+    (50 candele), calcola i livelli 50%/61.8% e controlla se il prezzo
+    sta rimbalzando li con una candela di conferma. IN OMBRA."""
+    i = ctx.i
+    if i < 51:
+        return {"nome": "Fibonacci 50/61.8", "voto": "NEUTRO", "motivo": "Dati insufficienti", "attivo": False}
+
+    swing = trova_swing_high_low(ctx.candele, i, lookback=50)
+    massimo, minimo = swing["massimo"], swing["minimo"]
+    ampiezza = massimo - minimo
+    if ampiezza <= 0:
+        return {"nome": "Fibonacci 50/61.8", "voto": "NEUTRO", "motivo": "Range piatto", "attivo": False}
+
+    c = ctx.candele[i]
+    tolleranza = ampiezza * 0.05  # 5% dell'ampiezza dello swing
+
+    # Se il minimo e' piu recente del massimo: swing ribassista -> livelli di
+    # possibile rimbalzo LONG. Altrimenti swing rialzista -> livelli SHORT.
+    swing_ribassista = swing["idx_minimo"] > swing["idx_massimo"]
+
+    if swing_ribassista:
+        livello_50 = minimo + 0.5 * ampiezza
+        livello_618 = minimo + 0.382 * ampiezza  # simmetrico dal basso
+        vicino_livello = (abs(c["close"] - livello_50) < tolleranza
+                           or abs(c["close"] - livello_618) < tolleranza)
+        conferma = conferma_rialzista(ctx.candele, i)
+        if vicino_livello and conferma:
+            voto, motivo = "LONG", "Rimbalzo su livello Fibonacci 50%/61.8% con conferma"
+        else:
+            voto, motivo = "NEUTRO", "Nessun rimbalzo confermato sui livelli Fibonacci"
+    else:
+        livello_50 = massimo - 0.5 * ampiezza
+        livello_618 = massimo - 0.382 * ampiezza
+        vicino_livello = (abs(c["close"] - livello_50) < tolleranza
+                           or abs(c["close"] - livello_618) < tolleranza)
+        conferma = conferma_ribassista(ctx.candele, i)
+        if vicino_livello and conferma:
+            voto, motivo = "SHORT", "Ritracciamento su livello Fibonacci 50%/61.8% con conferma"
+        else:
+            voto, motivo = "NEUTRO", "Nessun ritracciamento confermato sui livelli Fibonacci"
+
+    return {"nome": "Fibonacci 50/61.8", "voto": voto, "motivo": motivo, "attivo": False}
+
+
+def strategia_ichimoku(ctx: ContestoMercato) -> dict:
+    """Modulo Ichimoku semplificato (APPROSSIMATO: senza il forward-shift
+    classico di 26 periodi, per semplicita di calcolo). Guarda se il prezzo
+    e' sopra/sotto la 'nuvola' (Senkou A/B) e se Tenkan e' sopra/sotto Kijun.
+    IN OMBRA."""
+    i = ctx.i
+    if i < 52:
+        return {"nome": "Ichimoku (approssimato)", "voto": "NEUTRO", "motivo": "Dati insufficienti", "attivo": False}
+
+    prezzo = ctx.chiusure[i]
+    nuvola_sup = max(ctx.senkou_a[i], ctx.senkou_b[i])
+    nuvola_inf = min(ctx.senkou_a[i], ctx.senkou_b[i])
+
+    sopra_nuvola = prezzo > nuvola_sup
+    sotto_nuvola = prezzo < nuvola_inf
+    tenkan_su_kijun = ctx.tenkan[i] > ctx.kijun[i]
+    tenkan_sotto_kijun = ctx.tenkan[i] < ctx.kijun[i]
+
+    if sopra_nuvola and tenkan_su_kijun:
+        voto, motivo = "LONG", "Prezzo sopra la nuvola, Tenkan sopra Kijun"
+    elif sotto_nuvola and tenkan_sotto_kijun:
+        voto, motivo = "SHORT", "Prezzo sotto la nuvola, Tenkan sotto Kijun"
+    else:
+        voto, motivo = "NEUTRO", "Prezzo dentro la nuvola o segnali contrastanti"
+
+    return {"nome": "Ichimoku (approssimato)", "voto": voto, "motivo": motivo, "attivo": False}
+
+
 # Elenco dei moduli attualmente registrati.
 MODULI_STRATEGIA = [
     strategia_ema_rsi_conferma,
@@ -427,6 +590,9 @@ MODULI_STRATEGIA = [
     strategia_struttura_trend,
     strategia_supporti_resistenze,
     strategia_wyckoff_lite,
+    strategia_atr_breakout,
+    strategia_fibonacci,
+    strategia_ichimoku,
 ]
 
 
