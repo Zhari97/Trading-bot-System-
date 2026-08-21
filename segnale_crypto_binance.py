@@ -32,7 +32,9 @@ TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 MODALITA_TEST = os.environ.get("MODALITA_TEST", "0") == "1"
 
 # ==== PARAMETRI GENERALI ====
-PAIR = os.environ.get("PAIR", "XBTUSD")
+# Lista di coppie da monitorare in parallelo, separate da virgola.
+# Nomi Kraken: XBTUSD=Bitcoin, ETHUSD=Ethereum, SOLUSD=Solana, ecc.
+COPPIE_MONITORATE = [p.strip() for p in os.environ.get("PAIRS", "XBTUSD,ETHUSD,SOLUSD").split(",") if p.strip()]
 INTERVAL_MIN = int(os.environ.get("INTERVAL_MIN", "15"))
 
 KRAKEN_OHLC_URL = "https://api.kraken.com/0/public/OHLC"
@@ -615,48 +617,57 @@ def invia_telegram(testo: str) -> None:
 # MAIN
 # ============================================================
 
-def main():
-    if MODALITA_TEST:
-        invia_telegram(
-            "🧪 <b>Messaggio di TEST</b>\n"
-            "Se leggi questo, il collegamento GitHub Actions -> Telegram funziona.\n"
-            f"Coppia configurata: {PAIR}, Timeframe: {INTERVAL_MIN}m"
-        )
-        log.info("Messaggio di test inviato.")
-        return
-
-    candele = scarica_candele_ohlc(PAIR, INTERVAL_MIN)
+def controlla_coppia(pair: str):
+    """Esegue il controllo completo (tutti i moduli) per UNA coppia."""
+    candele = scarica_candele_ohlc(pair, INTERVAL_MIN)
     ctx = ContestoMercato(candele)
 
     if not ctx.abbastanza_dati():
-        log.warning("Non abbastanza dati per calcolare i segnali.")
+        log.warning("[%s] Non abbastanza dati per calcolare i segnali.", pair)
         return
 
     prezzo = ctx.chiusure[ctx.i]
     log.info(
         "=== %s | prezzo=%.5f EMA9=%.5f EMA21=%.5f EMA50=%.5f RSI=%.1f ===",
-        PAIR, prezzo, ctx.ema9[ctx.i], ctx.ema21[ctx.i], ctx.ema50[ctx.i], ctx.rsi14[ctx.i],
+        pair, prezzo, ctx.ema9[ctx.i], ctx.ema21[ctx.i], ctx.ema50[ctx.i], ctx.rsi14[ctx.i],
     )
 
     for modulo in MODULI_STRATEGIA:
         risultato = modulo(ctx)
         etichetta_modalita = "ATTIVO" if risultato["attivo"] else "in ombra (non manda alert)"
         log.info(
-            "Modulo [%s] (%s) -> voto=%s | motivo: %s",
-            risultato["nome"], etichetta_modalita, risultato["voto"], risultato["motivo"],
+            "[%s] Modulo [%s] (%s) -> voto=%s | motivo: %s",
+            pair, risultato["nome"], etichetta_modalita, risultato["voto"], risultato["motivo"],
         )
 
         if risultato["attivo"] and risultato["voto"] != "NEUTRO":
             emoji = "🟢" if risultato["voto"] == "LONG" else "🔴"
             invia_telegram(
                 f"{emoji} <b>Segnale {risultato['voto']}</b>\n"
-                f"Coppia: <b>{PAIR}</b> (Kraken)\n"
+                f"Coppia: <b>{pair}</b> (Kraken)\n"
                 f"Prezzo: {prezzo:.5f}\n"
                 f"RSI: {ctx.rsi14[ctx.i]:.1f}\n"
                 f"Modulo: {risultato['nome']}\n"
                 f"Motivo: {risultato['motivo']}\n"
                 f"Timeframe: {INTERVAL_MIN}m"
             )
+
+
+def main():
+    if MODALITA_TEST:
+        invia_telegram(
+            "🧪 <b>Messaggio di TEST</b>\n"
+            "Se leggi questo, il collegamento GitHub Actions -> Telegram funziona.\n"
+            f"Coppie configurate: {', '.join(COPPIE_MONITORATE)}, Timeframe: {INTERVAL_MIN}m"
+        )
+        log.info("Messaggio di test inviato.")
+        return
+
+    for pair in COPPIE_MONITORATE:
+        try:
+            controlla_coppia(pair)
+        except Exception as e:
+            log.error("[%s] Errore durante il controllo: %s", pair, e)
 
 
 if __name__ == "__main__":
