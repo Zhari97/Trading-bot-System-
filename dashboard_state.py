@@ -34,11 +34,51 @@ def save_analysis(analysis, guard_status="PASS", guard_reason="", telegram_statu
     """Registra esclusivamente dati già calcolati dal motore, mai segreti."""
     classification = analysis["classificazione"]
     now = datetime.now(timezone.utc).isoformat()
-    record = {"timestamp": now, "pair": analysis["pair"], "price": round(float(analysis["prezzo"]), 8), "rsi": round(float(analysis["rsi"]), 2), "score": analysis["score"], "confluence": analysis["confluenza"], "direction": classification.get("direzione", "NEUTRO"), "classification": classification.get("livello", "WATCH"), "reason": classification.get("motivo", ""), "counter_trend": bool(classification.get("controtrend")), "guard_rail": {"status": guard_status, "reason": guard_reason}, "telegram": telegram_status, "categories": analysis["categorie"], "weights": {"long": analysis["peso_long"], "short": analysis["peso_short"]}, "strategies": [{key: result[key] for key in ("nome", "voto", "motivo", "attivo")} for result in analysis["risultati"]]}
+    record = {
+        "timestamp": now,
+        "pair": analysis["pair"],
+        "price": round(float(analysis["prezzo"]), 8),
+        "rsi": round(float(analysis["rsi"]), 2),
+        "score": analysis["score"],
+        "confluence": analysis["confluenza"],
+        "direction": classification.get("direzione", "NEUTRO"),
+        "classification": classification.get("livello", "WATCH"),
+        "reason": classification.get("motivo", ""),
+        "counter_trend": bool(classification.get("controtrend")),
+        "guard_rail": {"status": guard_status, "reason": guard_reason},
+        "telegram": telegram_status,
+        "categories": analysis["categorie"],
+        "weights": {"long": analysis["peso_long"], "short": analysis["peso_short"]},
+        "strategies": [
+            {key: result[key] for key in ("nome", "voto", "motivo", "attivo")}
+            for result in analysis["risultati"]
+        ],
+    }
     state = read_state()
-    state["updated_at"] = now
+    _append_record(state, record)
+    _write_state(state)
+    return record
+
+
+def _append_record(state, record):
+    """Aggiorna lo stato usando un record già validato e senza segreti."""
+    timestamp = record["timestamp"]
+    state["updated_at"] = timestamp
     state.setdefault("markets", {})[record["pair"]] = record
     state["history"] = (state.get("history", []) + [record])[-MAX_HISTORY:]
-    state["telegram"] = {"configured": bool(os.environ.get("TELEGRAM_BOT_TOKEN") and os.environ.get("TELEGRAM_CHAT_ID")), "last_alert": record if telegram_status == "SENT" else state.get("telegram", {}).get("last_alert")}
+    telegram = state.setdefault("telegram", {"configured": False})
+    telegram["configured"] = bool(os.environ.get("TELEGRAM_BOT_TOKEN") and os.environ.get("TELEGRAM_CHAT_ID"))
+    if record.get("telegram") == "SENT":
+        telegram["last_alert"] = record
+
+
+def save_ingested_record(record):
+    """Persist un record V2.2 già prodotto dal runner remoto.
+
+    L'endpoint Flask valida e normalizza il payload prima di chiamare questa
+    funzione; qui non vengono mai salvati token o altri segreti.
+    """
+    state = read_state()
+    _append_record(state, record)
     _write_state(state)
     return record
