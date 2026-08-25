@@ -3,22 +3,32 @@ name: Controllo Segnale Crypto
 on:
   schedule:
     - cron: "*/15 * * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      modalita_test:
+        description: "Invia un messaggio di test su Telegram invece di analizzare i segnali"
+        required: true
+        default: false
+        type: boolean
+
+concurrency:
+  group: controllo-segnale-crypto
+  cancel-in-progress: false
 
 jobs:
   controlla-segnale:
     runs-on: ubuntu-latest
     steps:
       - name: Scarica il codice del repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Imposta Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
       - name: Installa le dipendenze
-        run: pip install requests
+        run: python -m pip install -r requirements.txt
 
       - name: Esegui il controllo del segnale
         env:
@@ -26,4 +36,5 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           PAIRS: "XBTUSD,ETHUSD,SOLUSD"
           INTERVAL_MIN: 15
+          MODALITA_TEST: ${{ inputs.modalita_test && '1' || '0' }}
         run: python segnale_crypto_binance.py
