@@ -738,16 +738,18 @@ def etichetta_categoria(score: float) -> str:
 
 
 def classifica_segnale(analisi: dict) -> dict:
-    """Classifica la qualità operativa senza trasformare ogni voto in un alert.
+    """Classifica separatamente DIREZIONE e QUALITA' DELL'INGRESSO.
 
-    Gerarchia: il Trend viene prima del Setup.
-    - FORTE: score molto direzionale, alta confluenza e nessun conflitto.
-    - SETUP: situazione interessante ma non ancora abbastanza pulita.
-    - WATCH: da osservare, soprattutto in presenza di conflitto.
-    - NO TRADE: contesto debole o score troppo vicino alla neutralità.
+    Principio V2.2:
+    - il Trend definisce la direzione di fondo;
+    - Momentum e Setup servono a confermare l'ingresso;
+    - una direzione forte senza un setup d'ingresso NON è un SETUP operativo;
+    - un setup contro-trend non viene promosso a segnale normale;
+    - gli alert automatici, in questa fase, sono riservati solo a FORTE.
 
-    Un setup che va contro il Trend viene marcato esplicitamente come
-    CONTRO-TREND e non viene promosso automaticamente a segnale forte.
+    Questo evita il problema della V2.1 in cui, ad esempio, due segnali
+    SHORT di trend potevano produrre "SETUP" anche con Momentum e Setup
+    completamente neutri.
     """
     score = float(analisi["score"])
     confluenza = float(analisi["confluenza"])
@@ -757,8 +759,22 @@ def classifica_segnale(analisi: dict) -> dict:
     momentum = float(analisi["categorie"]["momentum"])
     setup = float(analisi["categorie"]["setup"])
 
-    trend_direzione = "LONG" if trend >= 60 else "SHORT" if trend <= 40 else "NEUTRO"
-    setup_direzione = "LONG" if setup >= 60 else "SHORT" if setup <= 40 else "NEUTRO"
+    trend_direzione = (
+        "LONG" if trend >= 60 else
+        "SHORT" if trend <= 40 else
+        "NEUTRO"
+    )
+    setup_direzione = (
+        "LONG" if setup >= 60 else
+        "SHORT" if setup <= 40 else
+        "NEUTRO"
+    )
+    momentum_direzione = (
+        "LONG" if momentum >= 60 else
+        "SHORT" if momentum <= 40 else
+        "NEUTRO"
+    )
+
     controtrend = (
         trend_direzione != "NEUTRO"
         and setup_direzione != "NEUTRO"
@@ -768,45 +784,123 @@ def classifica_segnale(analisi: dict) -> dict:
     livello = "NO TRADE"
     motivo = "Contesto troppo debole o score vicino alla neutralità."
 
-    if not conflitto and dominante == "LONG":
-        if score >= 70 and confluenza >= 70 and trend >= 55:
-            livello = "FORTE"
-            motivo = "Confluenza LONG elevata, score forte e trend coerente."
-        elif score >= 60 and confluenza >= 60:
-            livello = "SETUP"
-            motivo = "Setup LONG interessante, ma serve ulteriore conferma."
-        elif score >= 50:
-            livello = "WATCH"
-            motivo = "Bias LONG ancora troppo debole per un alert operativo."
-    elif not conflitto and dominante == "SHORT":
-        if score <= 30 and confluenza >= 70 and trend <= 45:
-            livello = "FORTE"
-            motivo = "Confluenza SHORT elevata, score forte e trend coerente."
-        elif score <= 40 and confluenza >= 60:
-            livello = "SETUP"
-            motivo = "Setup SHORT interessante, ma serve ulteriore conferma."
-        elif score <= 50:
-            livello = "WATCH"
-            motivo = "Bias SHORT ancora troppo debole per un alert operativo."
+    # 1) Nessuna direzione: non esiste un ingresso da valutare.
+    if dominante == "NEUTRO":
+        livello = "NO TRADE"
+        motivo = "Nessuna direzione dominante sufficientemente chiara."
+
+    # 2) Conflitto: non mandiamo mai un FORTE. Se c'è conflitto tra
+    # strategie, aspettiamo che il mercato confermi una direzione.
     elif conflitto:
-        # Il conflitto non diventa mai FORTE. Può diventare un setup solo se
-        # la direzione dominante è abbastanza netta e il trend la sostiene.
-        if dominante == "LONG" and score >= 65 and confluenza >= 65 and trend >= 55:
+        livello = "WATCH"
+        motivo = (
+            f"Conflitto tra segnali {analisi['direzione_dominante']} e opposti: "
+            "attendere conferma."
+        )
+
+    # 3) Direzione LONG senza conflitto.
+    elif dominante == "LONG":
+        trend_coerente = trend >= 60
+        setup_confermato = setup >= 60
+        momentum_ok = momentum >= 55
+
+        # FORTE: trend + setup + momentum coerenti.
+        if (
+            score >= 70
+            and confluenza >= 70
+            and trend_coerente
+            and setup_confermato
+            and momentum_ok
+        ):
+            livello = "FORTE"
+            motivo = (
+                "Trend LONG, Setup LONG e Momentum coerenti con alta "
+                "confluenza."
+            )
+
+        # SETUP: c'è un vero setup nella stessa direzione del trend,
+        # ma manca almeno una conferma per il livello FORTE.
+        elif (
+            score >= 60
+            and confluenza >= 60
+            and trend_coerente
+            and setup_confermato
+            and setup_direzione == "LONG"
+        ):
             livello = "SETUP"
-            motivo = "LONG dominante, ma esistono segnali SHORT in conflitto."
-        elif dominante == "SHORT" and score <= 35 and confluenza >= 65 and trend <= 45:
-            livello = "SETUP"
-            motivo = "SHORT dominante, ma esistono segnali LONG in conflitto."
+            motivo = (
+                "Trend e Setup LONG sono coerenti, ma serve ulteriore "
+                "conferma prima di un segnale forte."
+            )
+
+        # Trend LONG ma setup neutro/assente: non è un ingresso.
+        elif trend_coerente and setup_direzione == "NEUTRO":
+            livello = "NO TRADE"
+            motivo = (
+                "Trend LONG presente, ma non c'è ancora un Setup LONG "
+                "confermato."
+            )
+
         else:
             livello = "WATCH"
-            motivo = "Segnali LONG e SHORT in conflitto: attendere conferma."
+            motivo = "Bias LONG presente, ma la qualità dell'ingresso è insufficiente."
 
-    if controtrend and livello == "FORTE":
-        livello = "SETUP"
-        motivo = "Setup contro-trend: il Trend ha priorità sul segnale di rimbalzo."
+    # 4) Direzione SHORT senza conflitto.
+    elif dominante == "SHORT":
+        trend_coerente = trend <= 40
+        setup_confermato = setup <= 40
+        momentum_ok = momentum <= 45
 
-    if controtrend and livello == "SETUP":
-        etichetta = "SETUP CONTRO-TREND"
+        # FORTE: trend + setup + momentum coerenti.
+        if (
+            score <= 30
+            and confluenza >= 70
+            and trend_coerente
+            and setup_confermato
+            and momentum_ok
+        ):
+            livello = "FORTE"
+            motivo = (
+                "Trend SHORT, Setup SHORT e Momentum coerenti con alta "
+                "confluenza."
+            )
+
+        # SETUP: vero setup SHORT nella stessa direzione del trend.
+        elif (
+            score <= 40
+            and confluenza >= 60
+            and trend_coerente
+            and setup_confermato
+            and setup_direzione == "SHORT"
+        ):
+            livello = "SETUP"
+            motivo = (
+                "Trend e Setup SHORT sono coerenti, ma serve ulteriore "
+                "conferma prima di un segnale forte."
+            )
+
+        # Trend SHORT ma setup neutro/assente: non è un ingresso.
+        elif trend_coerente and setup_direzione == "NEUTRO":
+            livello = "NO TRADE"
+            motivo = (
+                "Trend SHORT presente, ma non c'è ancora un Setup SHORT "
+                "confermato."
+            )
+
+        else:
+            livello = "WATCH"
+            motivo = "Bias SHORT presente, ma la qualità dell'ingresso è insufficiente."
+
+    # 5) Contro-trend: il segnale viene sempre declassato.
+    if controtrend:
+        livello = "WATCH"
+        motivo = (
+            f"Setup {setup_direzione} contro Trend {trend_direzione}: "
+            "il Trend ha priorità, attendere conferma."
+        )
+
+    if controtrend:
+        etichetta = "WATCH CONTRO-TREND"
     else:
         etichetta = livello
 
@@ -817,8 +911,11 @@ def classifica_segnale(analisi: dict) -> dict:
         "controtrend": controtrend,
         "trend_direzione": trend_direzione,
         "setup_direzione": setup_direzione,
-        "momentum_direzione": "LONG" if momentum >= 60 else "SHORT" if momentum <= 40 else "NEUTRO",
-        "alert_automatico": livello in ("FORTE", "SETUP"),
+        "momentum_direzione": momentum_direzione,
+        # Per ora SOLO i FORTE sono candidati ad alert automatico.
+        # SETUP e WATCH restano osservabili nei log finché non validiamo
+        # il comportamento su più esecuzioni.
+        "alert_automatico": livello == "FORTE",
     }
 
 
