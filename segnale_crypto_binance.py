@@ -5,9 +5,16 @@ V2.2:
 - stampa sempre nei log la qualità del setup;
 - NON abilita automaticamente nuovi alert: resta conservativo;
 - MODALITA_TEST continua a funzionare come prima.
+
+Dashboard:
+- inoltra esclusivamente il risultato già prodotto dal motore;
+- usa DASHBOARD_URL e DASHBOARD_INGEST_TOKEN;
+- l'invio è non-blocking e non può fermare il bot.
 """
 
 import logging
+import os
+
 import requests
 
 from dashboard_state import save_analysis
@@ -25,13 +32,48 @@ from signal_engine import (
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("segnale_crypto")
 
+DASHBOARD_URL = os.environ.get("DASHBOARD_URL", "").strip().rstrip("/")
+DASHBOARD_INGEST_TOKEN = os.environ.get("DASHBOARD_INGEST_TOKEN", "")
 
-def salva_stato_dashboard(analisi: dict, *args, **kwargs) -> None:
-    """La dashboard è osservativa: un errore di persistenza non ferma il bot."""
+
+def salva_stato_dashboard(analisi: dict, *args, **kwargs) -> dict:
+    """La dashboard locale è osservativa: un errore di persistenza non ferma il bot."""
     try:
-        save_analysis(analisi, *args, **kwargs)
+        return save_analysis(analisi, *args, **kwargs)
     except Exception as e:
-        log.error("Errore persistenza dashboard: %s", e)
+        log.error("Errore persistenza dashboard locale: %s", e)
+        return None
+
+
+def invia_dashboard(record: dict) -> bool:
+    """Invia il record già prodotto dal motore alla dashboard, senza bloccare il runner."""
+    if not DASHBOARD_URL or not DASHBOARD_INGEST_TOKEN:
+        log.info("Dashboard ingest non configurato: analisi e Telegram continuano normalmente.")
+        return False
+    if not isinstance(record, dict):
+        log.warning("Dashboard ingest saltato: record analisi non disponibile.")
+        return False
+
+    try:
+        response = requests.post(
+            f"{DASHBOARD_URL}/api/ingest",
+            headers={"X-Dashboard-Token": DASHBOARD_INGEST_TOKEN},
+            json=record,
+            timeout=10,
+        )
+        if response.ok:
+            log.info("Dashboard ingest OK: %s", record.get("pair"))
+            return True
+        log.warning(
+            "Dashboard ingest failed: HTTP %s | pair=%s",
+            response.status_code,
+            record.get("pair"),
+        )
+    except requests.RequestException as e:
+        log.warning("Dashboard unavailable / dashboard ingest failed: %s", e)
+    except Exception as e:
+        log.warning("Dashboard ingest failed: %s", e)
+    return False
 
 
 def invia_telegram(testo: str) -> bool:
@@ -96,7 +138,6 @@ def controlla_coppia(pair: str) -> None:
     prezzo = analisi["prezzo"]
     classificazione = analisi["classificazione"]
 
-    # Header sintetico.
     log.info(
         "=== %s | prezzo=%.5f EMA9=%.5f EMA21=%.5f EMA50=%.5f "
         "RSI=%.1f SCORE=%.1f (%s) | %s ===",
@@ -111,7 +152,6 @@ def controlla_coppia(pair: str) -> None:
         classificazione.get("livello", "WATCH"),
     )
 
-    # Lettura per categorie.
     log.info(
         "[%s] Categorie -> TREND %.1f | MOMENTUM %.1f | SETUP %.1f | %s | "
         "Dominante %s %.1f%%",
@@ -134,7 +174,6 @@ def controlla_coppia(pair: str) -> None:
     if classificazione.get("controtrend"):
         log.info("[%s] ⚠️ CONTRO-TREND", pair)
 
-    # Tutti i moduli restano visibili nei log.
     for risultato in analisi["risultati"]:
         modalita = "ATTIVO" if risultato["attivo"] else "in ombra"
         log.info(
@@ -146,25 +185,24 @@ def controlla_coppia(pair: str) -> None:
             risultato["motivo"],
         )
 
-    # Report completo sempre nei log: ci permette di validare il sistema
-    # prima di aumentare il numero degli alert automatici.
     log.info("\n[%s] REPORT V2.2\n%s", pair, costruisci_report(pair, analisi))
 
     classificazione_valida, errore_guard_rail = classificazione_v2_2_valida(classificazione)
     if not classificazione_valida:
         log.error("[%s] GUARD-RAIL V2.2: %s. Alert Telegram bloccato.", pair, errore_guard_rail)
-        salva_stato_dashboard(analisi, "BLOCKED", errore_guard_rail, "BLOCKED")
+        record = salva_stato_dashboard(analisi, "BLOCKED", errore_guard_rail, "BLOCKED")
+        invia_dashboard(record)
         return
 
-    # Gli alert reali restano governati dalla classificazione del motore.
-    # Non attiviamo nuovi moduli singolarmente.
     telegram_status = "NOT_SENT"
     if (
         classificazione.get("alert_automatico")
         and classificazione.get("direzione") in ("LONG", "SHORT")
     ):
         telegram_status = "SENT" if invia_telegram(costruisci_report(pair, analisi)) else "FAILED"
-    salva_stato_dashboard(analisi, telegram_status=telegram_status)
+
+    record = salva_stato_dashboard(analisi, telegram_status=telegram_status)
+    invia_dashboard(record)
 
 
 def main() -> None:
