@@ -30,13 +30,21 @@ jobs:
       - name: Installa le dipendenze
         run: python -m pip install -r requirements.txt
 
+      - name: Scopri universo crypto dinamico
+        env:
+          CRYPTO_TOP_N: 10
+          DYNAMIC_CRYPTO_UNIVERSE: 1
+        run: |
+          PAIRS=$(python -c "from market_universe import discover_crypto_pairs; print(','.join(discover_crypto_pairs()))")
+          echo "PAIRS=$PAIRS" >> "$GITHUB_ENV"
+          echo "Universo crypto: $PAIRS"
+
       - name: Esegui il controllo del segnale
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           DASHBOARD_URL: ${{ vars.DASHBOARD_URL }}
           DASHBOARD_INGEST_TOKEN: ${{ secrets.DASHBOARD_INGEST_TOKEN }}
-          PAIRS: "XBTUSD,ETHUSD,SOLUSD"
           INTERVAL_MIN: 15
           MODALITA_TEST: ${{ inputs.modalita_test && '1' || '0' }}
         run: python segnale_crypto_binance.py
