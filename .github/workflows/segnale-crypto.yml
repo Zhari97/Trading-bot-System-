@@ -30,12 +30,26 @@ jobs:
       - name: Installa le dipendenze
         run: python -m pip install -r requirements.txt
 
-      - name: Scopri universo crypto dinamico
+      - name: Prepara chiave cache universo crypto
+        id: crypto-cache-key
+        run: echo "key=crypto-universe-v1-$(date -u +%Y%m%d%H)" >> "$GITHUB_OUTPUT"
+
+      - name: Ripristina cache universo crypto
+        uses: actions/cache@v4
+        with:
+          path: .cache/crypto_universe.json
+          key: ${{ steps.crypto-cache-key.outputs.key }}
+          restore-keys: |
+            crypto-universe-v1-
+
+      - name: Scopri universo crypto dinamico con cache
         env:
           CRYPTO_TOP_N: 10
           DYNAMIC_CRYPTO_UNIVERSE: 1
+          CRYPTO_UNIVERSE_CACHE: .cache/crypto_universe.json
+          CRYPTO_UNIVERSE_CACHE_TTL: 3600
         run: |
-          PAIRS=$(python -c "from market_universe import discover_crypto_pairs; print(','.join(discover_crypto_pairs()))")
+          PAIRS=$(python crypto_universe_cache.py)
           echo "PAIRS=$PAIRS" >> "$GITHUB_ENV"
           echo "Universo crypto: $PAIRS"
 
