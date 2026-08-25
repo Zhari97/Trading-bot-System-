@@ -748,9 +748,9 @@ def classificazione_v2_2_valida(classificazione: dict) -> tuple[bool, str]:
     if livello == "SETUP" and setup == "NEUTRO":
         return False, "SETUP con Setup NEUTRO"
     if livello == "SETUP" and trend != setup:
-        return False, f"SETUP con Trend ${trend} e Setup ${setup} discordanti"
+        return False, f"SETUP con Trend {trend} e Setup {setup} discordanti"
     if livello == "FORTE" and trend != setup:
-        return False, f"FORTE con Trend ${trend} e Setup ${setup} discordanti"
+        return False, f"FORTE con Trend {trend} e Setup {setup} discordanti"
     return True, ""
 
 
@@ -936,7 +936,7 @@ def classifica_segnale(analisi: dict) -> dict:
         classificazione.update(
             livello="WATCH",
             etichetta="WATCH",
-            motivo=f"Classificazione bloccata dal guard-rail V2.2: ${errore}.",
+            motivo=f"Classificazione bloccata dal guard-rail V2.2: {errore}.",
             alert_automatico=False,
         )
     return classificazione
