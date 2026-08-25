@@ -14,6 +14,7 @@ from signal_engine import (
     TELEGRAM_BOT_TOKEN,
     TELEGRAM_CHAT_ID,
     analizza_coppia,
+    etichetta_categoria,
 )
 
 logging.basicConfig(level=logging.INFO)
@@ -56,11 +57,16 @@ def invia_telegram(testo: str, chat_id: str = None) -> None:
 
 
 def costruisci_analisi_html(analisi: dict) -> str:
+    categorie = analisi["categorie"]
     righe = [
         f"🔎 <b>Analisi — {html.escape(analisi['pair'])}</b>",
         f"Prezzo: <b>{analisi['prezzo']:.5f}</b> | RSI: {analisi['rsi']:.1f}",
         f"🧠 <b>Score: {analisi['score']:.1f}/100 — {analisi['bias']}</b>",
-        f"Confluenza pesata: 🟢 {analisi['peso_long']:.0f} / 🔴 {analisi['peso_short']:.0f}",
+        f"Trend: {categorie['trend']:.1f}/100 ({etichetta_categoria(categorie['trend'])})",
+        f"Momentum: {categorie['momentum']:.1f}/100 ({etichetta_categoria(categorie['momentum'])})",
+        f"Setup: {categorie['setup']:.1f}/100 ({etichetta_categoria(categorie['setup'])})",
+        f"Confluenza: {'⚠️ CONFLITTO' if analisi['conflitto'] else '✅ CONFLUENZA'}",
+        f"Direzione dominante: {analisi['direzione_dominante']} ({analisi['confluenza']:.1f}%)",
         "",
     ]
     for risultato in analisi["risultati"]:
@@ -116,6 +122,8 @@ def telegram_webhook():
                 f"Trend EMA: {trend}\n"
                 f"RSI: {analisi['rsi']:.1f}\n"
                 f"Score: <b>{analisi['score']:.1f}/100</b> — {analisi['bias']}\n"
+                f"Trend/Momentum/Setup: {analisi['categorie']['trend']:.1f} / {analisi['categorie']['momentum']:.1f} / {analisi['categorie']['setup']:.1f}\n"
+                f"Confluenza: {'⚠️ CONFLITTO' if analisi['conflitto'] else '✅ CONFLUENZA'}\n"
                 f"Timeframe: {INTERVAL_MIN}m"
             )
         elif comando.startswith(("/analisi", "/voti")):
@@ -127,6 +135,10 @@ def telegram_webhook():
                 f"<b>{analisi['score']:.1f}/100 — {analisi['bias']}</b>\n"
                 f"🟢 Peso LONG: {analisi['peso_long']:.0f}\n"
                 f"🔴 Peso SHORT: {analisi['peso_short']:.0f}\n"
+                f"Trend: {analisi['categorie']['trend']:.1f}\n"
+                f"Momentum: {analisi['categorie']['momentum']:.1f}\n"
+                f"Setup: {analisi['categorie']['setup']:.1f}\n"
+                f"Confluenza: {'⚠️ CONFLITTO' if analisi['conflitto'] else '✅ CONFLUENZA'}\n"
                 f"RSI: {analisi['rsi']:.1f}\n"
                 f"TF: {INTERVAL_MIN}m"
             )
