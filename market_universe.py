@@ -1,12 +1,8 @@
 """Definizione dell'universo strumenti del Trading System.
 
-Questa prima versione separa la scoperta degli strumenti dalla logica di
-segnale. Crypto viene scoperta dinamicamente (Top N per market cap,
-stablecoin escluse) e mappata su coppie disponibili su Kraken.
-
-Indici, metalli e forex sono definiti come universo preparatorio: in questa
-fase NON vengono ancora passati al signal engine, così il comportamento degli
-alert esistenti resta invariato.
+Crypto viene scoperta dinamicamente (Top N per market cap, stablecoin escluse)
+e mappata su coppie USD disponibili su Kraken. Indici, metalli e forex restano
+preparati ma non vengono ancora passati al signal engine.
 """
 
 from __future__ import annotations
@@ -31,13 +27,8 @@ STABLECOIN_SYMBOLS = {
     "usdp", "pyusd", "frax", "lusd", "crvusd", "susd", "gusd", "eurc",
 }
 
-# Alias necessari per allineare i simboli CoinGecko con quelli usati da Kraken.
-KRAKEN_BASE_ALIASES = {
-    "btc": "xbt",
-    "doge": "xdg",
-}
+KRAKEN_BASE_ALIASES = {"btc": "xbt", "doge": "xdg"}
 
-# Universo preparatorio: non attivato dal signal engine in questa fase.
 INDEX_INSTRUMENTS = [
     {"nome": "SPX", "mercato": "index", "provider_symbol": "SPX"},
     {"nome": "NDX", "mercato": "index", "provider_symbol": "NDX"},
@@ -76,26 +67,22 @@ FOREX_INSTRUMENTS = [
 
 
 def _normalized_base(value: str) -> str:
-    value = value.lower().strip()
-    value = value.replace("/", "")
+    value = value.lower().strip().replace("/", "")
     if value.startswith(("x", "z")) and len(value) > 3:
         value = value[1:]
     return value
 
 
 def _kraken_alias(symbol: str) -> str:
-    symbol = symbol.lower().strip()
-    return KRAKEN_BASE_ALIASES.get(symbol, symbol)
+    return KRAKEN_BASE_ALIASES.get(symbol.lower().strip(), symbol.lower().strip())
 
 
 def _fetch_kraken_usd_pairs(timeout: int = 10) -> dict[str, str]:
-    """Restituisce {base_normalizzato: altname} per coppie USD attive."""
     response = requests.get(KRAKEN_ASSET_PAIRS_URL, timeout=timeout)
     response.raise_for_status()
     payload = response.json()
     if payload.get("error"):
         raise RuntimeError(f"Errore API Kraken AssetPairs: {payload['error']}")
-
     pairs: dict[str, str] = {}
     for key, item in payload.get("result", {}).items():
         if not isinstance(item, dict):
@@ -108,17 +95,19 @@ def _fetch_kraken_usd_pairs(timeout: int = 10) -> dict[str, str]:
         if not altname.endswith("USD") and quote not in {"ZUSD", "USD"}:
             continue
         base = str(item.get("base") or "")
-        if not base:
-            continue
-        pairs[_normalized_base(base)] = altname
+        if base:
+            pairs[_normalized_base(base)] = altname
     return pairs
 
 
 def _fetch_top_crypto_symbols(limit: int, timeout: int = 10) -> list[str]:
+    # Chiediamo un universo più ampio della Top N: alcune top crypto possono
+    # non avere una coppia USD su Kraken. Questo permette di ottenere davvero
+    # N strumenti tradabili, senza scegliere asset arbitrari fuori classifica.
     params = {
         "vs_currency": "usd",
         "order": "market_cap_desc",
-        "per_page": max(30, limit * 3),
+        "per_page": max(50, limit * 5),
         "page": 1,
         "sparkline": "false",
     }
@@ -131,12 +120,9 @@ def _fetch_top_crypto_symbols(limit: int, timeout: int = 10) -> list[str]:
     symbols: list[str] = []
     for coin in payload:
         symbol = str(coin.get("symbol") or "").lower().strip()
-        if not symbol or symbol in STABLECOIN_SYMBOLS:
+        if not symbol or symbol in STABLECOIN_SYMBOLS or symbol in symbols:
             continue
-        if symbol not in symbols:
-            symbols.append(symbol)
-        if len(symbols) >= limit:
-            break
+        symbols.append(symbol)
     return symbols
 
 
@@ -144,12 +130,7 @@ def discover_crypto_pairs(
     limit: int = CRYPTO_TOP_N,
     fallback: Iterable[str] = DEFAULT_CRYPTO_PAIRS,
 ) -> list[str]:
-    """Scopre le top crypto non-stable e le mappa su Kraken.
-
-    In caso di errore di rete/rate limit restituisce il fallback, evitando di
-    bloccare il bot. Un eventuale override esplicito PAIRS continua ad avere
-    priorita' sul discovery dinamico.
-    """
+    """Restituisce le prime N crypto non-stable realmente tradabili su Kraken."""
     fallback_list = [str(x).strip().upper() for x in fallback if str(x).strip()]
     if not DYNAMIC_CRYPTO_UNIVERSE:
         return fallback_list
@@ -170,6 +151,8 @@ def discover_crypto_pairs(
             raise RuntimeError("nessuna top crypto disponibile su Kraken")
 
         log.info("Universo crypto dinamico: %s", ", ".join(result))
+        if len(result) < limit:
+            log.warning("Universo crypto: %s/%s strumenti tradabili trovati.", len(result), limit)
         return result
     except Exception as exc:
         log.warning(
@@ -181,7 +164,6 @@ def discover_crypto_pairs(
 
 
 def build_prepared_universe(crypto_pairs: Iterable[str]) -> list[dict]:
-    """Costruisce l'universo completo preparato per le prossime fasi."""
     crypto = [
         {"nome": pair, "mercato": "crypto", "provider_symbol": pair}
         for pair in crypto_pairs
