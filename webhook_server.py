@@ -112,8 +112,8 @@ def _valida_ingest_payload(data):
         raise ValueError(f"campi mancanti: {', '.join(missing)}")
 
     pair = str(data["pair"]).upper()
-    if pair not in COPPIE_MONITORATE:
-        raise ValueError("pair non monitorata")
+    # Il token X-Dashboard-Token autentica il runner; l'universo degli strumenti
+    # può essere dinamico e quindi non deve dipendere da COPPIE_MONITORATE locale.
     classification = str(data["classification"]).upper()
     if classification not in CLASSIFICAZIONI_V22:
         raise ValueError("classification V2.2 non valida")
