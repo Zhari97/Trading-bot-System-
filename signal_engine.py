@@ -737,6 +737,23 @@ def etichetta_categoria(score: float) -> str:
     return "NEUTRALE"
 
 
+def classificazione_v2_2_valida(classificazione: dict) -> tuple[bool, str]:
+    """Verifica le invarianti V2.2 senza duplicare la logica nel runner."""
+    livello = classificazione.get("livello", "NO TRADE")
+    trend = classificazione.get("trend_direzione", "NEUTRO")
+    setup = classificazione.get("setup_direzione", "NEUTRO")
+
+    if livello == "SETUP" and trend == "NEUTRO":
+        return False, "SETUP con Trend NEUTRO"
+    if livello == "SETUP" and setup == "NEUTRO":
+        return False, "SETUP con Setup NEUTRO"
+    if livello == "SETUP" and trend != setup:
+        return False, f"SETUP con Trend ${trend} e Setup ${setup} discordanti"
+    if livello == "FORTE" and trend != setup:
+        return False, f"FORTE con Trend ${trend} e Setup ${setup} discordanti"
+    return True, ""
+
+
 def classifica_segnale(analisi: dict) -> dict:
     """Classifica separatamente DIREZIONE e QUALITA' DELL'INGRESSO.
 
@@ -747,7 +764,7 @@ def classifica_segnale(analisi: dict) -> dict:
     - un setup contro-trend non viene promosso a segnale normale;
     - gli alert automatici, in questa fase, sono riservati solo a FORTE.
 
-    Questo evita il problema della V2.1 in cui, ad esempio, due segnali
+    Questo evita il problema precedente in cui, ad esempio, due segnali
     SHORT di trend potevano produrre "SETUP" anche con Momentum e Setup
     completamente neutri.
     """
@@ -899,16 +916,12 @@ def classifica_segnale(analisi: dict) -> dict:
             "il Trend ha priorità, attendere conferma."
         )
 
-    if controtrend:
-        etichetta = "WATCH CONTRO-TREND"
-    else:
-        etichetta = livello
-
-    return {
+    classificazione = {
         "livello": livello,
-        "etichetta": etichetta,
+        "etichetta": livello,
         "motivo": motivo,
         "controtrend": controtrend,
+        "direzione": dominante,
         "trend_direzione": trend_direzione,
         "setup_direzione": setup_direzione,
         "momentum_direzione": momentum_direzione,
@@ -917,6 +930,16 @@ def classifica_segnale(analisi: dict) -> dict:
         # il comportamento su più esecuzioni.
         "alert_automatico": livello == "FORTE",
     }
+    valido, errore = classificazione_v2_2_valida(classificazione)
+    if not valido:
+        log.error("GUARD-RAIL V2.2 motore: %s", errore)
+        classificazione.update(
+            livello="WATCH",
+            etichetta="WATCH",
+            motivo=f"Classificazione bloccata dal guard-rail V2.2: ${errore}.",
+            alert_automatico=False,
+        )
+    return classificazione
 
 
 def analizza_coppia(pair: str):
