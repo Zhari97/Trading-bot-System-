@@ -717,11 +717,12 @@ def calcola_score(risultati):
 
 
 def etichetta_score(score: float) -> str:
-    if score >= 80:
+    """Etichetta puramente direzionale dello score, senza implicare un ingresso."""
+    if score >= 70:
         return "LONG FORTE"
     if score >= 60:
         return "LONG"
-    if score <= 20:
+    if score <= 30:
         return "SHORT FORTE"
     if score <= 40:
         return "SHORT"
@@ -734,6 +735,91 @@ def etichetta_categoria(score: float) -> str:
     if score <= 35:
         return "RIBASSISTA"
     return "NEUTRALE"
+
+
+def classifica_segnale(analisi: dict) -> dict:
+    """Classifica la qualità operativa senza trasformare ogni voto in un alert.
+
+    Gerarchia: il Trend viene prima del Setup.
+    - FORTE: score molto direzionale, alta confluenza e nessun conflitto.
+    - SETUP: situazione interessante ma non ancora abbastanza pulita.
+    - WATCH: da osservare, soprattutto in presenza di conflitto.
+    - NO TRADE: contesto debole o score troppo vicino alla neutralità.
+
+    Un setup che va contro il Trend viene marcato esplicitamente come
+    CONTRO-TREND e non viene promosso automaticamente a segnale forte.
+    """
+    score = float(analisi["score"])
+    confluenza = float(analisi["confluenza"])
+    conflitto = bool(analisi["conflitto"])
+    dominante = analisi["direzione_dominante"]
+    trend = float(analisi["categorie"]["trend"])
+    momentum = float(analisi["categorie"]["momentum"])
+    setup = float(analisi["categorie"]["setup"])
+
+    trend_direzione = "LONG" if trend >= 60 else "SHORT" if trend <= 40 else "NEUTRO"
+    setup_direzione = "LONG" if setup >= 60 else "SHORT" if setup <= 40 else "NEUTRO"
+    controtrend = (
+        trend_direzione != "NEUTRO"
+        and setup_direzione != "NEUTRO"
+        and trend_direzione != setup_direzione
+    )
+
+    livello = "NO TRADE"
+    motivo = "Contesto troppo debole o score vicino alla neutralità."
+
+    if not conflitto and dominante == "LONG":
+        if score >= 70 and confluenza >= 70 and trend >= 55:
+            livello = "FORTE"
+            motivo = "Confluenza LONG elevata, score forte e trend coerente."
+        elif score >= 60 and confluenza >= 60:
+            livello = "SETUP"
+            motivo = "Setup LONG interessante, ma serve ulteriore conferma."
+        elif score >= 50:
+            livello = "WATCH"
+            motivo = "Bias LONG ancora troppo debole per un alert operativo."
+    elif not conflitto and dominante == "SHORT":
+        if score <= 30 and confluenza >= 70 and trend <= 45:
+            livello = "FORTE"
+            motivo = "Confluenza SHORT elevata, score forte e trend coerente."
+        elif score <= 40 and confluenza >= 60:
+            livello = "SETUP"
+            motivo = "Setup SHORT interessante, ma serve ulteriore conferma."
+        elif score <= 50:
+            livello = "WATCH"
+            motivo = "Bias SHORT ancora troppo debole per un alert operativo."
+    elif conflitto:
+        # Il conflitto non diventa mai FORTE. Può diventare un setup solo se
+        # la direzione dominante è abbastanza netta e il trend la sostiene.
+        if dominante == "LONG" and score >= 65 and confluenza >= 65 and trend >= 55:
+            livello = "SETUP"
+            motivo = "LONG dominante, ma esistono segnali SHORT in conflitto."
+        elif dominante == "SHORT" and score <= 35 and confluenza >= 65 and trend <= 45:
+            livello = "SETUP"
+            motivo = "SHORT dominante, ma esistono segnali LONG in conflitto."
+        else:
+            livello = "WATCH"
+            motivo = "Segnali LONG e SHORT in conflitto: attendere conferma."
+
+    if controtrend and livello == "FORTE":
+        livello = "SETUP"
+        motivo = "Setup contro-trend: il Trend ha priorità sul segnale di rimbalzo."
+
+    if controtrend and livello == "SETUP":
+        etichetta = "SETUP CONTRO-TREND"
+    else:
+        etichetta = livello
+
+    return {
+        "livello": livello,
+        "etichetta": etichetta,
+        "motivo": motivo,
+        "controtrend": controtrend,
+        "trend_direzione": trend_direzione,
+        "setup_direzione": setup_direzione,
+        "momentum_direzione": "LONG" if momentum >= 60 else "SHORT" if momentum <= 40 else "NEUTRO",
+        "alert_automatico": livello in ("FORTE", "SETUP"),
+    }
 
 
 def analizza_coppia(pair: str):
@@ -751,7 +837,7 @@ def analizza_coppia(pair: str):
     scoring = calcola_score(risultati)
     score = scoring["score"]
 
-    return {
+    analisi = {
         "pair": pair,
         "ctx": ctx,
         "prezzo": ctx.chiusure[ctx.i],
@@ -761,6 +847,8 @@ def analizza_coppia(pair: str):
         "bias": etichetta_score(score),
         **scoring,
     }
+    analisi["classificazione"] = classifica_segnale(analisi)
+    return analisi
 
 
 def formato_score_telegram(analisi: dict) -> str:
