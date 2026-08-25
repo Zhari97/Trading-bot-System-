@@ -38,6 +38,16 @@ def controlla_coppia(pair: str):
         pair, prezzo, ctx.ema9[ctx.i], ctx.ema21[ctx.i], ctx.ema50[ctx.i],
         ctx.rsi14[ctx.i], analisi["score"], analisi["bias"],
     )
+    log.info(
+        "[%s] Categorie -> TREND %.1f | MOMENTUM %.1f | SETUP %.1f | %s | Dominante %s %.1f%%",
+        pair,
+        analisi["categorie"]["trend"],
+        analisi["categorie"]["momentum"],
+        analisi["categorie"]["setup"],
+        "CONFLITTO" if analisi["conflitto"] else "CONFLUENZA",
+        analisi["direzione_dominante"],
+        analisi["confluenza"],
+    )
 
     for risultato in analisi["risultati"]:
         modalita = "ATTIVO" if risultato["attivo"] else "in ombra"
@@ -54,6 +64,8 @@ def controlla_coppia(pair: str):
                 f"Coppia: <b>{pair}</b> (Kraken)\n"
                 f"Prezzo: {prezzo:.5f}\n"
                 f"Score confluenza: <b>{analisi['score']:.1f}/100</b> ({analisi['bias']})\n"
+                f"Trend: {analisi['categorie']['trend']:.1f} | Momentum: {analisi['categorie']['momentum']:.1f} | Setup: {analisi['categorie']['setup']:.1f}\n"
+                f"Confluenza: {'⚠️ CONFLITTO' if analisi['conflitto'] else '✅ CONFLUENZA'}\n"
                 f"RSI: {ctx.rsi14[ctx.i]:.1f}\n"
                 f"Modulo: {risultato['nome']}\n"
                 f"Motivo: {risultato['motivo']}\n"
