@@ -109,6 +109,8 @@ def costruisci_report(pair: str, analisi: dict) -> str:
     categoria = classificazione.get("livello", "WATCH")
     motivo = classificazione.get("motivo", "Nessuna conferma sufficiente.")
     direzione = classificazione.get("direzione", "NEUTRO")
+    score = analisi["score"]
+    score_bias = "LONG" if score > 50 else "SHORT" if score < 50 else "NEUTRO"
 
     if categoria == "FORTE":
         emoji = "🟢"
@@ -126,7 +128,8 @@ def costruisci_report(pair: str, analisi: dict) -> str:
     return (
         f"{emoji} <b>{pair} — {categoria}</b>\n"
         f"Direzione: <b>{direzione}</b>\n\n"
-        f"Score: <b>{analisi['score']:.1f}/100</b>\n"
+        f"Score direzionale: <b>{score:.1f}/100</b> "
+        f"(50 = neutro | bias {score_bias})\n"
         f"Confluenza: <b>{analisi['confluenza']:.1f}%</b>\n\n"
         f"📈 Trend: <b>{analisi['categorie']['trend']:.1f}</b> "
         f"({classificazione.get('trend_direzione', 'NEUTRO')})\n"
