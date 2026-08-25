@@ -1,6 +1,6 @@
 """Runner GitHub Actions del motore segnali.
 
-V2.1:
+V2.2:
 - usa la classificazione complessiva del signal_engine;
 - stampa sempre nei log la qualità del setup;
 - NON abilita automaticamente nuovi alert: resta conservativo;
@@ -17,6 +17,7 @@ from signal_engine import (
     TELEGRAM_BOT_TOKEN,
     TELEGRAM_CHAT_ID,
     analizza_coppia,
+    classificazione_v2_2_valida,
 )
 
 logging.basicConfig(level=logging.INFO)
@@ -46,9 +47,9 @@ def invia_telegram(testo: str) -> None:
 def costruisci_report(pair: str, analisi: dict) -> str:
     """Costruisce lo stesso formato leggibile che useremo per Telegram."""
     classificazione = analisi["classificazione"]
-    categoria = classificazione.get("etichetta", "WATCH")
+    categoria = classificazione.get("livello", "WATCH")
     motivo = classificazione.get("motivo", "Nessuna conferma sufficiente.")
-    direzione = analisi.get("direzione_dominante", "NEUTRO")
+    direzione = classificazione.get("direzione", "NEUTRO")
 
     if categoria == "FORTE":
         emoji = "🟢"
@@ -100,7 +101,7 @@ def controlla_coppia(pair: str) -> None:
         ctx.rsi14[ctx.i],
         analisi["score"],
         analisi["bias"],
-        classificazione.get("etichetta", "WATCH"),
+        classificazione.get("livello", "WATCH"),
     )
 
     # Lettura per categorie.
@@ -119,7 +120,7 @@ def controlla_coppia(pair: str) -> None:
     log.info(
         "[%s] QUALITA -> %s | Motivo: %s",
         pair,
-        classificazione.get("etichetta", "WATCH"),
+        classificazione.get("livello", "WATCH"),
         classificazione.get("motivo", "Nessuna conferma sufficiente."),
     )
 
@@ -140,13 +141,18 @@ def controlla_coppia(pair: str) -> None:
 
     # Report completo sempre nei log: ci permette di validare il sistema
     # prima di aumentare il numero degli alert automatici.
-    log.info("\n[%s] REPORT V2.1\n%s", pair, costruisci_report(pair, analisi))
+    log.info("\n[%s] REPORT V2.2\n%s", pair, costruisci_report(pair, analisi))
+
+    classificazione_valida, errore_guard_rail = classificazione_v2_2_valida(classificazione)
+    if not classificazione_valida:
+        log.error("[%s] GUARD-RAIL V2.2: %s. Alert Telegram bloccato.", pair, errore_guard_rail)
+        return
 
     # Gli alert reali restano governati dalla classificazione del motore.
     # Non attiviamo nuovi moduli singolarmente.
     if (
         classificazione.get("alert_automatico")
-        and analisi["direzione_dominante"] in ("LONG", "SHORT")
+        and classificazione.get("direzione") in ("LONG", "SHORT")
     ):
         invia_telegram(costruisci_report(pair, analisi))
 
