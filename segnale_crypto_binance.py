@@ -19,8 +19,6 @@ import requests
 
 from api_budget import guard_requests
 
-# Installa il guard prima di importare il signal engine: in questo modo
-# proteggiamo le GET di market-data senza modificare la logica V2.2.
 guard_requests()
 
 from dashboard_state import save_analysis
@@ -43,7 +41,6 @@ DASHBOARD_INGEST_TOKEN = os.environ.get("DASHBOARD_INGEST_TOKEN", "")
 
 
 def salva_stato_dashboard(analisi: dict, *args, **kwargs) -> dict:
-    """La dashboard locale è osservativa: un errore di persistenza non ferma il bot."""
     try:
         return save_analysis(analisi, *args, **kwargs)
     except Exception as e:
@@ -52,7 +49,6 @@ def salva_stato_dashboard(analisi: dict, *args, **kwargs) -> dict:
 
 
 def invia_dashboard(record: dict) -> bool:
-    """Invia il record già prodotto dal motore alla dashboard, senza bloccare il runner."""
     if not DASHBOARD_URL or not DASHBOARD_INGEST_TOKEN:
         log.info("Dashboard ingest non configurato: analisi e Telegram continuano normalmente.")
         return False
@@ -82,25 +78,33 @@ def invia_dashboard(record: dict) -> bool:
     return False
 
 
-def invia_telegram(testo: str) -> bool:
+def invia_telegram(testo: str, pair: str = "") -> bool:
+    """Invia Telegram e registra esplicitamente la decisione/risposta HTTP."""
+    log.info(
+        "[%s] TELEGRAM DECISION | token=%s chat_id=%s",
+        pair or "GLOBAL",
+        "SET" if TELEGRAM_BOT_TOKEN else "MISSING",
+        "SET" if TELEGRAM_CHAT_ID else "MISSING",
+    )
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
-        log.error("TELEGRAM_BOT_TOKEN o TELEGRAM_CHAT_ID non impostati, salto invio.")
+        log.error("[%s] TELEGRAM -> SKIP | credenziali non impostate", pair or "GLOBAL")
         return False
+
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     payload = {"chat_id": TELEGRAM_CHAT_ID, "text": testo, "parse_mode": "HTML"}
     try:
         r = requests.post(url, json=payload, timeout=10)
         if not r.ok:
-            log.error("Errore invio Telegram: %s", r.text)
+            log.error("[%s] TELEGRAM -> FAILED | HTTP %s | %s", pair or "GLOBAL", r.status_code, r.text)
             return False
+        log.info("[%s] TELEGRAM -> SENT | HTTP %s", pair or "GLOBAL", r.status_code)
         return True
     except requests.RequestException as e:
-        log.error("Errore di rete Telegram: %s", e)
+        log.error("[%s] TELEGRAM -> FAILED | rete: %s", pair or "GLOBAL", e)
         return False
 
 
 def costruisci_report(pair: str, analisi: dict) -> str:
-    """Costruisce lo stesso formato leggibile che useremo per Telegram."""
     classificazione = analisi["classificazione"]
     categoria = classificazione.get("livello", "WATCH")
     motivo = classificazione.get("motivo", "Nessuna conferma sufficiente.")
@@ -145,51 +149,26 @@ def controlla_coppia(pair: str) -> None:
     classificazione = analisi["classificazione"]
 
     log.info(
-        "=== %s | prezzo=%.5f EMA9=%.5f EMA21=%.5f EMA50=%.5f "
-        "RSI=%.1f SCORE=%.1f (%s) | %s ===",
-        pair,
-        prezzo,
-        ctx.ema9[ctx.i],
-        ctx.ema21[ctx.i],
-        ctx.ema50[ctx.i],
-        ctx.rsi14[ctx.i],
-        analisi["score"],
-        analisi["bias"],
-        classificazione.get("livello", "WATCH"),
+        "=== %s | prezzo=%.5f EMA9=%.5f EMA21=%.5f EMA50=%.5f RSI=%.1f SCORE=%.1f (%s) | %s ===",
+        pair, prezzo, ctx.ema9[ctx.i], ctx.ema21[ctx.i], ctx.ema50[ctx.i], ctx.rsi14[ctx.i],
+        analisi["score"], analisi["bias"], classificazione.get("livello", "WATCH"),
     )
 
     log.info(
-        "[%s] Categorie -> TREND %.1f | MOMENTUM %.1f | SETUP %.1f | %s | "
-        "Dominante %s %.1f%%",
-        pair,
-        analisi["categorie"]["trend"],
-        analisi["categorie"]["momentum"],
-        analisi["categorie"]["setup"],
-        "CONFLITTO" if analisi["conflitto"] else "CONFLUENZA",
-        analisi["direzione_dominante"],
-        analisi["confluenza"],
+        "[%s] Categorie -> TREND %.1f | MOMENTUM %.1f | SETUP %.1f | %s | Dominante %s %.1f%%",
+        pair, analisi["categorie"]["trend"], analisi["categorie"]["momentum"],
+        analisi["categorie"]["setup"], "CONFLITTO" if analisi["conflitto"] else "CONFLUENZA",
+        analisi["direzione_dominante"], analisi["confluenza"],
     )
 
-    log.info(
-        "[%s] QUALITA -> %s | Motivo: %s",
-        pair,
-        classificazione.get("livello", "WATCH"),
-        classificazione.get("motivo", "Nessuna conferma sufficiente."),
-    )
+    log.info("[%s] QUALITA -> %s | Motivo: %s", pair, classificazione.get("livello", "WATCH"), classificazione.get("motivo", "Nessuna conferma sufficiente."))
 
     if classificazione.get("controtrend"):
         log.info("[%s] ⚠️ CONTRO-TREND", pair)
 
     for risultato in analisi["risultati"]:
         modalita = "ATTIVO" if risultato["attivo"] else "in ombra"
-        log.info(
-            "[%s] [%s] (%s) -> %s | %s",
-            pair,
-            risultato["nome"],
-            modalita,
-            risultato["voto"],
-            risultato["motivo"],
-        )
+        log.info("[%s] [%s] (%s) -> %s | %s", pair, risultato["nome"], modalita, risultato["voto"], risultato["motivo"])
 
     log.info("\n[%s] REPORT V2.2\n%s", pair, costruisci_report(pair, analisi))
 
@@ -200,12 +179,15 @@ def controlla_coppia(pair: str) -> None:
         invia_dashboard(record)
         return
 
+    alert_automatico = bool(classificazione.get("alert_automatico"))
+    direzione = classificazione.get("direzione")
+    log.info("[%s] TELEGRAM DECISION | livello=%s alert_automatico=%s direzione=%s", pair, classificazione.get("livello"), alert_automatico, direzione)
+
     telegram_status = "NOT_SENT"
-    if (
-        classificazione.get("alert_automatico")
-        and classificazione.get("direzione") in ("LONG", "SHORT")
-    ):
-        telegram_status = "SENT" if invia_telegram(costruisci_report(pair, analisi)) else "FAILED"
+    if alert_automatico and direzione in ("LONG", "SHORT"):
+        telegram_status = "SENT" if invia_telegram(costruisci_report(pair, analisi), pair=pair) else "FAILED"
+    else:
+        log.info("[%s] TELEGRAM -> SKIP | condizione alert non soddisfatta", pair)
 
     record = salva_stato_dashboard(analisi, telegram_status=telegram_status)
     invia_dashboard(record)
@@ -214,9 +196,9 @@ def controlla_coppia(pair: str) -> None:
 def main() -> None:
     if MODALITA_TEST:
         invia_telegram(
-            "🧪 <b>Messaggio di TEST</b>\n"
-            "Collegamento GitHub Actions → Telegram funzionante.\n"
-            f"Coppie: {', '.join(COPPIE_MONITORATE)} | Timeframe: {INTERVAL_MIN}m"
+            "🧪 <b>Messaggio di TEST</b>\nCollegamento GitHub Actions → Telegram funzionante.\n"
+            f"Coppie: {', '.join(COPPIE_MONITORATE)} | Timeframe: {INTERVAL_MIN}m",
+            pair="TEST",
         )
         return
 
