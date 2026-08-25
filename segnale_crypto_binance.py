@@ -17,6 +17,12 @@ import os
 
 import requests
 
+from api_budget import guard_requests
+
+# Installa il guard prima di importare il signal engine: in questo modo
+# proteggiamo le GET di market-data senza modificare la logica V2.2.
+guard_requests()
+
 from dashboard_state import save_analysis
 
 from signal_engine import (
