@@ -598,9 +598,11 @@ MODULI_STRATEGIA = [
 ]
 
 # ============================================================
-# SCORING / CONFLUENZA
+# SCORING / CONFLUENZA V2
 # ============================================================
 
+# I pesi dei singoli moduli restano a 100 complessivi. Servono a stabilire
+# quanto pesa ogni voto dentro la propria categoria.
 PESI_MODULI = {
     "EMA9/21 + RSI + conferma": 18,
     "MACD 12/26/9": 12,
@@ -613,38 +615,129 @@ PESI_MODULI = {
     "Ichimoku (approssimato)": 10,
 }
 
+# Il punteggio finale non tratta tutti i moduli come equivalenti.
+# Prima leggiamo il mercato in tre blocchi: trend, momentum e setup.
+PESI_CATEGORIE = {
+    "trend": 45,
+    "momentum": 20,
+    "setup": 35,
+}
+
+CATEGORIE_MODULI = {
+    "EMA9/21 + RSI + conferma": "trend",
+    "MACD 12/26/9": "momentum",
+    "Bollinger Bands 20,2": "setup",
+    "Struttura trend (HH/HL)": "trend",
+    "Rottura S/R": "setup",
+    "Wyckoff-lite (approssimato)": "setup",
+    "ATR Breakout": "setup",
+    "Fibonacci 50/61.8": "setup",
+    "Ichimoku (approssimato)": "trend",
+}
+
+
+def _direzione(voto: str) -> int:
+    if voto == "LONG":
+        return 1
+    if voto == "SHORT":
+        return -1
+    return 0
+
 
 def calcola_score(risultati):
-    """Converte i voti dei moduli in uno score 0-100.
+    """Calcola score V2, categorie e confluenza.
 
-    50 = neutro. 100 = tutti i moduli disponibili LONG.
-    0 = tutti i moduli disponibili SHORT.
-    I moduli NEUTRO non spostano lo score.
+    50 = neutro.
+    Le categorie sono pesate Trend 45%, Momentum 20%, Setup 35%.
+    Un modulo NEUTRO non aggiunge direzione, ma il suo peso resta nel
+    denominatore della categoria: questo rende lo score più conservativo.
     """
-    peso_totale = sum(PESI_MODULI.get(r["nome"], 0) for r in risultati)
-    if peso_totale <= 0:
-        return 50.0, 0.0, 0.0
+    categorie = {}
+    peso_long = 0.0
+    peso_short = 0.0
+    segnali_direzionali = []
 
-    peso_long = sum(PESI_MODULI.get(r["nome"], 0) for r in risultati if r["voto"] == "LONG")
-    peso_short = sum(PESI_MODULI.get(r["nome"], 0) for r in risultati if r["voto"] == "SHORT")
-    score = 50 + 50 * ((peso_long - peso_short) / peso_totale)
-    return round(score, 1), peso_long, peso_short
+    for categoria in PESI_CATEGORIE:
+        moduli_categoria = [
+            r for r in risultati
+            if CATEGORIE_MODULI.get(r["nome"]) == categoria
+        ]
+        peso_categoria = sum(PESI_MODULI.get(r["nome"], 0) for r in moduli_categoria)
+        contributo = sum(
+            PESI_MODULI.get(r["nome"], 0) * _direzione(r["voto"])
+            for r in moduli_categoria
+        )
+
+        if peso_categoria:
+            score_categoria = 50 + 50 * (contributo / peso_categoria)
+        else:
+            score_categoria = 50.0
+
+        score_categoria = round(max(0.0, min(100.0, score_categoria)), 1)
+        categorie[categoria] = score_categoria
+
+    for risultato in risultati:
+        peso = PESI_MODULI.get(risultato["nome"], 0)
+        if risultato["voto"] == "LONG":
+            peso_long += peso
+            segnali_direzionali.append(risultato)
+        elif risultato["voto"] == "SHORT":
+            peso_short += peso
+            segnali_direzionali.append(risultato)
+
+    score = sum(
+        categorie[nome] * (peso / 100)
+        for nome, peso in PESI_CATEGORIE.items()
+    )
+    score = round(max(0.0, min(100.0, score)), 1)
+
+    conflitto = peso_long > 0 and peso_short > 0
+    peso_direzionale = peso_long + peso_short
+
+    if peso_direzionale <= 0:
+        confluenza = 0.0
+        direzione_dominante = "NEUTRO"
+    elif peso_long >= peso_short:
+        confluenza = round(100 * peso_long / peso_direzionale, 1)
+        direzione_dominante = "LONG"
+    else:
+        confluenza = round(100 * peso_short / peso_direzionale, 1)
+        direzione_dominante = "SHORT"
+
+    return {
+        "score": score,
+        "peso_long": round(peso_long, 1),
+        "peso_short": round(peso_short, 1),
+        "categorie": categorie,
+        "conflitto": conflitto,
+        "confluenza": confluenza,
+        "direzione_dominante": direzione_dominante,
+        "segnali_direzionali": len(segnali_direzionali),
+    }
 
 
 def etichetta_score(score: float) -> str:
     if score >= 80:
         return "LONG FORTE"
-    if score >= 65:
+    if score >= 60:
         return "LONG"
     if score <= 20:
         return "SHORT FORTE"
-    if score <= 35:
+    if score <= 40:
         return "SHORT"
     return "NEUTRO"
 
 
+def etichetta_categoria(score: float) -> str:
+    if score >= 65:
+        return "RIALZISTA"
+    if score <= 35:
+        return "RIBASSISTA"
+    return "NEUTRALE"
+
+
 def analizza_coppia(pair: str):
-    """Scarica i dati una volta e restituisce analisi + score condivisibili."""
+    """Scarica i dati una volta e restituisce analisi + score V2 condivisibili."""
     candele = scarica_candele_ohlc(pair, INTERVAL_MIN)
     ctx = ContestoMercato(candele)
     if not ctx.abbastanza_dati():
@@ -655,7 +748,9 @@ def analizza_coppia(pair: str):
         risultato = modulo(ctx)
         risultati.append(risultato)
 
-    score, peso_long, peso_short = calcola_score(risultati)
+    scoring = calcola_score(risultati)
+    score = scoring["score"]
+
     return {
         "pair": pair,
         "ctx": ctx,
@@ -664,18 +759,23 @@ def analizza_coppia(pair: str):
         "risultati": risultati,
         "score": score,
         "bias": etichetta_score(score),
-        "peso_long": peso_long,
-        "peso_short": peso_short,
+        **scoring,
     }
 
 
 def formato_score_telegram(analisi: dict) -> str:
-    """Riepilogo compatto pronto per Telegram."""
+    """Riepilogo compatto V2 pronto per Telegram."""
+    categorie = analisi["categorie"]
+    conflitto = "⚠️ CONFLITTO" if analisi["conflitto"] else "✅ CONFLUENZA"
     return (
         f"📊 <b>Score {analisi['pair']}</b>\n"
         f"Prezzo: <b>{analisi['prezzo']:.5f}</b>\n"
         f"Score: <b>{analisi['score']:.1f}/100</b> — {analisi['bias']}\n"
-        f"Confluenza pesata: 🟢 {analisi['peso_long']:.0f} / 🔴 {analisi['peso_short']:.0f}\n"
+        f"Trend: {categorie['trend']:.1f}/100 ({etichetta_categoria(categorie['trend'])})\n"
+        f"Momentum: {categorie['momentum']:.1f}/100 ({etichetta_categoria(categorie['momentum'])})\n"
+        f"Setup: {categorie['setup']:.1f}/100 ({etichetta_categoria(categorie['setup'])})\n"
+        f"Confluenza: {conflitto}\n"
+        f"Direzione dominante: {analisi['direzione_dominante']} ({analisi['confluenza']:.1f}%)\n"
         f"RSI: {analisi['rsi']:.1f}\n"
         f"Timeframe: {INTERVAL_MIN}m"
     )
