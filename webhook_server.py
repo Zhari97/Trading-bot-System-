@@ -13,7 +13,6 @@ from dashboard_state import read_state, save_ingested_record
 from signal_engine import (
     COPPIE_MONITORATE,
     INTERVAL_MIN,
-    MODULI_STRATEGIA,
     TELEGRAM_BOT_TOKEN,
     TELEGRAM_CHAT_ID,
     analizza_coppia,
@@ -258,71 +257,65 @@ def telegram_webhook():
         else:
             risposta = "❓ Comando non riconosciuto. Usa /help."
     except Exception:
-        log.exception("Errore comando Telegram")
+        log.exception("Errore gestione comando Telegram")
         risposta = "⚠️ Errore durante l'analisi. Riprova tra poco."
 
-    invia_telegram(risposta, chat_id=chat_id)
+    invia_telegram(risposta, str(chat_id))
     return jsonify({"status": "ok"}), 200
-
-
-@app.route("/", methods=["GET"])
-def dashboard():
-    return render_template("dashboard.html", pairs=COPPIE_MONITORATE, timeframe=INTERVAL_MIN)
 
 
 @app.route("/health", methods=["GET"])
 def health():
-    return "Webhook server attivo", 200
-
-
-@app.route("/api/ingest", methods=["POST"])
-def api_ingest():
-    if not DASHBOARD_INGEST_TOKEN:
-        return jsonify({"status": "disabled", "error": "dashboard ingest non configurato"}), 503
-
-    supplied = request.headers.get("X-Dashboard-Token", "")
-    if not supplied or not hmac.compare_digest(supplied, DASHBOARD_INGEST_TOKEN):
-        return jsonify({"status": "unauthorized"}), 401
-
-    if not request.is_json:
-        return jsonify({"status": "bad_request", "error": "Content-Type application/json richiesto"}), 400
-
-    data = request.get_json(silent=True)
-    try:
-        record = _valida_ingest_payload(data)
-        saved = save_ingested_record(record)
-    except (ValueError, TypeError) as exc:
-        return jsonify({"status": "bad_request", "error": str(exc)}), 400
-    except Exception:
-        log.exception("Errore persistenza dashboard ingest")
-        return jsonify({"status": "error", "error": "persistenza non disponibile"}), 500
-
-    return jsonify({"status": "ok", "pair": saved["pair"], "timestamp": saved["timestamp"]}), 200
+    return jsonify({"status": "ok", "service": "webhook_server"}), 200
 
 
 @app.route("/api/status", methods=["GET"])
 def api_status():
-    state = read_state()
-    return jsonify({"online": True, "updated_at": state.get("updated_at"), "timeframe_minutes": INTERVAL_MIN, "pairs": COPPIE_MONITORATE, "telegram": state.get("telegram", {"configured": False}), "github_actions": {"workflow": "Controllo Segnale Crypto", "status": "configured"}})
+    stato = read_state()
+    return jsonify(stato.get("status", {})), 200
 
 
 @app.route("/api/markets", methods=["GET"])
 def api_markets():
-    state = read_state()
-    return jsonify({"markets": state.get("markets", {}), "updated_at": state.get("updated_at")})
+    stato = read_state()
+    return jsonify(stato.get("markets", {})), 200
 
 
 @app.route("/api/history", methods=["GET"])
 def api_history():
-    return jsonify({"history": read_state().get("history", [])})
+    stato = read_state()
+    return jsonify(stato.get("history", [])), 200
 
 
 @app.route("/api/signals", methods=["GET"])
 def api_signals():
-    history = read_state().get("history", [])
-    return jsonify({"signals": list(reversed(history[-30:]))})
+    stato = read_state()
+    return jsonify(stato.get("signals", [])), 200
+
+
+@app.route("/api/ingest", methods=["POST"])
+def api_ingest():
+    expected = DASHBOARD_INGEST_TOKEN
+    provided = request.headers.get("X-Dashboard-Token", "")
+    if not expected or not hmac.compare_digest(provided, expected):
+        return jsonify({"status": "unauthorized"}), 401
+    try:
+        clean = _valida_ingest_payload(request.get_json(silent=True))
+        save_ingested_record(clean)
+        return jsonify({"status": "ok", "pair": clean["pair"], "classification": clean["classification"]}), 200
+    except ValueError as exc:
+        return jsonify({"status": "invalid", "error": str(exc)}), 400
+    except Exception:
+        log.exception("Errore ingest dashboard")
+        return jsonify({"status": "error"}), 500
+
+
+@app.route("/", methods=["GET"])
+def dashboard():
+    stato = read_state()
+    return render_template("dashboard.html", stato=stato)
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    port = int(os.environ.get("PORT", "8000"))
+    app.run(host="0.0.0.0", port=port, debug=False)
