@@ -5,7 +5,9 @@ import logging
 import os
 
 import requests
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, render_template, request
+
+from dashboard_state import read_state
 
 from signal_engine import (
     COPPIE_MONITORATE,
@@ -162,8 +164,36 @@ def telegram_webhook():
 
 
 @app.route("/", methods=["GET"])
+def dashboard():
+    return render_template("dashboard.html", pairs=COPPIE_MONITORATE, timeframe=INTERVAL_MIN)
+
+
+@app.route("/health", methods=["GET"])
 def health():
     return "Webhook server attivo", 200
+
+
+@app.route("/api/status", methods=["GET"])
+def api_status():
+    state = read_state()
+    return jsonify({"online": True, "updated_at": state.get("updated_at"), "timeframe_minutes": INTERVAL_MIN, "pairs": COPPIE_MONITORATE, "telegram": state.get("telegram", {"configured": False}), "github_actions": {"workflow": "Controllo Segnale Crypto", "status": "configured"}})
+
+
+@app.route("/api/markets", methods=["GET"])
+def api_markets():
+    state = read_state()
+    return jsonify({"markets": state.get("markets", {}), "updated_at": state.get("updated_at")})
+
+
+@app.route("/api/history", methods=["GET"])
+def api_history():
+    return jsonify({"history": read_state().get("history", [])})
+
+
+@app.route("/api/signals", methods=["GET"])
+def api_signals():
+    history = read_state().get("history", [])
+    return jsonify({"signals": list(reversed(history[-30:]))})
 
 
 if __name__ == "__main__":
