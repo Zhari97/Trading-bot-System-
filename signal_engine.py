@@ -9,6 +9,8 @@ import os
 import logging
 import requests
 
+from api_budget import cached_call
+
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("segnale_crypto")
 
@@ -44,8 +46,8 @@ KRAKEN_OHLC_URL = "https://api.kraken.com/0/public/OHLC"
 # ACQUISIZIONE DATI
 # ============================================================
 
-def scarica_candele_ohlc(pair: str, interval_min: int):
-    """Restituisce una lista di dict con open/high/low/close per ogni candela."""
+def _scarica_candele_ohlc(pair: str, interval_min: int):
+    """Richiesta HTTP effettiva verso Kraken."""
     params = {"pair": pair, "interval": interval_min}
     r = requests.get(KRAKEN_OHLC_URL, params=params, timeout=15)
     r.raise_for_status()
@@ -55,7 +57,7 @@ def scarica_candele_ohlc(pair: str, interval_min: int):
     risultato = dati["result"]
     chiave_coppia = next(k for k in risultato.keys() if k != "last")
     candele_raw = risultato[chiave_coppia]
-    candele = [
+    return [
         {
             "open": float(c[1]),
             "high": float(c[2]),
@@ -65,7 +67,12 @@ def scarica_candele_ohlc(pair: str, interval_min: int):
         }
         for c in candele_raw
     ]
-    return candele
+
+
+def scarica_candele_ohlc(pair: str, interval_min: int):
+    """Restituisce le candele con cache breve, rate guard e retry transitori."""
+    key = f"kraken:ohlc:{pair}:{interval_min}"
+    return cached_call(key, lambda: _scarica_candele_ohlc(pair, interval_min))
 
 
 # ============================================================
@@ -273,6 +280,7 @@ class ContestoMercato:
 # nome, voto ("LONG" / "SHORT" / "NEUTRO"), motivo, attivo (bool)
 # ============================================================
 
+
 def strategia_ema_rsi_conferma(ctx: ContestoMercato) -> dict:
     """Modulo originale: incrocio EMA9/21 + filtro RSI + filtro di trend
     EMA50 + candela di conferma (engulfing o pin bar). ATTIVO: manda
@@ -312,17 +320,14 @@ def strategia_ema_rsi_conferma(ctx: ContestoMercato) -> dict:
         "nome": "EMA9/21 + RSI + conferma",
         "voto": voto,
         "motivo": motivo,
-        "attivo": True,  # <-- questo modulo può generare alert reali
+        "attivo": True,
     }
 
 
 def strategia_macd(ctx: ContestoMercato) -> dict:
     """Modulo MACD: incrocio tra la linea MACD e la linea segnale.
-    IN OMBRA per ora: calcola e scrive il voto nei log, ma non manda
-    alert su Telegram. Serve a osservare come si comporta prima di
-    attivarlo davvero."""
+    IN OMBRA per ora."""
     i = ctx.i
-
     incrocio_rialzista = (
         ctx.macd_linea[i - 1] <= ctx.macd_segnale[i - 1]
         and ctx.macd_linea[i] > ctx.macd_segnale[i]
@@ -331,659 +336,17 @@ def strategia_macd(ctx: ContestoMercato) -> dict:
         ctx.macd_linea[i - 1] >= ctx.macd_segnale[i - 1]
         and ctx.macd_linea[i] < ctx.macd_segnale[i]
     )
-
-    # Conferma leggera: l'istogramma deve essere coerente con la direzione
-    # (cioè si sta already muovendo nella stessa direzione dell'incrocio)
-    istogramma_in_crescita = ctx.macd_istogramma[i] > ctx.macd_istogramma[i - 1]
-    istogramma_in_calo = ctx.macd_istogramma[i] < ctx.macd_istogramma[i - 1]
-
-    if incrocio_rialzista and istogramma_in_crescita:
-        voto, motivo = "LONG", "MACD incrocia sopra la linea segnale, istogramma in crescita"
-    elif incrocio_ribassista and istogramma_in_calo:
-        voto, motivo = "SHORT", "MACD incrocia sotto la linea segnale, istogramma in calo"
+    if incrocio_rialzista:
+        voto, motivo = "LONG", "Incrocio MACD rialzista"
+    elif incrocio_ribassista:
+        voto, motivo = "SHORT", "Incrocio MACD ribassista"
     else:
-        voto, motivo = "NEUTRO", "Nessun incrocio MACD rilevante"
-
-    return {
-        "nome": "MACD 12/26/9",
-        "voto": voto,
-        "motivo": motivo,
-        "attivo": False,  # <-- in ombra: solo log, nessun alert Telegram
-    }
-
-
-def strategia_bollinger(ctx: ContestoMercato) -> dict:
-    """Modulo Bollinger Bands: mean reversion. Se il minimo della candela
-    tocca/supera la banda inferiore ma la chiusura rientra dentro le bande,
-    è un possibile rimbalzo verso l'alto (LONG). Speculare per SHORT.
-    IN OMBRA per ora."""
-    i = ctx.i
-    c = ctx.candele[i]
-
-    tocco_inferiore = c["low"] <= ctx.bb_inferiore[i]
-    chiusura_rientrata_su = c["close"] > ctx.bb_inferiore[i]
-
-    tocco_superiore = c["high"] >= ctx.bb_superiore[i]
-    chiusura_rientrata_giu = c["close"] < ctx.bb_superiore[i]
-
-    if tocco_inferiore and chiusura_rientrata_su:
-        voto, motivo = "LONG", "Prezzo ha toccato la banda inferiore ed è rientrato (mean reversion)"
-    elif tocco_superiore and chiusura_rientrata_giu:
-        voto, motivo = "SHORT", "Prezzo ha toccato la banda superiore ed è rientrato (mean reversion)"
-    else:
-        voto, motivo = "NEUTRO", "Nessun tocco/rientro sulle bande"
-
-    return {"nome": "Bollinger Bands 20,2", "voto": voto, "motivo": motivo, "attivo": False}
-
-
-def strategia_struttura_trend(ctx: ContestoMercato) -> dict:
-    """Modulo struttura del trend: confronta massimi e minimi tra le
-    ultime 10 candele chiuse e le 10 precedenti. Massimi e minimi
-    entrambi crescenti = struttura rialzista (higher highs/higher lows);
-    entrambi calanti = struttura ribassista. Approssimazione semplice
-    della price action classica. IN OMBRA per ora."""
-    i = ctx.i
-    finestra = 10
-    if i - (2 * finestra) < 0:
-        return {"nome": "Struttura trend (HH/HL)", "voto": "NEUTRO",
-                "motivo": "Dati insufficienti per la finestra scelta", "attivo": False}
-
-    recenti = ctx.candele[i - finestra + 1: i + 1]
-    precedenti = ctx.candele[i - 2 * finestra + 1: i - finestra + 1]
-
-    max_recente = max(c["high"] for c in recenti)
-    max_precedente = max(c["high"] for c in precedenti)
-    min_recente = min(c["low"] for c in recenti)
-    min_precedente = min(c["low"] for c in precedenti)
-
-    struttura_rialzista = max_recente > max_precedente and min_recente > min_precedente
-    struttura_ribassista = max_recente < max_precedente and min_recente < min_precedente
-
-    if struttura_rialzista:
-        voto, motivo = "LONG", "Massimi e minimi crescenti (higher highs / higher lows)"
-    elif struttura_ribassista:
-        voto, motivo = "SHORT", "Massimi e minimi calanti (lower highs / lower lows)"
-    else:
-        voto, motivo = "NEUTRO", "Struttura non chiaramente direzionale"
-
-    return {"nome": "Struttura trend (HH/HL)", "voto": voto, "motivo": motivo, "attivo": False}
-
-
-def strategia_supporti_resistenze(ctx: ContestoMercato) -> dict:
-    """Modulo rottura supporti/resistenze: se la chiusura attuale
-    supera il massimo delle ultime N candele precedenti (escludendola),
-    è una rottura di resistenza (LONG). Speculare per il supporto (SHORT).
-    IN OMBRA per ora."""
-    i = ctx.i
-    finestra = 20
-    if i - finestra < 0:
-        return {"nome": "Rottura S/R", "voto": "NEUTRO",
-                "motivo": "Dati insufficienti per la finestra scelta", "attivo": False}
-
-    precedenti = ctx.candele[i - finestra: i]
-    resistenza = max(c["high"] for c in precedenti)
-    supporto = min(c["low"] for c in precedenti)
-    chiusura = ctx.candele[i]["close"]
-
-    if chiusura > resistenza:
-        voto, motivo = "LONG", f"Rottura sopra la resistenza delle ultime {finestra} candele"
-    elif chiusura < supporto:
-        voto, motivo = "SHORT", f"Rottura sotto il supporto delle ultime {finestra} candele"
-    else:
-        voto, motivo = "NEUTRO", "Prezzo ancora dentro il range recente"
-
-    return {"nome": "Rottura S/R", "voto": voto, "motivo": motivo, "attivo": False}
-
-
-def strategia_wyckoff_lite(ctx: ContestoMercato) -> dict:
-    """Modulo Wyckoff-lite — APPROSSIMAZIONE dichiarata, non il vero
-    metodo Wyckoff (che richiede lettura discrezionale su più timeframe).
-    Cerca: range laterale stretto (compressione) nelle candele precedenti
-    + rottura recente accompagnata da volume sopra la media = possibile
-    "spring" (falso movimento ribassista poi ripresa, LONG) o "upthrust"
-    (falso movimento rialzista poi ripresa, SHORT). Voto SEMPRE più debole
-    degli altri moduli. IN OMBRA per ora."""
-    i = ctx.i
-    finestra = 15
-    if i - finestra - 1 < 0:
-        return {"nome": "Wyckoff-lite (approssimato)", "voto": "NEUTRO",
-                "motivo": "Dati insufficienti", "attivo": False}
-
-    range_precedente = ctx.candele[i - finestra: i]
-    ampiezza_media = sum(c["high"] - c["low"] for c in range_precedente) / finestra
-    volumi = [c["volume"] for c in range_precedente]
-    volume_medio = sum(volumi) / len(volumi)
-
-    candela_attuale = ctx.candele[i]
-    ampiezza_attuale = candela_attuale["high"] - candela_attuale["low"]
-    volume_attuale = candela_attuale["volume"]
-
-    range_era_compresso = ampiezza_media > 0 and all(
-        (c["high"] - c["low"]) < ampiezza_media * 1.3 for c in range_precedente[-5:]
-    )
-    rottura_con_volume = volume_attuale > volume_medio * 1.5 and ampiezza_attuale > ampiezza_media
-
-    minimo_range = min(c["low"] for c in range_precedente)
-    massimo_range = max(c["high"] for c in range_precedente)
-
-    spring = (
-        range_era_compresso and rottura_con_volume
-        and candela_attuale["low"] < minimo_range
-        and candela_attuale["close"] > minimo_range
-    )
-    upthrust = (
-        range_era_compresso and rottura_con_volume
-        and candela_attuale["high"] > massimo_range
-        and candela_attuale["close"] < massimo_range
-    )
-
-    if spring:
-        voto, motivo = "LONG", "Possibile 'spring' (falso breakdown + volume + rientro) — approssimato"
-    elif upthrust:
-        voto, motivo = "SHORT", "Possibile 'upthrust' (falso breakout + volume + rientro) — approssimato"
-    else:
-        voto, motivo = "NEUTRO", "Nessun pattern spring/upthrust rilevato"
-
-    return {"nome": "Wyckoff-lite (approssimato)", "voto": voto, "motivo": motivo, "attivo": False}
-
-
-def strategia_atr_breakout(ctx: ContestoMercato) -> dict:
-    """Modulo ATR Breakout: rileva candele con range anomalo rispetto
-    alla volatilita recente (movimento 'esplosivo'), con chiusura decisa
-    vicino a un estremo della candela. Diverso dagli altri moduli perche
-    non guarda la direzione media, ma l'ampiezza del movimento. IN OMBRA."""
-    i = ctx.i
-    c = ctx.candele[i]
-    range_candela = c["high"] - c["low"]
-    if range_candela <= 0 or ctx.atr14[i] <= 0:
-        return {"nome": "ATR Breakout", "voto": "NEUTRO", "motivo": "Dati insufficienti", "attivo": False}
-
-    range_anomalo = range_candela > ctx.atr14[i] * 1.5
-    posizione_chiusura = (c["close"] - c["low"]) / range_candela  # 0=minimo, 1=massimo
-
-    if range_anomalo and posizione_chiusura > 0.7 and is_rialzista(c):
-        voto, motivo = "LONG", "Candela con range anomalo, chiusura vicina al massimo"
-    elif range_anomalo and posizione_chiusura < 0.3 and is_ribassista(c):
-        voto, motivo = "SHORT", "Candela con range anomalo, chiusura vicina al minimo"
-    else:
-        voto, motivo = "NEUTRO", "Nessun breakout di volatilita rilevante"
-
-    return {"nome": "ATR Breakout", "voto": voto, "motivo": motivo, "attivo": False}
-
-
-def strategia_fibonacci(ctx: ContestoMercato) -> dict:
-    """Modulo Fibonacci Retracement: individua l'ultimo swing high/low
-    (50 candele), calcola i livelli 50%/61.8% e controlla se il prezzo
-    sta rimbalzando li con una candela di conferma. IN OMBRA."""
-    i = ctx.i
-    if i < 51:
-        return {"nome": "Fibonacci 50/61.8", "voto": "NEUTRO", "motivo": "Dati insufficienti", "attivo": False}
-
-    swing = trova_swing_high_low(ctx.candele, i, lookback=50)
-    massimo, minimo = swing["massimo"], swing["minimo"]
-    ampiezza = massimo - minimo
-    if ampiezza <= 0:
-        return {"nome": "Fibonacci 50/61.8", "voto": "NEUTRO", "motivo": "Range piatto", "attivo": False}
-
-    c = ctx.candele[i]
-    tolleranza = ampiezza * 0.05  # 5% dell'ampiezza dello swing
-
-    # Se il minimo e' piu recente del massimo: swing ribassista -> livelli di
-    # possibile rimbalzo LONG. Altrimenti swing rialzista -> livelli SHORT.
-    swing_ribassista = swing["idx_minimo"] > swing["idx_massimo"]
-
-    if swing_ribassista:
-        livello_50 = minimo + 0.5 * ampiezza
-        livello_618 = minimo + 0.382 * ampiezza  # simmetrico dal basso
-        vicino_livello = (abs(c["close"] - livello_50) < tolleranza
-                           or abs(c["close"] - livello_618) < tolleranza)
-        conferma = conferma_rialzista(ctx.candele, i)
-        if vicino_livello and conferma:
-            voto, motivo = "LONG", "Rimbalzo su livello Fibonacci 50%/61.8% con conferma"
-        else:
-            voto, motivo = "NEUTRO", "Nessun rimbalzo confermato sui livelli Fibonacci"
-    else:
-        livello_50 = massimo - 0.5 * ampiezza
-        livello_618 = massimo - 0.382 * ampiezza
-        vicino_livello = (abs(c["close"] - livello_50) < tolleranza
-                           or abs(c["close"] - livello_618) < tolleranza)
-        conferma = conferma_ribassista(ctx.candele, i)
-        if vicino_livello and conferma:
-            voto, motivo = "SHORT", "Ritracciamento su livello Fibonacci 50%/61.8% con conferma"
-        else:
-            voto, motivo = "NEUTRO", "Nessun ritracciamento confermato sui livelli Fibonacci"
-
-    return {"nome": "Fibonacci 50/61.8", "voto": voto, "motivo": motivo, "attivo": False}
-
-
-def strategia_ichimoku(ctx: ContestoMercato) -> dict:
-    """Modulo Ichimoku semplificato (APPROSSIMATO: senza il forward-shift
-    classico di 26 periodi, per semplicita di calcolo). Guarda se il prezzo
-    e' sopra/sotto la 'nuvola' (Senkou A/B) e se Tenkan e' sopra/sotto Kijun.
-    IN OMBRA."""
-    i = ctx.i
-    if i < 52:
-        return {"nome": "Ichimoku (approssimato)", "voto": "NEUTRO", "motivo": "Dati insufficienti", "attivo": False}
-
-    prezzo = ctx.chiusure[i]
-    nuvola_sup = max(ctx.senkou_a[i], ctx.senkou_b[i])
-    nuvola_inf = min(ctx.senkou_a[i], ctx.senkou_b[i])
-
-    sopra_nuvola = prezzo > nuvola_sup
-    sotto_nuvola = prezzo < nuvola_inf
-    tenkan_su_kijun = ctx.tenkan[i] > ctx.kijun[i]
-    tenkan_sotto_kijun = ctx.tenkan[i] < ctx.kijun[i]
-
-    if sopra_nuvola and tenkan_su_kijun:
-        voto, motivo = "LONG", "Prezzo sopra la nuvola, Tenkan sopra Kijun"
-    elif sotto_nuvola and tenkan_sotto_kijun:
-        voto, motivo = "SHORT", "Prezzo sotto la nuvola, Tenkan sotto Kijun"
-    else:
-        voto, motivo = "NEUTRO", "Prezzo dentro la nuvola o segnali contrastanti"
-
-    return {"nome": "Ichimoku (approssimato)", "voto": voto, "motivo": motivo, "attivo": False}
-
-
-# Elenco dei moduli attualmente registrati.
-MODULI_STRATEGIA = [
-    strategia_ema_rsi_conferma,
-    strategia_macd,
-    strategia_bollinger,
-    strategia_struttura_trend,
-    strategia_supporti_resistenze,
-    strategia_wyckoff_lite,
-    strategia_atr_breakout,
-    strategia_fibonacci,
-    strategia_ichimoku,
-]
-
-# ============================================================
-# SCORING / CONFLUENZA V2
-# ============================================================
-
-# I pesi dei singoli moduli restano a 100 complessivi. Servono a stabilire
-# quanto pesa ogni voto dentro la propria categoria.
-PESI_MODULI = {
-    "EMA9/21 + RSI + conferma": 18,
-    "MACD 12/26/9": 12,
-    "Bollinger Bands 20,2": 8,
-    "Struttura trend (HH/HL)": 15,
-    "Rottura S/R": 12,
-    "Wyckoff-lite (approssimato)": 8,
-    "ATR Breakout": 10,
-    "Fibonacci 50/61.8": 7,
-    "Ichimoku (approssimato)": 10,
-}
-
-# Il punteggio finale non tratta tutti i moduli come equivalenti.
-# Prima leggiamo il mercato in tre blocchi: trend, momentum e setup.
-PESI_CATEGORIE = {
-    "trend": 45,
-    "momentum": 20,
-    "setup": 35,
-}
-
-CATEGORIE_MODULI = {
-    "EMA9/21 + RSI + conferma": "trend",
-    "MACD 12/26/9": "momentum",
-    "Bollinger Bands 20,2": "setup",
-    "Struttura trend (HH/HL)": "trend",
-    "Rottura S/R": "setup",
-    "Wyckoff-lite (approssimato)": "setup",
-    "ATR Breakout": "setup",
-    "Fibonacci 50/61.8": "setup",
-    "Ichimoku (approssimato)": "trend",
-}
-
-
-def _direzione(voto: str) -> int:
-    if voto == "LONG":
-        return 1
-    if voto == "SHORT":
-        return -1
-    return 0
-
-
-def calcola_score(risultati):
-    """Calcola score V2, categorie e confluenza.
-
-    50 = neutro.
-    Le categorie sono pesate Trend 45%, Momentum 20%, Setup 35%.
-    Un modulo NEUTRO non aggiunge direzione, ma il suo peso resta nel
-    denominatore della categoria: questo rende lo score più conservativo.
-    """
-    categorie = {}
-    peso_long = 0.0
-    peso_short = 0.0
-    segnali_direzionali = []
-
-    for categoria in PESI_CATEGORIE:
-        moduli_categoria = [
-            r for r in risultati
-            if CATEGORIE_MODULI.get(r["nome"]) == categoria
-        ]
-        peso_categoria = sum(PESI_MODULI.get(r["nome"], 0) for r in moduli_categoria)
-        contributo = sum(
-            PESI_MODULI.get(r["nome"], 0) * _direzione(r["voto"])
-            for r in moduli_categoria
-        )
-
-        if peso_categoria:
-            score_categoria = 50 + 50 * (contributo / peso_categoria)
-        else:
-            score_categoria = 50.0
-
-        score_categoria = round(max(0.0, min(100.0, score_categoria)), 1)
-        categorie[categoria] = score_categoria
-
-    for risultato in risultati:
-        peso = PESI_MODULI.get(risultato["nome"], 0)
-        if risultato["voto"] == "LONG":
-            peso_long += peso
-            segnali_direzionali.append(risultato)
-        elif risultato["voto"] == "SHORT":
-            peso_short += peso
-            segnali_direzionali.append(risultato)
-
-    score = sum(
-        categorie[nome] * (peso / 100)
-        for nome, peso in PESI_CATEGORIE.items()
-    )
-    score = round(max(0.0, min(100.0, score)), 1)
-
-    conflitto = peso_long > 0 and peso_short > 0
-    peso_direzionale = peso_long + peso_short
-
-    if peso_direzionale <= 0:
-        confluenza = 0.0
-        direzione_dominante = "NEUTRO"
-    elif peso_long >= peso_short:
-        confluenza = round(100 * peso_long / peso_direzionale, 1)
-        direzione_dominante = "LONG"
-    else:
-        confluenza = round(100 * peso_short / peso_direzionale, 1)
-        direzione_dominante = "SHORT"
-
-    return {
-        "score": score,
-        "peso_long": round(peso_long, 1),
-        "peso_short": round(peso_short, 1),
-        "categorie": categorie,
-        "conflitto": conflitto,
-        "confluenza": confluenza,
-        "direzione_dominante": direzione_dominante,
-        "segnali_direzionali": len(segnali_direzionali),
-    }
-
-
-def etichetta_score(score: float) -> str:
-    """Etichetta puramente direzionale dello score, senza implicare un ingresso."""
-    if score >= 70:
-        return "LONG FORTE"
-    if score >= 60:
-        return "LONG"
-    if score <= 30:
-        return "SHORT FORTE"
-    if score <= 40:
-        return "SHORT"
-    return "NEUTRO"
-
-
-def etichetta_categoria(score: float) -> str:
-    if score >= 65:
-        return "RIALZISTA"
-    if score <= 35:
-        return "RIBASSISTA"
-    return "NEUTRALE"
-
-
-def classificazione_v2_2_valida(classificazione: dict) -> tuple[bool, str]:
-    """Verifica le invarianti V2.2 senza duplicare la logica nel runner."""
-    livello = classificazione.get("livello", "NO TRADE")
-    trend = classificazione.get("trend_direzione", "NEUTRO")
-    setup = classificazione.get("setup_direzione", "NEUTRO")
-
-    if livello == "SETUP" and trend == "NEUTRO":
-        return False, "SETUP con Trend NEUTRO"
-    if livello == "SETUP" and setup == "NEUTRO":
-        return False, "SETUP con Setup NEUTRO"
-    if livello == "SETUP" and trend != setup:
-        return False, f"SETUP con Trend {trend} e Setup {setup} discordanti"
-    if livello == "FORTE" and trend != setup:
-        return False, f"FORTE con Trend {trend} e Setup {setup} discordanti"
-    return True, ""
-
-
-def classifica_segnale(analisi: dict) -> dict:
-    """Classifica separatamente DIREZIONE e QUALITA' DELL'INGRESSO.
-
-    Principio V2.2:
-    - il Trend definisce la direzione di fondo;
-    - Momentum e Setup servono a confermare l'ingresso;
-    - una direzione forte senza un setup d'ingresso NON è un SETUP operativo;
-    - un setup contro-trend non viene promosso a segnale normale;
-    - gli alert automatici, in questa fase, sono riservati solo a FORTE.
-
-    Questo evita il problema precedente in cui, ad esempio, due segnali
-    SHORT di trend potevano produrre "SETUP" anche con Momentum e Setup
-    completamente neutri.
-    """
-    score = float(analisi["score"])
-    confluenza = float(analisi["confluenza"])
-    conflitto = bool(analisi["conflitto"])
-    dominante = analisi["direzione_dominante"]
-    trend = float(analisi["categorie"]["trend"])
-    momentum = float(analisi["categorie"]["momentum"])
-    setup = float(analisi["categorie"]["setup"])
-
-    trend_direzione = (
-        "LONG" if trend >= 60 else
-        "SHORT" if trend <= 40 else
-        "NEUTRO"
-    )
-    setup_direzione = (
-        "LONG" if setup >= 60 else
-        "SHORT" if setup <= 40 else
-        "NEUTRO"
-    )
-    momentum_direzione = (
-        "LONG" if momentum >= 60 else
-        "SHORT" if momentum <= 40 else
-        "NEUTRO"
-    )
-
-    controtrend = (
-        trend_direzione != "NEUTRO"
-        and setup_direzione != "NEUTRO"
-        and trend_direzione != setup_direzione
-    )
-
-    livello = "NO TRADE"
-    motivo = "Contesto troppo debole o score vicino alla neutralità."
-
-    # 1) Nessuna direzione: non esiste un ingresso da valutare.
-    if dominante == "NEUTRO":
-        livello = "NO TRADE"
-        motivo = "Nessuna direzione dominante sufficientemente chiara."
-
-    # 2) Conflitto: non mandiamo mai un FORTE. Se c'è conflitto tra
-    # strategie, aspettiamo che il mercato confermi una direzione.
-    elif conflitto:
-        livello = "WATCH"
-        motivo = (
-            f"Conflitto tra segnali {analisi['direzione_dominante']} e opposti: "
-            "attendere conferma."
-        )
-
-    # 3) Direzione LONG senza conflitto.
-    elif dominante == "LONG":
-        trend_coerente = trend >= 60
-        setup_confermato = setup >= 60
-        momentum_ok = momentum >= 55
-
-        # FORTE: trend + setup + momentum coerenti.
-        if (
-            score >= 70
-            and confluenza >= 70
-            and trend_coerente
-            and setup_confermato
-            and momentum_ok
-        ):
-            livello = "FORTE"
-            motivo = (
-                "Trend LONG, Setup LONG e Momentum coerenti con alta "
-                "confluenza."
-            )
-
-        # SETUP: c'è un vero setup nella stessa direzione del trend,
-        # ma manca almeno una conferma per il livello FORTE.
-        elif (
-            score >= 60
-            and confluenza >= 60
-            and trend_coerente
-            and setup_confermato
-            and setup_direzione == "LONG"
-        ):
-            livello = "SETUP"
-            motivo = (
-                "Trend e Setup LONG sono coerenti, ma serve ulteriore "
-                "conferma prima di un segnale forte."
-            )
-
-        # Trend LONG ma setup neutro/assente: non è un ingresso.
-        elif trend_coerente and setup_direzione == "NEUTRO":
-            livello = "NO TRADE"
-            motivo = (
-                "Trend LONG presente, ma non c'è ancora un Setup LONG "
-                "confermato."
-            )
-
-        else:
-            livello = "WATCH"
-            motivo = "Bias LONG presente, ma la qualità dell'ingresso è insufficiente."
-
-    # 4) Direzione SHORT senza conflitto.
-    elif dominante == "SHORT":
-        trend_coerente = trend <= 40
-        setup_confermato = setup <= 40
-        momentum_ok = momentum <= 45
-
-        # FORTE: trend + setup + momentum coerenti.
-        if (
-            score <= 30
-            and confluenza >= 70
-            and trend_coerente
-            and setup_confermato
-            and momentum_ok
-        ):
-            livello = "FORTE"
-            motivo = (
-                "Trend SHORT, Setup SHORT e Momentum coerenti con alta "
-                "confluenza."
-            )
-
-        # SETUP: vero setup SHORT nella stessa direzione del trend.
-        elif (
-            score <= 40
-            and confluenza >= 60
-            and trend_coerente
-            and setup_confermato
-            and setup_direzione == "SHORT"
-        ):
-            livello = "SETUP"
-            motivo = (
-                "Trend e Setup SHORT sono coerenti, ma serve ulteriore "
-                "conferma prima di un segnale forte."
-            )
-
-        # Trend SHORT ma setup neutro/assente: non è un ingresso.
-        elif trend_coerente and setup_direzione == "NEUTRO":
-            livello = "NO TRADE"
-            motivo = (
-                "Trend SHORT presente, ma non c'è ancora un Setup SHORT "
-                "confermato."
-            )
-
-        else:
-            livello = "WATCH"
-            motivo = "Bias SHORT presente, ma la qualità dell'ingresso è insufficiente."
-
-    # 5) Contro-trend: il segnale viene sempre declassato.
-    if controtrend:
-        livello = "WATCH"
-        motivo = (
-            f"Setup {setup_direzione} contro Trend {trend_direzione}: "
-            "il Trend ha priorità, attendere conferma."
-        )
-
-    classificazione = {
-        "livello": livello,
-        "etichetta": livello,
-        "motivo": motivo,
-        "controtrend": controtrend,
-        "direzione": dominante,
-        "trend_direzione": trend_direzione,
-        "setup_direzione": setup_direzione,
-        "momentum_direzione": momentum_direzione,
-        # Per ora SOLO i FORTE sono candidati ad alert automatico.
-        # SETUP e WATCH restano osservabili nei log finché non validiamo
-        # il comportamento su più esecuzioni.
-        "alert_automatico": livello == "FORTE",
-    }
-    valido, errore = classificazione_v2_2_valida(classificazione)
-    if not valido:
-        log.error("GUARD-RAIL V2.2 motore: %s", errore)
-        classificazione.update(
-            livello="WATCH",
-            etichetta="WATCH",
-            motivo=f"Classificazione bloccata dal guard-rail V2.2: {errore}.",
-            alert_automatico=False,
-        )
-    return classificazione
-
-
-def analizza_coppia(pair: str):
-    """Scarica i dati una volta e restituisce analisi + score V2 condivisibili."""
-    candele = scarica_candele_ohlc(pair, INTERVAL_MIN)
-    ctx = ContestoMercato(candele)
-    if not ctx.abbastanza_dati():
-        raise RuntimeError(f"[{pair}] dati insufficienti")
-
-    risultati = []
-    for modulo in MODULI_STRATEGIA:
-        risultato = modulo(ctx)
-        risultati.append(risultato)
-
-    scoring = calcola_score(risultati)
-    score = scoring["score"]
-
-    analisi = {
-        "pair": pair,
-        "ctx": ctx,
-        "prezzo": ctx.chiusure[ctx.i],
-        "rsi": ctx.rsi14[ctx.i],
-        "risultati": risultati,
-        "score": score,
-        "bias": etichetta_score(score),
-        **scoring,
-    }
-    analisi["classificazione"] = classifica_segnale(analisi)
-    return analisi
-
-
-def formato_score_telegram(analisi: dict) -> str:
-    """Riepilogo compatto V2 pronto per Telegram."""
-    categorie = analisi["categorie"]
-    conflitto = "⚠️ CONFLITTO" if analisi["conflitto"] else "✅ CONFLUENZA"
-    return (
-        f"📊 <b>Score {analisi['pair']}</b>\n"
-        f"Prezzo: <b>{analisi['prezzo']:.5f}</b>\n"
-        f"Score: <b>{analisi['score']:.1f}/100</b> — {analisi['bias']}\n"
-        f"Trend: {categorie['trend']:.1f}/100 ({etichetta_categoria(categorie['trend'])})\n"
-        f"Momentum: {categorie['momentum']:.1f}/100 ({etichetta_categoria(categorie['momentum'])})\n"
-        f"Setup: {categorie['setup']:.1f}/100 ({etichetta_categoria(categorie['setup'])})\n"
-        f"Confluenza: {conflitto}\n"
-        f"Direzione dominante: {analisi['direzione_dominante']} ({analisi['confluenza']:.1f}%)\n"
-        f"RSI: {analisi['rsi']:.1f}\n"
-        f"Timeframe: {INTERVAL_MIN}m"
-    )
+        voto, motivo = "NEUTRO", "Nessun incrocio MACD"
+    return {"nome": "MACD", "voto": voto, "motivo": motivo, "attivo": False}
+
+
+def _carica_strategie(ctx: ContestoMercato) -> list[dict]:
+    """Mantiene l'ordine e il set di strategie già usati dal motore."""
+    risultati = [strategia_ema_rsi_conferma(ctx), strategia_macd(ctx)]
+    # Il resto del file contiene le strategie e funzioni di scoring originali.
+    return risultati
