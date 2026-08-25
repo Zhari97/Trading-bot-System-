@@ -1,9 +1,7 @@
 """Protezione centrale e leggera delle chiamate alle API di market data.
 
-Non modifica la logica del segnale: limita solo raffiche di richieste,
-riusa richieste identiche molto ravvicinate e applica retry con backoff
-su errori transitori. Un limite per processo impedisce a un singolo runner
-di generare una raffica illimitata di richieste.
+La logica del segnale non viene modificata: il modulo può essere usato sia
+come wrapper esplicito sia come guard globale del runner.
 """
 
 from __future__ import annotations
@@ -13,6 +11,8 @@ import time
 from collections import OrderedDict
 from threading import Lock
 from typing import Callable, TypeVar
+
+import requests
 
 T = TypeVar("T")
 
@@ -26,6 +26,8 @@ _lock = Lock()
 _last_request_at = 0.0
 _request_count = 0
 _cache: OrderedDict[str, tuple[float, object]] = OrderedDict()
+_original_get = None
+_guard_installed = False
 
 
 class ApiBudgetExceeded(RuntimeError):
@@ -33,7 +35,6 @@ class ApiBudgetExceeded(RuntimeError):
 
 
 def reset_budget() -> None:
-    """Azzera il contatore per un nuovo ciclo/processo."""
     global _request_count
     with _lock:
         _request_count = 0
@@ -97,3 +98,30 @@ def cached_call(key: str, fetcher: Callable[[], T]) -> T:
 
     assert last_error is not None
     raise last_error
+
+
+def _guarded_get(url, *args, **kwargs):
+    """Intercetta solo GET verso provider market-data noti.
+
+    Telegram e dashboard continuano a usare requests.get/post normalmente.
+    """
+    if not any(provider in str(url) for provider in ("api.kraken.com", "api.twelvedata.com")):
+        return _original_get(url, *args, **kwargs)
+
+    params = kwargs.get("params") or {}
+    cache_key = f"GET:{url}:{sorted((str(k), str(v)) for k, v in params.items())}"
+
+    def fetch():
+        return _original_get(url, *args, **kwargs)
+
+    return cached_call(cache_key, fetch)
+
+
+def guard_requests() -> None:
+    """Installa una sola volta il guard sui GET dei provider market-data."""
+    global _original_get, _guard_installed
+    if _guard_installed:
+        return
+    _original_get = requests.get
+    requests.get = _guarded_get
+    _guard_installed = True
