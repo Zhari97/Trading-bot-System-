@@ -10,6 +10,8 @@ V2.2:
 import logging
 import requests
 
+from dashboard_state import save_analysis
+
 from signal_engine import (
     COPPIE_MONITORATE,
     INTERVAL_MIN,
@@ -24,24 +26,29 @@ logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("segnale_crypto")
 
 
-def invia_telegram(testo: str) -> None:
+def salva_stato_dashboard(analisi: dict, *args, **kwargs) -> None:
+    """La dashboard è osservativa: un errore di persistenza non ferma il bot."""
+    try:
+        save_analysis(analisi, *args, **kwargs)
+    except Exception as e:
+        log.error("Errore persistenza dashboard: %s", e)
+
+
+def invia_telegram(testo: str) -> bool:
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         log.error("TELEGRAM_BOT_TOKEN o TELEGRAM_CHAT_ID non impostati, salto invio.")
-        return
-
+        return False
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-    payload = {
-        "chat_id": TELEGRAM_CHAT_ID,
-        "text": testo,
-        "parse_mode": "HTML",
-    }
-
+    payload = {"chat_id": TELEGRAM_CHAT_ID, "text": testo, "parse_mode": "HTML"}
     try:
         r = requests.post(url, json=payload, timeout=10)
         if not r.ok:
             log.error("Errore invio Telegram: %s", r.text)
+            return False
+        return True
     except requests.RequestException as e:
         log.error("Errore di rete Telegram: %s", e)
+        return False
 
 
 def costruisci_report(pair: str, analisi: dict) -> str:
@@ -146,15 +153,18 @@ def controlla_coppia(pair: str) -> None:
     classificazione_valida, errore_guard_rail = classificazione_v2_2_valida(classificazione)
     if not classificazione_valida:
         log.error("[%s] GUARD-RAIL V2.2: %s. Alert Telegram bloccato.", pair, errore_guard_rail)
+        salva_stato_dashboard(analisi, "BLOCKED", errore_guard_rail, "BLOCKED")
         return
 
     # Gli alert reali restano governati dalla classificazione del motore.
     # Non attiviamo nuovi moduli singolarmente.
+    telegram_status = "NOT_SENT"
     if (
         classificazione.get("alert_automatico")
         and classificazione.get("direzione") in ("LONG", "SHORT")
     ):
-        invia_telegram(costruisci_report(pair, analisi))
+        telegram_status = "SENT" if invia_telegram(costruisci_report(pair, analisi)) else "FAILED"
+    salva_stato_dashboard(analisi, telegram_status=telegram_status)
 
 
 def main() -> None:
