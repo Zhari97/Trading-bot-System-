@@ -24,6 +24,6 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          PAIR: XBTUSD
+          PAIRS: "XBTUSD,ETHUSD,SOLUSD"
           INTERVAL_MIN: 15
         run: python segnale_crypto_binance.py
