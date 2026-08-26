@@ -13,6 +13,7 @@ from historical_data import load_six_months
 from historical_replay import evaluate_forward_result
 from research_config import HISTORICAL_DAYS, TRADE_PLAN
 from research_metrics import summarize
+from signal_analytics import analyze as analyze_signal_analytics
 from signal_engine_replay_adapter_fast import analyze_context_at
 from signal_engine import ContestoMercato
 
@@ -83,6 +84,10 @@ def replay_timeframe(candles: list[dict], timeframe: str) -> dict:
         "train": summarize(partitions["train"], allocation),
         "validation": summarize(partitions["validation"], allocation),
         "oos": summarize(partitions["oos"], allocation),
+        "analytics": {
+            "all": analyze_signal_analytics(records, min_trades=5),
+            "oos": analyze_signal_analytics(partitions["oos"], min_trades=5),
+        },
         "records": records,
     }
 
