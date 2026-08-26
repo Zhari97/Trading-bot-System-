@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T20:23:38.414825+00:00",
+  "generated_at": "2026-08-26T20:29:23.194931+00:00",
   "symbol": "BTCUSDT",
   "history_days": 183,
   "tp_pct": 5.0,
@@ -7,7 +7,7 @@
   "timeframes": {
     "5m": {
       "timeframe": "5m",
-      "candles": 52459,
+      "candles": 52458,
       "signals": 382,
       "allocation_pct": 5.0,
       "train": {
@@ -61,7 +61,7 @@
               "wins": 16,
               "losses": 324,
               "win_rate_pct": 4.705882352941177,
-              "avg_score": 50.929664105958665,
+              "avg_score": 50.92957874156981,
               "avg_confluence": 100.0,
               "avg_evidence_score": 50.30024441176471,
               "avg_weighted_confidence_pct": 21.53183205882353,
@@ -75,7 +75,7 @@
               "wins": 9,
               "losses": 166,
               "win_rate_pct": 5.142857142857142,
-              "avg_score": 74.3537951652179,
+              "avg_score": 74.35365726745366,
               "avg_confluence": 100.0,
               "avg_evidence_score": 60.750029142857144,
               "avg_weighted_confidence_pct": 21.49997085714286,
@@ -87,7 +87,7 @@
               "wins": 7,
               "losses": 158,
               "win_rate_pct": 4.242424242424243,
-              "avg_score": 26.085888740077657,
+              "avg_score": 26.08585909290513,
               "avg_confluence": 100.0,
               "avg_evidence_score": 39.2171393939394,
               "avg_weighted_confidence_pct": 21.565624242424242,
@@ -101,7 +101,7 @@
               "wins": 12,
               "losses": 281,
               "win_rate_pct": 4.09556313993174,
-              "avg_score": 50.82471965046375,
+              "avg_score": 50.82469986744799,
               "avg_confluence": 100.0,
               "avg_evidence_score": 50.22042013651877,
               "avg_weighted_confidence_pct": 21.60122081911263,
@@ -125,7 +125,7 @@
               "wins": 3,
               "losses": 22,
               "win_rate_pct": 12.0,
-              "avg_score": 78.00138463776227,
+              "avg_score": 78.00045553901865,
               "avg_confluence": 100.0,
               "avg_evidence_score": 60.666696,
               "avg_weighted_confidence_pct": 21.333304000000002,
@@ -139,7 +139,7 @@
               "wins": 7,
               "losses": 158,
               "win_rate_pct": 4.242424242424243,
-              "avg_score": 26.085888740077657,
+              "avg_score": 26.08585909290513,
               "avg_confluence": 100.0,
               "avg_evidence_score": 39.2171393939394,
               "avg_weighted_confidence_pct": 21.565624242424242,
@@ -151,7 +151,7 @@
               "wins": 8,
               "losses": 151,
               "win_rate_pct": 5.031446540880504,
-              "avg_score": 73.38657971795473,
+              "avg_score": 73.3864279437718,
               "avg_confluence": 100.0,
               "avg_evidence_score": 60.796674842767295,
               "avg_weighted_confidence_pct": 21.593262264150944,
@@ -163,7 +163,7 @@
               "wins": 1,
               "losses": 15,
               "win_rate_pct": 6.25,
-              "avg_score": 83.96549867239563,
+              "avg_score": 83.96549867154212,
               "avg_confluence": 100.0,
               "avg_evidence_score": 60.2864875,
               "avg_weighted_confidence_pct": 20.5728875,
@@ -177,7 +177,7 @@
               "wins": 16,
               "losses": 324,
               "win_rate_pct": 4.705882352941177,
-              "avg_score": 50.929664105958665,
+              "avg_score": 50.92957874156981,
               "avg_confluence": 100.0,
               "avg_evidence_score": 50.30024441176471,
               "avg_weighted_confidence_pct": 21.53183205882353,
@@ -218,7 +218,7 @@
               "wins": 7,
               "losses": 158,
               "win_rate_pct": 4.242424242424243,
-              "avg_score": 26.085888740077657,
+              "avg_score": 26.08585909290513,
               "avg_confluence": 100.0,
               "avg_evidence_score": 39.2171393939394,
               "avg_weighted_confidence_pct": 21.565624242424242,
@@ -230,7 +230,7 @@
               "wins": 9,
               "losses": 154,
               "win_rate_pct": 5.521472392638037,
-              "avg_score": 74.39220681990422,
+              "avg_score": 74.39205877015732,
               "avg_confluence": 100.0,
               "avg_evidence_score": 60.582854601226984,
               "avg_weighted_confidence_pct": 21.16561165644172,
@@ -256,7 +256,7 @@
               "wins": 7,
               "losses": 155,
               "win_rate_pct": 4.320987654320987,
-              "avg_score": 26.052423438279995,
+              "avg_score": 26.05239324208829,
               "avg_confluence": 100.0,
               "avg_evidence_score": 39.09461790123457,
               "avg_weighted_confidence_pct": 21.810667283950618,
@@ -268,7 +268,7 @@
               "wins": 9,
               "losses": 164,
               "win_rate_pct": 5.202312138728324,
-              "avg_score": 74.32311814257957,
+              "avg_score": 74.32297865062152,
               "avg_confluence": 100.0,
               "avg_evidence_score": 60.80205260115607,
               "avg_weighted_confidence_pct": 21.60401676300578,
@@ -282,7 +282,7 @@
               "wins": 0,
               "losses": 5,
               "win_rate_pct": 0.0,
-              "avg_score": 47.53875207166404,
+              "avg_score": 47.53875207158207,
               "avg_confluence": 100.0,
               "avg_evidence_score": 49.99998,
               "avg_weighted_confidence_pct": 9.999979999999999,
@@ -294,7 +294,7 @@
               "wins": 16,
               "losses": 317,
               "win_rate_pct": 4.804804804804805,
-              "avg_score": 51.11812396727346,
+              "avg_score": 51.118036808439236,
               "avg_confluence": 100.0,
               "avg_evidence_score": 50.48173153153153,
               "avg_weighted_confidence_pct": 21.483953153153156,
@@ -308,7 +308,7 @@
               "wins": 0,
               "losses": 5,
               "win_rate_pct": 0.0,
-              "avg_score": 47.53875207166404,
+              "avg_score": 47.53875207158207,
               "avg_confluence": 100.0,
               "avg_evidence_score": 49.99998,
               "avg_weighted_confidence_pct": 9.999979999999999,
@@ -320,7 +320,7 @@
               "wins": 16,
               "losses": 317,
               "win_rate_pct": 4.804804804804805,
-              "avg_score": 51.11812396727346,
+              "avg_score": 51.118036808439236,
               "avg_confluence": 100.0,
               "avg_evidence_score": 50.48173153153153,
               "avg_weighted_confidence_pct": 21.483953153153156,
@@ -546,17 +546,17 @@
       },
       "records": [
         {
-          "candle_index": 75,
+          "candle_index": 74,
           "timestamp": "2026-02-25T02:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
           "entry": 65933.96,
           "stop_loss": 65604.2902,
           "take_profit": 69230.65800000001,
-          "score": 74.4251450376286,
+          "score": 74.40191758269404,
           "confluence": 100.0,
-          "trend": 86.22731288862617,
-          "momentum": 59.98927118873402,
+          "trend": 86.1878019496872,
+          "momentum": 59.962033526673956,
           "setup": 67.5,
           "regime": "TREND_UP",
           "allocation_pct": 5.0,
@@ -576,17 +576,17 @@
           "partition": "train"
         },
         {
-          "candle_index": 108,
+          "candle_index": 107,
           "timestamp": "2026-02-25T05:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
           "entry": 65197.5,
           "stop_loss": 65523.487499999996,
           "take_profit": 61937.625,
-          "score": 29.581087628657322,
+          "score": 29.576196944872684,
           "confluence": 100.0,
-          "trend": 29.682124219805445,
-          "momentum": 24.245658648724362,
+          "trend": 29.671769424231478,
+          "momentum": 24.244503519842603,
           "setup": 32.5,
           "regime": "RANGE",
           "allocation_pct": 5.0,
@@ -606,17 +606,17 @@
           "partition": "train"
         },
         {
-          "candle_index": 151,
+          "candle_index": 150,
           "timestamp": "2026-02-25T09:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
           "entry": 65590.91,
           "stop_loss": 65262.95545,
           "take_profit": 68870.45550000001,
-          "score": 76.07697612835773,
+          "score": 76.07622543514222,
           "confluence": 100.0,
-          "trend": 75.26970923712557,
-          "momentum": 92.90303485825609,
+          "trend": 75.2678335058986,
+          "momentum": 92.90350178743927,
           "setup": 67.5,
           "regime": "RANGE",
           "allocation_pct": 5.0,
@@ -636,17 +636,17 @@
           "partition": "train"
         },
         {
-          "candle_index": 195,
+          "candle_index": 194,
           "timestamp": "2026-02-25T12:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
           "entry": 65842.02,
           "stop_loss": 65512.8099,
           "take_profit": 69134.12100000001,
-          "score": 75.91826222849407,
+          "score": 75.91810834566678,
           "confluence": 100.0,
-          "trend": 75.04769091994947,
-          "momentum": 92.60900657258404,
+          "trend": 75.04736959702231,
+          "momentum": 92.60896013503366,
           "setup": 67.5,
           "regime": "RANGE",
           "allocation_pct": 5.0,
@@ -666,17 +666,17 @@
           "partition": "train"
         },
         {
-          "candle_index": 266,
+          "candle_index": 265,
           "timestamp": "2026-02-25T18:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
           "entry": 69447.37,
           "stop_loss": 69100.13315,
           "take_profit": 72919.73849999999,
-          "score": 86.82987330610703,
+          "score": 86.82987329245108,
           "confluence": 100.0,
           "trend": 100.0,
-          "momentum": 91.02436653053515,
+          "momentum": 91.02436646225541,
           "setup": 67.5,
           "regime": "TREND_UP",
           "allocation_pct": 5.0,
@@ -696,17 +696,17 @@
           "partition": "train"
         },
         {
-          "candle_index": 316,
+          "candle_index": 315,
           "timestamp": "2026-02-25T22:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
           "entry": 68451.14,
           "stop_loss": 68793.3957,
           "take_profit": 65028.583,
-          "score": 25.7756421792907,
+          "score": 25.775641104270054,
           "confluence": 100.0,
-          "trend": 25.47386277598558,
-          "momentum": 14.68701965048595,
+          "trend": 25.47386038770795,
+          "momentum": 14.687019649007382,
           "setup": 32.5,
           "regime": "RANGE",
           "allocation_pct": 5.0,
@@ -726,17 +726,17 @@
           "partition": "train"
         },
         {
-          "candle_index": 389,
+          "candle_index": 388,
           "timestamp": "2026-02-26T04:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
           "entry": 68667.64,
           "stop_loss": 68324.3018,
           "take_profit": 72101.022,
-          "score": 71.30024049995525,
+          "score": 71.30024044105363,
           "confluence": 100.0,
-          "trend": 72.57980383370943,
-          "momentum": 75.07164387392999,
+          "trend": 72.5798037028213,
+          "momentum": 75.07164387392027,
           "setup": 67.5,
           "regime": "RANGE",
           "allocation_pct": 5.0,
@@ -756,17 +756,17 @@
           "partition": "train"
         },
         {
-          "candle_index": 411,
+          "candle_index": 410,
           "timestamp": "2026-02-26T06:40:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
           "entry": 68127.56,
           "stop_loss": 68468.1978,
           "take_profit": 64721.18199999999,
-          "score": 29.04312904141506,
+          "score": 29.043129017168848,
           "confluence": 100.0,
-          "trend": 29.135718250920544,
-          "momentum": 22.785279142504066,
+          "trend": 29.135718197039978,
+          "momentum": 22.78527914250428,
           "setup": 32.5,
           "regime": "RANGE",
           "allocation_pct": 5.0,
@@ -786,17 +786,17 @@
           "partition": "train"
         },
         {
-          "candle_index": 450,
+          "candle_index": 449,
           "timestamp": "2026-02-26T09:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
           "entry": 68589.41,
           "stop_loss": 68246.46295,
           "take_profit": 72018.88050000001,
-          "score": 74.99325487789439,
+          "score": 74.99325487274638,
           "confluence": 100.0,
-          "trend": 74.2826669313154,
-          "momentum": 89.70527379401224,
+          "trend": 74.28266691987542,
+          "momentum": 89.70527379401221,
           "setup": 67.5,
           "regime": "RANGE",
           "allocation_pct": 5.0,
@@ -816,16 +816,16 @@
           "partition": "train"
         },
         {
-          "candle_index": 513,
+          "candle_index": 512,
           "timestamp": "2026-02-26T15:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
           "entry": 67374.3,
           "stop_loss": 67741.32767857144,
           "take_profit": 64005.585,
-          "score": 29.60515917907126,
+          "score": 29.605159178661374,
           "confluence": 100.0,
-          "trend": 34.88117958781528,
+          "trend": 34.88117958690442,
           "momentum": 12.668141822771915,
           "setup": 32.5,
           "regime": "RANGE",
@@ -846,16 +846,16 @@
           "partition": "train"
         },
         {
-          "candle_index": 562,
+          "candle_index": 561,
           "timestamp": "2026-02-26T19:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
           "entry": 67542.89,
           "stop_loss": 67205.17555,
           "take_profit": 70920.03450000001,
-          "score": 72.26226823290114,
+          "score": 72.2622682328419,
           "confluence": 100.0,
-          "trend": 72.8884553450998,
+          "trend": 72.88845534496816,
           "momentum": 79.18731663803115,
           "setup": 67.5,
           "regime": "RANGE",
@@ -876,16 +876,16 @@
           "partition": "train"
         },
         {
-          "candle_index": 627,
+          "candle_index": 626,
           "timestamp": "2026-02-27T00:40:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
           "entry": 67132.81,
           "stop_loss": 67468.47404999999,
           "take_profit": 63776.169499999996,
-          "score": 26.63914612688938,
+          "score": 26.63914612688498,
           "confluence": 100.0,
-          "trend": 27.56396812169277,
+          "trend": 27.56396812168299,
           "momentum": 14.301802360638163,
           "setup": 32.5,
           "regime": "RANGE",
@@ -906,16 +906,16 @@
           "partition": "train"
         },
         {
-          "candle_index": 669,
+          "candle_index": 668,
           "timestamp": "2026-02-27T04:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
           "entry": 67927.79,
           "stop_loss": 67588.15105,
           "take_profit": 71324.1795,
-          "score": 79.00078720616118,
+          "score": 79.00078720616065,
           "confluence": 100.0,
-          "trend": 78.95720502627853,
+          "trend": 78.95720502627738,
           "momentum": 99.22522472167918,
           "setup": 67.5,
           "regime": "RANGE",
@@ -936,16 +936,16 @@
           "partition": "train"
         },
         {
-          "candle_index": 725,
+          "candle_index": 724,
           "timestamp": "2026-02-27T08:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
           "entry": 67994.7,
           "stop_loss": 67654.72649999999,
           "take_profit": 71394.435,
-          "score": 70.63845940723033,
+          "score": 70.63845940722999,
           "confluence": 100.0,
-          "trend": 71.54753806574499,
+          "trend": 71.54753806574423,
           "momentum": 74.08533638822539,
           "setup": 67.5,
           "regime": "RANGE",
@@ -966,16 +966,16 @@
           "partition": "train"
         },
         {
-          "candle_index": 740,
+          "candle_index": 739,
           "timestamp": "2026-02-27T10:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
           "entry": 67254.95,
           "stop_loss": 67591.22475,
           "take_profit": 63892.20249999999,
-          "score": 23.074626757132766,
+          "score": 23.0746267571326,
           "confluence": 100.0,
-          "trend": 23.206512650113986,
+          "trend": 23.20651265011361,
           "momentum": 6.283480322907359,
           "setup": 32.5,
           "regime": "RANGE",
@@ -996,7 +996,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 988,
+          "candle_index": 987,
           "timestamp": "2026-02-28T06:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1026,7 +1026,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 1005,
+          "candle_index": 1004,
           "timestamp": "2026-02-28T08:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1056,7 +1056,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 1078,
+          "candle_index": 1077,
           "timestamp": "2026-02-28T14:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1086,7 +1086,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 1103,
+          "candle_index": 1102,
           "timestamp": "2026-02-28T16:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1116,7 +1116,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 1640,
+          "candle_index": 1639,
           "timestamp": "2026-03-02T13:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1146,7 +1146,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 1662,
+          "candle_index": 1661,
           "timestamp": "2026-03-02T14:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1176,7 +1176,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 1896,
+          "candle_index": 1895,
           "timestamp": "2026-03-03T10:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1206,7 +1206,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 1918,
+          "candle_index": 1917,
           "timestamp": "2026-03-03T12:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1236,7 +1236,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 1954,
+          "candle_index": 1953,
           "timestamp": "2026-03-03T15:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1266,7 +1266,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 1960,
+          "candle_index": 1959,
           "timestamp": "2026-03-03T15:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1296,7 +1296,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 2168,
+          "candle_index": 2167,
           "timestamp": "2026-03-04T09:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1326,7 +1326,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 2220,
+          "candle_index": 2219,
           "timestamp": "2026-03-04T13:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1356,7 +1356,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 2602,
+          "candle_index": 2601,
           "timestamp": "2026-03-05T21:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1386,7 +1386,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 2629,
+          "candle_index": 2628,
           "timestamp": "2026-03-05T23:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1416,7 +1416,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 2690,
+          "candle_index": 2689,
           "timestamp": "2026-03-06T04:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1446,7 +1446,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 2729,
+          "candle_index": 2728,
           "timestamp": "2026-03-06T07:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1476,7 +1476,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 2747,
+          "candle_index": 2746,
           "timestamp": "2026-03-06T09:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1506,7 +1506,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 3164,
+          "candle_index": 3163,
           "timestamp": "2026-03-07T20:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1536,7 +1536,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 3317,
+          "candle_index": 3316,
           "timestamp": "2026-03-08T08:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1566,7 +1566,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 3369,
+          "candle_index": 3368,
           "timestamp": "2026-03-08T13:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1596,7 +1596,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 3445,
+          "candle_index": 3444,
           "timestamp": "2026-03-08T19:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1626,7 +1626,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 3475,
+          "candle_index": 3474,
           "timestamp": "2026-03-08T22:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1656,7 +1656,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 3482,
+          "candle_index": 3481,
           "timestamp": "2026-03-08T22:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1686,7 +1686,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 3497,
+          "candle_index": 3496,
           "timestamp": "2026-03-08T23:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1716,7 +1716,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 3544,
+          "candle_index": 3543,
           "timestamp": "2026-03-09T03:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1746,7 +1746,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 3830,
+          "candle_index": 3829,
           "timestamp": "2026-03-10T03:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1776,7 +1776,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 3850,
+          "candle_index": 3849,
           "timestamp": "2026-03-10T05:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1806,7 +1806,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 3878,
+          "candle_index": 3877,
           "timestamp": "2026-03-10T07:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1836,7 +1836,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 3956,
+          "candle_index": 3955,
           "timestamp": "2026-03-10T14:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1866,7 +1866,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 3970,
+          "candle_index": 3969,
           "timestamp": "2026-03-10T15:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1896,7 +1896,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 4008,
+          "candle_index": 4007,
           "timestamp": "2026-03-10T18:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1926,7 +1926,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 4248,
+          "candle_index": 4247,
           "timestamp": "2026-03-11T14:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1956,7 +1956,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 4275,
+          "candle_index": 4274,
           "timestamp": "2026-03-11T16:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1986,7 +1986,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 4357,
+          "candle_index": 4356,
           "timestamp": "2026-03-11T23:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2016,7 +2016,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 4500,
+          "candle_index": 4499,
           "timestamp": "2026-03-12T11:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2046,7 +2046,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 4524,
+          "candle_index": 4523,
           "timestamp": "2026-03-12T13:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2076,7 +2076,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 4540,
+          "candle_index": 4539,
           "timestamp": "2026-03-12T14:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2106,7 +2106,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 4553,
+          "candle_index": 4552,
           "timestamp": "2026-03-12T15:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2136,7 +2136,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 4585,
+          "candle_index": 4584,
           "timestamp": "2026-03-12T18:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2166,7 +2166,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 4636,
+          "candle_index": 4635,
           "timestamp": "2026-03-12T22:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2196,7 +2196,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 4646,
+          "candle_index": 4645,
           "timestamp": "2026-03-12T23:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2226,7 +2226,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 5217,
+          "candle_index": 5216,
           "timestamp": "2026-03-14T23:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2256,7 +2256,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 5735,
+          "candle_index": 5734,
           "timestamp": "2026-03-16T18:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2286,7 +2286,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 5773,
+          "candle_index": 5772,
           "timestamp": "2026-03-16T21:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2316,7 +2316,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 5859,
+          "candle_index": 5858,
           "timestamp": "2026-03-17T04:40:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2346,7 +2346,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 5925,
+          "candle_index": 5924,
           "timestamp": "2026-03-17T10:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2376,7 +2376,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 5944,
+          "candle_index": 5943,
           "timestamp": "2026-03-17T11:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2406,7 +2406,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 5969,
+          "candle_index": 5968,
           "timestamp": "2026-03-17T13:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2436,7 +2436,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 5981,
+          "candle_index": 5980,
           "timestamp": "2026-03-17T14:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2466,7 +2466,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 6018,
+          "candle_index": 6017,
           "timestamp": "2026-03-17T17:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2496,7 +2496,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 6091,
+          "candle_index": 6090,
           "timestamp": "2026-03-18T00:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2526,7 +2526,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 6123,
+          "candle_index": 6122,
           "timestamp": "2026-03-18T02:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2556,7 +2556,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 6159,
+          "candle_index": 6158,
           "timestamp": "2026-03-18T05:40:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2586,7 +2586,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 6520,
+          "candle_index": 6519,
           "timestamp": "2026-03-19T11:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2616,7 +2616,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 6611,
+          "candle_index": 6610,
           "timestamp": "2026-03-19T19:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2646,7 +2646,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 6622,
+          "candle_index": 6621,
           "timestamp": "2026-03-19T20:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2676,7 +2676,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 6664,
+          "candle_index": 6663,
           "timestamp": "2026-03-19T23:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2706,7 +2706,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 6679,
+          "candle_index": 6678,
           "timestamp": "2026-03-20T01:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2736,7 +2736,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 6830,
+          "candle_index": 6829,
           "timestamp": "2026-03-20T13:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2766,7 +2766,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 6837,
+          "candle_index": 6836,
           "timestamp": "2026-03-20T14:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2796,7 +2796,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 6847,
+          "candle_index": 6846,
           "timestamp": "2026-03-20T15:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2826,7 +2826,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 6905,
+          "candle_index": 6904,
           "timestamp": "2026-03-20T19:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2856,7 +2856,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 6928,
+          "candle_index": 6927,
           "timestamp": "2026-03-20T21:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2886,7 +2886,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 7239,
+          "candle_index": 7238,
           "timestamp": "2026-03-21T23:40:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2916,7 +2916,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 7673,
+          "candle_index": 7672,
           "timestamp": "2026-03-23T11:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2946,7 +2946,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 7680,
+          "candle_index": 7679,
           "timestamp": "2026-03-23T12:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2976,7 +2976,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 7991,
+          "candle_index": 7990,
           "timestamp": "2026-03-24T14:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3006,7 +3006,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 8066,
+          "candle_index": 8065,
           "timestamp": "2026-03-24T20:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3036,7 +3036,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 8510,
+          "candle_index": 8509,
           "timestamp": "2026-03-26T09:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3066,7 +3066,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 8581,
+          "candle_index": 8580,
           "timestamp": "2026-03-26T15:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3096,7 +3096,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 8639,
+          "candle_index": 8638,
           "timestamp": "2026-03-26T20:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3126,7 +3126,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 8706,
+          "candle_index": 8705,
           "timestamp": "2026-03-27T01:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3156,7 +3156,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 8735,
+          "candle_index": 8734,
           "timestamp": "2026-03-27T04:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3186,7 +3186,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 8772,
+          "candle_index": 8771,
           "timestamp": "2026-03-27T07:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3216,7 +3216,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 8780,
+          "candle_index": 8779,
           "timestamp": "2026-03-27T08:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3246,7 +3246,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 9294,
+          "candle_index": 9293,
           "timestamp": "2026-03-29T02:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3276,7 +3276,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 9384,
+          "candle_index": 9383,
           "timestamp": "2026-03-29T10:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3306,7 +3306,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 9398,
+          "candle_index": 9397,
           "timestamp": "2026-03-29T11:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3336,7 +3336,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 9525,
+          "candle_index": 9524,
           "timestamp": "2026-03-29T22:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3366,7 +3366,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 9567,
+          "candle_index": 9566,
           "timestamp": "2026-03-30T01:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3396,7 +3396,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 9782,
+          "candle_index": 9781,
           "timestamp": "2026-03-30T19:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3426,7 +3426,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 9843,
+          "candle_index": 9842,
           "timestamp": "2026-03-31T00:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3456,7 +3456,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 9948,
+          "candle_index": 9947,
           "timestamp": "2026-03-31T09:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3486,7 +3486,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 9980,
+          "candle_index": 9979,
           "timestamp": "2026-03-31T12:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3516,7 +3516,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 10505,
+          "candle_index": 10504,
           "timestamp": "2026-04-02T07:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3546,7 +3546,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 10558,
+          "candle_index": 10557,
           "timestamp": "2026-04-02T12:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3576,7 +3576,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 10585,
+          "candle_index": 10584,
           "timestamp": "2026-04-02T14:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3606,7 +3606,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 11150,
+          "candle_index": 11149,
           "timestamp": "2026-04-04T13:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3636,7 +3636,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 11348,
+          "candle_index": 11347,
           "timestamp": "2026-04-05T06:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3666,7 +3666,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 11421,
+          "candle_index": 11420,
           "timestamp": "2026-04-05T12:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3696,7 +3696,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 11462,
+          "candle_index": 11461,
           "timestamp": "2026-04-05T15:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3726,7 +3726,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 11964,
+          "candle_index": 11963,
           "timestamp": "2026-04-07T09:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3756,7 +3756,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 11978,
+          "candle_index": 11977,
           "timestamp": "2026-04-07T10:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3786,7 +3786,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 12091,
+          "candle_index": 12090,
           "timestamp": "2026-04-07T20:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3816,7 +3816,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 12307,
+          "candle_index": 12306,
           "timestamp": "2026-04-08T14:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3846,7 +3846,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 12633,
+          "candle_index": 12632,
           "timestamp": "2026-04-09T17:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3876,7 +3876,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 12638,
+          "candle_index": 12637,
           "timestamp": "2026-04-09T17:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3906,7 +3906,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 12673,
+          "candle_index": 12672,
           "timestamp": "2026-04-09T20:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3936,7 +3936,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 12707,
+          "candle_index": 12706,
           "timestamp": "2026-04-09T23:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3966,7 +3966,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 12774,
+          "candle_index": 12773,
           "timestamp": "2026-04-10T04:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3996,7 +3996,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 12854,
+          "candle_index": 12853,
           "timestamp": "2026-04-10T11:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4026,7 +4026,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 13318,
+          "candle_index": 13317,
           "timestamp": "2026-04-12T02:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4056,7 +4056,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 13776,
+          "candle_index": 13775,
           "timestamp": "2026-04-13T16:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4086,7 +4086,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 14071,
+          "candle_index": 14070,
           "timestamp": "2026-04-14T17:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4116,7 +4116,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 14392,
+          "candle_index": 14391,
           "timestamp": "2026-04-15T19:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4146,7 +4146,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 14419,
+          "candle_index": 14418,
           "timestamp": "2026-04-15T22:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4176,7 +4176,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 14474,
+          "candle_index": 14473,
           "timestamp": "2026-04-16T02:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4206,7 +4206,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 14541,
+          "candle_index": 14540,
           "timestamp": "2026-04-16T08:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4236,7 +4236,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 14568,
+          "candle_index": 14567,
           "timestamp": "2026-04-16T10:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4266,7 +4266,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 14603,
+          "candle_index": 14602,
           "timestamp": "2026-04-16T13:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4296,7 +4296,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 14618,
+          "candle_index": 14617,
           "timestamp": "2026-04-16T14:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4326,7 +4326,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 14633,
+          "candle_index": 14632,
           "timestamp": "2026-04-16T15:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4356,7 +4356,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 14673,
+          "candle_index": 14672,
           "timestamp": "2026-04-16T19:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4386,7 +4386,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 15225,
+          "candle_index": 15224,
           "timestamp": "2026-04-18T17:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4416,7 +4416,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 15470,
+          "candle_index": 15469,
           "timestamp": "2026-04-19T13:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4446,7 +4446,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 15504,
+          "candle_index": 15503,
           "timestamp": "2026-04-19T16:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4476,7 +4476,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 15810,
+          "candle_index": 15809,
           "timestamp": "2026-04-20T17:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4506,7 +4506,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 15947,
+          "candle_index": 15946,
           "timestamp": "2026-04-21T05:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4536,7 +4536,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 16163,
+          "candle_index": 16162,
           "timestamp": "2026-04-21T23:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4566,7 +4566,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 16666,
+          "candle_index": 16665,
           "timestamp": "2026-04-23T17:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4596,7 +4596,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 16726,
+          "candle_index": 16725,
           "timestamp": "2026-04-23T22:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4626,7 +4626,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 16788,
+          "candle_index": 16787,
           "timestamp": "2026-04-24T03:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4656,7 +4656,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 16890,
+          "candle_index": 16889,
           "timestamp": "2026-04-24T11:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4686,7 +4686,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 16917,
+          "candle_index": 16916,
           "timestamp": "2026-04-24T14:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4716,7 +4716,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 17459,
+          "candle_index": 17458,
           "timestamp": "2026-04-26T11:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4746,7 +4746,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 17680,
+          "candle_index": 17679,
           "timestamp": "2026-04-27T05:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4776,7 +4776,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 17787,
+          "candle_index": 17786,
           "timestamp": "2026-04-27T14:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4806,7 +4806,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 17800,
+          "candle_index": 17799,
           "timestamp": "2026-04-27T15:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4836,7 +4836,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 17893,
+          "candle_index": 17892,
           "timestamp": "2026-04-27T23:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4866,7 +4866,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 17931,
+          "candle_index": 17930,
           "timestamp": "2026-04-28T02:40:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4896,7 +4896,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 17983,
+          "candle_index": 17982,
           "timestamp": "2026-04-28T07:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4926,7 +4926,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 18234,
+          "candle_index": 18233,
           "timestamp": "2026-04-29T03:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4956,7 +4956,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 18351,
+          "candle_index": 18350,
           "timestamp": "2026-04-29T13:40:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4986,7 +4986,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 18807,
+          "candle_index": 18806,
           "timestamp": "2026-05-01T03:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -5016,7 +5016,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 18866,
+          "candle_index": 18865,
           "timestamp": "2026-05-01T08:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -5046,7 +5046,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 19367,
+          "candle_index": 19366,
           "timestamp": "2026-05-03T02:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -5076,7 +5076,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 19483,
+          "candle_index": 19482,
           "timestamp": "2026-05-03T12:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -5106,7 +5106,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 19632,
+          "candle_index": 19631,
           "timestamp": "2026-05-04T00:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -5136,7 +5136,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 19648,
+          "candle_index": 19647,
           "timestamp": "2026-05-04T01:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -5166,7 +5166,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 19754,
+          "candle_index": 19753,
           "timestamp": "2026-05-04T10:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -5196,7 +5196,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 19809,
+          "candle_index": 19808,
           "timestamp": "2026-05-04T15:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -5226,7 +5226,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 19819,
+          "candle_index": 19818,
           "timestamp": "2026-05-04T16:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -5256,7 +5256,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 19825,
+          "candle_index": 19824,
           "timestamp": "2026-05-04T16:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -5286,7 +5286,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 19923,
+          "candle_index": 19922,
           "timestamp": "2026-05-05T00:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -5316,7 +5316,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 20443,
+          "candle_index": 20442,
           "timestamp": "2026-05-06T20:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -5346,7 +5346,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 20501,
+          "candle_index": 20500,
           "timestamp": "2026-05-07T00:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -5376,7 +5376,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 20575,
+          "candle_index": 20574,
           "timestamp": "2026-05-07T07:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -5406,7 +5406,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 20606,
+          "candle_index": 20605,
           "timestamp": "2026-05-07T09:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -5436,7 +5436,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 21144,
+          "candle_index": 21143,
           "timestamp": "2026-05-09T06:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -5466,7 +5466,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 21275,
+          "candle_index": 21274,
           "timestamp": "2026-05-09T17:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -5496,7 +5496,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 21607,
+          "candle_index": 21606,
           "timestamp": "2026-05-10T21:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -5526,7 +5526,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 21622,
+          "candle_index": 21621,
           "timestamp": "2026-05-10T22:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -5556,7 +5556,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 21684,
+          "candle_index": 21683,
           "timestamp": "2026-05-11T03:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -5586,7 +5586,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 21766,
+          "candle_index": 21765,
           "timestamp": "2026-05-11T10:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -5616,7 +5616,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 21833,
+          "candle_index": 21832,
           "timestamp": "2026-05-11T15:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -5646,7 +5646,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 21981,
+          "candle_index": 21980,
           "timestamp": "2026-05-12T04:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -5676,7 +5676,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 22544,
+          "candle_index": 22543,
           "timestamp": "2026-05-14T03:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -5706,7 +5706,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 22579,
+          "candle_index": 22578,
           "timestamp": "2026-05-14T06:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -5736,7 +5736,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 22661,
+          "candle_index": 22660,
           "timestamp": "2026-05-14T12:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -5766,7 +5766,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 22960,
+          "candle_index": 22959,
           "timestamp": "2026-05-15T13:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -5796,7 +5796,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 23162,
+          "candle_index": 23161,
           "timestamp": "2026-05-16T06:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -5826,7 +5826,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 23667,
+          "candle_index": 23666,
           "timestamp": "2026-05-18T00:40:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -5856,7 +5856,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 23804,
+          "candle_index": 23803,
           "timestamp": "2026-05-18T12:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -5886,7 +5886,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 23828,
+          "candle_index": 23827,
           "timestamp": "2026-05-18T14:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -5916,7 +5916,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 23955,
+          "candle_index": 23954,
           "timestamp": "2026-05-19T00:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -5946,7 +5946,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 23968,
+          "candle_index": 23967,
           "timestamp": "2026-05-19T01:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -5976,7 +5976,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 24061,
+          "candle_index": 24060,
           "timestamp": "2026-05-19T09:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -6006,7 +6006,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 24300,
+          "candle_index": 24299,
           "timestamp": "2026-05-20T05:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -6036,7 +6036,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 24688,
+          "candle_index": 24687,
           "timestamp": "2026-05-21T13:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -6066,7 +6066,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 24736,
+          "candle_index": 24735,
           "timestamp": "2026-05-21T17:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -6096,7 +6096,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 24822,
+          "candle_index": 24821,
           "timestamp": "2026-05-22T00:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -6126,7 +6126,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 24861,
+          "candle_index": 24860,
           "timestamp": "2026-05-22T04:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -6156,7 +6156,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 24884,
+          "candle_index": 24883,
           "timestamp": "2026-05-22T06:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -6186,7 +6186,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 25471,
+          "candle_index": 25470,
           "timestamp": "2026-05-24T07:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -6216,7 +6216,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 25648,
+          "candle_index": 25647,
           "timestamp": "2026-05-24T21:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -6246,7 +6246,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 25675,
+          "candle_index": 25674,
           "timestamp": "2026-05-25T00:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -6276,7 +6276,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 25978,
+          "candle_index": 25977,
           "timestamp": "2026-05-26T01:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -6306,7 +6306,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 26092,
+          "candle_index": 26091,
           "timestamp": "2026-05-26T10:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -6336,7 +6336,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 26152,
+          "candle_index": 26151,
           "timestamp": "2026-05-26T15:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -6366,7 +6366,7 @@
           "partition": "train"
         },
         {
-          "candle_index": 26657,
+          "candle_index": 26656,
           "timestamp": "2026-05-28T09:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -6396,7 +6396,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 26741,
+          "candle_index": 26740,
           "timestamp": "2026-05-28T16:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -6426,7 +6426,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 26989,
+          "candle_index": 26988,
           "timestamp": "2026-05-29T13:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -6456,7 +6456,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 26998,
+          "candle_index": 26997,
           "timestamp": "2026-05-29T14:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -6486,7 +6486,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 27011,
+          "candle_index": 27010,
           "timestamp": "2026-05-29T15:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -6516,7 +6516,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 27056,
+          "candle_index": 27055,
           "timestamp": "2026-05-29T19:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -6546,7 +6546,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 27091,
+          "candle_index": 27090,
           "timestamp": "2026-05-29T22:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -6576,7 +6576,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 27151,
+          "candle_index": 27150,
           "timestamp": "2026-05-30T03:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -6606,7 +6606,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 27168,
+          "candle_index": 27167,
           "timestamp": "2026-05-30T04:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -6636,7 +6636,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 27286,
+          "candle_index": 27285,
           "timestamp": "2026-05-30T14:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -6666,7 +6666,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 27575,
+          "candle_index": 27574,
           "timestamp": "2026-05-31T14:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -6696,7 +6696,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 27679,
+          "candle_index": 27678,
           "timestamp": "2026-05-31T23:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -6726,7 +6726,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 27713,
+          "candle_index": 27712,
           "timestamp": "2026-06-01T01:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -6756,7 +6756,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 27726,
+          "candle_index": 27725,
           "timestamp": "2026-06-01T02:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -6786,7 +6786,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 27746,
+          "candle_index": 27745,
           "timestamp": "2026-06-01T04:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -6816,7 +6816,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 28067,
+          "candle_index": 28066,
           "timestamp": "2026-06-02T07:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -6846,7 +6846,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 28232,
+          "candle_index": 28231,
           "timestamp": "2026-06-02T21:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -6876,7 +6876,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 28306,
+          "candle_index": 28305,
           "timestamp": "2026-06-03T03:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -6906,7 +6906,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 28334,
+          "candle_index": 28333,
           "timestamp": "2026-06-03T05:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -6936,7 +6936,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 28453,
+          "candle_index": 28452,
           "timestamp": "2026-06-03T15:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -6966,7 +6966,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 28568,
+          "candle_index": 28567,
           "timestamp": "2026-06-04T01:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -6996,7 +6996,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 28598,
+          "candle_index": 28597,
           "timestamp": "2026-06-04T03:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -7026,7 +7026,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 28652,
+          "candle_index": 28651,
           "timestamp": "2026-06-04T08:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -7056,7 +7056,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 28721,
+          "candle_index": 28720,
           "timestamp": "2026-06-04T13:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -7086,7 +7086,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 28762,
+          "candle_index": 28761,
           "timestamp": "2026-06-04T17:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -7116,7 +7116,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 28778,
+          "candle_index": 28777,
           "timestamp": "2026-06-04T18:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -7146,7 +7146,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 28818,
+          "candle_index": 28817,
           "timestamp": "2026-06-04T21:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -7176,7 +7176,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 28842,
+          "candle_index": 28841,
           "timestamp": "2026-06-04T23:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -7206,7 +7206,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 28875,
+          "candle_index": 28874,
           "timestamp": "2026-06-05T02:40:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -7236,7 +7236,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 28901,
+          "candle_index": 28900,
           "timestamp": "2026-06-05T04:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -7266,7 +7266,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 28917,
+          "candle_index": 28916,
           "timestamp": "2026-06-05T06:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -7296,7 +7296,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 28937,
+          "candle_index": 28936,
           "timestamp": "2026-06-05T07:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -7326,7 +7326,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 28985,
+          "candle_index": 28984,
           "timestamp": "2026-06-05T11:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -7356,7 +7356,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 29008,
+          "candle_index": 29007,
           "timestamp": "2026-06-05T13:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -7386,7 +7386,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 29096,
+          "candle_index": 29095,
           "timestamp": "2026-06-05T21:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -7416,7 +7416,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 29173,
+          "candle_index": 29172,
           "timestamp": "2026-06-06T03:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -7446,7 +7446,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 29182,
+          "candle_index": 29181,
           "timestamp": "2026-06-06T04:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -7476,7 +7476,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 29205,
+          "candle_index": 29204,
           "timestamp": "2026-06-06T06:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -7506,7 +7506,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 29236,
+          "candle_index": 29235,
           "timestamp": "2026-06-06T08:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -7536,7 +7536,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 29251,
+          "candle_index": 29250,
           "timestamp": "2026-06-06T10:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -7566,7 +7566,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 29313,
+          "candle_index": 29312,
           "timestamp": "2026-06-06T15:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -7596,7 +7596,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 29348,
+          "candle_index": 29347,
           "timestamp": "2026-06-06T18:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -7626,7 +7626,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 29389,
+          "candle_index": 29388,
           "timestamp": "2026-06-06T21:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -7656,7 +7656,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 29416,
+          "candle_index": 29415,
           "timestamp": "2026-06-06T23:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -7686,7 +7686,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 29689,
+          "candle_index": 29688,
           "timestamp": "2026-06-07T22:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -7716,7 +7716,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 29784,
+          "candle_index": 29783,
           "timestamp": "2026-06-08T06:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -7746,7 +7746,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 29866,
+          "candle_index": 29865,
           "timestamp": "2026-06-08T13:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -7776,7 +7776,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 29881,
+          "candle_index": 29880,
           "timestamp": "2026-06-08T14:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -7806,7 +7806,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 29912,
+          "candle_index": 29911,
           "timestamp": "2026-06-08T17:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -7836,7 +7836,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 29966,
+          "candle_index": 29965,
           "timestamp": "2026-06-08T21:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -7866,7 +7866,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 29977,
+          "candle_index": 29976,
           "timestamp": "2026-06-08T22:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -7896,7 +7896,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 30539,
+          "candle_index": 30538,
           "timestamp": "2026-06-10T21:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -7926,7 +7926,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 30583,
+          "candle_index": 30582,
           "timestamp": "2026-06-11T01:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -7956,7 +7956,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 31106,
+          "candle_index": 31105,
           "timestamp": "2026-06-12T20:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -7986,7 +7986,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 31174,
+          "candle_index": 31173,
           "timestamp": "2026-06-13T02:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -8016,7 +8016,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 31236,
+          "candle_index": 31235,
           "timestamp": "2026-06-13T07:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -8046,7 +8046,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 31763,
+          "candle_index": 31762,
           "timestamp": "2026-06-15T03:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -8076,7 +8076,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 32188,
+          "candle_index": 32187,
           "timestamp": "2026-06-16T14:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -8106,7 +8106,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 32229,
+          "candle_index": 32228,
           "timestamp": "2026-06-16T18:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -8136,7 +8136,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 32241,
+          "candle_index": 32240,
           "timestamp": "2026-06-16T19:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -8166,7 +8166,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 32328,
+          "candle_index": 32327,
           "timestamp": "2026-06-17T02:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -8196,7 +8196,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 32389,
+          "candle_index": 32388,
           "timestamp": "2026-06-17T07:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -8226,7 +8226,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 32493,
+          "candle_index": 32492,
           "timestamp": "2026-06-17T16:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -8256,7 +8256,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 32521,
+          "candle_index": 32520,
           "timestamp": "2026-06-17T18:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -8286,7 +8286,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 32530,
+          "candle_index": 32529,
           "timestamp": "2026-06-17T19:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -8316,7 +8316,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 33043,
+          "candle_index": 33042,
           "timestamp": "2026-06-19T14:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -8346,7 +8346,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 33146,
+          "candle_index": 33145,
           "timestamp": "2026-06-19T22:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -8376,7 +8376,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 33668,
+          "candle_index": 33667,
           "timestamp": "2026-06-21T18:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -8406,7 +8406,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 33760,
+          "candle_index": 33759,
           "timestamp": "2026-06-22T01:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -8436,7 +8436,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 33788,
+          "candle_index": 33787,
           "timestamp": "2026-06-22T04:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -8466,7 +8466,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 33875,
+          "candle_index": 33874,
           "timestamp": "2026-06-22T11:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -8496,7 +8496,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 34010,
+          "candle_index": 34009,
           "timestamp": "2026-06-22T22:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -8526,7 +8526,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 34081,
+          "candle_index": 34080,
           "timestamp": "2026-06-23T04:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -8556,7 +8556,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 34507,
+          "candle_index": 34506,
           "timestamp": "2026-06-24T16:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -8586,7 +8586,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 34529,
+          "candle_index": 34528,
           "timestamp": "2026-06-24T17:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -8616,7 +8616,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 34558,
+          "candle_index": 34557,
           "timestamp": "2026-06-24T20:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -8646,7 +8646,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 34776,
+          "candle_index": 34775,
           "timestamp": "2026-06-25T14:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -8676,7 +8676,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 34788,
+          "candle_index": 34787,
           "timestamp": "2026-06-25T15:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -8706,7 +8706,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 34834,
+          "candle_index": 34833,
           "timestamp": "2026-06-25T19:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -8736,7 +8736,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 34863,
+          "candle_index": 34862,
           "timestamp": "2026-06-25T21:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -8766,7 +8766,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 34903,
+          "candle_index": 34902,
           "timestamp": "2026-06-26T01:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -8796,7 +8796,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 34944,
+          "candle_index": 34943,
           "timestamp": "2026-06-26T04:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -8826,7 +8826,7 @@
           "partition": "validation"
         },
         {
-          "candle_index": 35014,
+          "candle_index": 35013,
           "timestamp": "2026-06-26T10:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -8856,7 +8856,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 35060,
+          "candle_index": 35059,
           "timestamp": "2026-06-26T14:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -8886,7 +8886,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 35116,
+          "candle_index": 35115,
           "timestamp": "2026-06-26T18:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -8916,7 +8916,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 35169,
+          "candle_index": 35168,
           "timestamp": "2026-06-26T23:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -8946,7 +8946,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 35534,
+          "candle_index": 35533,
           "timestamp": "2026-06-28T05:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -8976,7 +8976,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 35576,
+          "candle_index": 35575,
           "timestamp": "2026-06-28T09:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -9006,7 +9006,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 35593,
+          "candle_index": 35592,
           "timestamp": "2026-06-28T10:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -9036,7 +9036,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 35648,
+          "candle_index": 35647,
           "timestamp": "2026-06-28T15:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -9066,7 +9066,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 35828,
+          "candle_index": 35827,
           "timestamp": "2026-06-29T06:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -9096,7 +9096,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 35897,
+          "candle_index": 35896,
           "timestamp": "2026-06-29T11:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -9126,7 +9126,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 35921,
+          "candle_index": 35920,
           "timestamp": "2026-06-29T13:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -9156,7 +9156,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 35945,
+          "candle_index": 35944,
           "timestamp": "2026-06-29T15:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -9186,7 +9186,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 35967,
+          "candle_index": 35966,
           "timestamp": "2026-06-29T17:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -9216,7 +9216,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 36046,
+          "candle_index": 36045,
           "timestamp": "2026-06-30T00:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -9246,7 +9246,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 36522,
+          "candle_index": 36521,
           "timestamp": "2026-07-01T15:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -9276,7 +9276,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 36547,
+          "candle_index": 36546,
           "timestamp": "2026-07-01T18:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -9306,7 +9306,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 36574,
+          "candle_index": 36573,
           "timestamp": "2026-07-01T20:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -9336,7 +9336,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 36588,
+          "candle_index": 36587,
           "timestamp": "2026-07-01T21:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -9366,7 +9366,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 36612,
+          "candle_index": 36611,
           "timestamp": "2026-07-01T23:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -9396,7 +9396,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 36663,
+          "candle_index": 36662,
           "timestamp": "2026-07-02T03:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -9426,7 +9426,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 36695,
+          "candle_index": 36694,
           "timestamp": "2026-07-02T06:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -9456,7 +9456,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 36736,
+          "candle_index": 36735,
           "timestamp": "2026-07-02T09:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -9486,7 +9486,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 37239,
+          "candle_index": 37238,
           "timestamp": "2026-07-04T03:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -9516,7 +9516,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 37342,
+          "candle_index": 37341,
           "timestamp": "2026-07-04T12:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -9546,7 +9546,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 37879,
+          "candle_index": 37878,
           "timestamp": "2026-07-06T09:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -9576,7 +9576,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 37964,
+          "candle_index": 37963,
           "timestamp": "2026-07-06T16:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -9606,7 +9606,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 38100,
+          "candle_index": 38099,
           "timestamp": "2026-07-07T03:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -9636,7 +9636,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 38205,
+          "candle_index": 38204,
           "timestamp": "2026-07-07T12:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -9666,7 +9666,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 38222,
+          "candle_index": 38221,
           "timestamp": "2026-07-07T13:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -9696,7 +9696,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 38234,
+          "candle_index": 38233,
           "timestamp": "2026-07-07T14:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -9726,7 +9726,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 38244,
+          "candle_index": 38243,
           "timestamp": "2026-07-07T15:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -9756,7 +9756,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 38292,
+          "candle_index": 38291,
           "timestamp": "2026-07-07T19:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -9786,7 +9786,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 38800,
+          "candle_index": 38799,
           "timestamp": "2026-07-09T13:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -9816,7 +9816,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 38833,
+          "candle_index": 38832,
           "timestamp": "2026-07-09T16:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -9846,7 +9846,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 38847,
+          "candle_index": 38846,
           "timestamp": "2026-07-09T17:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -9876,7 +9876,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 39382,
+          "candle_index": 39381,
           "timestamp": "2026-07-11T14:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -9906,7 +9906,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 39399,
+          "candle_index": 39398,
           "timestamp": "2026-07-11T15:40:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -9936,7 +9936,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 39488,
+          "candle_index": 39487,
           "timestamp": "2026-07-11T23:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -9966,7 +9966,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 39989,
+          "candle_index": 39988,
           "timestamp": "2026-07-13T16:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -9996,7 +9996,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 40089,
+          "candle_index": 40088,
           "timestamp": "2026-07-14T01:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -10026,7 +10026,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 40650,
+          "candle_index": 40649,
           "timestamp": "2026-07-15T23:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -10056,7 +10056,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 41152,
+          "candle_index": 41151,
           "timestamp": "2026-07-17T17:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -10086,7 +10086,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 41662,
+          "candle_index": 41661,
           "timestamp": "2026-07-19T12:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -10116,7 +10116,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 41736,
+          "candle_index": 41735,
           "timestamp": "2026-07-19T18:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -10146,7 +10146,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 41862,
+          "candle_index": 41861,
           "timestamp": "2026-07-20T04:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -10176,7 +10176,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 41944,
+          "candle_index": 41943,
           "timestamp": "2026-07-20T11:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -10206,7 +10206,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 41969,
+          "candle_index": 41968,
           "timestamp": "2026-07-20T13:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -10236,7 +10236,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 41986,
+          "candle_index": 41985,
           "timestamp": "2026-07-20T15:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -10266,7 +10266,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 42529,
+          "candle_index": 42528,
           "timestamp": "2026-07-22T12:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -10296,7 +10296,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 42572,
+          "candle_index": 42571,
           "timestamp": "2026-07-22T16:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -10326,7 +10326,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 42602,
+          "candle_index": 42601,
           "timestamp": "2026-07-22T18:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -10356,7 +10356,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 42640,
+          "candle_index": 42639,
           "timestamp": "2026-07-22T21:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -10386,7 +10386,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 42705,
+          "candle_index": 42704,
           "timestamp": "2026-07-23T03:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -10416,7 +10416,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 43300,
+          "candle_index": 43299,
           "timestamp": "2026-07-25T04:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -10446,7 +10446,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 43364,
+          "candle_index": 43363,
           "timestamp": "2026-07-25T10:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -10476,7 +10476,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 43914,
+          "candle_index": 43913,
           "timestamp": "2026-07-27T07:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -10506,7 +10506,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 43984,
+          "candle_index": 43983,
           "timestamp": "2026-07-27T13:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -10536,7 +10536,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 43995,
+          "candle_index": 43994,
           "timestamp": "2026-07-27T14:40:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -10566,7 +10566,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 44029,
+          "candle_index": 44028,
           "timestamp": "2026-07-27T17:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -10596,7 +10596,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 44087,
+          "candle_index": 44086,
           "timestamp": "2026-07-27T22:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -10626,7 +10626,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 44596,
+          "candle_index": 44595,
           "timestamp": "2026-07-29T16:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -10656,7 +10656,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 44638,
+          "candle_index": 44637,
           "timestamp": "2026-07-29T20:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -10686,7 +10686,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 44662,
+          "candle_index": 44661,
           "timestamp": "2026-07-29T22:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -10716,7 +10716,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 44712,
+          "candle_index": 44711,
           "timestamp": "2026-07-30T02:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -10746,7 +10746,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 44745,
+          "candle_index": 44744,
           "timestamp": "2026-07-30T05:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -10776,7 +10776,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 44787,
+          "candle_index": 44786,
           "timestamp": "2026-07-30T08:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -10806,7 +10806,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 45059,
+          "candle_index": 45058,
           "timestamp": "2026-07-31T07:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -10836,7 +10836,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 45572,
+          "candle_index": 45571,
           "timestamp": "2026-08-02T02:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -10866,7 +10866,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 45710,
+          "candle_index": 45709,
           "timestamp": "2026-08-02T13:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -10896,7 +10896,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 45760,
+          "candle_index": 45759,
           "timestamp": "2026-08-02T17:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -10926,7 +10926,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 45882,
+          "candle_index": 45881,
           "timestamp": "2026-08-03T03:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -10956,7 +10956,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 46010,
+          "candle_index": 46009,
           "timestamp": "2026-08-03T14:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -10986,7 +10986,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 46101,
+          "candle_index": 46100,
           "timestamp": "2026-08-03T22:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -11016,7 +11016,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 46144,
+          "candle_index": 46143,
           "timestamp": "2026-08-04T01:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11046,7 +11046,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 46256,
+          "candle_index": 46255,
           "timestamp": "2026-08-04T11:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11076,7 +11076,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 46767,
+          "candle_index": 46766,
           "timestamp": "2026-08-06T05:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11106,7 +11106,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 46845,
+          "candle_index": 46844,
           "timestamp": "2026-08-06T12:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -11136,7 +11136,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 46877,
+          "candle_index": 46876,
           "timestamp": "2026-08-06T14:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11166,7 +11166,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 46982,
+          "candle_index": 46981,
           "timestamp": "2026-08-06T23:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -11196,7 +11196,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 47062,
+          "candle_index": 47061,
           "timestamp": "2026-08-07T06:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11226,7 +11226,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 47592,
+          "candle_index": 47591,
           "timestamp": "2026-08-09T02:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -11256,7 +11256,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 47729,
+          "candle_index": 47728,
           "timestamp": "2026-08-09T13:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11286,7 +11286,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 47846,
+          "candle_index": 47845,
           "timestamp": "2026-08-09T23:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -11316,7 +11316,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 47923,
+          "candle_index": 47922,
           "timestamp": "2026-08-10T06:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11346,7 +11346,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 48008,
+          "candle_index": 48007,
           "timestamp": "2026-08-10T13:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -11376,7 +11376,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 48509,
+          "candle_index": 48508,
           "timestamp": "2026-08-12T06:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -11406,7 +11406,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 48539,
+          "candle_index": 48538,
           "timestamp": "2026-08-12T09:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11436,7 +11436,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 48597,
+          "candle_index": 48596,
           "timestamp": "2026-08-12T14:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -11466,7 +11466,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 49101,
+          "candle_index": 49100,
           "timestamp": "2026-08-14T08:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -11496,7 +11496,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 49289,
+          "candle_index": 49288,
           "timestamp": "2026-08-14T23:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11526,7 +11526,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 49838,
+          "candle_index": 49837,
           "timestamp": "2026-08-16T21:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -11556,7 +11556,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 49915,
+          "candle_index": 49914,
           "timestamp": "2026-08-17T04:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11586,7 +11586,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 50437,
+          "candle_index": 50436,
           "timestamp": "2026-08-18T23:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11616,7 +11616,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 50466,
+          "candle_index": 50465,
           "timestamp": "2026-08-19T01:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -11646,7 +11646,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 50604,
+          "candle_index": 50603,
           "timestamp": "2026-08-19T13:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11676,7 +11676,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 50629,
+          "candle_index": 50628,
           "timestamp": "2026-08-19T15:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11706,7 +11706,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 50670,
+          "candle_index": 50669,
           "timestamp": "2026-08-19T18:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11736,7 +11736,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 50841,
+          "candle_index": 50840,
           "timestamp": "2026-08-20T09:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11766,7 +11766,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 50914,
+          "candle_index": 50913,
           "timestamp": "2026-08-20T15:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11796,7 +11796,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 51110,
+          "candle_index": 51109,
           "timestamp": "2026-08-21T07:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11826,7 +11826,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 51654,
+          "candle_index": 51653,
           "timestamp": "2026-08-23T04:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -11856,7 +11856,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 51737,
+          "candle_index": 51736,
           "timestamp": "2026-08-23T11:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11886,7 +11886,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 51794,
+          "candle_index": 51793,
           "timestamp": "2026-08-23T16:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11916,7 +11916,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 51929,
+          "candle_index": 51928,
           "timestamp": "2026-08-24T03:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -11946,7 +11946,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 51959,
+          "candle_index": 51958,
           "timestamp": "2026-08-24T06:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -11976,7 +11976,7 @@
           "partition": "oos"
         },
         {
-          "candle_index": 52000,
+          "candle_index": 51999,
           "timestamp": "2026-08-24T09:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
