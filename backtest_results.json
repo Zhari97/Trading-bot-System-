@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T13:06:55.574430+00:00",
+  "generated_at": "2026-08-26T14:32:14.886715+00:00",
   "symbol": "BTCUSDT",
   "history_days": 183,
   "tp_pct": 5.0,
@@ -7,7 +7,7 @@
   "timeframes": {
     "5m": {
       "timeframe": "5m",
-      "candles": 52546,
+      "candles": 52529,
       "signals": 150,
       "allocation_pct": 5.0,
       "train": {
@@ -54,7 +54,7 @@
       },
       "records": [
         {
-          "candle_index": 309,
+          "candle_index": 292,
           "timestamp": "2026-02-25T14:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -63,6 +63,9 @@
           "take_profit": 70321.86,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 311,
@@ -71,7 +74,7 @@
           "sl": 66638.334
         },
         {
-          "candle_index": 698,
+          "candle_index": 681,
           "timestamp": "2026-02-26T23:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -80,6 +83,9 @@
           "take_profit": 70948.72050000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 12,
@@ -88,7 +94,7 @@
           "sl": 67232.35895000001
         },
         {
-          "candle_index": 1190,
+          "candle_index": 1173,
           "timestamp": "2026-02-28T16:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -97,6 +103,9 @@
           "take_profit": 68240.7075,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -105,7 +114,7 @@
           "sl": 64666.19425
         },
         {
-          "candle_index": 2182,
+          "candle_index": 2165,
           "timestamp": "2026-03-04T03:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -114,6 +123,9 @@
           "take_profit": 64731.337499999994,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 42,
@@ -122,7 +134,7 @@
           "sl": 68478.94124999999
         },
         {
-          "candle_index": 2609,
+          "candle_index": 2592,
           "timestamp": "2026-03-05T14:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -131,6 +143,9 @@
           "take_profit": 68602.1125,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 4,
@@ -139,7 +154,7 @@
           "sl": 72573.81374999999
         },
         {
-          "candle_index": 2672,
+          "candle_index": 2655,
           "timestamp": "2026-03-05T19:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -148,6 +163,9 @@
           "take_profit": 67389.067,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 6,
@@ -156,7 +174,7 @@
           "sl": 71290.53929999999
         },
         {
-          "candle_index": 2860,
+          "candle_index": 2843,
           "timestamp": "2026-03-06T11:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -165,6 +183,9 @@
           "take_profit": 66960.446,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 389,
@@ -173,7 +194,7 @@
           "sl": 70837.10339999999
         },
         {
-          "candle_index": 3298,
+          "candle_index": 3281,
           "timestamp": "2026-03-08T00:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -182,6 +203,9 @@
           "take_profit": 70762.0935,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 34,
@@ -190,7 +214,7 @@
           "sl": 67055.50765
         },
         {
-          "candle_index": 3456,
+          "candle_index": 3439,
           "timestamp": "2026-03-08T13:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -199,6 +223,9 @@
           "take_profit": 63625.395000000004,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 9,
@@ -207,7 +234,7 @@
           "sl": 67308.9705
         },
         {
-          "candle_index": 3987,
+          "candle_index": 3970,
           "timestamp": "2026-03-10T09:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -216,6 +243,9 @@
           "take_profit": 74789.40000000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -224,7 +254,7 @@
           "sl": 70871.86
         },
         {
-          "candle_index": 4171,
+          "candle_index": 4154,
           "timestamp": "2026-03-11T00:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -233,6 +263,9 @@
           "take_profit": 73471.902,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 22,
@@ -241,7 +274,7 @@
           "sl": 69623.3738
         },
         {
-          "candle_index": 4276,
+          "candle_index": 4259,
           "timestamp": "2026-03-11T09:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -250,6 +283,9 @@
           "take_profit": 66044.9595,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 44,
@@ -258,7 +294,7 @@
           "sl": 69868.61505
         },
         {
-          "candle_index": 4514,
+          "candle_index": 4497,
           "timestamp": "2026-03-12T05:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -267,6 +303,9 @@
           "take_profit": 65805.91100000001,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 24,
@@ -275,7 +314,7 @@
           "sl": 69615.7269
         },
         {
-          "candle_index": 4803,
+          "candle_index": 4786,
           "timestamp": "2026-03-13T05:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -284,6 +323,9 @@
           "take_profit": 74984.49,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 149,
@@ -292,7 +334,7 @@
           "sl": 71056.731
         },
         {
-          "candle_index": 5120,
+          "candle_index": 5103,
           "timestamp": "2026-03-14T07:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -301,6 +343,9 @@
           "take_profit": 66988.4235,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 65,
@@ -309,7 +354,7 @@
           "sl": 70866.70065
         },
         {
-          "candle_index": 5194,
+          "candle_index": 5177,
           "timestamp": "2026-03-14T14:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -318,6 +363,9 @@
           "take_profit": 74488.21800000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 11,
@@ -326,7 +374,7 @@
           "sl": 70586.45420000001
         },
         {
-          "candle_index": 5269,
+          "candle_index": 5252,
           "timestamp": "2026-03-14T20:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -335,6 +383,9 @@
           "take_profit": 74279.2785,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 377,
@@ -343,7 +394,7 @@
           "sl": 70388.45915
         },
         {
-          "candle_index": 5750,
+          "candle_index": 5733,
           "timestamp": "2026-03-16T12:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -352,6 +403,9 @@
           "take_profit": 77449.92150000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 26,
@@ -360,7 +414,7 @@
           "sl": 73393.02085
         },
         {
-          "candle_index": 6056,
+          "candle_index": 6039,
           "timestamp": "2026-03-17T13:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -369,6 +423,9 @@
           "take_profit": 69882.0,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 7,
@@ -377,7 +434,7 @@
           "sl": 73927.79999999999
         },
         {
-          "candle_index": 6351,
+          "candle_index": 6334,
           "timestamp": "2026-03-18T14:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -386,6 +443,9 @@
           "take_profit": 68069.5995,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -394,7 +454,7 @@
           "sl": 72010.47105
         },
         {
-          "candle_index": 6962,
+          "candle_index": 6945,
           "timestamp": "2026-03-20T17:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -403,6 +463,9 @@
           "take_profit": 66250.264,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 30,
@@ -411,7 +474,7 @@
           "sl": 70085.80559999999
         },
         {
-          "candle_index": 7117,
+          "candle_index": 7100,
           "timestamp": "2026-03-21T06:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -420,6 +483,9 @@
           "take_profit": 74330.56049999999,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 122,
@@ -428,7 +494,7 @@
           "sl": 70437.05494999999
         },
         {
-          "candle_index": 7316,
+          "candle_index": 7299,
           "timestamp": "2026-03-21T22:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -437,6 +503,9 @@
           "take_profit": 66776.849,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 435,
@@ -445,7 +514,7 @@
           "sl": 70642.8771
         },
         {
-          "candle_index": 8048,
+          "candle_index": 8031,
           "timestamp": "2026-03-24T11:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -454,6 +523,9 @@
           "take_profit": 67546.216,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 248,
@@ -462,7 +534,7 @@
           "sl": 71456.7864
         },
         {
-          "candle_index": 8315,
+          "candle_index": 8298,
           "timestamp": "2026-03-25T10:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -471,6 +543,9 @@
           "take_profit": 74965.85250000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 60,
@@ -479,7 +554,7 @@
           "sl": 71039.06975000001
         },
         {
-          "candle_index": 8681,
+          "candle_index": 8664,
           "timestamp": "2026-03-26T16:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -488,6 +563,9 @@
           "take_profit": 65413.086,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 43,
@@ -496,7 +574,7 @@
           "sl": 69200.1594
         },
         {
-          "candle_index": 9049,
+          "candle_index": 9032,
           "timestamp": "2026-03-27T23:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -505,6 +583,9 @@
           "take_profit": 69406.1655,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -513,7 +594,7 @@
           "sl": 65770.60445
         },
         {
-          "candle_index": 9552,
+          "candle_index": 9535,
           "timestamp": "2026-03-29T17:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -522,6 +603,9 @@
           "take_profit": 63101.232500000006,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 38,
@@ -530,7 +614,7 @@
           "sl": 66754.46175
         },
         {
-          "candle_index": 10007,
+          "candle_index": 9990,
           "timestamp": "2026-03-31T07:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -539,6 +623,9 @@
           "take_profit": 64009.76499999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 86,
@@ -547,7 +634,7 @@
           "sl": 67715.59349999999
         },
         {
-          "candle_index": 10169,
+          "candle_index": 10152,
           "timestamp": "2026-03-31T20:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -556,6 +643,9 @@
           "take_profit": 71495.97,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 67,
@@ -564,7 +654,7 @@
           "sl": 67750.943
         },
         {
-          "candle_index": 10685,
+          "candle_index": 10668,
           "timestamp": "2026-04-02T15:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -573,6 +663,9 @@
           "take_profit": 70274.8725,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 120,
@@ -581,7 +674,7 @@
           "sl": 66593.80774999999
         },
         {
-          "candle_index": 10861,
+          "candle_index": 10844,
           "timestamp": "2026-04-03T06:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -590,6 +683,9 @@
           "take_profit": 69989.1885,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -598,7 +694,7 @@
           "sl": 66323.08815
         },
         {
-          "candle_index": 11882,
+          "candle_index": 11865,
           "timestamp": "2026-04-06T19:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -607,6 +703,9 @@
           "take_profit": 73310.16,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 27,
@@ -615,7 +714,7 @@
           "sl": 69470.10399999999
         },
         {
-          "candle_index": 11959,
+          "candle_index": 11942,
           "timestamp": "2026-04-07T01:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -624,6 +723,9 @@
           "take_profit": 65122.5,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 36,
@@ -632,7 +734,7 @@
           "sl": 68892.74999999999
         },
         {
-          "candle_index": 12273,
+          "candle_index": 12256,
           "timestamp": "2026-04-08T03:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -641,6 +743,9 @@
           "take_profit": 67723.0205,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -649,7 +754,7 @@
           "sl": 71643.82694999999
         },
         {
-          "candle_index": 12367,
+          "candle_index": 12350,
           "timestamp": "2026-04-08T11:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -658,6 +763,9 @@
           "take_profit": 67950.7925,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 9,
@@ -666,7 +774,7 @@
           "sl": 71884.78574999998
         },
         {
-          "candle_index": 12616,
+          "candle_index": 12599,
           "timestamp": "2026-04-09T08:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -675,6 +783,9 @@
           "take_profit": 74637.80099999999,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 65,
@@ -683,7 +794,7 @@
           "sl": 70728.2019
         },
         {
-          "candle_index": 12720,
+          "candle_index": 12703,
           "timestamp": "2026-04-09T17:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -692,6 +803,9 @@
           "take_profit": 76105.30200000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 4,
@@ -700,7 +814,7 @@
           "sl": 72118.83380000001
         },
         {
-          "candle_index": 13242,
+          "candle_index": 13225,
           "timestamp": "2026-04-11T12:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -709,6 +823,9 @@
           "take_profit": 76610.8665,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 6,
@@ -717,7 +834,7 @@
           "sl": 72597.91635
         },
         {
-          "candle_index": 13478,
+          "candle_index": 13461,
           "timestamp": "2026-04-12T08:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -726,6 +843,9 @@
           "take_profit": 75288.66450000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 46,
@@ -734,7 +854,7 @@
           "sl": 71344.97255
         },
         {
-          "candle_index": 13663,
+          "candle_index": 13646,
           "timestamp": "2026-04-12T23:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -743,6 +863,9 @@
           "take_profit": 67064.946,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -751,7 +874,7 @@
           "sl": 70947.65339999998
         },
         {
-          "candle_index": 13875,
+          "candle_index": 13858,
           "timestamp": "2026-04-13T17:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -760,6 +883,9 @@
           "take_profit": 76066.3785,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 6,
@@ -768,7 +894,7 @@
           "sl": 72081.94915
         },
         {
-          "candle_index": 14103,
+          "candle_index": 14086,
           "timestamp": "2026-04-14T12:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -777,6 +903,9 @@
           "take_profit": 70578.8725,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 10,
@@ -785,7 +914,7 @@
           "sl": 74665.01775
         },
         {
-          "candle_index": 14176,
+          "candle_index": 14159,
           "timestamp": "2026-04-14T18:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -794,6 +923,9 @@
           "take_profit": 70698.4395,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 300,
@@ -802,7 +934,7 @@
           "sl": 74791.50705
         },
         {
-          "candle_index": 14506,
+          "candle_index": 14489,
           "timestamp": "2026-04-15T22:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -811,6 +943,9 @@
           "take_profit": 78749.202,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 20,
@@ -819,7 +954,7 @@
           "sl": 74624.24380000001
         },
         {
-          "candle_index": 14587,
+          "candle_index": 14570,
           "timestamp": "2026-04-16T04:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -828,6 +963,9 @@
           "take_profit": 71084.7095,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 179,
@@ -836,7 +974,7 @@
           "sl": 75200.14004999999
         },
         {
-          "candle_index": 15245,
+          "candle_index": 15228,
           "timestamp": "2026-04-18T11:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -845,6 +983,9 @@
           "take_profit": 72035.137,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 5,
@@ -853,7 +994,7 @@
           "sl": 76205.5923
         },
         {
-          "candle_index": 15958,
+          "candle_index": 15941,
           "timestamp": "2026-04-20T23:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -862,6 +1003,9 @@
           "take_profit": 72027.48,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 25,
@@ -870,7 +1014,7 @@
           "sl": 76197.49199999998
         },
         {
-          "candle_index": 16779,
+          "candle_index": 16762,
           "timestamp": "2026-04-23T19:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -879,6 +1023,9 @@
           "take_profit": 81745.2405,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 118,
@@ -887,7 +1034,7 @@
           "sl": 77463.34695
         },
         {
-          "candle_index": 17199,
+          "candle_index": 17182,
           "timestamp": "2026-04-25T06:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -896,6 +1043,9 @@
           "take_profit": 73616.583,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 49,
@@ -904,7 +1054,7 @@
           "sl": 77878.59569999999
         },
         {
-          "candle_index": 17386,
+          "candle_index": 17369,
           "timestamp": "2026-04-25T22:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -913,6 +1063,9 @@
           "take_profit": 81402.14250000002,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 495,
@@ -921,7 +1074,7 @@
           "sl": 77138.22075000001
         },
         {
-          "candle_index": 18058,
+          "candle_index": 18041,
           "timestamp": "2026-04-28T06:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -930,6 +1083,9 @@
           "take_profit": 80834.47050000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -938,7 +1094,7 @@
           "sl": 76600.28395000001
         },
         {
-          "candle_index": 18188,
+          "candle_index": 18171,
           "timestamp": "2026-04-28T16:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -947,6 +1103,9 @@
           "take_profit": 79959.42150000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 276,
@@ -955,7 +1114,7 @@
           "sl": 75771.07085
         },
         {
-          "candle_index": 19311,
+          "candle_index": 19294,
           "timestamp": "2026-05-02T14:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -964,6 +1123,9 @@
           "take_profit": 82341.4515,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -972,7 +1134,7 @@
           "sl": 78028.32784999999
         },
         {
-          "candle_index": 20088,
+          "candle_index": 20071,
           "timestamp": "2026-05-05T07:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -981,6 +1143,9 @@
           "take_profit": 85045.128,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 29,
@@ -989,7 +1154,7 @@
           "sl": 80590.3832
         },
         {
-          "candle_index": 20524,
+          "candle_index": 20507,
           "timestamp": "2026-05-06T19:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -998,6 +1163,9 @@
           "take_profit": 77215.26849999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 11,
@@ -1006,7 +1174,7 @@
           "sl": 81685.62614999998
         },
         {
-          "candle_index": 21063,
+          "candle_index": 21046,
           "timestamp": "2026-05-08T16:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1015,6 +1183,9 @@
           "take_profit": 75952.5,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 67,
@@ -1023,7 +1194,7 @@
           "sl": 80349.74999999999
         },
         {
-          "candle_index": 21412,
+          "candle_index": 21395,
           "timestamp": "2026-05-09T21:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1032,6 +1203,9 @@
           "take_profit": 76752.875,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 219,
@@ -1040,7 +1214,7 @@
           "sl": 81196.4625
         },
         {
-          "candle_index": 21684,
+          "candle_index": 21667,
           "timestamp": "2026-05-10T20:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1049,6 +1223,9 @@
           "take_profit": 77132.14349999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 27,
@@ -1057,7 +1234,7 @@
           "sl": 81597.68864999998
         },
         {
-          "candle_index": 21755,
+          "candle_index": 21738,
           "timestamp": "2026-05-11T02:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1066,6 +1243,9 @@
           "take_profit": 77346.3875,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 170,
@@ -1074,7 +1254,7 @@
           "sl": 81824.33625
         },
         {
-          "candle_index": 22334,
+          "candle_index": 22317,
           "timestamp": "2026-05-13T02:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1083,6 +1263,9 @@
           "take_profit": 85283.1105,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 102,
@@ -1091,7 +1274,7 @@
           "sl": 80815.89994999999
         },
         {
-          "candle_index": 23206,
+          "candle_index": 23189,
           "timestamp": "2026-05-16T03:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1100,6 +1283,9 @@
           "take_profit": 83113.62150000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 44,
@@ -1108,7 +1294,7 @@
           "sl": 78760.05085
         },
         {
-          "candle_index": 23466,
+          "candle_index": 23449,
           "timestamp": "2026-05-17T00:40:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1117,6 +1303,9 @@
           "take_profit": 74233.44649999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 117,
@@ -1125,7 +1314,7 @@
           "sl": 78531.17235
         },
         {
-          "candle_index": 23715,
+          "candle_index": 23698,
           "timestamp": "2026-05-17T21:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1134,6 +1323,9 @@
           "take_profit": 82353.096,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 9,
@@ -1142,7 +1334,7 @@
           "sl": 78039.3624
         },
         {
-          "candle_index": 23802,
+          "candle_index": 23785,
           "timestamp": "2026-05-18T04:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1151,6 +1343,9 @@
           "take_profit": 80849.98950000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 18,
@@ -1159,7 +1354,7 @@
           "sl": 76614.99005000001
         },
         {
-          "candle_index": 24010,
+          "candle_index": 23993,
           "timestamp": "2026-05-18T22:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1168,6 +1363,9 @@
           "take_profit": 80976.882,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 41,
@@ -1176,7 +1374,7 @@
           "sl": 76735.2358
         },
         {
-          "candle_index": 24069,
+          "candle_index": 24052,
           "timestamp": "2026-05-19T02:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1185,6 +1383,9 @@
           "take_profit": 72786.5965,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 39,
@@ -1193,7 +1394,7 @@
           "sl": 77000.55734999999
         },
         {
-          "candle_index": 25082,
+          "candle_index": 25065,
           "timestamp": "2026-05-22T15:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1202,6 +1403,9 @@
           "take_profit": 72796.619,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 2,
@@ -1210,7 +1414,7 @@
           "sl": 77011.1601
         },
         {
-          "candle_index": 25183,
+          "candle_index": 25166,
           "timestamp": "2026-05-22T23:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1219,6 +1423,9 @@
           "take_profit": 71723.195,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 223,
@@ -1227,7 +1434,7 @@
           "sl": 75875.59049999999
         },
         {
-          "candle_index": 25432,
+          "candle_index": 25415,
           "timestamp": "2026-05-23T20:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1236,6 +1443,9 @@
           "take_profit": 80105.2455,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -1244,7 +1454,7 @@
           "sl": 75909.25645
         },
         {
-          "candle_index": 26911,
+          "candle_index": 26894,
           "timestamp": "2026-05-28T23:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1253,6 +1463,9 @@
           "take_profit": 69861.05249999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 79,
@@ -1261,7 +1474,7 @@
           "sl": 73905.63974999999
         },
         {
-          "candle_index": 27085,
+          "candle_index": 27068,
           "timestamp": "2026-05-29T14:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1270,6 +1483,9 @@
           "take_profit": 69156.2,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -1278,7 +1494,7 @@
           "sl": 73159.98
         },
         {
-          "candle_index": 27368,
+          "candle_index": 27351,
           "timestamp": "2026-05-30T13:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1287,6 +1503,9 @@
           "take_profit": 77510.3385,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 320,
@@ -1295,7 +1514,7 @@
           "sl": 73450.27315
         },
         {
-          "candle_index": 27866,
+          "candle_index": 27849,
           "timestamp": "2026-06-01T07:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1304,6 +1523,9 @@
           "take_profit": 69331.7505,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 313,
@@ -1312,7 +1534,7 @@
           "sl": 73345.69394999999
         },
         {
-          "candle_index": 28297,
+          "candle_index": 28280,
           "timestamp": "2026-06-02T19:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1321,6 +1543,9 @@
           "take_profit": 63824.43899999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 19,
@@ -1329,7 +1554,7 @@
           "sl": 67519.53809999999
         },
         {
-          "candle_index": 28382,
+          "candle_index": 28365,
           "timestamp": "2026-06-03T02:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1338,6 +1563,9 @@
           "take_profit": 63346.0,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 32,
@@ -1346,7 +1574,7 @@
           "sl": 67013.4
         },
         {
-          "candle_index": 28766,
+          "candle_index": 28749,
           "timestamp": "2026-06-04T10:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1355,6 +1583,9 @@
           "take_profit": 59638.3875,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 24,
@@ -1363,7 +1594,7 @@
           "sl": 63091.136249999996
         },
         {
-          "candle_index": 29095,
+          "candle_index": 29078,
           "timestamp": "2026-06-05T13:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1372,6 +1603,9 @@
           "take_profit": 58208.28599999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 85,
@@ -1380,7 +1614,7 @@
           "sl": 61601.71482142857
         },
         {
-          "candle_index": 29255,
+          "candle_index": 29238,
           "timestamp": "2026-06-06T03:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1389,6 +1623,9 @@
           "take_profit": 57773.72749999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 35,
@@ -1397,7 +1634,7 @@
           "sl": 61118.52224999999
         },
         {
-          "candle_index": 29429,
+          "candle_index": 29412,
           "timestamp": "2026-06-06T17:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1406,6 +1643,9 @@
           "take_profit": 57618.820499999994,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 47,
@@ -1414,7 +1654,7 @@
           "sl": 60954.646949999995
         },
         {
-          "candle_index": 29518,
+          "candle_index": 29501,
           "timestamp": "2026-06-07T01:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1423,6 +1663,9 @@
           "take_profit": 64118.187000000005,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 255,
@@ -1431,7 +1674,7 @@
           "sl": 60759.615300000005
         },
         {
-          "candle_index": 29801,
+          "candle_index": 29784,
           "timestamp": "2026-06-08T00:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1440,6 +1683,9 @@
           "take_profit": 67008.8895,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 5,
@@ -1448,7 +1694,7 @@
           "sl": 63498.90005
         },
         {
-          "candle_index": 29830,
+          "candle_index": 29813,
           "timestamp": "2026-06-08T03:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1457,6 +1703,9 @@
           "take_profit": 59867.1095,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 2,
@@ -1465,7 +1714,7 @@
           "sl": 63333.100049999994
         },
         {
-          "candle_index": 29904,
+          "candle_index": 29887,
           "timestamp": "2026-06-08T09:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1474,6 +1723,9 @@
           "take_profit": 66504.06,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 34,
@@ -1482,7 +1734,7 @@
           "sl": 63020.513999999996
         },
         {
-          "candle_index": 30073,
+          "candle_index": 30056,
           "timestamp": "2026-06-08T23:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1491,6 +1743,9 @@
           "take_profit": 59988.7,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 75,
@@ -1499,7 +1754,7 @@
           "sl": 63461.729999999996
         },
         {
-          "candle_index": 30240,
+          "candle_index": 30223,
           "timestamp": "2026-06-09T13:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1508,6 +1763,9 @@
           "take_profit": 59428.7795,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 493,
@@ -1516,7 +1774,7 @@
           "sl": 62869.39304999999
         },
         {
-          "candle_index": 30776,
+          "candle_index": 30759,
           "timestamp": "2026-06-11T09:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1525,6 +1783,9 @@
           "take_profit": 66113.334,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 32,
@@ -1533,7 +1794,7 @@
           "sl": 62650.2546
         },
         {
-          "candle_index": 31528,
+          "candle_index": 31511,
           "timestamp": "2026-06-14T00:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1542,6 +1803,9 @@
           "take_profit": 67764.585,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 80,
@@ -1550,7 +1814,7 @@
           "sl": 64215.01149999999
         },
         {
-          "candle_index": 32067,
+          "candle_index": 32050,
           "timestamp": "2026-06-15T21:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1559,6 +1823,9 @@
           "take_profit": 63089.5,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 137,
@@ -1567,7 +1834,7 @@
           "sl": 66742.04999999999
         },
         {
-          "candle_index": 32462,
+          "candle_index": 32445,
           "timestamp": "2026-06-17T06:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1576,6 +1843,9 @@
           "take_profit": 62551.819,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 121,
@@ -1584,7 +1854,7 @@
           "sl": 66173.2401
         },
         {
-          "candle_index": 33185,
+          "candle_index": 33168,
           "timestamp": "2026-06-19T18:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1593,6 +1863,9 @@
           "take_profit": 59841.810999999994,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 49,
@@ -1601,7 +1874,7 @@
           "sl": 63306.33689999999
         },
         {
-          "candle_index": 33339,
+          "candle_index": 33322,
           "timestamp": "2026-06-20T07:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1610,6 +1883,9 @@
           "take_profit": 66981.6,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 13,
@@ -1618,7 +1894,7 @@
           "sl": 63473.04
         },
         {
-          "candle_index": 33503,
+          "candle_index": 33486,
           "timestamp": "2026-06-20T21:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1627,6 +1903,9 @@
           "take_profit": 67133.262,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 288,
@@ -1635,7 +1914,7 @@
           "sl": 63616.7578
         },
         {
-          "candle_index": 33923,
+          "candle_index": 33906,
           "timestamp": "2026-06-22T08:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1644,6 +1923,9 @@
           "take_profit": 67488.54000000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 172,
@@ -1652,7 +1934,7 @@
           "sl": 63953.426
         },
         {
-          "candle_index": 34722,
+          "candle_index": 34705,
           "timestamp": "2026-06-25T02:40:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1661,6 +1943,9 @@
           "take_profit": 57728.00399999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 25,
@@ -1669,7 +1954,7 @@
           "sl": 61070.15159999999
         },
         {
-          "candle_index": 34832,
+          "candle_index": 34815,
           "timestamp": "2026-06-25T11:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1678,6 +1963,9 @@
           "take_profit": 58111.49049999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -1686,7 +1974,7 @@
           "sl": 61475.839949999994
         },
         {
-          "candle_index": 35264,
+          "candle_index": 35247,
           "timestamp": "2026-06-26T23:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1695,6 +1983,9 @@
           "take_profit": 63094.73100000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 355,
@@ -1703,7 +1994,7 @@
           "sl": 59789.7689
         },
         {
-          "candle_index": 35628,
+          "candle_index": 35611,
           "timestamp": "2026-06-28T06:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1712,6 +2003,9 @@
           "take_profit": 56849.9095,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 10,
@@ -1720,7 +2014,7 @@
           "sl": 60141.220049999996
         },
         {
-          "candle_index": 35741,
+          "candle_index": 35724,
           "timestamp": "2026-06-28T15:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1729,6 +2023,9 @@
           "take_profit": 56933.9275,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 142,
@@ -1737,7 +2034,7 @@
           "sl": 60230.10224999999
         },
         {
-          "candle_index": 36170,
+          "candle_index": 36153,
           "timestamp": "2026-06-30T03:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1746,6 +2043,9 @@
           "take_profit": 56836.6095,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 432,
@@ -1754,7 +2054,7 @@
           "sl": 60127.15005
         },
         {
-          "candle_index": 36648,
+          "candle_index": 36631,
           "timestamp": "2026-07-01T19:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1763,6 +2063,9 @@
           "take_profit": 63294.021,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 10,
@@ -1771,7 +2074,7 @@
           "sl": 59978.6199
         },
         {
-          "candle_index": 36876,
+          "candle_index": 36859,
           "timestamp": "2026-07-02T14:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1780,6 +2083,9 @@
           "take_profit": 65185.68,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 2,
@@ -1788,7 +2094,7 @@
           "sl": 61771.191999999995
         },
         {
-          "candle_index": 36895,
+          "candle_index": 36878,
           "timestamp": "2026-07-02T15:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1797,6 +2103,9 @@
           "take_profit": 58529.053499999995,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 19,
@@ -1805,7 +2114,7 @@
           "sl": 61917.57764999999
         },
         {
-          "candle_index": 36981,
+          "candle_index": 36964,
           "timestamp": "2026-07-02T22:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1814,6 +2123,9 @@
           "take_profit": 58391.996999999996,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 80,
@@ -1822,7 +2134,7 @@
           "sl": 61772.586299999995
         },
         {
-          "candle_index": 37086,
+          "candle_index": 37069,
           "timestamp": "2026-07-03T07:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1831,6 +2143,9 @@
           "take_profit": 64913.8455,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 16,
@@ -1839,7 +2154,7 @@
           "sl": 61513.59645
         },
         {
-          "candle_index": 37138,
+          "candle_index": 37121,
           "timestamp": "2026-07-03T12:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1848,6 +2163,9 @@
           "take_profit": 65249.100000000006,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 26,
@@ -1856,7 +2174,7 @@
           "sl": 61831.29
         },
         {
-          "candle_index": 37229,
+          "candle_index": 37212,
           "timestamp": "2026-07-03T19:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1865,6 +2183,9 @@
           "take_profit": 65382.282,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -1873,7 +2194,7 @@
           "sl": 61957.4958
         },
         {
-          "candle_index": 37749,
+          "candle_index": 37732,
           "timestamp": "2026-07-05T14:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1882,6 +2203,9 @@
           "take_profit": 65952.8625,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 252,
@@ -1890,7 +2214,7 @@
           "sl": 62498.18875
         },
         {
-          "candle_index": 38321,
+          "candle_index": 38304,
           "timestamp": "2026-07-07T14:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1899,6 +2223,9 @@
           "take_profit": 59743.6,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 2,
@@ -1907,7 +2234,7 @@
           "sl": 63202.439999999995
         },
         {
-          "candle_index": 38393,
+          "candle_index": 38376,
           "timestamp": "2026-07-07T20:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1916,6 +2243,9 @@
           "take_profit": 60471.6515,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -1924,7 +2254,7 @@
           "sl": 63972.64184999999
         },
         {
-          "candle_index": 38899,
+          "candle_index": 38882,
           "timestamp": "2026-07-09T14:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1933,6 +2263,9 @@
           "take_profit": 66108.021,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 20,
@@ -1941,7 +2274,7 @@
           "sl": 62645.2199
         },
         {
-          "candle_index": 39078,
+          "candle_index": 39061,
           "timestamp": "2026-07-10T05:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1950,6 +2283,9 @@
           "take_profit": 67388.33850000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 14,
@@ -1958,7 +2294,7 @@
           "sl": 63858.473150000005
         },
         {
-          "candle_index": 39139,
+          "candle_index": 39122,
           "timestamp": "2026-07-10T10:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1967,6 +2303,9 @@
           "take_profit": 67709.85900000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 17,
@@ -1975,7 +2314,7 @@
           "sl": 64163.1521
         },
         {
-          "candle_index": 39485,
+          "candle_index": 39468,
           "timestamp": "2026-07-11T15:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1984,6 +2323,9 @@
           "take_profit": 60913.677,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 61,
@@ -1992,7 +2334,7 @@
           "sl": 64440.258299999994
         },
         {
-          "candle_index": 39627,
+          "candle_index": 39610,
           "timestamp": "2026-07-12T03:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2001,6 +2343,9 @@
           "take_profit": 67342.54800000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 32,
@@ -2009,7 +2354,7 @@
           "sl": 63815.0812
         },
         {
-          "candle_index": 40676,
+          "candle_index": 40659,
           "timestamp": "2026-07-15T18:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2018,6 +2363,9 @@
           "take_profit": 61668.6895,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -2026,7 +2374,7 @@
           "sl": 65238.98205
         },
         {
-          "candle_index": 41213,
+          "candle_index": 41196,
           "timestamp": "2026-07-17T15:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2035,6 +2383,9 @@
           "take_profit": 66441.4905,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -2043,7 +2394,7 @@
           "sl": 62961.22195
         },
         {
-          "candle_index": 41793,
+          "candle_index": 41776,
           "timestamp": "2026-07-19T15:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2052,6 +2403,9 @@
           "take_profit": 67814.586,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 159,
@@ -2060,7 +2414,7 @@
           "sl": 64262.3934
         },
         {
-          "candle_index": 42002,
+          "candle_index": 41985,
           "timestamp": "2026-07-20T09:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2069,6 +2423,9 @@
           "take_profit": 67370.1,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -2077,7 +2434,7 @@
           "sl": 63841.19
         },
         {
-          "candle_index": 42639,
+          "candle_index": 42622,
           "timestamp": "2026-07-22T14:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2086,6 +2443,9 @@
           "take_profit": 62342.799999999996,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 7,
@@ -2094,7 +2454,7 @@
           "sl": 65952.12
         },
         {
-          "candle_index": 42744,
+          "candle_index": 42727,
           "timestamp": "2026-07-22T23:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2103,6 +2463,9 @@
           "take_profit": 62597.3905,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 11,
@@ -2111,7 +2474,7 @@
           "sl": 66221.44995
         },
         {
-          "candle_index": 42792,
+          "candle_index": 42775,
           "timestamp": "2026-07-23T03:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2120,6 +2483,9 @@
           "take_profit": 62352.2905,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -2128,7 +2494,7 @@
           "sl": 65962.15995
         },
         {
-          "candle_index": 43857,
+          "candle_index": 43840,
           "timestamp": "2026-07-26T19:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2137,6 +2503,9 @@
           "take_profit": 61460.74399999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 25,
@@ -2145,7 +2514,7 @@
           "sl": 65018.99759999999
         },
         {
-          "candle_index": 44066,
+          "candle_index": 44049,
           "timestamp": "2026-07-27T13:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2154,6 +2523,9 @@
           "take_profit": 61710.26149999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 3,
@@ -2162,7 +2534,7 @@
           "sl": 65282.96084999999
         },
         {
-          "candle_index": 44329,
+          "candle_index": 44312,
           "timestamp": "2026-07-28T11:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2171,6 +2543,9 @@
           "take_profit": 66756.3435,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 27,
@@ -2179,7 +2554,7 @@
           "sl": 63259.582650000004
         },
         {
-          "candle_index": 44446,
+          "candle_index": 44429,
           "timestamp": "2026-07-28T21:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2188,6 +2563,9 @@
           "take_profit": 67174.8,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 25,
@@ -2196,7 +2574,7 @@
           "sl": 63656.12
         },
         {
-          "candle_index": 44596,
+          "candle_index": 44579,
           "timestamp": "2026-07-29T09:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2205,6 +2583,9 @@
           "take_profit": 67706.1315,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 46,
@@ -2213,7 +2594,7 @@
           "sl": 64159.619849999995
         },
         {
-          "candle_index": 44654,
+          "candle_index": 44637,
           "timestamp": "2026-07-29T14:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2222,6 +2603,9 @@
           "take_profit": 61079.299999999996,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 44,
@@ -2230,7 +2614,7 @@
           "sl": 64615.469999999994
         },
         {
-          "candle_index": 44863,
+          "candle_index": 44846,
           "timestamp": "2026-07-30T07:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2239,6 +2623,9 @@
           "take_profit": 60803.6005,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -2247,7 +2634,7 @@
           "sl": 64323.80894999999
         },
         {
-          "candle_index": 44977,
+          "candle_index": 44960,
           "timestamp": "2026-07-30T17:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2256,6 +2643,9 @@
           "take_profit": 68143.572,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 103,
@@ -2264,7 +2654,7 @@
           "sl": 64574.1468
         },
         {
-          "candle_index": 45361,
+          "candle_index": 45344,
           "timestamp": "2026-08-01T01:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2273,6 +2663,9 @@
           "take_profit": 59803.45,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 298,
@@ -2281,7 +2674,7 @@
           "sl": 63265.75499999999
         },
         {
-          "candle_index": 45775,
+          "candle_index": 45758,
           "timestamp": "2026-08-02T11:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2290,6 +2683,9 @@
           "take_profit": 59948.809499999996,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 82,
@@ -2298,7 +2694,7 @@
           "sl": 63419.530049999994
         },
         {
-          "candle_index": 45885,
+          "candle_index": 45868,
           "timestamp": "2026-08-02T20:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2307,6 +2703,9 @@
           "take_profit": 66669.246,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 52,
@@ -2315,7 +2714,7 @@
           "sl": 63177.047399999996
         },
         {
-          "candle_index": 46021,
+          "candle_index": 46004,
           "timestamp": "2026-08-03T08:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2324,6 +2723,9 @@
           "take_profit": 59366.67799999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 20,
@@ -2332,7 +2734,7 @@
           "sl": 62803.69619999999
         },
         {
-          "candle_index": 46264,
+          "candle_index": 46247,
           "timestamp": "2026-08-04T04:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2341,6 +2743,9 @@
           "take_profit": 67083.7755,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 33,
@@ -2349,7 +2754,7 @@
           "sl": 63569.86345
         },
         {
-          "candle_index": 46312,
+          "candle_index": 46295,
           "timestamp": "2026-08-04T08:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2358,6 +2763,9 @@
           "take_profit": 60388.782999999996,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 38,
@@ -2366,7 +2774,7 @@
           "sl": 63884.975699999995
         },
         {
-          "candle_index": 46725,
+          "candle_index": 46708,
           "timestamp": "2026-08-05T18:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2375,6 +2783,9 @@
           "take_profit": 68039.05500000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 89,
@@ -2383,7 +2794,7 @@
           "sl": 64475.1045
         },
         {
-          "candle_index": 46873,
+          "candle_index": 46856,
           "timestamp": "2026-08-06T07:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2392,6 +2803,9 @@
           "take_profit": 68175.2715,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 35,
@@ -2400,7 +2814,7 @@
           "sl": 64604.18585
         },
         {
-          "candle_index": 47129,
+          "candle_index": 47112,
           "timestamp": "2026-08-07T04:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2409,6 +2823,9 @@
           "take_profit": 61062.1905,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 49,
@@ -2417,7 +2834,7 @@
           "sl": 64597.36994999999
         },
         {
-          "candle_index": 47210,
+          "candle_index": 47193,
           "timestamp": "2026-08-07T11:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2426,6 +2843,9 @@
           "take_profit": 68394.6585,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 33,
@@ -2434,7 +2854,7 @@
           "sl": 64812.08115
         },
         {
-          "candle_index": 47976,
+          "candle_index": 47959,
           "timestamp": "2026-08-10T03:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2443,6 +2863,9 @@
           "take_profit": 61714.66,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 45,
@@ -2451,7 +2874,7 @@
           "sl": 65287.613999999994
         },
         {
-          "candle_index": 48220,
+          "candle_index": 48203,
           "timestamp": "2026-08-10T23:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2460,6 +2883,9 @@
           "take_profit": 60762.0095,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 124,
@@ -2468,7 +2894,7 @@
           "sl": 64279.81004999999
         },
         {
-          "candle_index": 48746,
+          "candle_index": 48729,
           "timestamp": "2026-08-12T19:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2477,6 +2903,9 @@
           "take_profit": 60202.174499999994,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 59,
@@ -2485,7 +2914,7 @@
           "sl": 63687.56354999999
         },
         {
-          "candle_index": 48924,
+          "candle_index": 48907,
           "timestamp": "2026-08-13T10:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2494,6 +2923,9 @@
           "take_profit": 60440.007,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 52,
@@ -2502,7 +2934,7 @@
           "sl": 63939.16529999999
         },
         {
-          "candle_index": 50002,
+          "candle_index": 49985,
           "timestamp": "2026-08-17T04:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2511,6 +2943,9 @@
           "take_profit": 66669.771,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -2519,7 +2954,7 @@
           "sl": 63177.54489999999
         },
         {
-          "candle_index": 51185,
+          "candle_index": 51168,
           "timestamp": "2026-08-21T06:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2528,6 +2963,9 @@
           "take_profit": 79489.284,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 1,
@@ -2536,7 +2974,7 @@
           "sl": 75325.55960000001
         },
         {
-          "candle_index": 51315,
+          "candle_index": 51298,
           "timestamp": "2026-08-21T17:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2545,6 +2983,9 @@
           "take_profit": 81436.572,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 14,
@@ -2553,7 +2994,7 @@
           "sl": 77170.8468
         },
         {
-          "candle_index": 51511,
+          "candle_index": 51494,
           "timestamp": "2026-08-22T09:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2562,6 +3003,9 @@
           "take_profit": 73131.285,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 36,
@@ -2570,7 +3014,7 @@
           "sl": 77365.2015
         },
         {
-          "candle_index": 51889,
+          "candle_index": 51872,
           "timestamp": "2026-08-23T17:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2579,6 +3023,9 @@
           "take_profit": 81234.3,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 104,
@@ -2587,7 +3034,7 @@
           "sl": 76979.17
         },
         {
-          "candle_index": 52320,
+          "candle_index": 52303,
           "timestamp": "2026-08-25T05:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2596,6 +3043,9 @@
           "take_profit": 84581.7,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 31,
@@ -2607,7 +3057,7 @@
     },
     "15m": {
       "timeframe": "15m",
-      "candles": 17515,
+      "candles": 17509,
       "signals": 58,
       "allocation_pct": 5.0,
       "train": {
@@ -2654,7 +3104,7 @@
       },
       "records": [
         {
-          "candle_index": 303,
+          "candle_index": 297,
           "timestamp": "2026-02-27T17:00:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2663,6 +3113,9 @@
           "take_profit": 62187.085499999994,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 24,
@@ -2671,7 +3124,7 @@
           "sl": 65856.69357142856
         },
         {
-          "candle_index": 833,
+          "candle_index": 827,
           "timestamp": "2026-03-05T05:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2680,6 +3133,9 @@
           "take_profit": 68793.9175,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 16,
@@ -2688,7 +3144,7 @@
           "sl": 72776.72324999998
         },
         {
-          "candle_index": 1110,
+          "candle_index": 1104,
           "timestamp": "2026-03-08T02:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2697,6 +3153,9 @@
           "take_profit": 63579.168,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 17,
@@ -2705,7 +3164,7 @@
           "sl": 67260.06719999999
         },
         {
-          "candle_index": 1322,
+          "candle_index": 1316,
           "timestamp": "2026-03-10T07:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -2714,6 +3173,9 @@
           "take_profit": 73926.31049999999,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 23,
@@ -2722,7 +3184,7 @@
           "sl": 70053.97995
         },
         {
-          "candle_index": 1433,
+          "candle_index": 1427,
           "timestamp": "2026-03-11T11:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2731,6 +3193,9 @@
           "take_profit": 65974.61200000001,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 6,
@@ -2739,7 +3204,7 @@
           "sl": 69794.1948
         },
         {
-          "candle_index": 1630,
+          "candle_index": 1624,
           "timestamp": "2026-03-13T12:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -2748,6 +3213,9 @@
           "take_profit": 76423.9665,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -2756,7 +3224,7 @@
           "sl": 72420.80635
         },
         {
-          "candle_index": 1734,
+          "candle_index": 1728,
           "timestamp": "2026-03-14T14:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2765,6 +3233,9 @@
           "take_profit": 67069.25899999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 33,
@@ -2773,7 +3244,7 @@
           "sl": 70952.21609999999
         },
         {
-          "candle_index": 2016,
+          "candle_index": 2010,
           "timestamp": "2026-03-17T13:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2782,6 +3253,9 @@
           "take_profit": 70029.307,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 1,
@@ -2790,7 +3264,7 @@
           "sl": 74083.6353
         },
         {
-          "candle_index": 2080,
+          "candle_index": 2074,
           "timestamp": "2026-03-18T05:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2799,6 +3273,9 @@
           "take_profit": 70363.004,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 103,
@@ -2807,7 +3284,7 @@
           "sl": 74436.6516
         },
         {
-          "candle_index": 2317,
+          "candle_index": 2311,
           "timestamp": "2026-03-20T16:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2816,6 +3293,9 @@
           "take_profit": 66283.06749999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 14,
@@ -2824,7 +3304,7 @@
           "sl": 70241.68392857141
         },
         {
-          "candle_index": 2474,
+          "candle_index": 2468,
           "timestamp": "2026-03-22T07:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2833,6 +3313,9 @@
           "take_profit": 65473.411,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 109,
@@ -2841,7 +3324,7 @@
           "sl": 69263.9769
         },
         {
-          "candle_index": 2770,
+          "candle_index": 2764,
           "timestamp": "2026-03-25T09:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -2850,6 +3333,9 @@
           "take_profit": 74913.20550000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 21,
@@ -2858,7 +3344,7 @@
           "sl": 70989.18045
         },
         {
-          "candle_index": 3666,
+          "candle_index": 3660,
           "timestamp": "2026-04-03T17:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2867,6 +3353,9 @@
           "take_profit": 63512.25949999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 69,
@@ -2875,7 +3364,7 @@
           "sl": 67189.28504999999
         },
         {
-          "candle_index": 3750,
+          "candle_index": 3744,
           "timestamp": "2026-04-04T14:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -2884,6 +3373,9 @@
           "take_profit": 70576.00200000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 61,
@@ -2892,7 +3384,7 @@
           "sl": 66879.16380000001
         },
         {
-          "candle_index": 3877,
+          "candle_index": 3871,
           "timestamp": "2026-04-05T22:30:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -2901,6 +3393,9 @@
           "take_profit": 71362.5255,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 193,
@@ -2909,7 +3404,7 @@
           "sl": 67624.48845
         },
         {
-          "candle_index": 4334,
+          "candle_index": 4328,
           "timestamp": "2026-04-10T16:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -2918,6 +3413,9 @@
           "take_profit": 76641.9465,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 81,
@@ -2926,7 +3424,7 @@
           "sl": 72543.78267857143
         },
         {
-          "candle_index": 4510,
+          "candle_index": 4504,
           "timestamp": "2026-04-12T12:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2935,6 +3433,9 @@
           "take_profit": 67529.80949999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 31,
@@ -2943,7 +3444,7 @@
           "sl": 71439.43004999998
         },
         {
-          "candle_index": 4632,
+          "candle_index": 4626,
           "timestamp": "2026-04-13T19:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -2952,6 +3453,9 @@
           "take_profit": 76496.2695,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 359,
@@ -2960,7 +3464,7 @@
           "sl": 72489.32205
         },
         {
-          "candle_index": 5401,
+          "candle_index": 5395,
           "timestamp": "2026-04-21T19:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2969,6 +3473,9 @@
           "take_profit": 71122.7,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 2,
@@ -2977,7 +3484,7 @@
           "sl": 75318.19196428571
         },
         {
-          "candle_index": 6231,
+          "candle_index": 6225,
           "timestamp": "2026-04-30T11:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -2986,6 +3493,9 @@
           "take_profit": 79957.99350000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 348,
@@ -2994,7 +3504,7 @@
           "sl": 75769.71765
         },
         {
-          "candle_index": 6913,
+          "candle_index": 6907,
           "timestamp": "2026-05-07T13:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3003,6 +3513,9 @@
           "take_profit": 76543.77999999998,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 211,
@@ -3011,7 +3524,7 @@
           "sl": 80975.26199999999
         },
         {
-          "candle_index": 7190,
+          "candle_index": 7184,
           "timestamp": "2026-05-10T10:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3020,6 +3533,9 @@
           "take_profit": 84917.4795,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 40,
@@ -3028,7 +3544,7 @@
           "sl": 80469.42104999999
         },
         {
-          "candle_index": 7400,
+          "candle_index": 7394,
           "timestamp": "2026-05-12T15:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3037,6 +3553,9 @@
           "take_profit": 76210.9,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 13,
@@ -3045,7 +3564,7 @@
           "sl": 80623.10999999999
         },
         {
-          "candle_index": 7438,
+          "candle_index": 7432,
           "timestamp": "2026-05-13T00:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3054,6 +3573,9 @@
           "take_profit": 84753.90000000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 46,
@@ -3062,7 +3584,7 @@
           "sl": 80314.41
         },
         {
-          "candle_index": 7665,
+          "candle_index": 7659,
           "timestamp": "2026-05-15T09:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3071,6 +3593,9 @@
           "take_profit": 76399.0,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 308,
@@ -3079,7 +3604,7 @@
           "sl": 80822.09999999999
         },
         {
-          "candle_index": 8172,
+          "candle_index": 8166,
           "timestamp": "2026-05-20T16:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3088,6 +3613,9 @@
           "take_profit": 73233.59999999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 4,
@@ -3096,7 +3624,7 @@
           "sl": 77473.43999999999
         },
         {
-          "candle_index": 8184,
+          "candle_index": 8178,
           "timestamp": "2026-05-20T19:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3105,6 +3633,9 @@
           "take_profit": 81440.84550000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 63,
@@ -3113,7 +3644,7 @@
           "sl": 77174.89645
         },
         {
-          "candle_index": 8789,
+          "candle_index": 8783,
           "timestamp": "2026-05-27T02:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3122,6 +3653,9 @@
           "take_profit": 71957.65499999998,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 39,
@@ -3130,7 +3664,7 @@
           "sl": 76123.62449999999
         },
         {
-          "candle_index": 8849,
+          "candle_index": 8843,
           "timestamp": "2026-05-27T17:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3139,6 +3673,9 @@
           "take_profit": 71162.59999999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 10,
@@ -3147,7 +3684,7 @@
           "sl": 75282.54
         },
         {
-          "candle_index": 9306,
+          "candle_index": 9300,
           "timestamp": "2026-06-01T11:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3156,6 +3693,9 @@
           "take_profit": 68855.9905,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 103,
@@ -3164,7 +3704,7 @@
           "sl": 72842.38995
         },
         {
-          "candle_index": 9492,
+          "candle_index": 9486,
           "timestamp": "2026-06-03T10:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3173,6 +3713,9 @@
           "take_profit": 70683.90000000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 7,
@@ -3181,7 +3724,7 @@
           "sl": 66981.41
         },
         {
-          "candle_index": 9832,
+          "candle_index": 9826,
           "timestamp": "2026-06-06T23:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3190,6 +3733,9 @@
           "take_profit": 63749.259000000005,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 92,
@@ -3198,7 +3744,7 @@
           "sl": 60410.0121
         },
         {
-          "candle_index": 10129,
+          "candle_index": 10123,
           "timestamp": "2026-06-10T01:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3207,6 +3753,9 @@
           "take_profit": 58556.945499999994,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 44,
@@ -3215,7 +3764,7 @@
           "sl": 61947.084449999995
         },
         {
-          "candle_index": 10263,
+          "candle_index": 10257,
           "timestamp": "2026-06-11T11:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3224,6 +3773,9 @@
           "take_profit": 66349.40550000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 5,
@@ -3232,7 +3784,7 @@
           "sl": 62873.960450000006
         },
         {
-          "candle_index": 10332,
+          "candle_index": 10326,
           "timestamp": "2026-06-12T04:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3241,6 +3793,9 @@
           "take_profit": 66987.3855,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 3,
@@ -3249,7 +3804,7 @@
           "sl": 63478.522450000004
         },
         {
-          "candle_index": 10436,
+          "candle_index": 10430,
           "timestamp": "2026-06-13T06:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3258,6 +3813,9 @@
           "take_profit": 66863.9895,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 220,
@@ -3266,7 +3824,7 @@
           "sl": 63361.59005
         },
         {
-          "candle_index": 10999,
+          "candle_index": 10993,
           "timestamp": "2026-06-19T03:00:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3275,6 +3833,9 @@
           "take_profit": 59598.1265,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 42,
@@ -3283,7 +3844,7 @@
           "sl": 63048.54435
         },
         {
-          "candle_index": 11128,
+          "candle_index": 11122,
           "timestamp": "2026-06-20T11:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3292,6 +3853,9 @@
           "take_profit": 66885.0,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -3300,7 +3864,7 @@
           "sl": 63381.5
         },
         {
-          "candle_index": 11298,
+          "candle_index": 11292,
           "timestamp": "2026-06-22T05:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3309,6 +3873,9 @@
           "take_profit": 67460.12700000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 66,
@@ -3317,7 +3884,7 @@
           "sl": 63926.501299999996
         },
         {
-          "candle_index": 11898,
+          "candle_index": 11892,
           "timestamp": "2026-06-28T11:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3326,6 +3893,9 @@
           "take_profit": 63359.100000000006,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 5,
@@ -3334,7 +3904,7 @@
           "sl": 60040.29
         },
         {
-          "candle_index": 12140,
+          "candle_index": 12134,
           "timestamp": "2026-07-01T00:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3343,6 +3913,9 @@
           "take_profit": 55474.299999999996,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 5,
@@ -3351,7 +3924,7 @@
           "sl": 58685.969999999994
         },
         {
-          "candle_index": 12272,
+          "candle_index": 12266,
           "timestamp": "2026-07-02T09:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3360,6 +3933,9 @@
           "take_profit": 63635.15550000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 340,
@@ -3368,7 +3944,7 @@
           "sl": 60301.88545
         },
         {
-          "candle_index": 12775,
+          "candle_index": 12769,
           "timestamp": "2026-07-07T15:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3377,6 +3953,9 @@
           "take_profit": 66691.8105,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 42,
@@ -3385,7 +3964,7 @@
           "sl": 63116.505535714285
         },
         {
-          "candle_index": 13479,
+          "candle_index": 13473,
           "timestamp": "2026-07-14T23:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3394,6 +3973,9 @@
           "take_profit": 68271.0,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 10,
@@ -3402,7 +3984,7 @@
           "sl": 64694.9
         },
         {
-          "candle_index": 13524,
+          "candle_index": 13518,
           "timestamp": "2026-07-15T10:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3411,6 +3993,9 @@
           "take_profit": 61404.371,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 9,
@@ -3419,7 +4004,7 @@
           "sl": 64959.36089999999
         },
         {
-          "candle_index": 13668,
+          "candle_index": 13662,
           "timestamp": "2026-07-16T22:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3428,6 +4013,9 @@
           "take_profit": 60818.99049999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 82,
@@ -3436,7 +4024,7 @@
           "sl": 64340.089949999994
         },
         {
-          "candle_index": 13978,
+          "candle_index": 13972,
           "timestamp": "2026-07-20T03:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3445,6 +4033,9 @@
           "take_profit": 68113.29000000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 4,
@@ -3453,7 +4044,7 @@
           "sl": 64545.451
         },
         {
-          "candle_index": 14023,
+          "candle_index": 14017,
           "timestamp": "2026-07-20T15:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3462,6 +4053,9 @@
           "take_profit": 68216.40000000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 376,
@@ -3470,7 +4064,7 @@
           "sl": 64634.478571428575
         },
         {
-          "candle_index": 14595,
+          "candle_index": 14589,
           "timestamp": "2026-07-26T14:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3479,6 +4073,9 @@
           "take_profit": 67945.458,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 130,
@@ -3487,7 +4084,7 @@
           "sl": 64386.4102
         },
         {
-          "candle_index": 14956,
+          "candle_index": 14950,
           "timestamp": "2026-07-30T08:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3496,6 +4093,9 @@
           "take_profit": 67481.40000000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 93,
@@ -3504,7 +4104,7 @@
           "sl": 63946.659999999996
         },
         {
-          "candle_index": 15460,
+          "candle_index": 15454,
           "timestamp": "2026-08-04T14:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3513,6 +4113,9 @@
           "take_profit": 67081.8855,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -3521,7 +4124,7 @@
           "sl": 63568.07245
         },
         {
-          "candle_index": 15999,
+          "candle_index": 15993,
           "timestamp": "2026-08-10T05:00:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3530,6 +4133,9 @@
           "take_profit": 61738.210499999994,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 7,
@@ -3538,7 +4144,7 @@
           "sl": 65312.52794999999
         },
         {
-          "candle_index": 16330,
+          "candle_index": 16324,
           "timestamp": "2026-08-13T15:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3547,6 +4153,9 @@
           "take_profit": 60249.0095,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 368,
@@ -3555,7 +4164,7 @@
           "sl": 63737.110049999996
         },
         {
-          "candle_index": 16707,
+          "candle_index": 16701,
           "timestamp": "2026-08-17T14:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3564,6 +4173,9 @@
           "take_profit": 66884.391,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 197,
@@ -3572,7 +4184,7 @@
           "sl": 63380.9229
         },
         {
-          "candle_index": 17142,
+          "candle_index": 17136,
           "timestamp": "2026-08-22T02:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3581,6 +4193,9 @@
           "take_profit": 82393.5,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 9,
@@ -3589,7 +4204,7 @@
           "sl": 78048.62142857142
         },
         {
-          "candle_index": 17238,
+          "candle_index": 17232,
           "timestamp": "2026-08-23T02:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3598,6 +4213,9 @@
           "take_profit": 73225.48700000001,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 42,
@@ -3606,7 +4224,7 @@
           "sl": 77464.8573
         },
         {
-          "candle_index": 17311,
+          "candle_index": 17305,
           "timestamp": "2026-08-23T21:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3615,6 +4233,9 @@
           "take_profit": 81582.564,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -3623,7 +4244,7 @@
           "sl": 77309.19159999999
         },
         {
-          "candle_index": 17418,
+          "candle_index": 17412,
           "timestamp": "2026-08-24T23:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3632,6 +4253,9 @@
           "take_profit": 82942.3875,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 54,
@@ -3643,7 +4267,7 @@
     },
     "1h": {
       "timeframe": "1h",
-      "candles": 4378,
+      "candles": 4377,
       "signals": 20,
       "allocation_pct": 5.0,
       "train": {
@@ -3690,7 +4314,7 @@
       },
       "records": [
         {
-          "candle_index": 133,
+          "candle_index": 132,
           "timestamp": "2026-03-02T03:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3699,6 +4323,9 @@
           "take_profit": 70161.0315,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 3,
@@ -3707,7 +4334,7 @@
           "sl": 66151.8297
         },
         {
-          "candle_index": 139,
+          "candle_index": 138,
           "timestamp": "2026-03-02T09:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -3716,6 +4343,9 @@
           "take_profit": 62860.18899999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 5,
@@ -3724,7 +4354,7 @@
           "sl": 66830.30619999999
         },
         {
-          "candle_index": 278,
+          "candle_index": 277,
           "timestamp": "2026-03-08T04:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -3733,6 +4363,9 @@
           "take_profit": 63305.492,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 1,
@@ -3741,7 +4374,7 @@
           "sl": 67055.87875
         },
         {
-          "candle_index": 322,
+          "candle_index": 321,
           "timestamp": "2026-03-10T00:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3750,6 +4383,9 @@
           "take_profit": 72615.23849999999,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 84,
@@ -3758,7 +4394,7 @@
           "sl": 68465.7963
         },
         {
-          "candle_index": 630,
+          "candle_index": 629,
           "timestamp": "2026-03-22T20:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -3767,6 +4403,9 @@
           "take_profit": 64767.637,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 9,
@@ -3775,7 +4414,7 @@
           "sl": 68652.76982142858
         },
         {
-          "candle_index": 668,
+          "candle_index": 667,
           "timestamp": "2026-03-24T10:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3784,6 +4423,9 @@
           "take_profit": 74836.5135,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 3,
@@ -3792,7 +4434,7 @@
           "sl": 70720.6825
         },
         {
-          "candle_index": 792,
+          "candle_index": 791,
           "timestamp": "2026-03-29T14:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -3801,6 +4443,9 @@
           "take_profit": 63260.157999999996,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 10,
@@ -3809,7 +4454,7 @@
           "sl": 66923.61321428572
         },
         {
-          "candle_index": 1079,
+          "candle_index": 1078,
           "timestamp": "2026-04-10T13:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3818,6 +4463,9 @@
           "take_profit": 75937.47,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 36,
@@ -3826,7 +4474,7 @@
           "sl": 71842.19732142857
         },
         {
-          "candle_index": 1414,
+          "candle_index": 1413,
           "timestamp": "2026-04-24T12:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3835,6 +4483,9 @@
           "take_profit": 82189.44300000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 2,
@@ -3843,7 +4494,7 @@
           "sl": 77751.95910714286
         },
         {
-          "candle_index": 1509,
+          "candle_index": 1508,
           "timestamp": "2026-04-28T11:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -3852,6 +4503,9 @@
           "take_profit": 72417.55,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 16,
@@ -3860,7 +4514,7 @@
           "sl": 76679.29017857142
         },
         {
-          "candle_index": 1699,
+          "candle_index": 1698,
           "timestamp": "2026-05-06T09:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3869,6 +4523,9 @@
           "take_profit": 86096.85,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 5,
@@ -3877,7 +4534,7 @@
           "sl": 81447.16785714285
         },
         {
-          "candle_index": 2160,
+          "candle_index": 2159,
           "timestamp": "2026-05-25T14:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3886,6 +4543,9 @@
           "take_profit": 81599.7,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 6,
@@ -3894,7 +4554,7 @@
           "sl": 77325.43
         },
         {
-          "candle_index": 2313,
+          "candle_index": 2312,
           "timestamp": "2026-05-31T23:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -3903,6 +4563,9 @@
           "take_profit": 69990.6705,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 1,
@@ -3911,7 +4574,7 @@
           "sl": 74042.76194999999
         },
         {
-          "candle_index": 2315,
+          "candle_index": 2314,
           "timestamp": "2026-06-01T01:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -3920,6 +4583,9 @@
           "take_profit": 69628.27399999999,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 1,
@@ -3928,7 +4594,7 @@
           "sl": 73686.9575
         },
         {
-          "candle_index": 2571,
+          "candle_index": 2570,
           "timestamp": "2026-06-11T17:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3937,6 +4603,9 @@
           "take_profit": 66826.3995,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 13,
@@ -3945,7 +4614,7 @@
           "sl": 63115.245357142856
         },
         {
-          "candle_index": 2784,
+          "candle_index": 2783,
           "timestamp": "2026-06-20T14:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3954,6 +4623,9 @@
           "take_profit": 67147.395,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 31,
@@ -3962,7 +4634,7 @@
           "sl": 63579.33660714286
         },
         {
-          "candle_index": 3100,
+          "candle_index": 3099,
           "timestamp": "2026-07-03T18:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3971,6 +4643,9 @@
           "take_profit": 65314.21050000001,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 66,
@@ -3979,7 +4654,7 @@
           "sl": 61807.00375
         },
         {
-          "candle_index": 3906,
+          "candle_index": 3905,
           "timestamp": "2026-08-06T08:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3988,6 +4663,9 @@
           "take_profit": 68189.0895,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 2,
@@ -3996,7 +4674,7 @@
           "sl": 64617.28005
         },
         {
-          "candle_index": 4081,
+          "candle_index": 4080,
           "timestamp": "2026-08-13T15:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -4005,6 +4683,9 @@
           "take_profit": 60249.0095,
           "score": 0.0,
           "confluence": 100.0,
+          "trend": 0.0,
+          "momentum": 0.0,
+          "setup": 0.0,
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 92,
@@ -4013,7 +4694,7 @@
           "sl": 63737.110049999996
         },
         {
-          "candle_index": 4242,
+          "candle_index": 4241,
           "timestamp": "2026-08-20T08:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -4022,6 +4703,9 @@
           "take_profit": 75171.70500000002,
           "score": 100.0,
           "confluence": 100.0,
+          "trend": 100.0,
+          "momentum": 100.0,
+          "setup": 100.0,
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 17,
