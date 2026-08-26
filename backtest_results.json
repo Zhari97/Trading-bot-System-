@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T17:38:38.016551+00:00",
+  "generated_at": "2026-08-26T18:12:47.774924+00:00",
   "symbol": "BTCUSDT",
   "history_days": 183,
   "tp_pct": 5.0,
@@ -7,7 +7,7 @@
   "timeframes": {
     "5m": {
       "timeframe": "5m",
-      "candles": 52492,
+      "candles": 52485,
       "signals": 150,
       "allocation_pct": 5.0,
       "train": {
@@ -62,7 +62,10 @@
               "losses": 133,
               "win_rate_pct": 2.9197080291970803,
               "avg_score": 45.98540145985402,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 48.02311459854015,
+              "avg_weighted_confidence_pct": 41.849148175182485,
+              "avg_support_coverage_pct": 41.849148175182485
             }
           ],
           "direction": [
@@ -73,7 +76,10 @@
               "losses": 61,
               "win_rate_pct": 3.1746031746031744,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 70.60185238095238,
+              "avg_weighted_confidence_pct": 41.20370317460317,
+              "avg_support_coverage_pct": 41.20370317460317
             },
             {
               "group": "SHORT",
@@ -82,7 +88,10 @@
               "losses": 72,
               "win_rate_pct": 2.7027027027027026,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 28.800675675675677,
+              "avg_weighted_confidence_pct": 42.398648648648646,
+              "avg_support_coverage_pct": 42.398648648648646
             }
           ],
           "regime": [
@@ -93,7 +102,10 @@
               "losses": 123,
               "win_rate_pct": 3.149606299212598,
               "avg_score": 44.09448818897638,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 47.2769031496063,
+              "avg_weighted_confidence_pct": 42.191600787401576,
+              "avg_support_coverage_pct": 42.191600787401576
             },
             {
               "group": "TREND_UP",
@@ -102,7 +114,10 @@
               "losses": 7,
               "win_rate_pct": 0.0,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 68.75,
+              "avg_weighted_confidence_pct": 37.5,
+              "avg_support_coverage_pct": 37.5
             }
           ],
           "score_bucket": [
@@ -113,7 +128,10 @@
               "losses": 72,
               "win_rate_pct": 2.7027027027027026,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 28.800675675675677,
+              "avg_weighted_confidence_pct": 42.398648648648646,
+              "avg_support_coverage_pct": 42.398648648648646
             },
             {
               "group": ">=80",
@@ -122,7 +140,10 @@
               "losses": 61,
               "win_rate_pct": 3.1746031746031744,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 70.60185238095238,
+              "avg_weighted_confidence_pct": 41.20370317460317,
+              "avg_support_coverage_pct": 41.20370317460317
             }
           ],
           "confluence_bucket": [
@@ -133,7 +154,10 @@
               "losses": 133,
               "win_rate_pct": 2.9197080291970803,
               "avg_score": 45.98540145985402,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 48.02311459854015,
+              "avg_weighted_confidence_pct": 41.849148175182485,
+              "avg_support_coverage_pct": 41.849148175182485
             }
           ],
           "trend": [
@@ -144,7 +168,10 @@
               "losses": 72,
               "win_rate_pct": 2.7027027027027026,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 28.800675675675677,
+              "avg_weighted_confidence_pct": 42.398648648648646,
+              "avg_support_coverage_pct": 42.398648648648646
             },
             {
               "group": "100.0",
@@ -153,7 +180,10 @@
               "losses": 61,
               "win_rate_pct": 3.1746031746031744,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 70.60185238095238,
+              "avg_weighted_confidence_pct": 41.20370317460317,
+              "avg_support_coverage_pct": 41.20370317460317
             }
           ],
           "momentum": [
@@ -164,7 +194,10 @@
               "losses": 72,
               "win_rate_pct": 2.7027027027027026,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 28.800675675675677,
+              "avg_weighted_confidence_pct": 42.398648648648646,
+              "avg_support_coverage_pct": 42.398648648648646
             },
             {
               "group": "100.0",
@@ -173,7 +206,10 @@
               "losses": 61,
               "win_rate_pct": 3.1746031746031744,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 70.60185238095238,
+              "avg_weighted_confidence_pct": 41.20370317460317,
+              "avg_support_coverage_pct": 41.20370317460317
             }
           ],
           "setup": [
@@ -184,7 +220,10 @@
               "losses": 72,
               "win_rate_pct": 2.7027027027027026,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 28.800675675675677,
+              "avg_weighted_confidence_pct": 42.398648648648646,
+              "avg_support_coverage_pct": 42.398648648648646
             },
             {
               "group": "100.0",
@@ -193,7 +232,100 @@
               "losses": 61,
               "win_rate_pct": 3.1746031746031744,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 70.60185238095238,
+              "avg_weighted_confidence_pct": 41.20370317460317,
+              "avg_support_coverage_pct": 41.20370317460317
+            }
+          ],
+          "evidence_score_bucket": [
+            {
+              "group": "<40",
+              "trades": 74,
+              "wins": 2,
+              "losses": 72,
+              "win_rate_pct": 2.7027027027027026,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 28.800675675675677,
+              "avg_weighted_confidence_pct": 42.398648648648646,
+              "avg_support_coverage_pct": 42.398648648648646
+            },
+            {
+              "group": "<70",
+              "trades": 56,
+              "wins": 2,
+              "losses": 54,
+              "win_rate_pct": 3.571428571428571,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 68.75,
+              "avg_weighted_confidence_pct": 37.5,
+              "avg_support_coverage_pct": 37.5
+            },
+            {
+              "group": ">=80",
+              "trades": 7,
+              "wins": 0,
+              "losses": 7,
+              "win_rate_pct": 0.0,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 85.41667142857143,
+              "avg_weighted_confidence_pct": 70.83332857142857,
+              "avg_support_coverage_pct": 70.83332857142857
+            }
+          ],
+          "weighted_confidence_bucket": [
+            {
+              "group": "<40",
+              "trades": 118,
+              "wins": 4,
+              "losses": 114,
+              "win_rate_pct": 3.389830508474576,
+              "avg_score": 47.45762711864407,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 49.04661016949152,
+              "avg_weighted_confidence_pct": 37.5,
+              "avg_support_coverage_pct": 37.5
+            },
+            {
+              "group": "<80",
+              "trades": 19,
+              "wins": 0,
+              "losses": 19,
+              "win_rate_pct": 0.0,
+              "avg_score": 36.8421052631579,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 41.666668421052634,
+              "avg_weighted_confidence_pct": 68.85964736842105,
+              "avg_support_coverage_pct": 68.85964736842105
+            }
+          ],
+          "support_coverage_bucket": [
+            {
+              "group": "<40",
+              "trades": 118,
+              "wins": 4,
+              "losses": 114,
+              "win_rate_pct": 3.389830508474576,
+              "avg_score": 47.45762711864407,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 49.04661016949152,
+              "avg_weighted_confidence_pct": 37.5,
+              "avg_support_coverage_pct": 37.5
+            },
+            {
+              "group": "<80",
+              "trades": 19,
+              "wins": 0,
+              "losses": 19,
+              "win_rate_pct": 0.0,
+              "avg_score": 36.8421052631579,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 41.666668421052634,
+              "avg_weighted_confidence_pct": 68.85964736842105,
+              "avg_support_coverage_pct": 68.85964736842105
             }
           ]
         },
@@ -206,7 +338,10 @@
               "losses": 47,
               "win_rate_pct": 0.0,
               "avg_score": 51.06382978723404,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 49.601063829787236,
+              "avg_weighted_confidence_pct": 43.351063829787236,
+              "avg_support_coverage_pct": 43.351063829787236
             }
           ],
           "direction": [
@@ -217,7 +352,10 @@
               "losses": 24,
               "win_rate_pct": 0.0,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 70.83333333333333,
+              "avg_weighted_confidence_pct": 41.666666666666664,
+              "avg_support_coverage_pct": 41.666666666666664
             },
             {
               "group": "SHORT",
@@ -226,7 +364,10 @@
               "losses": 23,
               "win_rate_pct": 0.0,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 27.445652173913043,
+              "avg_weighted_confidence_pct": 45.108695652173914,
+              "avg_support_coverage_pct": 45.108695652173914
             }
           ],
           "regime": [
@@ -237,7 +378,10 @@
               "losses": 45,
               "win_rate_pct": 0.0,
               "avg_score": 48.888888888888886,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 48.75,
+              "avg_weighted_confidence_pct": 43.611111111111114,
+              "avg_support_coverage_pct": 43.611111111111114
             }
           ],
           "score_bucket": [
@@ -248,7 +392,10 @@
               "losses": 23,
               "win_rate_pct": 0.0,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 27.445652173913043,
+              "avg_weighted_confidence_pct": 45.108695652173914,
+              "avg_support_coverage_pct": 45.108695652173914
             },
             {
               "group": ">=80",
@@ -257,7 +404,10 @@
               "losses": 24,
               "win_rate_pct": 0.0,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 70.83333333333333,
+              "avg_weighted_confidence_pct": 41.666666666666664,
+              "avg_support_coverage_pct": 41.666666666666664
             }
           ],
           "confluence_bucket": [
@@ -268,7 +418,10 @@
               "losses": 47,
               "win_rate_pct": 0.0,
               "avg_score": 51.06382978723404,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 49.601063829787236,
+              "avg_weighted_confidence_pct": 43.351063829787236,
+              "avg_support_coverage_pct": 43.351063829787236
             }
           ],
           "trend": [
@@ -279,7 +432,10 @@
               "losses": 23,
               "win_rate_pct": 0.0,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 27.445652173913043,
+              "avg_weighted_confidence_pct": 45.108695652173914,
+              "avg_support_coverage_pct": 45.108695652173914
             },
             {
               "group": "100.0",
@@ -288,7 +444,10 @@
               "losses": 24,
               "win_rate_pct": 0.0,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 70.83333333333333,
+              "avg_weighted_confidence_pct": 41.666666666666664,
+              "avg_support_coverage_pct": 41.666666666666664
             }
           ],
           "momentum": [
@@ -299,7 +458,10 @@
               "losses": 23,
               "win_rate_pct": 0.0,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 27.445652173913043,
+              "avg_weighted_confidence_pct": 45.108695652173914,
+              "avg_support_coverage_pct": 45.108695652173914
             },
             {
               "group": "100.0",
@@ -308,7 +470,10 @@
               "losses": 24,
               "win_rate_pct": 0.0,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 70.83333333333333,
+              "avg_weighted_confidence_pct": 41.666666666666664,
+              "avg_support_coverage_pct": 41.666666666666664
             }
           ],
           "setup": [
@@ -319,7 +484,10 @@
               "losses": 23,
               "win_rate_pct": 0.0,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 27.445652173913043,
+              "avg_weighted_confidence_pct": 45.108695652173914,
+              "avg_support_coverage_pct": 45.108695652173914
             },
             {
               "group": "100.0",
@@ -328,14 +496,95 @@
               "losses": 24,
               "win_rate_pct": 0.0,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 70.83333333333333,
+              "avg_weighted_confidence_pct": 41.666666666666664,
+              "avg_support_coverage_pct": 41.666666666666664
+            }
+          ],
+          "evidence_score_bucket": [
+            {
+              "group": "<40",
+              "trades": 23,
+              "wins": 0,
+              "losses": 23,
+              "win_rate_pct": 0.0,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 27.445652173913043,
+              "avg_weighted_confidence_pct": 45.108695652173914,
+              "avg_support_coverage_pct": 45.108695652173914
+            },
+            {
+              "group": "<70",
+              "trades": 21,
+              "wins": 0,
+              "losses": 21,
+              "win_rate_pct": 0.0,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 68.75,
+              "avg_weighted_confidence_pct": 37.5,
+              "avg_support_coverage_pct": 37.5
+            }
+          ],
+          "weighted_confidence_bucket": [
+            {
+              "group": "<40",
+              "trades": 38,
+              "wins": 0,
+              "losses": 38,
+              "win_rate_pct": 0.0,
+              "avg_score": 55.26315789473684,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 51.973684210526315,
+              "avg_weighted_confidence_pct": 37.5,
+              "avg_support_coverage_pct": 37.5
+            },
+            {
+              "group": "<80",
+              "trades": 9,
+              "wins": 0,
+              "losses": 9,
+              "win_rate_pct": 0.0,
+              "avg_score": 33.333333333333336,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 39.583333333333336,
+              "avg_weighted_confidence_pct": 68.05555555555556,
+              "avg_support_coverage_pct": 68.05555555555556
+            }
+          ],
+          "support_coverage_bucket": [
+            {
+              "group": "<40",
+              "trades": 38,
+              "wins": 0,
+              "losses": 38,
+              "win_rate_pct": 0.0,
+              "avg_score": 55.26315789473684,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 51.973684210526315,
+              "avg_weighted_confidence_pct": 37.5,
+              "avg_support_coverage_pct": 37.5
+            },
+            {
+              "group": "<80",
+              "trades": 9,
+              "wins": 0,
+              "losses": 9,
+              "win_rate_pct": 0.0,
+              "avg_score": 33.333333333333336,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 39.583333333333336,
+              "avg_weighted_confidence_pct": 68.05555555555556,
+              "avg_support_coverage_pct": 68.05555555555556
             }
           ]
         }
       },
       "records": [
         {
-          "candle_index": 255,
+          "candle_index": 248,
           "timestamp": "2026-02-25T14:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -364,7 +613,7 @@
           "sl": 66638.334
         },
         {
-          "candle_index": 644,
+          "candle_index": 637,
           "timestamp": "2026-02-26T23:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -393,7 +642,7 @@
           "sl": 67232.35895000001
         },
         {
-          "candle_index": 1136,
+          "candle_index": 1129,
           "timestamp": "2026-02-28T16:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -422,7 +671,7 @@
           "sl": 64666.19425
         },
         {
-          "candle_index": 2128,
+          "candle_index": 2121,
           "timestamp": "2026-03-04T03:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -451,7 +700,7 @@
           "sl": 68478.94124999999
         },
         {
-          "candle_index": 2555,
+          "candle_index": 2548,
           "timestamp": "2026-03-05T14:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -480,7 +729,7 @@
           "sl": 72573.81374999999
         },
         {
-          "candle_index": 2618,
+          "candle_index": 2611,
           "timestamp": "2026-03-05T19:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -509,7 +758,7 @@
           "sl": 71290.53929999999
         },
         {
-          "candle_index": 2806,
+          "candle_index": 2799,
           "timestamp": "2026-03-06T11:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -538,7 +787,7 @@
           "sl": 70837.10339999999
         },
         {
-          "candle_index": 3244,
+          "candle_index": 3237,
           "timestamp": "2026-03-08T00:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -567,7 +816,7 @@
           "sl": 67055.50765
         },
         {
-          "candle_index": 3402,
+          "candle_index": 3395,
           "timestamp": "2026-03-08T13:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -596,7 +845,7 @@
           "sl": 67308.9705
         },
         {
-          "candle_index": 3933,
+          "candle_index": 3926,
           "timestamp": "2026-03-10T09:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -625,7 +874,7 @@
           "sl": 70871.86
         },
         {
-          "candle_index": 4117,
+          "candle_index": 4110,
           "timestamp": "2026-03-11T00:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -654,7 +903,7 @@
           "sl": 69623.3738
         },
         {
-          "candle_index": 4222,
+          "candle_index": 4215,
           "timestamp": "2026-03-11T09:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -683,7 +932,7 @@
           "sl": 69868.61505
         },
         {
-          "candle_index": 4460,
+          "candle_index": 4453,
           "timestamp": "2026-03-12T05:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -712,7 +961,7 @@
           "sl": 69615.7269
         },
         {
-          "candle_index": 4749,
+          "candle_index": 4742,
           "timestamp": "2026-03-13T05:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -741,7 +990,7 @@
           "sl": 71056.731
         },
         {
-          "candle_index": 5066,
+          "candle_index": 5059,
           "timestamp": "2026-03-14T07:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -770,7 +1019,7 @@
           "sl": 70866.70065
         },
         {
-          "candle_index": 5140,
+          "candle_index": 5133,
           "timestamp": "2026-03-14T14:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -799,7 +1048,7 @@
           "sl": 70586.45420000001
         },
         {
-          "candle_index": 5215,
+          "candle_index": 5208,
           "timestamp": "2026-03-14T20:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -828,7 +1077,7 @@
           "sl": 70388.45915
         },
         {
-          "candle_index": 5696,
+          "candle_index": 5689,
           "timestamp": "2026-03-16T12:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -857,7 +1106,7 @@
           "sl": 73393.02085
         },
         {
-          "candle_index": 6002,
+          "candle_index": 5995,
           "timestamp": "2026-03-17T13:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -886,7 +1135,7 @@
           "sl": 73927.79999999999
         },
         {
-          "candle_index": 6297,
+          "candle_index": 6290,
           "timestamp": "2026-03-18T14:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -915,7 +1164,7 @@
           "sl": 72010.47105
         },
         {
-          "candle_index": 6908,
+          "candle_index": 6901,
           "timestamp": "2026-03-20T17:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -944,7 +1193,7 @@
           "sl": 70085.80559999999
         },
         {
-          "candle_index": 7063,
+          "candle_index": 7056,
           "timestamp": "2026-03-21T06:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -973,7 +1222,7 @@
           "sl": 70437.05494999999
         },
         {
-          "candle_index": 7262,
+          "candle_index": 7255,
           "timestamp": "2026-03-21T22:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1002,7 +1251,7 @@
           "sl": 70642.8771
         },
         {
-          "candle_index": 7994,
+          "candle_index": 7987,
           "timestamp": "2026-03-24T11:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1031,7 +1280,7 @@
           "sl": 71456.7864
         },
         {
-          "candle_index": 8261,
+          "candle_index": 8254,
           "timestamp": "2026-03-25T10:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1060,7 +1309,7 @@
           "sl": 71039.06975000001
         },
         {
-          "candle_index": 8627,
+          "candle_index": 8620,
           "timestamp": "2026-03-26T16:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1089,7 +1338,7 @@
           "sl": 69200.1594
         },
         {
-          "candle_index": 8995,
+          "candle_index": 8988,
           "timestamp": "2026-03-27T23:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1118,7 +1367,7 @@
           "sl": 65770.60445
         },
         {
-          "candle_index": 9498,
+          "candle_index": 9491,
           "timestamp": "2026-03-29T17:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1147,7 +1396,7 @@
           "sl": 66754.46175
         },
         {
-          "candle_index": 9953,
+          "candle_index": 9946,
           "timestamp": "2026-03-31T07:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1176,7 +1425,7 @@
           "sl": 67715.59349999999
         },
         {
-          "candle_index": 10115,
+          "candle_index": 10108,
           "timestamp": "2026-03-31T20:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1205,7 +1454,7 @@
           "sl": 67750.943
         },
         {
-          "candle_index": 10631,
+          "candle_index": 10624,
           "timestamp": "2026-04-02T15:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1234,7 +1483,7 @@
           "sl": 66593.80774999999
         },
         {
-          "candle_index": 10807,
+          "candle_index": 10800,
           "timestamp": "2026-04-03T06:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1263,7 +1512,7 @@
           "sl": 66323.08815
         },
         {
-          "candle_index": 11828,
+          "candle_index": 11821,
           "timestamp": "2026-04-06T19:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1292,7 +1541,7 @@
           "sl": 69470.10399999999
         },
         {
-          "candle_index": 11905,
+          "candle_index": 11898,
           "timestamp": "2026-04-07T01:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1321,7 +1570,7 @@
           "sl": 68892.74999999999
         },
         {
-          "candle_index": 12219,
+          "candle_index": 12212,
           "timestamp": "2026-04-08T03:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1350,7 +1599,7 @@
           "sl": 71643.82694999999
         },
         {
-          "candle_index": 12313,
+          "candle_index": 12306,
           "timestamp": "2026-04-08T11:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1379,7 +1628,7 @@
           "sl": 71884.78574999998
         },
         {
-          "candle_index": 12562,
+          "candle_index": 12555,
           "timestamp": "2026-04-09T08:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1408,7 +1657,7 @@
           "sl": 70728.2019
         },
         {
-          "candle_index": 12666,
+          "candle_index": 12659,
           "timestamp": "2026-04-09T17:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1437,7 +1686,7 @@
           "sl": 72118.83380000001
         },
         {
-          "candle_index": 13188,
+          "candle_index": 13181,
           "timestamp": "2026-04-11T12:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1466,7 +1715,7 @@
           "sl": 72597.91635
         },
         {
-          "candle_index": 13424,
+          "candle_index": 13417,
           "timestamp": "2026-04-12T08:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1495,7 +1744,7 @@
           "sl": 71344.97255
         },
         {
-          "candle_index": 13609,
+          "candle_index": 13602,
           "timestamp": "2026-04-12T23:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1524,7 +1773,7 @@
           "sl": 70947.65339999998
         },
         {
-          "candle_index": 13821,
+          "candle_index": 13814,
           "timestamp": "2026-04-13T17:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1553,7 +1802,7 @@
           "sl": 72081.94915
         },
         {
-          "candle_index": 14049,
+          "candle_index": 14042,
           "timestamp": "2026-04-14T12:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1582,7 +1831,7 @@
           "sl": 74665.01775
         },
         {
-          "candle_index": 14122,
+          "candle_index": 14115,
           "timestamp": "2026-04-14T18:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1611,7 +1860,7 @@
           "sl": 74791.50705
         },
         {
-          "candle_index": 14452,
+          "candle_index": 14445,
           "timestamp": "2026-04-15T22:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1640,7 +1889,7 @@
           "sl": 74624.24380000001
         },
         {
-          "candle_index": 14533,
+          "candle_index": 14526,
           "timestamp": "2026-04-16T04:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1669,7 +1918,7 @@
           "sl": 75200.14004999999
         },
         {
-          "candle_index": 15191,
+          "candle_index": 15184,
           "timestamp": "2026-04-18T11:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1698,7 +1947,7 @@
           "sl": 76205.5923
         },
         {
-          "candle_index": 15904,
+          "candle_index": 15897,
           "timestamp": "2026-04-20T23:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1727,7 +1976,7 @@
           "sl": 76197.49199999998
         },
         {
-          "candle_index": 16725,
+          "candle_index": 16718,
           "timestamp": "2026-04-23T19:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1756,7 +2005,7 @@
           "sl": 77463.34695
         },
         {
-          "candle_index": 17145,
+          "candle_index": 17138,
           "timestamp": "2026-04-25T06:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1785,7 +2034,7 @@
           "sl": 77878.59569999999
         },
         {
-          "candle_index": 17332,
+          "candle_index": 17325,
           "timestamp": "2026-04-25T22:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1814,7 +2063,7 @@
           "sl": 77138.22075000001
         },
         {
-          "candle_index": 18004,
+          "candle_index": 17997,
           "timestamp": "2026-04-28T06:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1843,7 +2092,7 @@
           "sl": 76600.28395000001
         },
         {
-          "candle_index": 18134,
+          "candle_index": 18127,
           "timestamp": "2026-04-28T16:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1872,7 +2121,7 @@
           "sl": 75771.07085
         },
         {
-          "candle_index": 19257,
+          "candle_index": 19250,
           "timestamp": "2026-05-02T14:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1901,7 +2150,7 @@
           "sl": 78028.32784999999
         },
         {
-          "candle_index": 20034,
+          "candle_index": 20027,
           "timestamp": "2026-05-05T07:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1930,7 +2179,7 @@
           "sl": 80590.3832
         },
         {
-          "candle_index": 20470,
+          "candle_index": 20463,
           "timestamp": "2026-05-06T19:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1959,7 +2208,7 @@
           "sl": 81685.62614999998
         },
         {
-          "candle_index": 21009,
+          "candle_index": 21002,
           "timestamp": "2026-05-08T16:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1988,7 +2237,7 @@
           "sl": 80349.74999999999
         },
         {
-          "candle_index": 21358,
+          "candle_index": 21351,
           "timestamp": "2026-05-09T21:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2017,7 +2266,7 @@
           "sl": 81196.4625
         },
         {
-          "candle_index": 21630,
+          "candle_index": 21623,
           "timestamp": "2026-05-10T20:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2046,7 +2295,7 @@
           "sl": 81597.68864999998
         },
         {
-          "candle_index": 21701,
+          "candle_index": 21694,
           "timestamp": "2026-05-11T02:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2075,7 +2324,7 @@
           "sl": 81824.33625
         },
         {
-          "candle_index": 22280,
+          "candle_index": 22273,
           "timestamp": "2026-05-13T02:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2104,7 +2353,7 @@
           "sl": 80815.89994999999
         },
         {
-          "candle_index": 23152,
+          "candle_index": 23145,
           "timestamp": "2026-05-16T03:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2133,7 +2382,7 @@
           "sl": 78760.05085
         },
         {
-          "candle_index": 23412,
+          "candle_index": 23405,
           "timestamp": "2026-05-17T00:40:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2162,7 +2411,7 @@
           "sl": 78531.17235
         },
         {
-          "candle_index": 23661,
+          "candle_index": 23654,
           "timestamp": "2026-05-17T21:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2191,7 +2440,7 @@
           "sl": 78039.3624
         },
         {
-          "candle_index": 23748,
+          "candle_index": 23741,
           "timestamp": "2026-05-18T04:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2220,7 +2469,7 @@
           "sl": 76614.99005000001
         },
         {
-          "candle_index": 23956,
+          "candle_index": 23949,
           "timestamp": "2026-05-18T22:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2249,7 +2498,7 @@
           "sl": 76735.2358
         },
         {
-          "candle_index": 24015,
+          "candle_index": 24008,
           "timestamp": "2026-05-19T02:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2278,7 +2527,7 @@
           "sl": 77000.55734999999
         },
         {
-          "candle_index": 25028,
+          "candle_index": 25021,
           "timestamp": "2026-05-22T15:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2307,7 +2556,7 @@
           "sl": 77011.1601
         },
         {
-          "candle_index": 25129,
+          "candle_index": 25122,
           "timestamp": "2026-05-22T23:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2336,7 +2585,7 @@
           "sl": 75875.59049999999
         },
         {
-          "candle_index": 25378,
+          "candle_index": 25371,
           "timestamp": "2026-05-23T20:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2365,7 +2614,7 @@
           "sl": 75909.25645
         },
         {
-          "candle_index": 26857,
+          "candle_index": 26850,
           "timestamp": "2026-05-28T23:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2394,7 +2643,7 @@
           "sl": 73905.63974999999
         },
         {
-          "candle_index": 27031,
+          "candle_index": 27024,
           "timestamp": "2026-05-29T14:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2423,7 +2672,7 @@
           "sl": 73159.98
         },
         {
-          "candle_index": 27314,
+          "candle_index": 27307,
           "timestamp": "2026-05-30T13:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2452,7 +2701,7 @@
           "sl": 73450.27315
         },
         {
-          "candle_index": 27812,
+          "candle_index": 27805,
           "timestamp": "2026-06-01T07:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2481,7 +2730,7 @@
           "sl": 73345.69394999999
         },
         {
-          "candle_index": 28243,
+          "candle_index": 28236,
           "timestamp": "2026-06-02T19:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2510,7 +2759,7 @@
           "sl": 67519.53809999999
         },
         {
-          "candle_index": 28328,
+          "candle_index": 28321,
           "timestamp": "2026-06-03T02:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2539,7 +2788,7 @@
           "sl": 67013.4
         },
         {
-          "candle_index": 28712,
+          "candle_index": 28705,
           "timestamp": "2026-06-04T10:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2568,7 +2817,7 @@
           "sl": 63091.136249999996
         },
         {
-          "candle_index": 29041,
+          "candle_index": 29034,
           "timestamp": "2026-06-05T13:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2597,7 +2846,7 @@
           "sl": 61601.71482142857
         },
         {
-          "candle_index": 29201,
+          "candle_index": 29194,
           "timestamp": "2026-06-06T03:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2626,7 +2875,7 @@
           "sl": 61118.52224999999
         },
         {
-          "candle_index": 29375,
+          "candle_index": 29368,
           "timestamp": "2026-06-06T17:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2655,7 +2904,7 @@
           "sl": 60954.646949999995
         },
         {
-          "candle_index": 29464,
+          "candle_index": 29457,
           "timestamp": "2026-06-07T01:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2684,7 +2933,7 @@
           "sl": 60759.615300000005
         },
         {
-          "candle_index": 29747,
+          "candle_index": 29740,
           "timestamp": "2026-06-08T00:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2713,7 +2962,7 @@
           "sl": 63498.90005
         },
         {
-          "candle_index": 29776,
+          "candle_index": 29769,
           "timestamp": "2026-06-08T03:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2742,7 +2991,7 @@
           "sl": 63333.100049999994
         },
         {
-          "candle_index": 29850,
+          "candle_index": 29843,
           "timestamp": "2026-06-08T09:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2771,7 +3020,7 @@
           "sl": 63020.513999999996
         },
         {
-          "candle_index": 30019,
+          "candle_index": 30012,
           "timestamp": "2026-06-08T23:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2800,7 +3049,7 @@
           "sl": 63461.729999999996
         },
         {
-          "candle_index": 30186,
+          "candle_index": 30179,
           "timestamp": "2026-06-09T13:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2829,7 +3078,7 @@
           "sl": 62869.39304999999
         },
         {
-          "candle_index": 30722,
+          "candle_index": 30715,
           "timestamp": "2026-06-11T09:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2858,7 +3107,7 @@
           "sl": 62650.2546
         },
         {
-          "candle_index": 31474,
+          "candle_index": 31467,
           "timestamp": "2026-06-14T00:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2887,7 +3136,7 @@
           "sl": 64215.01149999999
         },
         {
-          "candle_index": 32013,
+          "candle_index": 32006,
           "timestamp": "2026-06-15T21:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2916,7 +3165,7 @@
           "sl": 66742.04999999999
         },
         {
-          "candle_index": 32408,
+          "candle_index": 32401,
           "timestamp": "2026-06-17T06:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2945,7 +3194,7 @@
           "sl": 66173.2401
         },
         {
-          "candle_index": 33131,
+          "candle_index": 33124,
           "timestamp": "2026-06-19T18:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2974,7 +3223,7 @@
           "sl": 63306.33689999999
         },
         {
-          "candle_index": 33285,
+          "candle_index": 33278,
           "timestamp": "2026-06-20T07:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3003,7 +3252,7 @@
           "sl": 63473.04
         },
         {
-          "candle_index": 33449,
+          "candle_index": 33442,
           "timestamp": "2026-06-20T21:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3032,7 +3281,7 @@
           "sl": 63616.7578
         },
         {
-          "candle_index": 33869,
+          "candle_index": 33862,
           "timestamp": "2026-06-22T08:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3061,7 +3310,7 @@
           "sl": 63953.426
         },
         {
-          "candle_index": 34668,
+          "candle_index": 34661,
           "timestamp": "2026-06-25T02:40:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3090,7 +3339,7 @@
           "sl": 61070.15159999999
         },
         {
-          "candle_index": 34778,
+          "candle_index": 34771,
           "timestamp": "2026-06-25T11:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3119,7 +3368,7 @@
           "sl": 61475.839949999994
         },
         {
-          "candle_index": 35210,
+          "candle_index": 35203,
           "timestamp": "2026-06-26T23:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3148,7 +3397,7 @@
           "sl": 59789.7689
         },
         {
-          "candle_index": 35574,
+          "candle_index": 35567,
           "timestamp": "2026-06-28T06:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3177,7 +3426,7 @@
           "sl": 60141.220049999996
         },
         {
-          "candle_index": 35687,
+          "candle_index": 35680,
           "timestamp": "2026-06-28T15:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3206,7 +3455,7 @@
           "sl": 60230.10224999999
         },
         {
-          "candle_index": 36116,
+          "candle_index": 36109,
           "timestamp": "2026-06-30T03:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3235,7 +3484,7 @@
           "sl": 60127.15005
         },
         {
-          "candle_index": 36594,
+          "candle_index": 36587,
           "timestamp": "2026-07-01T19:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3264,7 +3513,7 @@
           "sl": 59978.6199
         },
         {
-          "candle_index": 36822,
+          "candle_index": 36815,
           "timestamp": "2026-07-02T14:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3293,7 +3542,7 @@
           "sl": 61771.191999999995
         },
         {
-          "candle_index": 36841,
+          "candle_index": 36834,
           "timestamp": "2026-07-02T15:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3322,7 +3571,7 @@
           "sl": 61917.57764999999
         },
         {
-          "candle_index": 36927,
+          "candle_index": 36920,
           "timestamp": "2026-07-02T22:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3351,7 +3600,7 @@
           "sl": 61772.586299999995
         },
         {
-          "candle_index": 37032,
+          "candle_index": 37025,
           "timestamp": "2026-07-03T07:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3380,7 +3629,7 @@
           "sl": 61513.59645
         },
         {
-          "candle_index": 37084,
+          "candle_index": 37077,
           "timestamp": "2026-07-03T12:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3409,7 +3658,7 @@
           "sl": 61831.29
         },
         {
-          "candle_index": 37175,
+          "candle_index": 37168,
           "timestamp": "2026-07-03T19:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3438,7 +3687,7 @@
           "sl": 61957.4958
         },
         {
-          "candle_index": 37695,
+          "candle_index": 37688,
           "timestamp": "2026-07-05T14:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3467,7 +3716,7 @@
           "sl": 62498.18875
         },
         {
-          "candle_index": 38267,
+          "candle_index": 38260,
           "timestamp": "2026-07-07T14:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3496,7 +3745,7 @@
           "sl": 63202.439999999995
         },
         {
-          "candle_index": 38339,
+          "candle_index": 38332,
           "timestamp": "2026-07-07T20:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3525,7 +3774,7 @@
           "sl": 63972.64184999999
         },
         {
-          "candle_index": 38845,
+          "candle_index": 38838,
           "timestamp": "2026-07-09T14:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3554,7 +3803,7 @@
           "sl": 62645.2199
         },
         {
-          "candle_index": 39024,
+          "candle_index": 39017,
           "timestamp": "2026-07-10T05:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3583,7 +3832,7 @@
           "sl": 63858.473150000005
         },
         {
-          "candle_index": 39085,
+          "candle_index": 39078,
           "timestamp": "2026-07-10T10:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3612,7 +3861,7 @@
           "sl": 64163.1521
         },
         {
-          "candle_index": 39431,
+          "candle_index": 39424,
           "timestamp": "2026-07-11T15:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3641,7 +3890,7 @@
           "sl": 64440.258299999994
         },
         {
-          "candle_index": 39573,
+          "candle_index": 39566,
           "timestamp": "2026-07-12T03:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3670,7 +3919,7 @@
           "sl": 63815.0812
         },
         {
-          "candle_index": 40622,
+          "candle_index": 40615,
           "timestamp": "2026-07-15T18:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3699,7 +3948,7 @@
           "sl": 65238.98205
         },
         {
-          "candle_index": 41159,
+          "candle_index": 41152,
           "timestamp": "2026-07-17T15:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3728,7 +3977,7 @@
           "sl": 62961.22195
         },
         {
-          "candle_index": 41739,
+          "candle_index": 41732,
           "timestamp": "2026-07-19T15:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3757,7 +4006,7 @@
           "sl": 64262.3934
         },
         {
-          "candle_index": 41948,
+          "candle_index": 41941,
           "timestamp": "2026-07-20T09:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3786,7 +4035,7 @@
           "sl": 63841.19
         },
         {
-          "candle_index": 42585,
+          "candle_index": 42578,
           "timestamp": "2026-07-22T14:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3815,7 +4064,7 @@
           "sl": 65952.12
         },
         {
-          "candle_index": 42690,
+          "candle_index": 42683,
           "timestamp": "2026-07-22T23:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3844,7 +4093,7 @@
           "sl": 66221.44995
         },
         {
-          "candle_index": 42738,
+          "candle_index": 42731,
           "timestamp": "2026-07-23T03:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3873,7 +4122,7 @@
           "sl": 65962.15995
         },
         {
-          "candle_index": 43803,
+          "candle_index": 43796,
           "timestamp": "2026-07-26T19:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3902,7 +4151,7 @@
           "sl": 65018.99759999999
         },
         {
-          "candle_index": 44012,
+          "candle_index": 44005,
           "timestamp": "2026-07-27T13:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3931,7 +4180,7 @@
           "sl": 65282.96084999999
         },
         {
-          "candle_index": 44275,
+          "candle_index": 44268,
           "timestamp": "2026-07-28T11:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3960,7 +4209,7 @@
           "sl": 63259.582650000004
         },
         {
-          "candle_index": 44392,
+          "candle_index": 44385,
           "timestamp": "2026-07-28T21:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3989,7 +4238,7 @@
           "sl": 63656.12
         },
         {
-          "candle_index": 44542,
+          "candle_index": 44535,
           "timestamp": "2026-07-29T09:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4018,7 +4267,7 @@
           "sl": 64159.619849999995
         },
         {
-          "candle_index": 44600,
+          "candle_index": 44593,
           "timestamp": "2026-07-29T14:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4047,7 +4296,7 @@
           "sl": 64615.469999999994
         },
         {
-          "candle_index": 44809,
+          "candle_index": 44802,
           "timestamp": "2026-07-30T07:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4076,7 +4325,7 @@
           "sl": 64323.80894999999
         },
         {
-          "candle_index": 44923,
+          "candle_index": 44916,
           "timestamp": "2026-07-30T17:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4105,7 +4354,7 @@
           "sl": 64574.1468
         },
         {
-          "candle_index": 45307,
+          "candle_index": 45300,
           "timestamp": "2026-08-01T01:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4134,7 +4383,7 @@
           "sl": 63265.75499999999
         },
         {
-          "candle_index": 45721,
+          "candle_index": 45714,
           "timestamp": "2026-08-02T11:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4163,7 +4412,7 @@
           "sl": 63419.530049999994
         },
         {
-          "candle_index": 45831,
+          "candle_index": 45824,
           "timestamp": "2026-08-02T20:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4192,7 +4441,7 @@
           "sl": 63177.047399999996
         },
         {
-          "candle_index": 45967,
+          "candle_index": 45960,
           "timestamp": "2026-08-03T08:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4221,7 +4470,7 @@
           "sl": 62803.69619999999
         },
         {
-          "candle_index": 46210,
+          "candle_index": 46203,
           "timestamp": "2026-08-04T04:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4250,7 +4499,7 @@
           "sl": 63569.86345
         },
         {
-          "candle_index": 46258,
+          "candle_index": 46251,
           "timestamp": "2026-08-04T08:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4279,7 +4528,7 @@
           "sl": 63884.975699999995
         },
         {
-          "candle_index": 46671,
+          "candle_index": 46664,
           "timestamp": "2026-08-05T18:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4308,7 +4557,7 @@
           "sl": 64475.1045
         },
         {
-          "candle_index": 46819,
+          "candle_index": 46812,
           "timestamp": "2026-08-06T07:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4337,7 +4586,7 @@
           "sl": 64604.18585
         },
         {
-          "candle_index": 47075,
+          "candle_index": 47068,
           "timestamp": "2026-08-07T04:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4366,7 +4615,7 @@
           "sl": 64597.36994999999
         },
         {
-          "candle_index": 47156,
+          "candle_index": 47149,
           "timestamp": "2026-08-07T11:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4395,7 +4644,7 @@
           "sl": 64812.08115
         },
         {
-          "candle_index": 47922,
+          "candle_index": 47915,
           "timestamp": "2026-08-10T03:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4424,7 +4673,7 @@
           "sl": 65287.613999999994
         },
         {
-          "candle_index": 48166,
+          "candle_index": 48159,
           "timestamp": "2026-08-10T23:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4453,7 +4702,7 @@
           "sl": 64279.81004999999
         },
         {
-          "candle_index": 48692,
+          "candle_index": 48685,
           "timestamp": "2026-08-12T19:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4482,7 +4731,7 @@
           "sl": 63687.56354999999
         },
         {
-          "candle_index": 48870,
+          "candle_index": 48863,
           "timestamp": "2026-08-13T10:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4511,7 +4760,7 @@
           "sl": 63939.16529999999
         },
         {
-          "candle_index": 49948,
+          "candle_index": 49941,
           "timestamp": "2026-08-17T04:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4540,7 +4789,7 @@
           "sl": 63177.54489999999
         },
         {
-          "candle_index": 51131,
+          "candle_index": 51124,
           "timestamp": "2026-08-21T06:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4569,7 +4818,7 @@
           "sl": 75325.55960000001
         },
         {
-          "candle_index": 51261,
+          "candle_index": 51254,
           "timestamp": "2026-08-21T17:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4598,7 +4847,7 @@
           "sl": 77170.8468
         },
         {
-          "candle_index": 51457,
+          "candle_index": 51450,
           "timestamp": "2026-08-22T09:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -4627,7 +4876,7 @@
           "sl": 77365.2015
         },
         {
-          "candle_index": 51835,
+          "candle_index": 51828,
           "timestamp": "2026-08-23T17:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4656,7 +4905,7 @@
           "sl": 76979.17
         },
         {
-          "candle_index": 52266,
+          "candle_index": 52259,
           "timestamp": "2026-08-25T05:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -4688,7 +4937,7 @@
     },
     "15m": {
       "timeframe": "15m",
-      "candles": 17497,
+      "candles": 17495,
       "signals": 58,
       "allocation_pct": 5.0,
       "train": {
@@ -4743,7 +4992,10 @@
               "losses": 47,
               "win_rate_pct": 17.543859649122805,
               "avg_score": 52.63157894736842,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 50.6578947368421,
+              "avg_weighted_confidence_pct": 43.85964912280702,
+              "avg_support_coverage_pct": 43.85964912280702
             }
           ],
           "direction": [
@@ -4754,7 +5006,10 @@
               "losses": 23,
               "win_rate_pct": 23.333333333333332,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 71.45833333333333,
+              "avg_weighted_confidence_pct": 42.916666666666664,
+              "avg_support_coverage_pct": 42.916666666666664
             },
             {
               "group": "SHORT",
@@ -4763,7 +5018,10 @@
               "losses": 24,
               "win_rate_pct": 11.11111111111111,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 27.546296296296298,
+              "avg_weighted_confidence_pct": 44.907407407407405,
+              "avg_support_coverage_pct": 44.907407407407405
             }
           ],
           "regime": [
@@ -4774,7 +5032,10 @@
               "losses": 37,
               "win_rate_pct": 17.77777777777778,
               "avg_score": 48.888888888888886,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 49.166666666666664,
+              "avg_weighted_confidence_pct": 45.55555555555556,
+              "avg_support_coverage_pct": 45.55555555555556
             },
             {
               "group": "TREND_UP",
@@ -4783,7 +5044,10 @@
               "losses": 7,
               "win_rate_pct": 12.5,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 68.75,
+              "avg_weighted_confidence_pct": 37.5,
+              "avg_support_coverage_pct": 37.5
             }
           ],
           "score_bucket": [
@@ -4794,7 +5058,10 @@
               "losses": 24,
               "win_rate_pct": 11.11111111111111,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 27.546296296296298,
+              "avg_weighted_confidence_pct": 44.907407407407405,
+              "avg_support_coverage_pct": 44.907407407407405
             },
             {
               "group": ">=80",
@@ -4803,7 +5070,10 @@
               "losses": 23,
               "win_rate_pct": 23.333333333333332,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 71.45833333333333,
+              "avg_weighted_confidence_pct": 42.916666666666664,
+              "avg_support_coverage_pct": 42.916666666666664
             }
           ],
           "confluence_bucket": [
@@ -4814,7 +5084,10 @@
               "losses": 47,
               "win_rate_pct": 17.543859649122805,
               "avg_score": 52.63157894736842,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 50.6578947368421,
+              "avg_weighted_confidence_pct": 43.85964912280702,
+              "avg_support_coverage_pct": 43.85964912280702
             }
           ],
           "trend": [
@@ -4825,7 +5098,10 @@
               "losses": 24,
               "win_rate_pct": 11.11111111111111,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 27.546296296296298,
+              "avg_weighted_confidence_pct": 44.907407407407405,
+              "avg_support_coverage_pct": 44.907407407407405
             },
             {
               "group": "100.0",
@@ -4834,7 +5110,10 @@
               "losses": 23,
               "win_rate_pct": 23.333333333333332,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 71.45833333333333,
+              "avg_weighted_confidence_pct": 42.916666666666664,
+              "avg_support_coverage_pct": 42.916666666666664
             }
           ],
           "momentum": [
@@ -4845,7 +5124,10 @@
               "losses": 24,
               "win_rate_pct": 11.11111111111111,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 27.546296296296298,
+              "avg_weighted_confidence_pct": 44.907407407407405,
+              "avg_support_coverage_pct": 44.907407407407405
             },
             {
               "group": "100.0",
@@ -4854,7 +5136,10 @@
               "losses": 23,
               "win_rate_pct": 23.333333333333332,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 71.45833333333333,
+              "avg_weighted_confidence_pct": 42.916666666666664,
+              "avg_support_coverage_pct": 42.916666666666664
             }
           ],
           "setup": [
@@ -4865,7 +5150,10 @@
               "losses": 24,
               "win_rate_pct": 11.11111111111111,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 27.546296296296298,
+              "avg_weighted_confidence_pct": 44.907407407407405,
+              "avg_support_coverage_pct": 44.907407407407405
             },
             {
               "group": "100.0",
@@ -4874,7 +5162,100 @@
               "losses": 23,
               "win_rate_pct": 23.333333333333332,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 71.45833333333333,
+              "avg_weighted_confidence_pct": 42.916666666666664,
+              "avg_support_coverage_pct": 42.916666666666664
+            }
+          ],
+          "evidence_score_bucket": [
+            {
+              "group": "<40",
+              "trades": 27,
+              "wins": 3,
+              "losses": 24,
+              "win_rate_pct": 11.11111111111111,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 27.546296296296298,
+              "avg_weighted_confidence_pct": 44.907407407407405,
+              "avg_support_coverage_pct": 44.907407407407405
+            },
+            {
+              "group": "<70",
+              "trades": 24,
+              "wins": 5,
+              "losses": 19,
+              "win_rate_pct": 20.833333333333336,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 68.75,
+              "avg_weighted_confidence_pct": 37.5,
+              "avg_support_coverage_pct": 37.5
+            },
+            {
+              "group": ">=80",
+              "trades": 6,
+              "wins": 2,
+              "losses": 4,
+              "win_rate_pct": 33.33333333333333,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 82.29166666666667,
+              "avg_weighted_confidence_pct": 64.58333333333333,
+              "avg_support_coverage_pct": 64.58333333333333
+            }
+          ],
+          "weighted_confidence_bucket": [
+            {
+              "group": "<40",
+              "trades": 44,
+              "wins": 7,
+              "losses": 37,
+              "win_rate_pct": 15.909090909090908,
+              "avg_score": 54.54545454545455,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 51.70454545454545,
+              "avg_weighted_confidence_pct": 37.5,
+              "avg_support_coverage_pct": 37.5
+            },
+            {
+              "group": "<80",
+              "trades": 13,
+              "wins": 3,
+              "losses": 10,
+              "win_rate_pct": 23.076923076923077,
+              "avg_score": 46.15384615384615,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 47.11538461538461,
+              "avg_weighted_confidence_pct": 65.38461538461539,
+              "avg_support_coverage_pct": 65.38461538461539
+            }
+          ],
+          "support_coverage_bucket": [
+            {
+              "group": "<40",
+              "trades": 44,
+              "wins": 7,
+              "losses": 37,
+              "win_rate_pct": 15.909090909090908,
+              "avg_score": 54.54545454545455,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 51.70454545454545,
+              "avg_weighted_confidence_pct": 37.5,
+              "avg_support_coverage_pct": 37.5
+            },
+            {
+              "group": "<80",
+              "trades": 13,
+              "wins": 3,
+              "losses": 10,
+              "win_rate_pct": 23.076923076923077,
+              "avg_score": 46.15384615384615,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 47.11538461538461,
+              "avg_weighted_confidence_pct": 65.38461538461539,
+              "avg_support_coverage_pct": 65.38461538461539
             }
           ]
         },
@@ -4887,7 +5268,10 @@
               "losses": 16,
               "win_rate_pct": 11.11111111111111,
               "avg_score": 66.66666666666667,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 56.94444444444444,
+              "avg_weighted_confidence_pct": 48.611111111111114,
+              "avg_support_coverage_pct": 48.611111111111114
             }
           ],
           "direction": [
@@ -4898,7 +5282,10 @@
               "losses": 10,
               "win_rate_pct": 16.666666666666664,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 73.4375,
+              "avg_weighted_confidence_pct": 46.875,
+              "avg_support_coverage_pct": 46.875
             },
             {
               "group": "SHORT",
@@ -4907,7 +5294,10 @@
               "losses": 6,
               "win_rate_pct": 0.0,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 23.958333333333332,
+              "avg_weighted_confidence_pct": 52.083333333333336,
+              "avg_support_coverage_pct": 52.083333333333336
             }
           ],
           "regime": [
@@ -4918,7 +5308,10 @@
               "losses": 14,
               "win_rate_pct": 12.5,
               "avg_score": 62.5,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 55.46875,
+              "avg_weighted_confidence_pct": 50.0,
+              "avg_support_coverage_pct": 50.0
             }
           ],
           "score_bucket": [
@@ -4929,7 +5322,10 @@
               "losses": 6,
               "win_rate_pct": 0.0,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 23.958333333333332,
+              "avg_weighted_confidence_pct": 52.083333333333336,
+              "avg_support_coverage_pct": 52.083333333333336
             },
             {
               "group": ">=80",
@@ -4938,7 +5334,10 @@
               "losses": 10,
               "win_rate_pct": 16.666666666666664,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 73.4375,
+              "avg_weighted_confidence_pct": 46.875,
+              "avg_support_coverage_pct": 46.875
             }
           ],
           "confluence_bucket": [
@@ -4949,7 +5348,10 @@
               "losses": 16,
               "win_rate_pct": 11.11111111111111,
               "avg_score": 66.66666666666667,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 56.94444444444444,
+              "avg_weighted_confidence_pct": 48.611111111111114,
+              "avg_support_coverage_pct": 48.611111111111114
             }
           ],
           "trend": [
@@ -4960,7 +5362,10 @@
               "losses": 6,
               "win_rate_pct": 0.0,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 23.958333333333332,
+              "avg_weighted_confidence_pct": 52.083333333333336,
+              "avg_support_coverage_pct": 52.083333333333336
             },
             {
               "group": "100.0",
@@ -4969,7 +5374,10 @@
               "losses": 10,
               "win_rate_pct": 16.666666666666664,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 73.4375,
+              "avg_weighted_confidence_pct": 46.875,
+              "avg_support_coverage_pct": 46.875
             }
           ],
           "momentum": [
@@ -4980,7 +5388,10 @@
               "losses": 6,
               "win_rate_pct": 0.0,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 23.958333333333332,
+              "avg_weighted_confidence_pct": 52.083333333333336,
+              "avg_support_coverage_pct": 52.083333333333336
             },
             {
               "group": "100.0",
@@ -4989,7 +5400,10 @@
               "losses": 10,
               "win_rate_pct": 16.666666666666664,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 73.4375,
+              "avg_weighted_confidence_pct": 46.875,
+              "avg_support_coverage_pct": 46.875
             }
           ],
           "setup": [
@@ -5000,7 +5414,10 @@
               "losses": 6,
               "win_rate_pct": 0.0,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 23.958333333333332,
+              "avg_weighted_confidence_pct": 52.083333333333336,
+              "avg_support_coverage_pct": 52.083333333333336
             },
             {
               "group": "100.0",
@@ -5009,14 +5426,95 @@
               "losses": 10,
               "win_rate_pct": 16.666666666666664,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 73.4375,
+              "avg_weighted_confidence_pct": 46.875,
+              "avg_support_coverage_pct": 46.875
+            }
+          ],
+          "evidence_score_bucket": [
+            {
+              "group": "<40",
+              "trades": 6,
+              "wins": 0,
+              "losses": 6,
+              "win_rate_pct": 0.0,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 23.958333333333332,
+              "avg_weighted_confidence_pct": 52.083333333333336,
+              "avg_support_coverage_pct": 52.083333333333336
+            },
+            {
+              "group": "<70",
+              "trades": 8,
+              "wins": 1,
+              "losses": 7,
+              "win_rate_pct": 12.5,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 68.75,
+              "avg_weighted_confidence_pct": 37.5,
+              "avg_support_coverage_pct": 37.5
+            }
+          ],
+          "weighted_confidence_bucket": [
+            {
+              "group": "<40",
+              "trades": 11,
+              "wins": 1,
+              "losses": 10,
+              "win_rate_pct": 9.090909090909092,
+              "avg_score": 72.72727272727273,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 58.52272727272727,
+              "avg_weighted_confidence_pct": 37.5,
+              "avg_support_coverage_pct": 37.5
+            },
+            {
+              "group": "<80",
+              "trades": 7,
+              "wins": 1,
+              "losses": 6,
+              "win_rate_pct": 14.285714285714285,
+              "avg_score": 57.142857142857146,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 54.464285714285715,
+              "avg_weighted_confidence_pct": 66.07142857142857,
+              "avg_support_coverage_pct": 66.07142857142857
+            }
+          ],
+          "support_coverage_bucket": [
+            {
+              "group": "<40",
+              "trades": 11,
+              "wins": 1,
+              "losses": 10,
+              "win_rate_pct": 9.090909090909092,
+              "avg_score": 72.72727272727273,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 58.52272727272727,
+              "avg_weighted_confidence_pct": 37.5,
+              "avg_support_coverage_pct": 37.5
+            },
+            {
+              "group": "<80",
+              "trades": 7,
+              "wins": 1,
+              "losses": 6,
+              "win_rate_pct": 14.285714285714285,
+              "avg_score": 57.142857142857146,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 54.464285714285715,
+              "avg_weighted_confidence_pct": 66.07142857142857,
+              "avg_support_coverage_pct": 66.07142857142857
             }
           ]
         }
       },
       "records": [
         {
-          "candle_index": 285,
+          "candle_index": 283,
           "timestamp": "2026-02-27T17:00:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5045,7 +5543,7 @@
           "sl": 65856.69357142856
         },
         {
-          "candle_index": 815,
+          "candle_index": 813,
           "timestamp": "2026-03-05T05:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5074,7 +5572,7 @@
           "sl": 72776.72324999998
         },
         {
-          "candle_index": 1092,
+          "candle_index": 1090,
           "timestamp": "2026-03-08T02:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5103,7 +5601,7 @@
           "sl": 67260.06719999999
         },
         {
-          "candle_index": 1304,
+          "candle_index": 1302,
           "timestamp": "2026-03-10T07:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -5132,7 +5630,7 @@
           "sl": 70053.97995
         },
         {
-          "candle_index": 1415,
+          "candle_index": 1413,
           "timestamp": "2026-03-11T11:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5161,7 +5659,7 @@
           "sl": 69794.1948
         },
         {
-          "candle_index": 1612,
+          "candle_index": 1610,
           "timestamp": "2026-03-13T12:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -5190,7 +5688,7 @@
           "sl": 72420.80635
         },
         {
-          "candle_index": 1716,
+          "candle_index": 1714,
           "timestamp": "2026-03-14T14:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5219,7 +5717,7 @@
           "sl": 70952.21609999999
         },
         {
-          "candle_index": 1998,
+          "candle_index": 1996,
           "timestamp": "2026-03-17T13:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5248,7 +5746,7 @@
           "sl": 74083.6353
         },
         {
-          "candle_index": 2062,
+          "candle_index": 2060,
           "timestamp": "2026-03-18T05:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5277,7 +5775,7 @@
           "sl": 74436.6516
         },
         {
-          "candle_index": 2299,
+          "candle_index": 2297,
           "timestamp": "2026-03-20T16:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5306,7 +5804,7 @@
           "sl": 70241.68392857141
         },
         {
-          "candle_index": 2456,
+          "candle_index": 2454,
           "timestamp": "2026-03-22T07:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5335,7 +5833,7 @@
           "sl": 69263.9769
         },
         {
-          "candle_index": 2752,
+          "candle_index": 2750,
           "timestamp": "2026-03-25T09:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -5364,7 +5862,7 @@
           "sl": 70989.18045
         },
         {
-          "candle_index": 3648,
+          "candle_index": 3646,
           "timestamp": "2026-04-03T17:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5393,7 +5891,7 @@
           "sl": 67189.28504999999
         },
         {
-          "candle_index": 3732,
+          "candle_index": 3730,
           "timestamp": "2026-04-04T14:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -5422,7 +5920,7 @@
           "sl": 66879.16380000001
         },
         {
-          "candle_index": 3859,
+          "candle_index": 3857,
           "timestamp": "2026-04-05T22:30:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -5451,7 +5949,7 @@
           "sl": 67624.48845
         },
         {
-          "candle_index": 4316,
+          "candle_index": 4314,
           "timestamp": "2026-04-10T16:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -5480,7 +5978,7 @@
           "sl": 72543.78267857143
         },
         {
-          "candle_index": 4492,
+          "candle_index": 4490,
           "timestamp": "2026-04-12T12:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5509,7 +6007,7 @@
           "sl": 71439.43004999998
         },
         {
-          "candle_index": 4614,
+          "candle_index": 4612,
           "timestamp": "2026-04-13T19:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -5538,7 +6036,7 @@
           "sl": 72489.32205
         },
         {
-          "candle_index": 5383,
+          "candle_index": 5381,
           "timestamp": "2026-04-21T19:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5567,7 +6065,7 @@
           "sl": 75318.19196428571
         },
         {
-          "candle_index": 6213,
+          "candle_index": 6211,
           "timestamp": "2026-04-30T11:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -5596,7 +6094,7 @@
           "sl": 75769.71765
         },
         {
-          "candle_index": 6895,
+          "candle_index": 6893,
           "timestamp": "2026-05-07T13:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5625,7 +6123,7 @@
           "sl": 80975.26199999999
         },
         {
-          "candle_index": 7172,
+          "candle_index": 7170,
           "timestamp": "2026-05-10T10:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -5654,7 +6152,7 @@
           "sl": 80469.42104999999
         },
         {
-          "candle_index": 7382,
+          "candle_index": 7380,
           "timestamp": "2026-05-12T15:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5683,7 +6181,7 @@
           "sl": 80623.10999999999
         },
         {
-          "candle_index": 7420,
+          "candle_index": 7418,
           "timestamp": "2026-05-13T00:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -5712,7 +6210,7 @@
           "sl": 80314.41
         },
         {
-          "candle_index": 7647,
+          "candle_index": 7645,
           "timestamp": "2026-05-15T09:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5741,7 +6239,7 @@
           "sl": 80822.09999999999
         },
         {
-          "candle_index": 8154,
+          "candle_index": 8152,
           "timestamp": "2026-05-20T16:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5770,7 +6268,7 @@
           "sl": 77473.43999999999
         },
         {
-          "candle_index": 8166,
+          "candle_index": 8164,
           "timestamp": "2026-05-20T19:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -5799,7 +6297,7 @@
           "sl": 77174.89645
         },
         {
-          "candle_index": 8771,
+          "candle_index": 8769,
           "timestamp": "2026-05-27T02:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5828,7 +6326,7 @@
           "sl": 76123.62449999999
         },
         {
-          "candle_index": 8831,
+          "candle_index": 8829,
           "timestamp": "2026-05-27T17:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5857,7 +6355,7 @@
           "sl": 75282.54
         },
         {
-          "candle_index": 9288,
+          "candle_index": 9286,
           "timestamp": "2026-06-01T11:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5886,7 +6384,7 @@
           "sl": 72842.38995
         },
         {
-          "candle_index": 9474,
+          "candle_index": 9472,
           "timestamp": "2026-06-03T10:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -5915,7 +6413,7 @@
           "sl": 66981.41
         },
         {
-          "candle_index": 9814,
+          "candle_index": 9812,
           "timestamp": "2026-06-06T23:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -5944,7 +6442,7 @@
           "sl": 60410.0121
         },
         {
-          "candle_index": 10111,
+          "candle_index": 10109,
           "timestamp": "2026-06-10T01:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -5973,7 +6471,7 @@
           "sl": 61947.084449999995
         },
         {
-          "candle_index": 10245,
+          "candle_index": 10243,
           "timestamp": "2026-06-11T11:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -6002,7 +6500,7 @@
           "sl": 62873.960450000006
         },
         {
-          "candle_index": 10314,
+          "candle_index": 10312,
           "timestamp": "2026-06-12T04:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -6031,7 +6529,7 @@
           "sl": 63478.522450000004
         },
         {
-          "candle_index": 10418,
+          "candle_index": 10416,
           "timestamp": "2026-06-13T06:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -6060,7 +6558,7 @@
           "sl": 63361.59005
         },
         {
-          "candle_index": 10981,
+          "candle_index": 10979,
           "timestamp": "2026-06-19T03:00:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -6089,7 +6587,7 @@
           "sl": 63048.54435
         },
         {
-          "candle_index": 11110,
+          "candle_index": 11108,
           "timestamp": "2026-06-20T11:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -6118,7 +6616,7 @@
           "sl": 63381.5
         },
         {
-          "candle_index": 11280,
+          "candle_index": 11278,
           "timestamp": "2026-06-22T05:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -6147,7 +6645,7 @@
           "sl": 63926.501299999996
         },
         {
-          "candle_index": 11880,
+          "candle_index": 11878,
           "timestamp": "2026-06-28T11:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -6176,7 +6674,7 @@
           "sl": 60040.29
         },
         {
-          "candle_index": 12122,
+          "candle_index": 12120,
           "timestamp": "2026-07-01T00:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -6205,7 +6703,7 @@
           "sl": 58685.969999999994
         },
         {
-          "candle_index": 12254,
+          "candle_index": 12252,
           "timestamp": "2026-07-02T09:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -6234,7 +6732,7 @@
           "sl": 60301.88545
         },
         {
-          "candle_index": 12757,
+          "candle_index": 12755,
           "timestamp": "2026-07-07T15:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -6263,7 +6761,7 @@
           "sl": 63116.505535714285
         },
         {
-          "candle_index": 13461,
+          "candle_index": 13459,
           "timestamp": "2026-07-14T23:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -6292,7 +6790,7 @@
           "sl": 64694.9
         },
         {
-          "candle_index": 13506,
+          "candle_index": 13504,
           "timestamp": "2026-07-15T10:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -6321,7 +6819,7 @@
           "sl": 64959.36089999999
         },
         {
-          "candle_index": 13650,
+          "candle_index": 13648,
           "timestamp": "2026-07-16T22:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -6350,7 +6848,7 @@
           "sl": 64340.089949999994
         },
         {
-          "candle_index": 13960,
+          "candle_index": 13958,
           "timestamp": "2026-07-20T03:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -6379,7 +6877,7 @@
           "sl": 64545.451
         },
         {
-          "candle_index": 14005,
+          "candle_index": 14003,
           "timestamp": "2026-07-20T15:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -6408,7 +6906,7 @@
           "sl": 64634.478571428575
         },
         {
-          "candle_index": 14577,
+          "candle_index": 14575,
           "timestamp": "2026-07-26T14:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -6437,7 +6935,7 @@
           "sl": 64386.4102
         },
         {
-          "candle_index": 14938,
+          "candle_index": 14936,
           "timestamp": "2026-07-30T08:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -6466,7 +6964,7 @@
           "sl": 63946.659999999996
         },
         {
-          "candle_index": 15442,
+          "candle_index": 15440,
           "timestamp": "2026-08-04T14:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -6495,7 +6993,7 @@
           "sl": 63568.07245
         },
         {
-          "candle_index": 15981,
+          "candle_index": 15979,
           "timestamp": "2026-08-10T05:00:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -6524,7 +7022,7 @@
           "sl": 65312.52794999999
         },
         {
-          "candle_index": 16312,
+          "candle_index": 16310,
           "timestamp": "2026-08-13T15:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -6553,7 +7051,7 @@
           "sl": 63737.110049999996
         },
         {
-          "candle_index": 16689,
+          "candle_index": 16687,
           "timestamp": "2026-08-17T14:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -6582,7 +7080,7 @@
           "sl": 63380.9229
         },
         {
-          "candle_index": 17124,
+          "candle_index": 17122,
           "timestamp": "2026-08-22T02:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -6611,7 +7109,7 @@
           "sl": 78048.62142857142
         },
         {
-          "candle_index": 17220,
+          "candle_index": 17218,
           "timestamp": "2026-08-23T02:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -6640,7 +7138,7 @@
           "sl": 77464.8573
         },
         {
-          "candle_index": 17293,
+          "candle_index": 17291,
           "timestamp": "2026-08-23T21:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -6669,7 +7167,7 @@
           "sl": 77309.19159999999
         },
         {
-          "candle_index": 17400,
+          "candle_index": 17398,
           "timestamp": "2026-08-24T23:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -6701,7 +7199,7 @@
     },
     "1h": {
       "timeframe": "1h",
-      "candles": 4374,
+      "candles": 4373,
       "signals": 20,
       "allocation_pct": 5.0,
       "train": {
@@ -6756,7 +7254,10 @@
               "losses": 18,
               "win_rate_pct": 10.0,
               "avg_score": 60.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 53.4375,
+              "avg_weighted_confidence_pct": 44.375,
+              "avg_support_coverage_pct": 44.375
             }
           ],
           "direction": [
@@ -6767,7 +7268,10 @@
               "losses": 10,
               "win_rate_pct": 16.666666666666664,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 71.35416666666667,
+              "avg_weighted_confidence_pct": 42.708333333333336,
+              "avg_support_coverage_pct": 42.708333333333336
             },
             {
               "group": "SHORT",
@@ -6776,7 +7280,10 @@
               "losses": 8,
               "win_rate_pct": 0.0,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 26.5625,
+              "avg_weighted_confidence_pct": 46.875,
+              "avg_support_coverage_pct": 46.875
             }
           ],
           "regime": [
@@ -6787,7 +7294,10 @@
               "losses": 7,
               "win_rate_pct": 0.0,
               "avg_score": 42.857142857142854,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 48.214285714285715,
+              "avg_weighted_confidence_pct": 53.57142857142857,
+              "avg_support_coverage_pct": 53.57142857142857
             },
             {
               "group": "TREND_UP",
@@ -6796,7 +7306,10 @@
               "losses": 7,
               "win_rate_pct": 22.22222222222222,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 68.75,
+              "avg_weighted_confidence_pct": 37.5,
+              "avg_support_coverage_pct": 37.5
             }
           ],
           "score_bucket": [
@@ -6807,7 +7320,10 @@
               "losses": 8,
               "win_rate_pct": 0.0,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 26.5625,
+              "avg_weighted_confidence_pct": 46.875,
+              "avg_support_coverage_pct": 46.875
             },
             {
               "group": ">=80",
@@ -6816,7 +7332,10 @@
               "losses": 10,
               "win_rate_pct": 16.666666666666664,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 71.35416666666667,
+              "avg_weighted_confidence_pct": 42.708333333333336,
+              "avg_support_coverage_pct": 42.708333333333336
             }
           ],
           "confluence_bucket": [
@@ -6827,7 +7346,10 @@
               "losses": 18,
               "win_rate_pct": 10.0,
               "avg_score": 60.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 53.4375,
+              "avg_weighted_confidence_pct": 44.375,
+              "avg_support_coverage_pct": 44.375
             }
           ],
           "trend": [
@@ -6838,7 +7360,10 @@
               "losses": 8,
               "win_rate_pct": 0.0,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 26.5625,
+              "avg_weighted_confidence_pct": 46.875,
+              "avg_support_coverage_pct": 46.875
             },
             {
               "group": "100.0",
@@ -6847,7 +7372,10 @@
               "losses": 10,
               "win_rate_pct": 16.666666666666664,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 71.35416666666667,
+              "avg_weighted_confidence_pct": 42.708333333333336,
+              "avg_support_coverage_pct": 42.708333333333336
             }
           ],
           "momentum": [
@@ -6858,7 +7386,10 @@
               "losses": 8,
               "win_rate_pct": 0.0,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 26.5625,
+              "avg_weighted_confidence_pct": 46.875,
+              "avg_support_coverage_pct": 46.875
             },
             {
               "group": "100.0",
@@ -6867,7 +7398,10 @@
               "losses": 10,
               "win_rate_pct": 16.666666666666664,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 71.35416666666667,
+              "avg_weighted_confidence_pct": 42.708333333333336,
+              "avg_support_coverage_pct": 42.708333333333336
             }
           ],
           "setup": [
@@ -6878,7 +7412,10 @@
               "losses": 8,
               "win_rate_pct": 0.0,
               "avg_score": 0.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 26.5625,
+              "avg_weighted_confidence_pct": 46.875,
+              "avg_support_coverage_pct": 46.875
             },
             {
               "group": "100.0",
@@ -6887,7 +7424,88 @@
               "losses": 10,
               "win_rate_pct": 16.666666666666664,
               "avg_score": 100.0,
-              "avg_confluence": 100.0
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 71.35416666666667,
+              "avg_weighted_confidence_pct": 42.708333333333336,
+              "avg_support_coverage_pct": 42.708333333333336
+            }
+          ],
+          "evidence_score_bucket": [
+            {
+              "group": "<40",
+              "trades": 8,
+              "wins": 0,
+              "losses": 8,
+              "win_rate_pct": 0.0,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 26.5625,
+              "avg_weighted_confidence_pct": 46.875,
+              "avg_support_coverage_pct": 46.875
+            },
+            {
+              "group": "<70",
+              "trades": 10,
+              "wins": 2,
+              "losses": 8,
+              "win_rate_pct": 20.0,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 68.75,
+              "avg_weighted_confidence_pct": 37.5,
+              "avg_support_coverage_pct": 37.5
+            }
+          ],
+          "weighted_confidence_bucket": [
+            {
+              "group": "<40",
+              "trades": 15,
+              "wins": 2,
+              "losses": 13,
+              "win_rate_pct": 13.333333333333334,
+              "avg_score": 66.66666666666667,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 56.25,
+              "avg_weighted_confidence_pct": 37.5,
+              "avg_support_coverage_pct": 37.5
+            },
+            {
+              "group": "<80",
+              "trades": 5,
+              "wins": 0,
+              "losses": 5,
+              "win_rate_pct": 0.0,
+              "avg_score": 40.0,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 45.0,
+              "avg_weighted_confidence_pct": 65.0,
+              "avg_support_coverage_pct": 65.0
+            }
+          ],
+          "support_coverage_bucket": [
+            {
+              "group": "<40",
+              "trades": 15,
+              "wins": 2,
+              "losses": 13,
+              "win_rate_pct": 13.333333333333334,
+              "avg_score": 66.66666666666667,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 56.25,
+              "avg_weighted_confidence_pct": 37.5,
+              "avg_support_coverage_pct": 37.5
+            },
+            {
+              "group": "<80",
+              "trades": 5,
+              "wins": 0,
+              "losses": 5,
+              "win_rate_pct": 0.0,
+              "avg_score": 40.0,
+              "avg_confluence": 100.0,
+              "avg_evidence_score": 45.0,
+              "avg_weighted_confidence_pct": 65.0,
+              "avg_support_coverage_pct": 65.0
             }
           ]
         },
@@ -6899,12 +7517,15 @@
           "confluence_bucket": [],
           "trend": [],
           "momentum": [],
-          "setup": []
+          "setup": [],
+          "evidence_score_bucket": [],
+          "weighted_confidence_bucket": [],
+          "support_coverage_bucket": []
         }
       },
       "records": [
         {
-          "candle_index": 129,
+          "candle_index": 128,
           "timestamp": "2026-03-02T03:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -6933,7 +7554,7 @@
           "sl": 66151.8297
         },
         {
-          "candle_index": 135,
+          "candle_index": 134,
           "timestamp": "2026-03-02T09:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -6962,7 +7583,7 @@
           "sl": 66830.30619999999
         },
         {
-          "candle_index": 274,
+          "candle_index": 273,
           "timestamp": "2026-03-08T04:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -6991,7 +7612,7 @@
           "sl": 67055.87875
         },
         {
-          "candle_index": 318,
+          "candle_index": 317,
           "timestamp": "2026-03-10T00:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -7020,7 +7641,7 @@
           "sl": 68465.7963
         },
         {
-          "candle_index": 626,
+          "candle_index": 625,
           "timestamp": "2026-03-22T20:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -7049,7 +7670,7 @@
           "sl": 68652.76982142858
         },
         {
-          "candle_index": 664,
+          "candle_index": 663,
           "timestamp": "2026-03-24T10:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -7078,7 +7699,7 @@
           "sl": 70720.6825
         },
         {
-          "candle_index": 788,
+          "candle_index": 787,
           "timestamp": "2026-03-29T14:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -7107,7 +7728,7 @@
           "sl": 66923.61321428572
         },
         {
-          "candle_index": 1075,
+          "candle_index": 1074,
           "timestamp": "2026-04-10T13:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -7136,7 +7757,7 @@
           "sl": 71842.19732142857
         },
         {
-          "candle_index": 1410,
+          "candle_index": 1409,
           "timestamp": "2026-04-24T12:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -7165,7 +7786,7 @@
           "sl": 77751.95910714286
         },
         {
-          "candle_index": 1505,
+          "candle_index": 1504,
           "timestamp": "2026-04-28T11:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -7194,7 +7815,7 @@
           "sl": 76679.29017857142
         },
         {
-          "candle_index": 1695,
+          "candle_index": 1694,
           "timestamp": "2026-05-06T09:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -7223,7 +7844,7 @@
           "sl": 81447.16785714285
         },
         {
-          "candle_index": 2156,
+          "candle_index": 2155,
           "timestamp": "2026-05-25T14:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -7252,7 +7873,7 @@
           "sl": 77325.43
         },
         {
-          "candle_index": 2309,
+          "candle_index": 2308,
           "timestamp": "2026-05-31T23:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -7281,7 +7902,7 @@
           "sl": 74042.76194999999
         },
         {
-          "candle_index": 2311,
+          "candle_index": 2310,
           "timestamp": "2026-06-01T01:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -7310,7 +7931,7 @@
           "sl": 73686.9575
         },
         {
-          "candle_index": 2567,
+          "candle_index": 2566,
           "timestamp": "2026-06-11T17:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -7339,7 +7960,7 @@
           "sl": 63115.245357142856
         },
         {
-          "candle_index": 2780,
+          "candle_index": 2779,
           "timestamp": "2026-06-20T14:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -7368,7 +7989,7 @@
           "sl": 63579.33660714286
         },
         {
-          "candle_index": 3096,
+          "candle_index": 3095,
           "timestamp": "2026-07-03T18:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -7397,7 +8018,7 @@
           "sl": 61807.00375
         },
         {
-          "candle_index": 3902,
+          "candle_index": 3901,
           "timestamp": "2026-08-06T08:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -7426,7 +8047,7 @@
           "sl": 64617.28005
         },
         {
-          "candle_index": 4077,
+          "candle_index": 4076,
           "timestamp": "2026-08-13T15:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -7455,7 +8076,7 @@
           "sl": 63737.110049999996
         },
         {
-          "candle_index": 4238,
+          "candle_index": 4237,
           "timestamp": "2026-08-20T08:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
