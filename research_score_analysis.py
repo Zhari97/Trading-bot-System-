@@ -131,7 +131,8 @@ def analyze_records(records: list[dict]) -> dict:
         value for value in partition_lifts.values() if value is not None and value > 0
     ]
     oos_lift = partition_lifts.get("oos")
-    if stable_flags and all(stable_flags) and oos_lift is not None and oos_lift > 0:
+    all_partitions_covered = len(stable_flags) == len(PARTITIONS)
+    if all_partitions_covered and all(stable_flags) and oos_lift is not None and oos_lift > 0:
         research_status = "STABLE_SIGNAL_RELATIONSHIP"
     elif oos_lift is not None and oos_lift > 0:
         research_status = "PROMISING_BUT_UNSTABLE"
