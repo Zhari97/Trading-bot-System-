@@ -1,7 +1,7 @@
-"""Executable first-pass historical replay using the production signal engine.
+"""Executable historical replay using the production signal engine.
 
-Research-only. Builds indicators once per timeframe, then moves the engine's
-candle index forward so the six-month replay is computationally tractable.
+Research-only. One simulated position at a time per timeframe, with the
+configured 5% account allocation used for portfolio metrics.
 """
 from __future__ import annotations
 
@@ -11,6 +11,7 @@ from pathlib import Path
 
 from historical_data import load_six_months
 from historical_replay import evaluate_forward_result
+from research_config import HISTORICAL_DAYS, TRADE_PLAN
 from research_metrics import summarize
 from signal_engine_replay_adapter_fast import analyze_context_at
 from signal_engine import ContestoMercato
@@ -22,35 +23,46 @@ OUT = Path("backtest_results.json")
 def replay_timeframe(candles: list[dict], timeframe: str) -> dict:
     ctx = ContestoMercato(candles)
     records: list[dict] = []
+    next_free_index = 60
+
     for i in range(60, len(candles) - 1):
+        if i < next_free_index:
+            continue
         analysis = analyze_context_at(ctx, i)
         if not analysis or analysis["classificazione"].get("livello") != "FORTE":
             continue
         plan = analysis.get("trade_plan")
         if not plan:
             continue
+
         future = candles[i + 1:min(i + 1 + 500, len(candles))]
         result = evaluate_forward_result({
             "direction": plan["direction"],
             "entry": plan["entry"],
             "stop_loss": plan["stop_loss"],
+            "take_profit": plan["take_profit"],
         }, future)
-        if result:
-            row = {
-                "candle_index": i,
-                "timestamp": candles[i].get("timestamp"),
-                "timeframe": timeframe,
-                "direction": plan["direction"],
-                "entry": plan["entry"],
-                "stop_loss": plan["stop_loss"],
-                "take_profit": plan["take_profit"],
-                "score": analysis["score"],
-                "confluence": analysis["confluenza"],
-            }
-            row.update(result)
-            records.append(row)
+        if not result:
+            continue
 
-    # Split by TIME, not by signal count: 50% / 16.7% / 33.3% of candles.
+        row = {
+            "candle_index": i,
+            "timestamp": candles[i].get("timestamp"),
+            "timeframe": timeframe,
+            "direction": plan["direction"],
+            "entry": plan["entry"],
+            "stop_loss": plan["stop_loss"],
+            "take_profit": plan["take_profit"],
+            "score": analysis["score"],
+            "confluence": analysis["confluenza"],
+            "allocation_pct": float(TRADE_PLAN["max_account_allocation_pct"]),
+        }
+        row.update(result)
+        records.append(row)
+
+        # Do not count overlapping positions as independent full-size trades.
+        next_free_index = i + max(1, int(result.get("bars", 1))) + 1
+
     train_end = int(len(candles) * 0.50)
     validation_end = int(len(candles) * (0.50 + 1 / 6))
     partitions = {
@@ -58,13 +70,15 @@ def replay_timeframe(candles: list[dict], timeframe: str) -> dict:
         "validation": [r for r in records if train_end <= r["candle_index"] < validation_end],
         "oos": [r for r in records if r["candle_index"] >= validation_end],
     }
+    allocation = float(TRADE_PLAN["max_account_allocation_pct"])
     return {
         "timeframe": timeframe,
         "candles": len(candles),
         "signals": len(records),
-        "train": summarize(partitions["train"]),
-        "validation": summarize(partitions["validation"]),
-        "oos": summarize(partitions["oos"]),
+        "allocation_pct": allocation,
+        "train": summarize(partitions["train"], allocation),
+        "validation": summarize(partitions["validation"], allocation),
+        "oos": summarize(partitions["oos"], allocation),
         "records": records,
     }
 
@@ -75,8 +89,9 @@ def main() -> None:
     results = {
         "generated_at": end.isoformat(),
         "symbol": SYMBOL,
-        "history_days": 183,
-        "tp_pct": 5.0,
+        "history_days": HISTORICAL_DAYS,
+        "tp_pct": float(TRADE_PLAN["take_profit_pct"]),
+        "allocation_pct": float(TRADE_PLAN["max_account_allocation_pct"]),
         "timeframes": {},
     }
     for timeframe, candles in datasets.items():
