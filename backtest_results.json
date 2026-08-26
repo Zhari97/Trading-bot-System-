@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T14:35:56.000769+00:00",
+  "generated_at": "2026-08-26T17:32:37.653404+00:00",
   "symbol": "BTCUSDT",
   "history_days": 183,
   "tp_pct": 5.0,
@@ -7,7 +7,7 @@
   "timeframes": {
     "5m": {
       "timeframe": "5m",
-      "candles": 52528,
+      "candles": 52493,
       "signals": 150,
       "allocation_pct": 5.0,
       "train": {
@@ -52,9 +52,290 @@
         "allocation_pct": 5.0,
         "avg_bars_held": 66.87234042553192
       },
+      "analytics": {
+        "all": {
+          "timeframe": [
+            {
+              "group": "5m",
+              "trades": 137,
+              "wins": 4,
+              "losses": 133,
+              "win_rate_pct": 2.9197080291970803,
+              "avg_score": 45.98540145985402,
+              "avg_confluence": 100.0
+            }
+          ],
+          "direction": [
+            {
+              "group": "LONG",
+              "trades": 63,
+              "wins": 2,
+              "losses": 61,
+              "win_rate_pct": 3.1746031746031744,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "SHORT",
+              "trades": 74,
+              "wins": 2,
+              "losses": 72,
+              "win_rate_pct": 2.7027027027027026,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "regime": [
+            {
+              "group": "RANGE",
+              "trades": 127,
+              "wins": 4,
+              "losses": 123,
+              "win_rate_pct": 3.149606299212598,
+              "avg_score": 44.09448818897638,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "TREND_UP",
+              "trades": 7,
+              "wins": 0,
+              "losses": 7,
+              "win_rate_pct": 0.0,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "score_bucket": [
+            {
+              "group": "<40",
+              "trades": 74,
+              "wins": 2,
+              "losses": 72,
+              "win_rate_pct": 2.7027027027027026,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": ">=80",
+              "trades": 63,
+              "wins": 2,
+              "losses": 61,
+              "win_rate_pct": 3.1746031746031744,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "confluence_bucket": [
+            {
+              "group": ">=90",
+              "trades": 137,
+              "wins": 4,
+              "losses": 133,
+              "win_rate_pct": 2.9197080291970803,
+              "avg_score": 45.98540145985402,
+              "avg_confluence": 100.0
+            }
+          ],
+          "trend": [
+            {
+              "group": "0.0",
+              "trades": 74,
+              "wins": 2,
+              "losses": 72,
+              "win_rate_pct": 2.7027027027027026,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "100.0",
+              "trades": 63,
+              "wins": 2,
+              "losses": 61,
+              "win_rate_pct": 3.1746031746031744,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "momentum": [
+            {
+              "group": "0.0",
+              "trades": 74,
+              "wins": 2,
+              "losses": 72,
+              "win_rate_pct": 2.7027027027027026,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "100.0",
+              "trades": 63,
+              "wins": 2,
+              "losses": 61,
+              "win_rate_pct": 3.1746031746031744,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "setup": [
+            {
+              "group": "0.0",
+              "trades": 74,
+              "wins": 2,
+              "losses": 72,
+              "win_rate_pct": 2.7027027027027026,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "100.0",
+              "trades": 63,
+              "wins": 2,
+              "losses": 61,
+              "win_rate_pct": 3.1746031746031744,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ]
+        },
+        "oos": {
+          "timeframe": [
+            {
+              "group": "5m",
+              "trades": 47,
+              "wins": 0,
+              "losses": 47,
+              "win_rate_pct": 0.0,
+              "avg_score": 51.06382978723404,
+              "avg_confluence": 100.0
+            }
+          ],
+          "direction": [
+            {
+              "group": "LONG",
+              "trades": 24,
+              "wins": 0,
+              "losses": 24,
+              "win_rate_pct": 0.0,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "SHORT",
+              "trades": 23,
+              "wins": 0,
+              "losses": 23,
+              "win_rate_pct": 0.0,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "regime": [
+            {
+              "group": "RANGE",
+              "trades": 45,
+              "wins": 0,
+              "losses": 45,
+              "win_rate_pct": 0.0,
+              "avg_score": 48.888888888888886,
+              "avg_confluence": 100.0
+            }
+          ],
+          "score_bucket": [
+            {
+              "group": "<40",
+              "trades": 23,
+              "wins": 0,
+              "losses": 23,
+              "win_rate_pct": 0.0,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": ">=80",
+              "trades": 24,
+              "wins": 0,
+              "losses": 24,
+              "win_rate_pct": 0.0,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "confluence_bucket": [
+            {
+              "group": ">=90",
+              "trades": 47,
+              "wins": 0,
+              "losses": 47,
+              "win_rate_pct": 0.0,
+              "avg_score": 51.06382978723404,
+              "avg_confluence": 100.0
+            }
+          ],
+          "trend": [
+            {
+              "group": "0.0",
+              "trades": 23,
+              "wins": 0,
+              "losses": 23,
+              "win_rate_pct": 0.0,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "100.0",
+              "trades": 24,
+              "wins": 0,
+              "losses": 24,
+              "win_rate_pct": 0.0,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "momentum": [
+            {
+              "group": "0.0",
+              "trades": 23,
+              "wins": 0,
+              "losses": 23,
+              "win_rate_pct": 0.0,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "100.0",
+              "trades": 24,
+              "wins": 0,
+              "losses": 24,
+              "win_rate_pct": 0.0,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "setup": [
+            {
+              "group": "0.0",
+              "trades": 23,
+              "wins": 0,
+              "losses": 23,
+              "win_rate_pct": 0.0,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "100.0",
+              "trades": 24,
+              "wins": 0,
+              "losses": 24,
+              "win_rate_pct": 0.0,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ]
+        }
+      },
       "records": [
         {
-          "candle_index": 291,
+          "candle_index": 256,
           "timestamp": "2026-02-25T14:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -66,6 +347,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 311,
@@ -74,7 +356,7 @@
           "sl": 66638.334
         },
         {
-          "candle_index": 680,
+          "candle_index": 645,
           "timestamp": "2026-02-26T23:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -86,6 +368,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 12,
@@ -94,7 +377,7 @@
           "sl": 67232.35895000001
         },
         {
-          "candle_index": 1172,
+          "candle_index": 1137,
           "timestamp": "2026-02-28T16:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -106,6 +389,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -114,7 +398,7 @@
           "sl": 64666.19425
         },
         {
-          "candle_index": 2164,
+          "candle_index": 2129,
           "timestamp": "2026-03-04T03:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -126,6 +410,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 42,
@@ -134,7 +419,7 @@
           "sl": 68478.94124999999
         },
         {
-          "candle_index": 2591,
+          "candle_index": 2556,
           "timestamp": "2026-03-05T14:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -146,6 +431,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 4,
@@ -154,7 +440,7 @@
           "sl": 72573.81374999999
         },
         {
-          "candle_index": 2654,
+          "candle_index": 2619,
           "timestamp": "2026-03-05T19:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -166,6 +452,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 6,
@@ -174,7 +461,7 @@
           "sl": 71290.53929999999
         },
         {
-          "candle_index": 2842,
+          "candle_index": 2807,
           "timestamp": "2026-03-06T11:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -186,6 +473,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 389,
@@ -194,7 +482,7 @@
           "sl": 70837.10339999999
         },
         {
-          "candle_index": 3280,
+          "candle_index": 3245,
           "timestamp": "2026-03-08T00:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -206,6 +494,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 34,
@@ -214,7 +503,7 @@
           "sl": 67055.50765
         },
         {
-          "candle_index": 3438,
+          "candle_index": 3403,
           "timestamp": "2026-03-08T13:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -226,6 +515,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 9,
@@ -234,7 +524,7 @@
           "sl": 67308.9705
         },
         {
-          "candle_index": 3969,
+          "candle_index": 3934,
           "timestamp": "2026-03-10T09:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -246,6 +536,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -254,7 +545,7 @@
           "sl": 70871.86
         },
         {
-          "candle_index": 4153,
+          "candle_index": 4118,
           "timestamp": "2026-03-11T00:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -266,6 +557,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 22,
@@ -274,7 +566,7 @@
           "sl": 69623.3738
         },
         {
-          "candle_index": 4258,
+          "candle_index": 4223,
           "timestamp": "2026-03-11T09:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -286,6 +578,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 44,
@@ -294,7 +587,7 @@
           "sl": 69868.61505
         },
         {
-          "candle_index": 4496,
+          "candle_index": 4461,
           "timestamp": "2026-03-12T05:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -306,6 +599,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 24,
@@ -314,7 +608,7 @@
           "sl": 69615.7269
         },
         {
-          "candle_index": 4785,
+          "candle_index": 4750,
           "timestamp": "2026-03-13T05:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -326,6 +620,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 149,
@@ -334,7 +629,7 @@
           "sl": 71056.731
         },
         {
-          "candle_index": 5102,
+          "candle_index": 5067,
           "timestamp": "2026-03-14T07:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -346,6 +641,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 65,
@@ -354,7 +650,7 @@
           "sl": 70866.70065
         },
         {
-          "candle_index": 5176,
+          "candle_index": 5141,
           "timestamp": "2026-03-14T14:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -366,6 +662,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 11,
@@ -374,7 +671,7 @@
           "sl": 70586.45420000001
         },
         {
-          "candle_index": 5251,
+          "candle_index": 5216,
           "timestamp": "2026-03-14T20:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -386,6 +683,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 377,
@@ -394,7 +692,7 @@
           "sl": 70388.45915
         },
         {
-          "candle_index": 5732,
+          "candle_index": 5697,
           "timestamp": "2026-03-16T12:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -406,6 +704,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 26,
@@ -414,7 +713,7 @@
           "sl": 73393.02085
         },
         {
-          "candle_index": 6038,
+          "candle_index": 6003,
           "timestamp": "2026-03-17T13:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -426,6 +725,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 7,
@@ -434,7 +734,7 @@
           "sl": 73927.79999999999
         },
         {
-          "candle_index": 6333,
+          "candle_index": 6298,
           "timestamp": "2026-03-18T14:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -446,6 +746,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "TREND_DOWN",
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -454,7 +755,7 @@
           "sl": 72010.47105
         },
         {
-          "candle_index": 6944,
+          "candle_index": 6909,
           "timestamp": "2026-03-20T17:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -466,6 +767,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 30,
@@ -474,7 +776,7 @@
           "sl": 70085.80559999999
         },
         {
-          "candle_index": 7099,
+          "candle_index": 7064,
           "timestamp": "2026-03-21T06:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -486,6 +788,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 122,
@@ -494,7 +797,7 @@
           "sl": 70437.05494999999
         },
         {
-          "candle_index": 7298,
+          "candle_index": 7263,
           "timestamp": "2026-03-21T22:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -506,6 +809,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 435,
@@ -514,7 +818,7 @@
           "sl": 70642.8771
         },
         {
-          "candle_index": 8030,
+          "candle_index": 7995,
           "timestamp": "2026-03-24T11:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -526,6 +830,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 248,
@@ -534,7 +839,7 @@
           "sl": 71456.7864
         },
         {
-          "candle_index": 8297,
+          "candle_index": 8262,
           "timestamp": "2026-03-25T10:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -546,6 +851,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 60,
@@ -554,7 +860,7 @@
           "sl": 71039.06975000001
         },
         {
-          "candle_index": 8663,
+          "candle_index": 8628,
           "timestamp": "2026-03-26T16:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -566,6 +872,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 43,
@@ -574,7 +881,7 @@
           "sl": 69200.1594
         },
         {
-          "candle_index": 9031,
+          "candle_index": 8996,
           "timestamp": "2026-03-27T23:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -586,6 +893,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -594,7 +902,7 @@
           "sl": 65770.60445
         },
         {
-          "candle_index": 9534,
+          "candle_index": 9499,
           "timestamp": "2026-03-29T17:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -606,6 +914,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 38,
@@ -614,7 +923,7 @@
           "sl": 66754.46175
         },
         {
-          "candle_index": 9989,
+          "candle_index": 9954,
           "timestamp": "2026-03-31T07:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -626,6 +935,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 86,
@@ -634,7 +944,7 @@
           "sl": 67715.59349999999
         },
         {
-          "candle_index": 10151,
+          "candle_index": 10116,
           "timestamp": "2026-03-31T20:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -646,6 +956,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 67,
@@ -654,7 +965,7 @@
           "sl": 67750.943
         },
         {
-          "candle_index": 10667,
+          "candle_index": 10632,
           "timestamp": "2026-04-02T15:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -666,6 +977,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 120,
@@ -674,7 +986,7 @@
           "sl": 66593.80774999999
         },
         {
-          "candle_index": 10843,
+          "candle_index": 10808,
           "timestamp": "2026-04-03T06:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -686,6 +998,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -694,7 +1007,7 @@
           "sl": 66323.08815
         },
         {
-          "candle_index": 11864,
+          "candle_index": 11829,
           "timestamp": "2026-04-06T19:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -706,6 +1019,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 27,
@@ -714,7 +1028,7 @@
           "sl": 69470.10399999999
         },
         {
-          "candle_index": 11941,
+          "candle_index": 11906,
           "timestamp": "2026-04-07T01:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -726,6 +1040,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 36,
@@ -734,7 +1049,7 @@
           "sl": 68892.74999999999
         },
         {
-          "candle_index": 12255,
+          "candle_index": 12220,
           "timestamp": "2026-04-08T03:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -746,6 +1061,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -754,7 +1070,7 @@
           "sl": 71643.82694999999
         },
         {
-          "candle_index": 12349,
+          "candle_index": 12314,
           "timestamp": "2026-04-08T11:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -766,6 +1082,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 9,
@@ -774,7 +1091,7 @@
           "sl": 71884.78574999998
         },
         {
-          "candle_index": 12598,
+          "candle_index": 12563,
           "timestamp": "2026-04-09T08:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -786,6 +1103,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 65,
@@ -794,7 +1112,7 @@
           "sl": 70728.2019
         },
         {
-          "candle_index": 12702,
+          "candle_index": 12667,
           "timestamp": "2026-04-09T17:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -806,6 +1124,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 4,
@@ -814,7 +1133,7 @@
           "sl": 72118.83380000001
         },
         {
-          "candle_index": 13224,
+          "candle_index": 13189,
           "timestamp": "2026-04-11T12:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -826,6 +1145,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 6,
@@ -834,7 +1154,7 @@
           "sl": 72597.91635
         },
         {
-          "candle_index": 13460,
+          "candle_index": 13425,
           "timestamp": "2026-04-12T08:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -846,6 +1166,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 46,
@@ -854,7 +1175,7 @@
           "sl": 71344.97255
         },
         {
-          "candle_index": 13645,
+          "candle_index": 13610,
           "timestamp": "2026-04-12T23:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -866,6 +1187,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -874,7 +1196,7 @@
           "sl": 70947.65339999998
         },
         {
-          "candle_index": 13857,
+          "candle_index": 13822,
           "timestamp": "2026-04-13T17:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -886,6 +1208,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 6,
@@ -894,7 +1217,7 @@
           "sl": 72081.94915
         },
         {
-          "candle_index": 14085,
+          "candle_index": 14050,
           "timestamp": "2026-04-14T12:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -906,6 +1229,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 10,
@@ -914,7 +1238,7 @@
           "sl": 74665.01775
         },
         {
-          "candle_index": 14158,
+          "candle_index": 14123,
           "timestamp": "2026-04-14T18:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -926,6 +1250,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 300,
@@ -934,7 +1259,7 @@
           "sl": 74791.50705
         },
         {
-          "candle_index": 14488,
+          "candle_index": 14453,
           "timestamp": "2026-04-15T22:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -946,6 +1271,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 20,
@@ -954,7 +1280,7 @@
           "sl": 74624.24380000001
         },
         {
-          "candle_index": 14569,
+          "candle_index": 14534,
           "timestamp": "2026-04-16T04:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -966,6 +1292,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 179,
@@ -974,7 +1301,7 @@
           "sl": 75200.14004999999
         },
         {
-          "candle_index": 15227,
+          "candle_index": 15192,
           "timestamp": "2026-04-18T11:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -986,6 +1313,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "TREND_DOWN",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 5,
@@ -994,7 +1322,7 @@
           "sl": 76205.5923
         },
         {
-          "candle_index": 15940,
+          "candle_index": 15905,
           "timestamp": "2026-04-20T23:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1006,6 +1334,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 25,
@@ -1014,7 +1343,7 @@
           "sl": 76197.49199999998
         },
         {
-          "candle_index": 16761,
+          "candle_index": 16726,
           "timestamp": "2026-04-23T19:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1026,6 +1355,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 118,
@@ -1034,7 +1364,7 @@
           "sl": 77463.34695
         },
         {
-          "candle_index": 17181,
+          "candle_index": 17146,
           "timestamp": "2026-04-25T06:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1046,6 +1376,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 49,
@@ -1054,7 +1385,7 @@
           "sl": 77878.59569999999
         },
         {
-          "candle_index": 17368,
+          "candle_index": 17333,
           "timestamp": "2026-04-25T22:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1066,6 +1397,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 495,
@@ -1074,7 +1406,7 @@
           "sl": 77138.22075000001
         },
         {
-          "candle_index": 18040,
+          "candle_index": 18005,
           "timestamp": "2026-04-28T06:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1086,6 +1418,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -1094,7 +1427,7 @@
           "sl": 76600.28395000001
         },
         {
-          "candle_index": 18170,
+          "candle_index": 18135,
           "timestamp": "2026-04-28T16:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1106,6 +1439,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 276,
@@ -1114,7 +1448,7 @@
           "sl": 75771.07085
         },
         {
-          "candle_index": 19293,
+          "candle_index": 19258,
           "timestamp": "2026-05-02T14:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1126,6 +1460,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -1134,7 +1469,7 @@
           "sl": 78028.32784999999
         },
         {
-          "candle_index": 20070,
+          "candle_index": 20035,
           "timestamp": "2026-05-05T07:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1146,6 +1481,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 29,
@@ -1154,7 +1490,7 @@
           "sl": 80590.3832
         },
         {
-          "candle_index": 20506,
+          "candle_index": 20471,
           "timestamp": "2026-05-06T19:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1166,6 +1502,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 11,
@@ -1174,7 +1511,7 @@
           "sl": 81685.62614999998
         },
         {
-          "candle_index": 21045,
+          "candle_index": 21010,
           "timestamp": "2026-05-08T16:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1186,6 +1523,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 67,
@@ -1194,7 +1532,7 @@
           "sl": 80349.74999999999
         },
         {
-          "candle_index": 21394,
+          "candle_index": 21359,
           "timestamp": "2026-05-09T21:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1206,6 +1544,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 219,
@@ -1214,7 +1553,7 @@
           "sl": 81196.4625
         },
         {
-          "candle_index": 21666,
+          "candle_index": 21631,
           "timestamp": "2026-05-10T20:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1226,6 +1565,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 27,
@@ -1234,7 +1574,7 @@
           "sl": 81597.68864999998
         },
         {
-          "candle_index": 21737,
+          "candle_index": 21702,
           "timestamp": "2026-05-11T02:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1246,6 +1586,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 170,
@@ -1254,7 +1595,7 @@
           "sl": 81824.33625
         },
         {
-          "candle_index": 22316,
+          "candle_index": 22281,
           "timestamp": "2026-05-13T02:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1266,6 +1607,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 102,
@@ -1274,7 +1616,7 @@
           "sl": 80815.89994999999
         },
         {
-          "candle_index": 23188,
+          "candle_index": 23153,
           "timestamp": "2026-05-16T03:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1286,6 +1628,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 44,
@@ -1294,7 +1637,7 @@
           "sl": 78760.05085
         },
         {
-          "candle_index": 23448,
+          "candle_index": 23413,
           "timestamp": "2026-05-17T00:40:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1306,6 +1649,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 117,
@@ -1314,7 +1658,7 @@
           "sl": 78531.17235
         },
         {
-          "candle_index": 23697,
+          "candle_index": 23662,
           "timestamp": "2026-05-17T21:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1326,6 +1670,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 9,
@@ -1334,7 +1679,7 @@
           "sl": 78039.3624
         },
         {
-          "candle_index": 23784,
+          "candle_index": 23749,
           "timestamp": "2026-05-18T04:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1346,6 +1691,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 18,
@@ -1354,7 +1700,7 @@
           "sl": 76614.99005000001
         },
         {
-          "candle_index": 23992,
+          "candle_index": 23957,
           "timestamp": "2026-05-18T22:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1366,6 +1712,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 41,
@@ -1374,7 +1721,7 @@
           "sl": 76735.2358
         },
         {
-          "candle_index": 24051,
+          "candle_index": 24016,
           "timestamp": "2026-05-19T02:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1386,6 +1733,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 39,
@@ -1394,7 +1742,7 @@
           "sl": 77000.55734999999
         },
         {
-          "candle_index": 25064,
+          "candle_index": 25029,
           "timestamp": "2026-05-22T15:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1406,6 +1754,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 2,
@@ -1414,7 +1763,7 @@
           "sl": 77011.1601
         },
         {
-          "candle_index": 25165,
+          "candle_index": 25130,
           "timestamp": "2026-05-22T23:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1426,6 +1775,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 223,
@@ -1434,7 +1784,7 @@
           "sl": 75875.59049999999
         },
         {
-          "candle_index": 25414,
+          "candle_index": 25379,
           "timestamp": "2026-05-23T20:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1446,6 +1796,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -1454,7 +1805,7 @@
           "sl": 75909.25645
         },
         {
-          "candle_index": 26893,
+          "candle_index": 26858,
           "timestamp": "2026-05-28T23:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1466,6 +1817,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 79,
@@ -1474,7 +1826,7 @@
           "sl": 73905.63974999999
         },
         {
-          "candle_index": 27067,
+          "candle_index": 27032,
           "timestamp": "2026-05-29T14:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1486,6 +1838,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -1494,7 +1847,7 @@
           "sl": 73159.98
         },
         {
-          "candle_index": 27350,
+          "candle_index": 27315,
           "timestamp": "2026-05-30T13:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1506,6 +1859,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 320,
@@ -1514,7 +1868,7 @@
           "sl": 73450.27315
         },
         {
-          "candle_index": 27848,
+          "candle_index": 27813,
           "timestamp": "2026-06-01T07:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1526,6 +1880,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 313,
@@ -1534,7 +1889,7 @@
           "sl": 73345.69394999999
         },
         {
-          "candle_index": 28279,
+          "candle_index": 28244,
           "timestamp": "2026-06-02T19:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1546,6 +1901,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "TREND_DOWN",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 19,
@@ -1554,7 +1910,7 @@
           "sl": 67519.53809999999
         },
         {
-          "candle_index": 28364,
+          "candle_index": 28329,
           "timestamp": "2026-06-03T02:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1566,6 +1922,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 32,
@@ -1574,7 +1931,7 @@
           "sl": 67013.4
         },
         {
-          "candle_index": 28748,
+          "candle_index": 28713,
           "timestamp": "2026-06-04T10:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1586,6 +1943,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "TREND_DOWN",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 24,
@@ -1594,7 +1952,7 @@
           "sl": 63091.136249999996
         },
         {
-          "candle_index": 29077,
+          "candle_index": 29042,
           "timestamp": "2026-06-05T13:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1606,6 +1964,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 85,
@@ -1614,7 +1973,7 @@
           "sl": 61601.71482142857
         },
         {
-          "candle_index": 29237,
+          "candle_index": 29202,
           "timestamp": "2026-06-06T03:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1626,6 +1985,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 35,
@@ -1634,7 +1994,7 @@
           "sl": 61118.52224999999
         },
         {
-          "candle_index": 29411,
+          "candle_index": 29376,
           "timestamp": "2026-06-06T17:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1646,6 +2006,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 47,
@@ -1654,7 +2015,7 @@
           "sl": 60954.646949999995
         },
         {
-          "candle_index": 29500,
+          "candle_index": 29465,
           "timestamp": "2026-06-07T01:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1666,6 +2027,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 255,
@@ -1674,7 +2036,7 @@
           "sl": 60759.615300000005
         },
         {
-          "candle_index": 29783,
+          "candle_index": 29748,
           "timestamp": "2026-06-08T00:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1686,6 +2048,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 5,
@@ -1694,7 +2057,7 @@
           "sl": 63498.90005
         },
         {
-          "candle_index": 29812,
+          "candle_index": 29777,
           "timestamp": "2026-06-08T03:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1706,6 +2069,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 2,
@@ -1714,7 +2078,7 @@
           "sl": 63333.100049999994
         },
         {
-          "candle_index": 29886,
+          "candle_index": 29851,
           "timestamp": "2026-06-08T09:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1726,6 +2090,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 34,
@@ -1734,7 +2099,7 @@
           "sl": 63020.513999999996
         },
         {
-          "candle_index": 30055,
+          "candle_index": 30020,
           "timestamp": "2026-06-08T23:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1746,6 +2111,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 75,
@@ -1754,7 +2120,7 @@
           "sl": 63461.729999999996
         },
         {
-          "candle_index": 30222,
+          "candle_index": 30187,
           "timestamp": "2026-06-09T13:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1766,6 +2132,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 493,
@@ -1774,7 +2141,7 @@
           "sl": 62869.39304999999
         },
         {
-          "candle_index": 30758,
+          "candle_index": 30723,
           "timestamp": "2026-06-11T09:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1786,6 +2153,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 32,
@@ -1794,7 +2162,7 @@
           "sl": 62650.2546
         },
         {
-          "candle_index": 31510,
+          "candle_index": 31475,
           "timestamp": "2026-06-14T00:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1806,6 +2174,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 80,
@@ -1814,7 +2183,7 @@
           "sl": 64215.01149999999
         },
         {
-          "candle_index": 32049,
+          "candle_index": 32014,
           "timestamp": "2026-06-15T21:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1826,6 +2195,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 137,
@@ -1834,7 +2204,7 @@
           "sl": 66742.04999999999
         },
         {
-          "candle_index": 32444,
+          "candle_index": 32409,
           "timestamp": "2026-06-17T06:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1846,6 +2216,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 121,
@@ -1854,7 +2225,7 @@
           "sl": 66173.2401
         },
         {
-          "candle_index": 33167,
+          "candle_index": 33132,
           "timestamp": "2026-06-19T18:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1866,6 +2237,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 49,
@@ -1874,7 +2246,7 @@
           "sl": 63306.33689999999
         },
         {
-          "candle_index": 33321,
+          "candle_index": 33286,
           "timestamp": "2026-06-20T07:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1886,6 +2258,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 13,
@@ -1894,7 +2267,7 @@
           "sl": 63473.04
         },
         {
-          "candle_index": 33485,
+          "candle_index": 33450,
           "timestamp": "2026-06-20T21:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1906,6 +2279,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 288,
@@ -1914,7 +2288,7 @@
           "sl": 63616.7578
         },
         {
-          "candle_index": 33905,
+          "candle_index": 33870,
           "timestamp": "2026-06-22T08:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1926,6 +2300,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 172,
@@ -1934,7 +2309,7 @@
           "sl": 63953.426
         },
         {
-          "candle_index": 34704,
+          "candle_index": 34669,
           "timestamp": "2026-06-25T02:40:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1946,6 +2321,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 25,
@@ -1954,7 +2330,7 @@
           "sl": 61070.15159999999
         },
         {
-          "candle_index": 34814,
+          "candle_index": 34779,
           "timestamp": "2026-06-25T11:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1966,6 +2342,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -1974,7 +2351,7 @@
           "sl": 61475.839949999994
         },
         {
-          "candle_index": 35246,
+          "candle_index": 35211,
           "timestamp": "2026-06-26T23:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1986,6 +2363,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 355,
@@ -1994,7 +2372,7 @@
           "sl": 59789.7689
         },
         {
-          "candle_index": 35610,
+          "candle_index": 35575,
           "timestamp": "2026-06-28T06:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2006,6 +2384,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 10,
@@ -2014,7 +2393,7 @@
           "sl": 60141.220049999996
         },
         {
-          "candle_index": 35723,
+          "candle_index": 35688,
           "timestamp": "2026-06-28T15:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2026,6 +2405,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 142,
@@ -2034,7 +2414,7 @@
           "sl": 60230.10224999999
         },
         {
-          "candle_index": 36152,
+          "candle_index": 36117,
           "timestamp": "2026-06-30T03:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2046,6 +2426,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 432,
@@ -2054,7 +2435,7 @@
           "sl": 60127.15005
         },
         {
-          "candle_index": 36630,
+          "candle_index": 36595,
           "timestamp": "2026-07-01T19:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2066,6 +2447,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 10,
@@ -2074,7 +2456,7 @@
           "sl": 59978.6199
         },
         {
-          "candle_index": 36858,
+          "candle_index": 36823,
           "timestamp": "2026-07-02T14:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2086,6 +2468,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 2,
@@ -2094,7 +2477,7 @@
           "sl": 61771.191999999995
         },
         {
-          "candle_index": 36877,
+          "candle_index": 36842,
           "timestamp": "2026-07-02T15:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2106,6 +2489,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 19,
@@ -2114,7 +2498,7 @@
           "sl": 61917.57764999999
         },
         {
-          "candle_index": 36963,
+          "candle_index": 36928,
           "timestamp": "2026-07-02T22:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2126,6 +2510,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 80,
@@ -2134,7 +2519,7 @@
           "sl": 61772.586299999995
         },
         {
-          "candle_index": 37068,
+          "candle_index": 37033,
           "timestamp": "2026-07-03T07:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2146,6 +2531,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 16,
@@ -2154,7 +2540,7 @@
           "sl": 61513.59645
         },
         {
-          "candle_index": 37120,
+          "candle_index": 37085,
           "timestamp": "2026-07-03T12:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2166,6 +2552,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 26,
@@ -2174,7 +2561,7 @@
           "sl": 61831.29
         },
         {
-          "candle_index": 37211,
+          "candle_index": 37176,
           "timestamp": "2026-07-03T19:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2186,6 +2573,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -2194,7 +2582,7 @@
           "sl": 61957.4958
         },
         {
-          "candle_index": 37731,
+          "candle_index": 37696,
           "timestamp": "2026-07-05T14:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2206,6 +2594,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 252,
@@ -2214,7 +2603,7 @@
           "sl": 62498.18875
         },
         {
-          "candle_index": 38303,
+          "candle_index": 38268,
           "timestamp": "2026-07-07T14:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2226,6 +2615,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 2,
@@ -2234,7 +2624,7 @@
           "sl": 63202.439999999995
         },
         {
-          "candle_index": 38375,
+          "candle_index": 38340,
           "timestamp": "2026-07-07T20:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2246,6 +2636,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -2254,7 +2645,7 @@
           "sl": 63972.64184999999
         },
         {
-          "candle_index": 38881,
+          "candle_index": 38846,
           "timestamp": "2026-07-09T14:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2266,6 +2657,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 20,
@@ -2274,7 +2666,7 @@
           "sl": 62645.2199
         },
         {
-          "candle_index": 39060,
+          "candle_index": 39025,
           "timestamp": "2026-07-10T05:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2286,6 +2678,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 14,
@@ -2294,7 +2687,7 @@
           "sl": 63858.473150000005
         },
         {
-          "candle_index": 39121,
+          "candle_index": 39086,
           "timestamp": "2026-07-10T10:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2306,6 +2699,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 17,
@@ -2314,7 +2708,7 @@
           "sl": 64163.1521
         },
         {
-          "candle_index": 39467,
+          "candle_index": 39432,
           "timestamp": "2026-07-11T15:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2326,6 +2720,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 61,
@@ -2334,7 +2729,7 @@
           "sl": 64440.258299999994
         },
         {
-          "candle_index": 39609,
+          "candle_index": 39574,
           "timestamp": "2026-07-12T03:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2346,6 +2741,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 32,
@@ -2354,7 +2750,7 @@
           "sl": 63815.0812
         },
         {
-          "candle_index": 40658,
+          "candle_index": 40623,
           "timestamp": "2026-07-15T18:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2366,6 +2762,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -2374,7 +2771,7 @@
           "sl": 65238.98205
         },
         {
-          "candle_index": 41195,
+          "candle_index": 41160,
           "timestamp": "2026-07-17T15:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2386,6 +2783,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -2394,7 +2792,7 @@
           "sl": 62961.22195
         },
         {
-          "candle_index": 41775,
+          "candle_index": 41740,
           "timestamp": "2026-07-19T15:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2406,6 +2804,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 159,
@@ -2414,7 +2813,7 @@
           "sl": 64262.3934
         },
         {
-          "candle_index": 41984,
+          "candle_index": 41949,
           "timestamp": "2026-07-20T09:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2426,6 +2825,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -2434,7 +2834,7 @@
           "sl": 63841.19
         },
         {
-          "candle_index": 42621,
+          "candle_index": 42586,
           "timestamp": "2026-07-22T14:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2446,6 +2846,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 7,
@@ -2454,7 +2855,7 @@
           "sl": 65952.12
         },
         {
-          "candle_index": 42726,
+          "candle_index": 42691,
           "timestamp": "2026-07-22T23:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2466,6 +2867,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 11,
@@ -2474,7 +2876,7 @@
           "sl": 66221.44995
         },
         {
-          "candle_index": 42774,
+          "candle_index": 42739,
           "timestamp": "2026-07-23T03:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2486,6 +2888,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -2494,7 +2897,7 @@
           "sl": 65962.15995
         },
         {
-          "candle_index": 43839,
+          "candle_index": 43804,
           "timestamp": "2026-07-26T19:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2506,6 +2909,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 25,
@@ -2514,7 +2918,7 @@
           "sl": 65018.99759999999
         },
         {
-          "candle_index": 44048,
+          "candle_index": 44013,
           "timestamp": "2026-07-27T13:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2526,6 +2930,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 3,
@@ -2534,7 +2939,7 @@
           "sl": 65282.96084999999
         },
         {
-          "candle_index": 44311,
+          "candle_index": 44276,
           "timestamp": "2026-07-28T11:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2546,6 +2951,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 27,
@@ -2554,7 +2960,7 @@
           "sl": 63259.582650000004
         },
         {
-          "candle_index": 44428,
+          "candle_index": 44393,
           "timestamp": "2026-07-28T21:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2566,6 +2972,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 25,
@@ -2574,7 +2981,7 @@
           "sl": 63656.12
         },
         {
-          "candle_index": 44578,
+          "candle_index": 44543,
           "timestamp": "2026-07-29T09:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2586,6 +2993,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 46,
@@ -2594,7 +3002,7 @@
           "sl": 64159.619849999995
         },
         {
-          "candle_index": 44636,
+          "candle_index": 44601,
           "timestamp": "2026-07-29T14:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2606,6 +3014,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 44,
@@ -2614,7 +3023,7 @@
           "sl": 64615.469999999994
         },
         {
-          "candle_index": 44845,
+          "candle_index": 44810,
           "timestamp": "2026-07-30T07:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2626,6 +3035,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -2634,7 +3044,7 @@
           "sl": 64323.80894999999
         },
         {
-          "candle_index": 44959,
+          "candle_index": 44924,
           "timestamp": "2026-07-30T17:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2646,6 +3056,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 103,
@@ -2654,7 +3065,7 @@
           "sl": 64574.1468
         },
         {
-          "candle_index": 45343,
+          "candle_index": 45308,
           "timestamp": "2026-08-01T01:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2666,6 +3077,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 298,
@@ -2674,7 +3086,7 @@
           "sl": 63265.75499999999
         },
         {
-          "candle_index": 45757,
+          "candle_index": 45722,
           "timestamp": "2026-08-02T11:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2686,6 +3098,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 82,
@@ -2694,7 +3107,7 @@
           "sl": 63419.530049999994
         },
         {
-          "candle_index": 45867,
+          "candle_index": 45832,
           "timestamp": "2026-08-02T20:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2706,6 +3119,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 52,
@@ -2714,7 +3128,7 @@
           "sl": 63177.047399999996
         },
         {
-          "candle_index": 46003,
+          "candle_index": 45968,
           "timestamp": "2026-08-03T08:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2726,6 +3140,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 20,
@@ -2734,7 +3149,7 @@
           "sl": 62803.69619999999
         },
         {
-          "candle_index": 46246,
+          "candle_index": 46211,
           "timestamp": "2026-08-04T04:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2746,6 +3161,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 33,
@@ -2754,7 +3170,7 @@
           "sl": 63569.86345
         },
         {
-          "candle_index": 46294,
+          "candle_index": 46259,
           "timestamp": "2026-08-04T08:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2766,6 +3182,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 38,
@@ -2774,7 +3191,7 @@
           "sl": 63884.975699999995
         },
         {
-          "candle_index": 46707,
+          "candle_index": 46672,
           "timestamp": "2026-08-05T18:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2786,6 +3203,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 89,
@@ -2794,7 +3212,7 @@
           "sl": 64475.1045
         },
         {
-          "candle_index": 46855,
+          "candle_index": 46820,
           "timestamp": "2026-08-06T07:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2806,6 +3224,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 35,
@@ -2814,7 +3233,7 @@
           "sl": 64604.18585
         },
         {
-          "candle_index": 47111,
+          "candle_index": 47076,
           "timestamp": "2026-08-07T04:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2826,6 +3245,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 49,
@@ -2834,7 +3254,7 @@
           "sl": 64597.36994999999
         },
         {
-          "candle_index": 47192,
+          "candle_index": 47157,
           "timestamp": "2026-08-07T11:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2846,6 +3266,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 33,
@@ -2854,7 +3275,7 @@
           "sl": 64812.08115
         },
         {
-          "candle_index": 47958,
+          "candle_index": 47923,
           "timestamp": "2026-08-10T03:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2866,6 +3287,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 45,
@@ -2874,7 +3296,7 @@
           "sl": 65287.613999999994
         },
         {
-          "candle_index": 48202,
+          "candle_index": 48167,
           "timestamp": "2026-08-10T23:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2886,6 +3308,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 124,
@@ -2894,7 +3317,7 @@
           "sl": 64279.81004999999
         },
         {
-          "candle_index": 48728,
+          "candle_index": 48693,
           "timestamp": "2026-08-12T19:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2906,6 +3329,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 59,
@@ -2914,7 +3338,7 @@
           "sl": 63687.56354999999
         },
         {
-          "candle_index": 48906,
+          "candle_index": 48871,
           "timestamp": "2026-08-13T10:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2926,6 +3350,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 52,
@@ -2934,7 +3359,7 @@
           "sl": 63939.16529999999
         },
         {
-          "candle_index": 49984,
+          "candle_index": 49949,
           "timestamp": "2026-08-17T04:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2946,6 +3371,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -2954,7 +3380,7 @@
           "sl": 63177.54489999999
         },
         {
-          "candle_index": 51167,
+          "candle_index": 51132,
           "timestamp": "2026-08-21T06:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2966,6 +3392,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 1,
@@ -2974,7 +3401,7 @@
           "sl": 75325.55960000001
         },
         {
-          "candle_index": 51297,
+          "candle_index": 51262,
           "timestamp": "2026-08-21T17:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2986,6 +3413,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 14,
@@ -2994,7 +3422,7 @@
           "sl": 77170.8468
         },
         {
-          "candle_index": 51493,
+          "candle_index": 51458,
           "timestamp": "2026-08-22T09:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -3006,6 +3434,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 36,
@@ -3014,7 +3443,7 @@
           "sl": 77365.2015
         },
         {
-          "candle_index": 51871,
+          "candle_index": 51836,
           "timestamp": "2026-08-23T17:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3026,6 +3455,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 104,
@@ -3034,7 +3464,7 @@
           "sl": 76979.17
         },
         {
-          "candle_index": 52302,
+          "candle_index": 52267,
           "timestamp": "2026-08-25T05:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -3046,6 +3476,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 31,
@@ -3057,7 +3488,7 @@
     },
     "15m": {
       "timeframe": "15m",
-      "candles": 17509,
+      "candles": 17497,
       "signals": 58,
       "allocation_pct": 5.0,
       "train": {
@@ -3102,9 +3533,290 @@
         "allocation_pct": 5.0,
         "avg_bars_held": 98.94444444444444
       },
+      "analytics": {
+        "all": {
+          "timeframe": [
+            {
+              "group": "15m",
+              "trades": 57,
+              "wins": 10,
+              "losses": 47,
+              "win_rate_pct": 17.543859649122805,
+              "avg_score": 52.63157894736842,
+              "avg_confluence": 100.0
+            }
+          ],
+          "direction": [
+            {
+              "group": "LONG",
+              "trades": 30,
+              "wins": 7,
+              "losses": 23,
+              "win_rate_pct": 23.333333333333332,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "SHORT",
+              "trades": 27,
+              "wins": 3,
+              "losses": 24,
+              "win_rate_pct": 11.11111111111111,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "regime": [
+            {
+              "group": "RANGE",
+              "trades": 45,
+              "wins": 8,
+              "losses": 37,
+              "win_rate_pct": 17.77777777777778,
+              "avg_score": 48.888888888888886,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "TREND_UP",
+              "trades": 8,
+              "wins": 1,
+              "losses": 7,
+              "win_rate_pct": 12.5,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "score_bucket": [
+            {
+              "group": "<40",
+              "trades": 27,
+              "wins": 3,
+              "losses": 24,
+              "win_rate_pct": 11.11111111111111,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": ">=80",
+              "trades": 30,
+              "wins": 7,
+              "losses": 23,
+              "win_rate_pct": 23.333333333333332,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "confluence_bucket": [
+            {
+              "group": ">=90",
+              "trades": 57,
+              "wins": 10,
+              "losses": 47,
+              "win_rate_pct": 17.543859649122805,
+              "avg_score": 52.63157894736842,
+              "avg_confluence": 100.0
+            }
+          ],
+          "trend": [
+            {
+              "group": "0.0",
+              "trades": 27,
+              "wins": 3,
+              "losses": 24,
+              "win_rate_pct": 11.11111111111111,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "100.0",
+              "trades": 30,
+              "wins": 7,
+              "losses": 23,
+              "win_rate_pct": 23.333333333333332,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "momentum": [
+            {
+              "group": "0.0",
+              "trades": 27,
+              "wins": 3,
+              "losses": 24,
+              "win_rate_pct": 11.11111111111111,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "100.0",
+              "trades": 30,
+              "wins": 7,
+              "losses": 23,
+              "win_rate_pct": 23.333333333333332,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "setup": [
+            {
+              "group": "0.0",
+              "trades": 27,
+              "wins": 3,
+              "losses": 24,
+              "win_rate_pct": 11.11111111111111,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "100.0",
+              "trades": 30,
+              "wins": 7,
+              "losses": 23,
+              "win_rate_pct": 23.333333333333332,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ]
+        },
+        "oos": {
+          "timeframe": [
+            {
+              "group": "15m",
+              "trades": 18,
+              "wins": 2,
+              "losses": 16,
+              "win_rate_pct": 11.11111111111111,
+              "avg_score": 66.66666666666667,
+              "avg_confluence": 100.0
+            }
+          ],
+          "direction": [
+            {
+              "group": "LONG",
+              "trades": 12,
+              "wins": 2,
+              "losses": 10,
+              "win_rate_pct": 16.666666666666664,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "SHORT",
+              "trades": 6,
+              "wins": 0,
+              "losses": 6,
+              "win_rate_pct": 0.0,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "regime": [
+            {
+              "group": "RANGE",
+              "trades": 16,
+              "wins": 2,
+              "losses": 14,
+              "win_rate_pct": 12.5,
+              "avg_score": 62.5,
+              "avg_confluence": 100.0
+            }
+          ],
+          "score_bucket": [
+            {
+              "group": "<40",
+              "trades": 6,
+              "wins": 0,
+              "losses": 6,
+              "win_rate_pct": 0.0,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": ">=80",
+              "trades": 12,
+              "wins": 2,
+              "losses": 10,
+              "win_rate_pct": 16.666666666666664,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "confluence_bucket": [
+            {
+              "group": ">=90",
+              "trades": 18,
+              "wins": 2,
+              "losses": 16,
+              "win_rate_pct": 11.11111111111111,
+              "avg_score": 66.66666666666667,
+              "avg_confluence": 100.0
+            }
+          ],
+          "trend": [
+            {
+              "group": "0.0",
+              "trades": 6,
+              "wins": 0,
+              "losses": 6,
+              "win_rate_pct": 0.0,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "100.0",
+              "trades": 12,
+              "wins": 2,
+              "losses": 10,
+              "win_rate_pct": 16.666666666666664,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "momentum": [
+            {
+              "group": "0.0",
+              "trades": 6,
+              "wins": 0,
+              "losses": 6,
+              "win_rate_pct": 0.0,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "100.0",
+              "trades": 12,
+              "wins": 2,
+              "losses": 10,
+              "win_rate_pct": 16.666666666666664,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "setup": [
+            {
+              "group": "0.0",
+              "trades": 6,
+              "wins": 0,
+              "losses": 6,
+              "win_rate_pct": 0.0,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "100.0",
+              "trades": 12,
+              "wins": 2,
+              "losses": 10,
+              "win_rate_pct": 16.666666666666664,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ]
+        }
+      },
       "records": [
         {
-          "candle_index": 297,
+          "candle_index": 285,
           "timestamp": "2026-02-27T17:00:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3116,6 +3828,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "TREND_DOWN",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 24,
@@ -3124,7 +3837,7 @@
           "sl": 65856.69357142856
         },
         {
-          "candle_index": 827,
+          "candle_index": 815,
           "timestamp": "2026-03-05T05:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3136,6 +3849,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 16,
@@ -3144,7 +3858,7 @@
           "sl": 72776.72324999998
         },
         {
-          "candle_index": 1104,
+          "candle_index": 1092,
           "timestamp": "2026-03-08T02:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3156,6 +3870,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 17,
@@ -3164,7 +3879,7 @@
           "sl": 67260.06719999999
         },
         {
-          "candle_index": 1316,
+          "candle_index": 1304,
           "timestamp": "2026-03-10T07:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3176,6 +3891,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 23,
@@ -3184,7 +3900,7 @@
           "sl": 70053.97995
         },
         {
-          "candle_index": 1427,
+          "candle_index": 1415,
           "timestamp": "2026-03-11T11:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3196,6 +3912,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 6,
@@ -3204,7 +3921,7 @@
           "sl": 69794.1948
         },
         {
-          "candle_index": 1624,
+          "candle_index": 1612,
           "timestamp": "2026-03-13T12:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3216,6 +3933,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -3224,7 +3942,7 @@
           "sl": 72420.80635
         },
         {
-          "candle_index": 1728,
+          "candle_index": 1716,
           "timestamp": "2026-03-14T14:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3236,6 +3954,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 33,
@@ -3244,7 +3963,7 @@
           "sl": 70952.21609999999
         },
         {
-          "candle_index": 2010,
+          "candle_index": 1998,
           "timestamp": "2026-03-17T13:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3256,6 +3975,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 1,
@@ -3264,7 +3984,7 @@
           "sl": 74083.6353
         },
         {
-          "candle_index": 2074,
+          "candle_index": 2062,
           "timestamp": "2026-03-18T05:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3276,6 +3996,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 103,
@@ -3284,7 +4005,7 @@
           "sl": 74436.6516
         },
         {
-          "candle_index": 2311,
+          "candle_index": 2299,
           "timestamp": "2026-03-20T16:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3296,6 +4017,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 14,
@@ -3304,7 +4026,7 @@
           "sl": 70241.68392857141
         },
         {
-          "candle_index": 2468,
+          "candle_index": 2456,
           "timestamp": "2026-03-22T07:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3316,6 +4038,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "TREND_DOWN",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 109,
@@ -3324,7 +4047,7 @@
           "sl": 69263.9769
         },
         {
-          "candle_index": 2764,
+          "candle_index": 2752,
           "timestamp": "2026-03-25T09:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3336,6 +4059,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 21,
@@ -3344,7 +4068,7 @@
           "sl": 70989.18045
         },
         {
-          "candle_index": 3660,
+          "candle_index": 3648,
           "timestamp": "2026-04-03T17:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3356,6 +4080,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 69,
@@ -3364,7 +4089,7 @@
           "sl": 67189.28504999999
         },
         {
-          "candle_index": 3744,
+          "candle_index": 3732,
           "timestamp": "2026-04-04T14:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3376,6 +4101,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 61,
@@ -3384,7 +4110,7 @@
           "sl": 66879.16380000001
         },
         {
-          "candle_index": 3871,
+          "candle_index": 3859,
           "timestamp": "2026-04-05T22:30:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3396,6 +4122,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 193,
@@ -3404,7 +4131,7 @@
           "sl": 67624.48845
         },
         {
-          "candle_index": 4328,
+          "candle_index": 4316,
           "timestamp": "2026-04-10T16:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3416,6 +4143,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 81,
@@ -3424,7 +4152,7 @@
           "sl": 72543.78267857143
         },
         {
-          "candle_index": 4504,
+          "candle_index": 4492,
           "timestamp": "2026-04-12T12:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3436,6 +4164,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "TREND_DOWN",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 31,
@@ -3444,7 +4173,7 @@
           "sl": 71439.43004999998
         },
         {
-          "candle_index": 4626,
+          "candle_index": 4614,
           "timestamp": "2026-04-13T19:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3456,6 +4185,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 359,
@@ -3464,7 +4194,7 @@
           "sl": 72489.32205
         },
         {
-          "candle_index": 5395,
+          "candle_index": 5383,
           "timestamp": "2026-04-21T19:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3476,6 +4206,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 2,
@@ -3484,7 +4215,7 @@
           "sl": 75318.19196428571
         },
         {
-          "candle_index": 6225,
+          "candle_index": 6213,
           "timestamp": "2026-04-30T11:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3496,6 +4227,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 348,
@@ -3504,7 +4236,7 @@
           "sl": 75769.71765
         },
         {
-          "candle_index": 6907,
+          "candle_index": 6895,
           "timestamp": "2026-05-07T13:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3516,6 +4248,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 211,
@@ -3524,7 +4257,7 @@
           "sl": 80975.26199999999
         },
         {
-          "candle_index": 7184,
+          "candle_index": 7172,
           "timestamp": "2026-05-10T10:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3536,6 +4269,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 40,
@@ -3544,7 +4278,7 @@
           "sl": 80469.42104999999
         },
         {
-          "candle_index": 7394,
+          "candle_index": 7382,
           "timestamp": "2026-05-12T15:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3556,6 +4290,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 13,
@@ -3564,7 +4299,7 @@
           "sl": 80623.10999999999
         },
         {
-          "candle_index": 7432,
+          "candle_index": 7420,
           "timestamp": "2026-05-13T00:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3576,6 +4311,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 46,
@@ -3584,7 +4320,7 @@
           "sl": 80314.41
         },
         {
-          "candle_index": 7659,
+          "candle_index": 7647,
           "timestamp": "2026-05-15T09:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3596,6 +4332,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 308,
@@ -3604,7 +4341,7 @@
           "sl": 80822.09999999999
         },
         {
-          "candle_index": 8166,
+          "candle_index": 8154,
           "timestamp": "2026-05-20T16:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3616,6 +4353,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 4,
@@ -3624,7 +4362,7 @@
           "sl": 77473.43999999999
         },
         {
-          "candle_index": 8178,
+          "candle_index": 8166,
           "timestamp": "2026-05-20T19:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3636,6 +4374,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 63,
@@ -3644,7 +4383,7 @@
           "sl": 77174.89645
         },
         {
-          "candle_index": 8783,
+          "candle_index": 8771,
           "timestamp": "2026-05-27T02:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3656,6 +4395,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 39,
@@ -3664,7 +4404,7 @@
           "sl": 76123.62449999999
         },
         {
-          "candle_index": 8843,
+          "candle_index": 8831,
           "timestamp": "2026-05-27T17:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3676,6 +4416,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 10,
@@ -3684,7 +4425,7 @@
           "sl": 75282.54
         },
         {
-          "candle_index": 9300,
+          "candle_index": 9288,
           "timestamp": "2026-06-01T11:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3696,6 +4437,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "TREND_DOWN",
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 103,
@@ -3704,7 +4446,7 @@
           "sl": 72842.38995
         },
         {
-          "candle_index": 9486,
+          "candle_index": 9474,
           "timestamp": "2026-06-03T10:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3716,6 +4458,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 7,
@@ -3724,7 +4467,7 @@
           "sl": 66981.41
         },
         {
-          "candle_index": 9826,
+          "candle_index": 9814,
           "timestamp": "2026-06-06T23:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3736,6 +4479,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 92,
@@ -3744,7 +4488,7 @@
           "sl": 60410.0121
         },
         {
-          "candle_index": 10123,
+          "candle_index": 10111,
           "timestamp": "2026-06-10T01:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3756,6 +4500,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 44,
@@ -3764,7 +4509,7 @@
           "sl": 61947.084449999995
         },
         {
-          "candle_index": 10257,
+          "candle_index": 10245,
           "timestamp": "2026-06-11T11:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3776,6 +4521,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 5,
@@ -3784,7 +4530,7 @@
           "sl": 62873.960450000006
         },
         {
-          "candle_index": 10326,
+          "candle_index": 10314,
           "timestamp": "2026-06-12T04:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3796,6 +4542,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 3,
@@ -3804,7 +4551,7 @@
           "sl": 63478.522450000004
         },
         {
-          "candle_index": 10430,
+          "candle_index": 10418,
           "timestamp": "2026-06-13T06:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3816,6 +4563,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 220,
@@ -3824,7 +4572,7 @@
           "sl": 63361.59005
         },
         {
-          "candle_index": 10993,
+          "candle_index": 10981,
           "timestamp": "2026-06-19T03:00:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3836,6 +4584,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 42,
@@ -3844,7 +4593,7 @@
           "sl": 63048.54435
         },
         {
-          "candle_index": 11122,
+          "candle_index": 11110,
           "timestamp": "2026-06-20T11:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3856,6 +4605,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -3864,7 +4614,7 @@
           "sl": 63381.5
         },
         {
-          "candle_index": 11292,
+          "candle_index": 11280,
           "timestamp": "2026-06-22T05:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3876,6 +4626,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 66,
@@ -3884,7 +4635,7 @@
           "sl": 63926.501299999996
         },
         {
-          "candle_index": 11892,
+          "candle_index": 11880,
           "timestamp": "2026-06-28T11:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3896,6 +4647,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 5,
@@ -3904,7 +4656,7 @@
           "sl": 60040.29
         },
         {
-          "candle_index": 12134,
+          "candle_index": 12122,
           "timestamp": "2026-07-01T00:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3916,6 +4668,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 5,
@@ -3924,7 +4677,7 @@
           "sl": 58685.969999999994
         },
         {
-          "candle_index": 12266,
+          "candle_index": 12254,
           "timestamp": "2026-07-02T09:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3936,6 +4689,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 340,
@@ -3944,7 +4698,7 @@
           "sl": 60301.88545
         },
         {
-          "candle_index": 12769,
+          "candle_index": 12757,
           "timestamp": "2026-07-07T15:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3956,6 +4710,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 42,
@@ -3964,7 +4719,7 @@
           "sl": 63116.505535714285
         },
         {
-          "candle_index": 13473,
+          "candle_index": 13461,
           "timestamp": "2026-07-14T23:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3976,6 +4731,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 10,
@@ -3984,7 +4740,7 @@
           "sl": 64694.9
         },
         {
-          "candle_index": 13518,
+          "candle_index": 13506,
           "timestamp": "2026-07-15T10:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3996,6 +4752,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 9,
@@ -4004,7 +4761,7 @@
           "sl": 64959.36089999999
         },
         {
-          "candle_index": 13662,
+          "candle_index": 13650,
           "timestamp": "2026-07-16T22:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -4016,6 +4773,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 82,
@@ -4024,7 +4782,7 @@
           "sl": 64340.089949999994
         },
         {
-          "candle_index": 13972,
+          "candle_index": 13960,
           "timestamp": "2026-07-20T03:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -4036,6 +4794,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 4,
@@ -4044,7 +4803,7 @@
           "sl": 64545.451
         },
         {
-          "candle_index": 14017,
+          "candle_index": 14005,
           "timestamp": "2026-07-20T15:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -4056,6 +4815,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 376,
@@ -4064,7 +4824,7 @@
           "sl": 64634.478571428575
         },
         {
-          "candle_index": 14589,
+          "candle_index": 14577,
           "timestamp": "2026-07-26T14:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -4076,6 +4836,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 130,
@@ -4084,7 +4845,7 @@
           "sl": 64386.4102
         },
         {
-          "candle_index": 14950,
+          "candle_index": 14938,
           "timestamp": "2026-07-30T08:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -4096,6 +4857,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 93,
@@ -4104,7 +4866,7 @@
           "sl": 63946.659999999996
         },
         {
-          "candle_index": 15454,
+          "candle_index": 15442,
           "timestamp": "2026-08-04T14:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -4116,6 +4878,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "OPEN",
           "bars": 500,
@@ -4124,7 +4887,7 @@
           "sl": 63568.07245
         },
         {
-          "candle_index": 15993,
+          "candle_index": 15981,
           "timestamp": "2026-08-10T05:00:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -4136,6 +4899,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 7,
@@ -4144,7 +4908,7 @@
           "sl": 65312.52794999999
         },
         {
-          "candle_index": 16324,
+          "candle_index": 16312,
           "timestamp": "2026-08-13T15:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -4156,6 +4920,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 368,
@@ -4164,7 +4929,7 @@
           "sl": 63737.110049999996
         },
         {
-          "candle_index": 16701,
+          "candle_index": 16689,
           "timestamp": "2026-08-17T14:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -4176,6 +4941,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 197,
@@ -4184,7 +4950,7 @@
           "sl": 63380.9229
         },
         {
-          "candle_index": 17136,
+          "candle_index": 17124,
           "timestamp": "2026-08-22T02:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -4196,6 +4962,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 9,
@@ -4204,7 +4971,7 @@
           "sl": 78048.62142857142
         },
         {
-          "candle_index": 17232,
+          "candle_index": 17220,
           "timestamp": "2026-08-23T02:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -4216,6 +4983,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 42,
@@ -4224,7 +4992,7 @@
           "sl": 77464.8573
         },
         {
-          "candle_index": 17305,
+          "candle_index": 17293,
           "timestamp": "2026-08-23T21:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -4236,6 +5004,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 8,
@@ -4244,7 +5013,7 @@
           "sl": 77309.19159999999
         },
         {
-          "candle_index": 17412,
+          "candle_index": 17400,
           "timestamp": "2026-08-24T23:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -4256,6 +5025,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 54,
@@ -4267,7 +5037,7 @@
     },
     "1h": {
       "timeframe": "1h",
-      "candles": 4377,
+      "candles": 4374,
       "signals": 20,
       "allocation_pct": 5.0,
       "train": {
@@ -4312,9 +5082,165 @@
         "allocation_pct": 5.0,
         "avg_bars_held": 44.25
       },
+      "analytics": {
+        "all": {
+          "timeframe": [
+            {
+              "group": "1h",
+              "trades": 20,
+              "wins": 2,
+              "losses": 18,
+              "win_rate_pct": 10.0,
+              "avg_score": 60.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "direction": [
+            {
+              "group": "LONG",
+              "trades": 12,
+              "wins": 2,
+              "losses": 10,
+              "win_rate_pct": 16.666666666666664,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "SHORT",
+              "trades": 8,
+              "wins": 0,
+              "losses": 8,
+              "win_rate_pct": 0.0,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "regime": [
+            {
+              "group": "RANGE",
+              "trades": 7,
+              "wins": 0,
+              "losses": 7,
+              "win_rate_pct": 0.0,
+              "avg_score": 42.857142857142854,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "TREND_UP",
+              "trades": 9,
+              "wins": 2,
+              "losses": 7,
+              "win_rate_pct": 22.22222222222222,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "score_bucket": [
+            {
+              "group": "<40",
+              "trades": 8,
+              "wins": 0,
+              "losses": 8,
+              "win_rate_pct": 0.0,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": ">=80",
+              "trades": 12,
+              "wins": 2,
+              "losses": 10,
+              "win_rate_pct": 16.666666666666664,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "confluence_bucket": [
+            {
+              "group": ">=90",
+              "trades": 20,
+              "wins": 2,
+              "losses": 18,
+              "win_rate_pct": 10.0,
+              "avg_score": 60.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "trend": [
+            {
+              "group": "0.0",
+              "trades": 8,
+              "wins": 0,
+              "losses": 8,
+              "win_rate_pct": 0.0,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "100.0",
+              "trades": 12,
+              "wins": 2,
+              "losses": 10,
+              "win_rate_pct": 16.666666666666664,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "momentum": [
+            {
+              "group": "0.0",
+              "trades": 8,
+              "wins": 0,
+              "losses": 8,
+              "win_rate_pct": 0.0,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "100.0",
+              "trades": 12,
+              "wins": 2,
+              "losses": 10,
+              "win_rate_pct": 16.666666666666664,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ],
+          "setup": [
+            {
+              "group": "0.0",
+              "trades": 8,
+              "wins": 0,
+              "losses": 8,
+              "win_rate_pct": 0.0,
+              "avg_score": 0.0,
+              "avg_confluence": 100.0
+            },
+            {
+              "group": "100.0",
+              "trades": 12,
+              "wins": 2,
+              "losses": 10,
+              "win_rate_pct": 16.666666666666664,
+              "avg_score": 100.0,
+              "avg_confluence": 100.0
+            }
+          ]
+        },
+        "oos": {
+          "timeframe": [],
+          "direction": [],
+          "regime": [],
+          "score_bucket": [],
+          "confluence_bucket": [],
+          "trend": [],
+          "momentum": [],
+          "setup": []
+        }
+      },
       "records": [
         {
-          "candle_index": 132,
+          "candle_index": 129,
           "timestamp": "2026-03-02T03:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -4326,6 +5252,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 3,
@@ -4334,7 +5261,7 @@
           "sl": 66151.8297
         },
         {
-          "candle_index": 138,
+          "candle_index": 135,
           "timestamp": "2026-03-02T09:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -4346,6 +5273,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 5,
@@ -4354,7 +5282,7 @@
           "sl": 66830.30619999999
         },
         {
-          "candle_index": 277,
+          "candle_index": 274,
           "timestamp": "2026-03-08T04:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -4366,6 +5294,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "TREND_DOWN",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 1,
@@ -4374,7 +5303,7 @@
           "sl": 67055.87875
         },
         {
-          "candle_index": 321,
+          "candle_index": 318,
           "timestamp": "2026-03-10T00:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -4386,6 +5315,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 84,
@@ -4394,7 +5324,7 @@
           "sl": 68465.7963
         },
         {
-          "candle_index": 629,
+          "candle_index": 626,
           "timestamp": "2026-03-22T20:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -4406,6 +5336,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "TREND_DOWN",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 9,
@@ -4414,7 +5345,7 @@
           "sl": 68652.76982142858
         },
         {
-          "candle_index": 667,
+          "candle_index": 664,
           "timestamp": "2026-03-24T10:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -4426,6 +5357,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 3,
@@ -4434,7 +5366,7 @@
           "sl": 70720.6825
         },
         {
-          "candle_index": 791,
+          "candle_index": 788,
           "timestamp": "2026-03-29T14:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -4446,6 +5378,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "TREND_DOWN",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 10,
@@ -4454,7 +5387,7 @@
           "sl": 66923.61321428572
         },
         {
-          "candle_index": 1078,
+          "candle_index": 1075,
           "timestamp": "2026-04-10T13:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -4466,6 +5399,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 36,
@@ -4474,7 +5408,7 @@
           "sl": 71842.19732142857
         },
         {
-          "candle_index": 1413,
+          "candle_index": 1410,
           "timestamp": "2026-04-24T12:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -4486,6 +5420,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 2,
@@ -4494,7 +5429,7 @@
           "sl": 77751.95910714286
         },
         {
-          "candle_index": 1508,
+          "candle_index": 1505,
           "timestamp": "2026-04-28T11:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -4506,6 +5441,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "TREND_DOWN",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 16,
@@ -4514,7 +5450,7 @@
           "sl": 76679.29017857142
         },
         {
-          "candle_index": 1698,
+          "candle_index": 1695,
           "timestamp": "2026-05-06T09:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -4526,6 +5462,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 5,
@@ -4534,7 +5471,7 @@
           "sl": 81447.16785714285
         },
         {
-          "candle_index": 2159,
+          "candle_index": 2156,
           "timestamp": "2026-05-25T14:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -4546,6 +5483,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 6,
@@ -4554,7 +5492,7 @@
           "sl": 77325.43
         },
         {
-          "candle_index": 2312,
+          "candle_index": 2309,
           "timestamp": "2026-05-31T23:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -4566,6 +5504,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 1,
@@ -4574,7 +5513,7 @@
           "sl": 74042.76194999999
         },
         {
-          "candle_index": 2314,
+          "candle_index": 2311,
           "timestamp": "2026-06-01T01:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -4586,6 +5525,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 1,
@@ -4594,7 +5534,7 @@
           "sl": 73686.9575
         },
         {
-          "candle_index": 2570,
+          "candle_index": 2567,
           "timestamp": "2026-06-11T17:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -4606,6 +5546,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 13,
@@ -4614,7 +5555,7 @@
           "sl": 63115.245357142856
         },
         {
-          "candle_index": 2783,
+          "candle_index": 2780,
           "timestamp": "2026-06-20T14:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -4626,6 +5567,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 31,
@@ -4634,7 +5576,7 @@
           "sl": 63579.33660714286
         },
         {
-          "candle_index": 3099,
+          "candle_index": 3096,
           "timestamp": "2026-07-03T18:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -4646,6 +5588,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 66,
@@ -4654,7 +5597,7 @@
           "sl": 61807.00375
         },
         {
-          "candle_index": 3905,
+          "candle_index": 3902,
           "timestamp": "2026-08-06T08:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -4666,6 +5609,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 2,
@@ -4674,7 +5618,7 @@
           "sl": 64617.28005
         },
         {
-          "candle_index": 4080,
+          "candle_index": 4077,
           "timestamp": "2026-08-13T15:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -4686,6 +5630,7 @@
           "trend": 0.0,
           "momentum": 0.0,
           "setup": 0.0,
+          "regime": "RANGE",
           "allocation_pct": 5.0,
           "outcome": "SL",
           "bars": 92,
@@ -4694,7 +5639,7 @@
           "sl": 63737.110049999996
         },
         {
-          "candle_index": 4241,
+          "candle_index": 4238,
           "timestamp": "2026-08-20T08:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -4706,6 +5651,7 @@
           "trend": 100.0,
           "momentum": 100.0,
           "setup": 100.0,
+          "regime": "TREND_UP",
           "allocation_pct": 5.0,
           "outcome": "TP",
           "bars": 17,
