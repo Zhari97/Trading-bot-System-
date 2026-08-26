@@ -1,64 +1,23 @@
 const esc=v=>String(v??'—').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 const date=v=>v?new Date(v).toLocaleString('it-IT'):'—';
+const num=v=>v==null?'—':Number(v).toFixed(2);
 const badge=v=>`<span class="badge ${String(v).replace(' ','-')}">${esc(v)}</span>`;
 
-function card(m){
-  return `<article class="card"><h3>${esc(m.pair)}</h3><div class="price">${esc(m.price)}</div>${badge(m.classification)} <b>${esc(m.direction)}</b>${m.counter_trend?'<p class="warn">⚠ CONTRO-TREND</p>':''}<div class="metrics"><div>SCORE<b>${esc(m.score)}/100</b></div><div>CONFLUENZA<b>${esc(m.confluence)}%</b></div><div>RSI<b>${esc(m.rsi)}</b></div><div>TREND<b>${esc(m.categories?.trend)}</b></div><div>MOMENTUM<b>${esc(m.categories?.momentum)}</b></div><div>SETUP<b>${esc(m.categories?.setup)}</b></div><div>PESO LONG<b>${esc(m.weights?.long)}</b></div><div>PESO SHORT<b>${esc(m.weights?.short)}</b></div></div><small>${date(m.timestamp)}</small></article>`;
-}
+function card(m){return `<article class="card"><h3>${esc(m.pair)}</h3><div class="price">${esc(m.price)}</div>${badge(m.classification)} <b>${esc(m.direction)}</b>${m.counter_trend?'<p class="warn">⚠ CONTRO-TREND</p>':''}<div class="metrics"><div>SCORE<b>${esc(m.score)}/100</b></div><div>CONFLUENZA<b>${esc(m.confluence)}%</b></div><div>RSI<b>${esc(m.rsi)}</b></div><div>TREND<b>${esc(m.categories?.trend)}</b></div><div>MOMENTUM<b>${esc(m.categories?.momentum)}</b></div><div>SETUP<b>${esc(m.categories?.setup)}</b></div><div>PESO LONG<b>${esc(m.weights?.long)}</b></div><div>PESO SHORT<b>${esc(m.weights?.short)}</b></div></div><small>${date(m.timestamp)}</small></article>`;}
 
-function graph(h){
-  if(!Array.isArray(h)||!h.length)return;
-  const points=h.slice(-60);
-  const min=Math.min(...points.map(x=>Number(x.score)||0));
-  const max=Math.max(...points.map(x=>Number(x.score)||0));
-  const span=Math.max(1,max-min);
-  document.querySelector('#chart').innerHTML=`<polyline class="line" points="${points.map((x,i)=>`${i*(700/Math.max(1,points.length-1))},${170-((Number(x.score)||0)-min)*150/span}`).join(' ')}"/>`;
-}
-
-async function getJson(u){
-  const r=await fetch(u,{cache:'no-store'});
-  if(!r.ok) throw new Error(`${u}: HTTP ${r.status}`);
-  return r.json();
-}
+function graph(h){if(!Array.isArray(h)||!h.length)return;const points=h.slice(-60);const min=Math.min(...points.map(x=>Number(x.score)||0));const max=Math.max(...points.map(x=>Number(x.score)||0));const span=Math.max(1,max-min);document.querySelector('#chart').innerHTML=`<polyline class="line" points="${points.map((x,i)=>`${i*(700/Math.max(1,points.length-1))},${170-((Number(x.score)||0)-min)*150/span}`).join(' ')}"/>`;}
+async function getJson(u){const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw new Error(`${u}: HTTP ${r.status}`);return r.json();}
 
 async function refresh(){
-  const [s,m,h,x]=await Promise.all([
-    getJson('/api/status'),
-    getJson('/api/markets'),
-    getJson('/api/history'),
-    getJson('/api/signals')
-  ]);
-
-  const markets=Array.isArray(m)?m:(m?.markets&&typeof m.markets==='object'?m.markets:m);
-  const history=Array.isArray(h)?h:(Array.isArray(h?.history)?h.history:[]);
-  const signals=Array.isArray(x)?x:(Array.isArray(x?.signals)?x.signals:[]);
-  const a=Object.values(markets||{});
-  const last=history.length?history[history.length-1]:null;
-
-  const timeframe=s?.timeframe_minutes!=null?`${s.timeframe_minutes}m`:'15m';
-  document.querySelector('#timeframe').textContent=timeframe;
-  document.querySelector('#updated').textContent=date(s?.updated_at||last?.timestamp);
-
-  if(a.length){
-    document.querySelector('#markets').innerHTML=a.map(card).join('');
-    const q=a[0];
-    document.querySelector('#engine').innerHTML=`Direzione: <b>${esc(q.direction)}</b><br>Trend: <b>${esc(q.categories?.trend)}</b> · Momentum: <b>${esc(q.categories?.momentum)}</b> · Setup: <b>${esc(q.categories?.setup)}</b><br>Score: <b>${esc(q.score)}</b> · Confluenza: <b>${esc(q.confluence)}%</b><br>GUARD-RAIL V2.2: <b>${esc(q.guard_rail?.status)}</b> ${esc(q.guard_rail?.reason)}`;
-  } else {
-    document.querySelector('#markets').innerHTML='<p>Nessuna analisi persistita.</p>';
-    document.querySelector('#engine').innerHTML='In attesa di analisi reale.';
-  }
-
-  const telegramConfigured=s?.telegram?.configured;
-  document.querySelector('#telegram').innerHTML=`Configurato: <b>${telegramConfigured?'SI':'NO'}</b><br>Ultimo alert: <b>${esc(s?.telegram?.last_alert?.telegram||'Non disponibile')}</b>`;
-  document.querySelector('#signals').innerHTML=signals.map(q=>`<tr><td>${date(q.timestamp)}</td><td>${esc(q.pair)}</td><td>${badge(q.classification)}</td><td>${esc(q.direction)}</td><td>${esc(q.score)}</td><td>${esc(q.confluence)}%</td><td>${esc(q.guard_rail?.status)}</td><td>${esc(q.telegram)}</td></tr>`).join('')||'<tr><td colspan="8">Nessun dato persistito.</td></tr>';
-  graph(history);
+  const [s,m,h,x,r]=await Promise.all([getJson('/api/status'),getJson('/api/markets'),getJson('/api/history'),getJson('/api/signals'),getJson('/api/research')]);
+  const markets=Array.isArray(m)?m:(m?.markets&&typeof m.markets==='object'?m.markets:m);const history=Array.isArray(h)?h:(Array.isArray(h?.history)?h.history:[]);const signals=Array.isArray(x)?x:(Array.isArray(x?.signals)?x.signals:[]);const a=Object.values(markets||{});const last=history.length?history[history.length-1]:null;
+  document.querySelector('#timeframe').textContent=s?.timeframe_minutes!=null?`${s.timeframe_minutes}m`:'15m';document.querySelector('#updated').textContent=date(s?.updated_at||last?.timestamp);
+  document.querySelector('#status').textContent='● '+(a.length?'ONLINE':'NO DATA');
+  if(a.length){document.querySelector('#markets').innerHTML=a.map(card).join('');const q=a[0];document.querySelector('#live-summary').innerHTML=`Direzione: <b>${esc(q.direction)}</b><br>Score: <b>${esc(q.score)}/100</b> · Confluenza: <b>${esc(q.confluence)}%</b><br>Guard-Rail: <b>${esc(q.guard_rail?.status)}</b>`;document.querySelector('#engine').innerHTML=`Trend: <b>${esc(q.categories?.trend)}</b> · Momentum: <b>${esc(q.categories?.momentum)}</b> · Setup: <b>${esc(q.categories?.setup)}</b><br>RSI: <b>${esc(q.rsi)}</b> · Direzione: <b>${esc(q.direction)}</b>`;}else{document.querySelector('#markets').innerHTML='<p>Nessuna analisi persistita.</p>';document.querySelector('#live-summary').textContent='Nessun dato live.';document.querySelector('#engine').textContent='In attesa di analisi reale.';}
+  document.querySelector('#telegram').innerHTML=`Configurato: <b>${s?.telegram?.configured?'SI':'NO'}</b><br>Ultimo alert: <b>${esc(s?.telegram?.last_alert?.telegram||'Non disponibile')}</b>`;
+  document.querySelector('#signals').innerHTML=signals.map(q=>`<tr><td>${date(q.timestamp)}</td><td>${esc(q.pair)}</td><td>${badge(q.classification)}</td><td>${esc(q.direction)}</td><td>${esc(q.score)}</td><td>${esc(q.confluence)}%</td><td>${esc(q.guard_rail?.status)}</td><td>${esc(q.telegram)}</td></tr>`).join('')||'<tr><td colspan="8">Nessun dato persistito.</td></tr>';graph(history);
+  const tf=r?.timeframes||{};const rows=Object.entries(tf);document.querySelector('#research-meta').textContent=r?.generated_at?`Generato: ${date(r.generated_at)} · ${esc(r.symbol)} · ${esc(r.history_days)} giorni · allocazione ${num(r.allocation_pct)}%`:'Nessun risultato pubblicato.';document.querySelector('#research-rows').innerHTML=rows.map(([name,v])=>{const o=v.oos||{};return `<tr><td><b>${esc(name)}</b></td><td>${esc(o.signals)}</td><td>${num(o.win_rate_pct)}%</td><td>${num(o.profit_factor)}</td><td>${num(o.expectancy_pct)}%</td><td>${num(o.max_drawdown_pct)}%</td></tr>`}).join('')||'<tr><td colspan="6">Nessun risultato pubblicato.</td></tr>';
 }
 
-refresh().catch(err=>{
-  console.error('Dashboard refresh error',err);
-  document.querySelector('#engine').textContent='Errore caricamento dati dashboard.';
-  document.querySelector('#telegram').textContent='Errore caricamento dati dashboard.';
-  document.querySelector('#markets').innerHTML='<p>Errore caricamento dati dashboard.</p>';
-  document.querySelector('#signals').innerHTML='<tr><td colspan="8">Errore caricamento dati dashboard.</td></tr>';
-});
-setInterval(()=>refresh().catch(err=>console.error('Dashboard refresh error',err)),30000);
+async function safeRefresh(){try{await refresh();}catch(err){console.error('Dashboard refresh error',err);document.querySelector('#status').textContent='● ERRORE DATI';document.querySelector('#status').className='bad';}}
+safeRefresh();setInterval(safeRefresh,30000);
