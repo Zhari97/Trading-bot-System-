@@ -1,11 +1,12 @@
 """Adapter between historical candles and the production signal engine.
 
-The live engine keeps its normal data acquisition path. This adapter bypasses
-only the network fetch and feeds closed historical candles into the exact same
-ContestoMercato, strategy modules, scoring and classification functions.
+Historical datasets contain closed candles only. The canonical candle contract
+therefore treats the final historical row as semantic candle 1, while live
+provider data treats its final row as candle 0 (forming).
 """
 from __future__ import annotations
 
+from candle_index import latest_closed_index
 from signal_engine import (
     ContestoMercato,
     tutte_le_strategie,
@@ -22,10 +23,8 @@ def analyze_closed_candles(candles: list[dict]) -> dict | None:
         return None
 
     ctx = ContestoMercato(candles)
-    # Live data normally contains a final forming candle, so ctx.i points to
-    # len(candles)-2. Historical datasets contain only closed candles; move the
-    # pointer to the latest closed candle without changing indicator formulas.
-    ctx.i = len(candles) - 1
+    # Historical input contains closed candles only: the final row is candle 1.
+    ctx.i = latest_closed_index(candles, includes_forming=False)
 
     risultati = tutte_le_strategie(ctx)
     categorie = calcola_categorie(risultati)
