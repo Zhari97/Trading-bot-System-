@@ -6,10 +6,9 @@ V2.2:
 - evita alert Telegram duplicati usando la cronologia persistente della dashboard;
 - MODALITA_TEST continua a funzionare come prima.
 
-Dashboard:
-- inoltra esclusivamente il risultato già prodotto dal motore;
-- usa DASHBOARD_URL e DASHBOARD_INGEST_TOKEN;
-- l'invio è non-blocking e non può fermare il bot.
+Trade plan:
+- per i segnali FORTE validi calcola entry, zona, TP, SL, R:R e qualita' ingresso;
+- il piano e' informativo/manuale e non esegue ordini.
 """
 
 import logging
@@ -22,6 +21,7 @@ from api_budget import guard_requests
 guard_requests()
 
 from dashboard_state import save_analysis
+from trade_plan import costruisci_trade_plan, format_trade_plan
 
 from signal_engine import (
     COPPIE_MONITORATE,
@@ -55,7 +55,6 @@ def invia_dashboard(record: dict) -> bool:
     if not isinstance(record, dict):
         log.warning("Dashboard ingest saltato: record analisi non disponibile.")
         return False
-
     try:
         response = requests.post(
             f"{DASHBOARD_URL}/api/ingest",
@@ -66,11 +65,7 @@ def invia_dashboard(record: dict) -> bool:
         if response.ok:
             log.info("Dashboard ingest OK: %s", record.get("pair"))
             return True
-        log.warning(
-            "Dashboard ingest failed: HTTP %s | pair=%s",
-            response.status_code,
-            record.get("pair"),
-        )
+        log.warning("Dashboard ingest failed: HTTP %s | pair=%s", response.status_code, record.get("pair"))
     except requests.RequestException as e:
         log.warning("Dashboard unavailable / dashboard ingest failed: %s", e)
     except Exception as e:
@@ -79,58 +74,31 @@ def invia_dashboard(record: dict) -> bool:
 
 
 def firma_alert(analisi: dict) -> tuple:
-    """Firma strutturale del segnale per evitare ripetizioni dello stesso setup.
-
-    I punteggi sono arrotondati a 1 punto: piccole oscillazioni tra due
-    scansioni non trasformano lo stesso setup in un nuovo alert.
-    """
     classificazione = analisi["classificazione"]
     categorie = analisi["categorie"]
     return (
-        classificazione.get("livello", "WATCH"),
-        classificazione.get("direzione", "NEUTRO"),
-        classificazione.get("trend_direzione", "NEUTRO"),
-        classificazione.get("setup_direzione", "NEUTRO"),
-        classificazione.get("momentum_direzione", "NEUTRO"),
-        bool(classificazione.get("controtrend")),
-        round(float(analisi["score"])),
-        round(float(analisi["confluenza"])),
-        round(float(categorie["trend"])),
-        round(float(categorie["momentum"])),
-        round(float(categorie["setup"])),
+        classificazione.get("livello", "WATCH"), classificazione.get("direzione", "NEUTRO"),
+        classificazione.get("trend_direzione", "NEUTRO"), classificazione.get("setup_direzione", "NEUTRO"),
+        classificazione.get("momentum_direzione", "NEUTRO"), bool(classificazione.get("controtrend")),
+        round(float(analisi["score"])), round(float(analisi["confluenza"])),
+        round(float(categorie["trend"])), round(float(categorie["momentum"])), round(float(categorie["setup"])),
     )
 
 
 def recupera_ultimo_alert_inviato(pair: str) -> dict | None:
-    """Recupera l'ultimo alert Telegram realmente inviato per la coppia.
-
-    La cronologia della dashboard è persistente tra le diverse esecuzioni
-    GitHub Actions, a differenza del filesystem del runner.
-    """
     if not DASHBOARD_URL:
         log.warning("[%s] ALERT GATE -> dashboard non configurata: impossibile verificare duplicati", pair)
         return None
-
     try:
         response = requests.get(f"{DASHBOARD_URL}/api/history", timeout=10)
         if not response.ok:
-            log.warning(
-                "[%s] ALERT GATE -> history HTTP %s: fail-open",
-                pair,
-                response.status_code,
-            )
+            log.warning("[%s] ALERT GATE -> history HTTP %s: fail-open", pair, response.status_code)
             return None
         history = response.json()
         if not isinstance(history, list):
-            log.warning("[%s] ALERT GATE -> history non valida: fail-open", pair)
             return None
-
         for record in reversed(history):
-            if not isinstance(record, dict):
-                continue
-            if str(record.get("pair", "")).upper() != pair.upper():
-                continue
-            if record.get("telegram") == "SENT":
+            if isinstance(record, dict) and str(record.get("pair", "")).upper() == pair.upper() and record.get("telegram") == "SENT":
                 return record
         return None
     except (requests.RequestException, ValueError, TypeError) as e:
@@ -139,45 +107,30 @@ def recupera_ultimo_alert_inviato(pair: str) -> dict | None:
 
 
 def alert_duplicato(analisi: dict, ultimo_alert: dict | None) -> bool:
-    """True se l'analisi attuale rappresenta ancora lo stesso setup già notificato."""
     if not ultimo_alert:
         return False
-
-    classificazione = analisi["classificazione"]
     categorie = analisi["categorie"]
     firma_attuale = firma_alert(analisi)
+    previous_categories = ultimo_alert.get("categories", {})
     firma_precedente = (
-        ultimo_alert.get("classification", "WATCH"),
-        ultimo_alert.get("direction", "NEUTRO"),
-        "LONG" if float(ultimo_alert.get("categories", {}).get("trend", 50)) > 55 else "SHORT" if float(ultimo_alert.get("categories", {}).get("trend", 50)) < 45 else "NEUTRO",
-        "LONG" if float(ultimo_alert.get("categories", {}).get("setup", 50)) > 55 else "SHORT" if float(ultimo_alert.get("categories", {}).get("setup", 50)) < 45 else "NEUTRO",
-        "LONG" if float(ultimo_alert.get("categories", {}).get("momentum", 50)) > 55 else "SHORT" if float(ultimo_alert.get("categories", {}).get("momentum", 50)) < 45 else "NEUTRO",
-        bool(ultimo_alert.get("counter_trend")),
-        round(float(ultimo_alert.get("score", 50))),
-        round(float(ultimo_alert.get("confluence", 50))),
-        round(float(ultimo_alert.get("categories", {}).get("trend", 50))),
-        round(float(ultimo_alert.get("categories", {}).get("momentum", 50))),
-        round(float(ultimo_alert.get("categories", {}).get("setup", 50))),
+        ultimo_alert.get("classification", "WATCH"), ultimo_alert.get("direction", "NEUTRO"),
+        "LONG" if float(previous_categories.get("trend", 50)) > 55 else "SHORT" if float(previous_categories.get("trend", 50)) < 45 else "NEUTRO",
+        "LONG" if float(previous_categories.get("setup", 50)) > 55 else "SHORT" if float(previous_categories.get("setup", 50)) < 45 else "NEUTRO",
+        "LONG" if float(previous_categories.get("momentum", 50)) > 55 else "SHORT" if float(previous_categories.get("momentum", 50)) < 45 else "NEUTRO",
+        bool(ultimo_alert.get("counter_trend")), round(float(ultimo_alert.get("score", 50))),
+        round(float(ultimo_alert.get("confluence", 50))), round(float(previous_categories.get("trend", 50))),
+        round(float(previous_categories.get("momentum", 50))), round(float(previous_categories.get("setup", 50))),
     )
     return firma_attuale == firma_precedente
 
 
 def invia_telegram(testo: str, pair: str = "") -> bool:
-    """Invia Telegram e registra esplicitamente la decisione/risposta HTTP."""
-    log.info(
-        "[%s] TELEGRAM DECISION | token=%s chat_id=%s",
-        pair or "GLOBAL",
-        "SET" if TELEGRAM_BOT_TOKEN else "MISSING",
-        "SET" if TELEGRAM_CHAT_ID else "MISSING",
-    )
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         log.error("[%s] TELEGRAM -> SKIP | credenziali non impostate", pair or "GLOBAL")
         return False
-
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-    payload = {"chat_id": TELEGRAM_CHAT_ID, "text": testo, "parse_mode": "HTML"}
     try:
-        r = requests.post(url, json=payload, timeout=10)
+        r = requests.post(url, json={"chat_id": TELEGRAM_CHAT_ID, "text": testo, "parse_mode": "HTML"}, timeout=10)
         if not r.ok:
             log.error("[%s] TELEGRAM -> FAILED | HTTP %s | %s", pair or "GLOBAL", r.status_code, r.text)
             return False
@@ -195,38 +148,22 @@ def costruisci_report(pair: str, analisi: dict) -> str:
     direzione = classificazione.get("direzione", "NEUTRO")
     score = analisi["score"]
     score_bias = "LONG" if score > 50 else "SHORT" if score < 50 else "NEUTRO"
+    emoji = "🟢" if categoria == "FORTE" else "🟡" if categoria == "SETUP" else "🔴" if categoria == "NO TRADE" else "⚪"
+    controtrend = "\n⚠️ <b>CONTRO-TREND</b> — il setup va contro il trend principale." if classificazione.get("controtrend") else ""
 
-    if categoria == "FORTE":
-        emoji = "🟢"
-    elif categoria == "SETUP":
-        emoji = "🟡"
-    elif categoria == "NO TRADE":
-        emoji = "🔴"
-    else:
-        emoji = "⚪"
-
-    controtrend = ""
-    if classificazione.get("controtrend"):
-        controtrend = "\n⚠️ <b>CONTRO-TREND</b> — il setup va contro il trend principale."
-
-    return (
+    report = (
         f"{emoji} <b>{pair} — {categoria}</b>\n"
         f"Direzione: <b>{direzione}</b>\n\n"
-        f"Score direzionale: <b>{score:.1f}/100</b> "
-        f"(50 = neutro | bias {score_bias})\n"
+        f"Score direzionale: <b>{score:.1f}/100</b> (50 = neutro | bias {score_bias})\n"
         f"Confluenza: <b>{analisi['confluenza']:.1f}%</b>\n\n"
-        f"📈 Trend: <b>{analisi['categorie']['trend']:.1f}</b> "
-        f"({classificazione.get('trend_direzione', 'NEUTRO')})\n"
-        f"⚡ Momentum: <b>{analisi['categorie']['momentum']:.1f}</b> "
-        f"({classificazione.get('momentum_direzione', 'NEUTRO')})\n"
-        f"🎯 Setup: <b>{analisi['categorie']['setup']:.1f}</b> "
-        f"({classificazione.get('setup_direzione', 'NEUTRO')})\n\n"
-        f"🟢 Peso LONG: {analisi['peso_long']:.1f}\n"
-        f"🔴 Peso SHORT: {analisi['peso_short']:.1f}"
-        f"{controtrend}\n\n"
-        f"💡 {motivo}\n"
-        f"RSI: {analisi['ctx'].rsi14[analisi['ctx'].i]:.1f} | TF: {INTERVAL_MIN}m"
+        f"📈 Trend: <b>{analisi['categorie']['trend']:.1f}</b> ({classificazione.get('trend_direzione', 'NEUTRO')})\n"
+        f"⚡ Momentum: <b>{analisi['categorie']['momentum']:.1f}</b> ({classificazione.get('momentum_direzione', 'NEUTRO')})\n"
+        f"🎯 Setup: <b>{analisi['categorie']['setup']:.1f}</b> ({classificazione.get('setup_direzione', 'NEUTRO')})\n\n"
+        f"🟢 Peso LONG: {analisi['peso_long']:.1f}\n🔴 Peso SHORT: {analisi['peso_short']:.1f}"
+        f"{controtrend}\n\n💡 {motivo}\nRSI: {analisi['ctx'].rsi14[analisi['ctx'].i]:.1f} | TF: {INTERVAL_MIN}m"
     )
+    plan = costruisci_trade_plan(analisi)
+    return report + format_trade_plan(plan)
 
 
 def controlla_coppia(pair: str) -> None:
@@ -234,30 +171,11 @@ def controlla_coppia(pair: str) -> None:
     ctx = analisi["ctx"]
     prezzo = analisi["prezzo"]
     classificazione = analisi["classificazione"]
-
-    log.info(
-        "=== %s | prezzo=%.5f EMA9=%.5f EMA21=%.5f EMA50=%.5f RSI=%.1f SCORE=%.1f (%s) | %s ===",
-        pair, prezzo, ctx.ema9[ctx.i], ctx.ema21[ctx.i], ctx.ema50[ctx.i], ctx.rsi14[ctx.i],
-        analisi["score"], analisi["bias"], classificazione.get("livello", "WATCH"),
-    )
-
-    log.info(
-        "[%s] Categorie -> TREND %.1f | MOMENTUM %.1f | SETUP %.1f | %s | Dominante %s %.1f%%",
-        pair, analisi["categorie"]["trend"], analisi["categorie"]["momentum"],
-        analisi["categorie"]["setup"], "CONFLITTO" if analisi["conflitto"] else "CONFLUENZA",
-        analisi["direzione_dominante"], analisi["confluenza"],
-    )
-
+    log.info("=== %s | prezzo=%.5f EMA9=%.5f EMA21=%.5f EMA50=%.5f RSI=%.1f SCORE=%.1f (%s) | %s ===", pair, prezzo, ctx.ema9[ctx.i], ctx.ema21[ctx.i], ctx.ema50[ctx.i], ctx.rsi14[ctx.i], analisi["score"], analisi["bias"], classificazione.get("livello", "WATCH"))
     log.info("[%s] QUALITA -> %s | Motivo: %s", pair, classificazione.get("livello", "WATCH"), classificazione.get("motivo", "Nessuna conferma sufficiente."))
 
-    if classificazione.get("controtrend"):
-        log.info("[%s] ⚠️ CONTRO-TREND", pair)
-
     for risultato in analisi["risultati"]:
-        modalita = "ATTIVO" if risultato["attivo"] else "in ombra"
-        log.info("[%s] [%s] (%s) -> %s | %s", pair, risultato["nome"], modalita, risultato["voto"], risultato["motivo"])
-
-    log.info("\n[%s] REPORT V2.2\n%s", pair, costruisci_report(pair, analisi))
+        log.info("[%s] [%s] -> %s | %s", pair, risultato["nome"], risultato["voto"], risultato["motivo"])
 
     classificazione_valida, errore_guard_rail = classificazione_v2_2_valida(classificazione)
     if not classificazione_valida:
@@ -268,13 +186,10 @@ def controlla_coppia(pair: str) -> None:
 
     alert_automatico = bool(classificazione.get("alert_automatico"))
     direzione = classificazione.get("direzione")
-    log.info("[%s] TELEGRAM DECISION | livello=%s alert_automatico=%s direzione=%s", pair, classificazione.get("livello"), alert_automatico, direzione)
-
     telegram_status = "NOT_SENT"
     if alert_automatico and direzione in ("LONG", "SHORT"):
         ultimo_alert = recupera_ultimo_alert_inviato(pair)
         if alert_duplicato(analisi, ultimo_alert):
-            telegram_status = "NOT_SENT"
             log.info("[%s] ALERT GATE -> SUPPRESS DUPLICATE | stesso setup gia notificato", pair)
         else:
             telegram_status = "SENT" if invia_telegram(costruisci_report(pair, analisi), pair=pair) else "FAILED"
@@ -287,13 +202,8 @@ def controlla_coppia(pair: str) -> None:
 
 def main() -> None:
     if MODALITA_TEST:
-        invia_telegram(
-            "🧪 <b>Messaggio di TEST</b>\nCollegamento GitHub Actions → Telegram funzionante.\n"
-            f"Coppie: {', '.join(COPPIE_MONITORATE)} | Timeframe: {INTERVAL_MIN}m",
-            pair="TEST",
-        )
+        invia_telegram("🧪 <b>Messaggio di TEST</b>\nCollegamento GitHub Actions → Telegram funzionante.\n" f"Coppie: {', '.join(COPPIE_MONITORATE)} | Timeframe: {INTERVAL_MIN}m", pair="TEST")
         return
-
     for pair in COPPIE_MONITORATE:
         try:
             controlla_coppia(pair)
