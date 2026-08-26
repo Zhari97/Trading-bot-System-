@@ -93,6 +93,14 @@ def _partition_records(records: list[dict], partition: str) -> list[dict]:
     return [r for r in records if int(r.get("candle_index", 0)) >= validation_end]
 
 
+def _partition_separation(partitions: dict[str, dict]) -> dict[str, float | None]:
+    """Expose score separation per chronological partition without thresholds."""
+    return {
+        name: data["monotonicity"]["win_rate_lift_pp"]
+        for name, data in partitions.items()
+    }
+
+
 def analyze_records(records: list[dict]) -> dict:
     """Return threshold-free score stability diagnostics for one timeframe."""
     if not records:
@@ -118,15 +126,31 @@ def analyze_records(records: list[dict]) -> dict:
     ]
     high = overall["80-100"]
     low = overall["0-40"]
+    partition_lifts = _partition_separation(partitions)
+    positive_partition_lifts = [
+        value for value in partition_lifts.values() if value is not None and value > 0
+    ]
+    oos_lift = partition_lifts.get("oos")
+    if stable_flags and all(stable_flags) and oos_lift is not None and oos_lift > 0:
+        research_status = "STABLE_SIGNAL_RELATIONSHIP"
+    elif oos_lift is not None and oos_lift > 0:
+        research_status = "PROMISING_BUT_UNSTABLE"
+    else:
+        research_status = "NO_STABLE_SCORE_EDGE"
+
     stability = {
         "partitions_with_monotonicity": len(stable_flags),
         "partitions_monotonic": sum(flag is True for flag in stable_flags),
         "monotonicity_consistent": bool(stable_flags) and all(stable_flags),
+        "partition_high_minus_low_win_rate_pp": partition_lifts,
+        "positive_separation_partitions": len(positive_partition_lifts),
+        "oos_high_minus_low_win_rate_pp": oos_lift,
         "high_score_closed": high["closed"],
         "high_score_win_rate_pct": high["win_rate_pct"],
         "low_score_closed": low["closed"],
         "low_score_win_rate_pct": low["win_rate_pct"],
         "high_minus_low_win_rate_pp": round(high["win_rate_pct"] - low["win_rate_pct"], 4),
+        "research_status": research_status,
     }
     return {
         "signals": len(records),
@@ -140,12 +164,17 @@ def analyze_records(records: list[dict]) -> dict:
 def compare_timeframes(timeframe_records: dict[str, list[dict]]) -> dict[str, dict]:
     """Compare score separation by timeframe without selecting a threshold."""
     reports = {tf: analyze_records(records) for tf, records in timeframe_records.items()}
-    ranked = sorted(
-        reports,
-        key=lambda tf: (
-            reports[tf]["stability"].get("high_minus_low_win_rate_pp", 0.0),
-            reports[tf]["stability"].get("high_score_closed", 0),
-        ),
-        reverse=True,
-    )
+
+    def rank_key(tf: str) -> tuple:
+        stability = reports[tf]["stability"]
+        oos_lift = stability.get("oos_high_minus_low_win_rate_pp")
+        return (
+            oos_lift is not None and oos_lift > 0,
+            stability.get("partitions_monotonic", 0),
+            stability.get("positive_separation_partitions", 0),
+            oos_lift if oos_lift is not None else float("-inf"),
+            stability.get("high_score_closed", 0),
+        )
+
+    ranked = sorted(reports, key=rank_key, reverse=True)
     return {"timeframes": reports, "score_separation_rank": ranked}
