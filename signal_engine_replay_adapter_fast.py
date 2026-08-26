@@ -1,13 +1,14 @@
-"""Fast bridge to the production signal engine for historical replay."""
+"""Fast bridge to production modules with research-only continuous scoring."""
 from __future__ import annotations
 
 from signal_engine import (
     ContestoMercato,
     tutte_le_strategie,
-    calcola_categorie,
+    calcola_categorie as production_categories,
     classifica_segnale,
     determina_direzione,
 )
+from research_scoring import continuous_categories
 from trade_plan import costruisci_trade_plan
 
 
@@ -16,7 +17,20 @@ def analyze_context_at(ctx: ContestoMercato, i: int) -> dict | None:
         return None
     ctx.i = i
     risultati = tutte_le_strategie(ctx)
-    categorie = calcola_categorie(risultati)
+
+    # Keep production direction/evidence available for comparison, but use
+    # continuous research categories for historical signal classification.
+    prod = production_categories(risultati)
+    categorie = continuous_categories(ctx, risultati)
+    categorie["peso_long"] = prod["peso_long"]
+    categorie["peso_short"] = prod["peso_short"]
+    categorie["totale_pesi"] = prod["totale_pesi"]
+    categorie["score"] = (
+        categorie["trend"] * 0.45
+        + categorie["momentum"] * 0.20
+        + categorie["setup"] * 0.35
+    )
+
     classificazione = classifica_segnale(categorie, risultati)
     direzione, confluenza, conflitto = determina_direzione(risultati)
     analysis = {
@@ -25,6 +39,7 @@ def analyze_context_at(ctx: ContestoMercato, i: int) -> dict | None:
         "ctx": ctx,
         "risultati": risultati,
         "categorie": categorie,
+        "production_categories": prod,
         "classificazione": classificazione,
         "direzione_dominante": direzione,
         "confluenza": confluenza,
