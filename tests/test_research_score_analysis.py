@@ -22,6 +22,7 @@ class ResearchScoreAnalysisTests(unittest.TestCase):
                 "entry": 100,
                 "exit": 101 if outcome == "TP" else 99,
                 "direction": "LONG",
+                "regime": "TREND_UP" if idx <= 30 else "RANGE",
             })
         return rows
 
@@ -37,6 +38,19 @@ class ResearchScoreAnalysisTests(unittest.TestCase):
         report = analyze_records(self._records())
         self.assertEqual(report["partitions"]["oos"]["signals"], 6)
         self.assertEqual(report["partitions"]["train"]["signals"], 0)
+
+    def test_regime_stratification_is_present(self):
+        report = analyze_records(self._records())
+        self.assertEqual(set(report["regimes"]), {"TREND_UP", "RANGE"})
+        self.assertEqual(report["regimes"]["TREND_UP"]["closed"], 3)
+        self.assertEqual(report["regimes"]["RANGE"]["closed"], 3)
+        self.assertEqual(report["stability"]["positive_separation_regimes"], 1)
+
+    def test_chronological_windows_are_reported(self):
+        report = analyze_records(self._records())
+        self.assertEqual(report["stability"]["walk_forward_windows"], 4)
+        self.assertEqual(len(report["walk_forward"]), 4)
+        self.assertEqual(sum(w["signals"] for w in report["walk_forward"]), 6)
 
     def test_timeframe_comparison_ranks_separation(self):
         strong = self._records()
