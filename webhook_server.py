@@ -16,7 +16,6 @@ from signal_engine import (
     TELEGRAM_BOT_TOKEN,
     TELEGRAM_CHAT_ID,
     analizza_coppia,
-    etichetta_categoria,
 )
 
 logging.basicConfig(level=logging.INFO)
@@ -37,6 +36,23 @@ CLASSIFICAZIONI_V22 = {"FORTE", "SETUP", "WATCH", "NO TRADE"}
 DIREZIONI = {"LONG", "SHORT", "NEUTRO"}
 GUARD_STATI = {"PASS", "BLOCKED", "WARN"}
 TELEGRAM_STATI = {"SENT", "FAILED", "NOT_SENT", "BLOCKED"}
+
+
+def etichetta_categoria(score: float) -> str:
+    score = float(score)
+    if score >= 70:
+        return "FORTE"
+    if score >= 60:
+        return "SETUP"
+    if score > 50:
+        return "WATCH"
+    if score <= 30:
+        return "FORTE"
+    if score <= 40:
+        return "SETUP"
+    if score < 50:
+        return "WATCH"
+    return "NO TRADE"
 
 
 def risolvi_coppia(testo_comando: str) -> str:
@@ -68,7 +84,7 @@ def costruisci_analisi_html(analisi: dict) -> str:
     categorie = analisi["categorie"]
     righe = [
         f"🔎 <b>Analisi — {html.escape(analisi['pair'])}</b>",
-        f"Prezzo: <b>{analisi['prezzo']:.5f}</b> | RSI: {analisi['rsi']:.1f}",
+        f"Prezzo: <b>{analisi['prezzo']:.5f}</b>",
         f"🧠 <b>Score: {analisi['score']:.1f}/100 — {analisi['bias']}</b>",
         f"Trend: {categorie['trend']:.1f}/100 ({etichetta_categoria(categorie['trend'])})",
         f"Momentum: {categorie['momentum']:.1f}/100 ({etichetta_categoria(categorie['momentum'])})",
@@ -112,8 +128,6 @@ def _valida_ingest_payload(data):
         raise ValueError(f"campi mancanti: {', '.join(missing)}")
 
     pair = str(data["pair"]).upper()
-    # Il token X-Dashboard-Token autentica il runner; l'universo degli strumenti
-    # può essere dinamico e quindi non deve dipendere da COPPIE_MONITORATE locale.
     classification = str(data["classification"]).upper()
     if classification not in CLASSIFICAZIONI_V22:
         raise ValueError("classification V2.2 non valida")
@@ -216,6 +230,7 @@ def telegram_webhook():
             ctx = analisi["ctx"]
             i = ctx.i
             trend = "rialzista" if ctx.ema9[i] > ctx.ema21[i] else "ribassista"
+            rsi = ctx.rsi14[i]
             risposta = (
                 f"📊 <b>Stato attuale</b>\n"
                 f"Coppia: <b>{analisi['pair']}</b> (Kraken)\n"
@@ -223,7 +238,7 @@ def telegram_webhook():
                 f"EMA9: {ctx.ema9[i]:.5f}\n"
                 f"EMA21: {ctx.ema21[i]:.5f}\n"
                 f"Trend EMA: {trend}\n"
-                f"RSI: {analisi['rsi']:.1f}\n"
+                f"RSI: {rsi:.1f}\n"
                 f"Score: <b>{analisi['score']:.1f}/100</b> — {analisi['bias']}\n"
                 f"Trend/Momentum/Setup: {analisi['categorie']['trend']:.1f} / {analisi['categorie']['momentum']:.1f} / {analisi['categorie']['setup']:.1f}\n"
                 f"Confluenza: {'⚠️ CONFLITTO' if analisi['conflitto'] else '✅ CONFLUENZA'}\n"
@@ -242,7 +257,7 @@ def telegram_webhook():
                 f"Momentum: {analisi['categorie']['momentum']:.1f}\n"
                 f"Setup: {analisi['categorie']['setup']:.1f}\n"
                 f"Confluenza: {'⚠️ CONFLITTO' if analisi['conflitto'] else '✅ CONFLUENZA'}\n"
-                f"RSI: {analisi['rsi']:.1f}\n"
+                f"RSI: {analisi['ctx'].rsi14[analisi['ctx'].i]:.1f}\n"
                 f"TF: {INTERVAL_MIN}m"
             )
         elif comando in ("/start", "/help", "/aiuto"):
