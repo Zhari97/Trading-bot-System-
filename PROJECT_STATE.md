@@ -28,30 +28,36 @@ Batch development: BUILD -> BUILD -> BUILD -> CODE QUALITY -> HISTORICAL BACKTES
   - Momentum: continuous RSI position + MACD histogram.
   - Setup: Bollinger + Fibonacci + Price Action evidence with neutral evidence preserved.
 - `signal_engine_replay_adapter_fast.py` uses research continuous categories for historical classification while retaining legacy production categories for comparison.
-- Dedicated research scoring tests exist.
+- `research_score_analysis.py` measures score separation across train/validation/OOS without selecting a production threshold.
+- Dedicated research scoring and score-analysis tests exist.
 
 ## Last validated baseline
-- Historical Backtest #26 completed successfully; validate, six-month replay, result validation and artifact publication all passed.
-- Weighted evidence metrics showed the legacy confluence value could reach 100% despite weak evidence coverage.
-- Previous 6-month OOS snapshot:
-  - 5m: 47 closed trades, 0 wins, 47 losses, 0% win rate, PF 0.00, return -1.175%.
-  - 15m: 18 closed trades, 2 wins, 16 losses, PF 1.22, return +0.091% (too small for conclusions).
-  - 1h: 4 closed trades, 1 win, 3 losses, PF 3.05, return +0.168% (far too small).
+- Historical Backtest #30 completed successfully on 2026-08-26 after the continuous research-scoring batch.
+- Artifact publication succeeded.
+- The run still reports only Node.js 20 deprecation warnings; no workflow failure.
+- Current 6-month OOS snapshot:
+  - 5m: portfolio return -1.3297%, PF 0.36; unsuitable for the current research focus.
+  - 15m: portfolio return -0.4544%, PF 0.69; no demonstrated edge.
+  - 1h: portfolio return +0.5143%, PF 1.52, expectancy +0.0147%; promising but still too small for a profitability claim.
+- Continuous score separation ranks timeframes: 1h > 5m > 15m.
+- 1h currently has the strongest score separation (high-score vs low-score win-rate lift about +4.09 percentage points), but monotonicity is NOT consistent across all train/validation/OOS partitions.
+- Therefore 1h is the primary research timeframe for the next diagnostic cycle, not a LIVE or production recommendation.
 
 ## Current implementation state
-The continuous research scoring batch is committed on `main` and has NOT yet had its own Code Quality + Historical Backtest cycle. Do not treat it as validated or profitable.
+The continuous research-scoring batch is validated by Code Quality + Historical Backtest. It is research-only and must not be moved into LIVE based on this result.
 
 ## Next step
-1. Run Code Quality once for the current continuous research-scoring batch.
-2. If green, run exactly one Historical Backtest.
-3. Compare continuous scores vs legacy scores and outcomes by timeframe/regime; inspect score distributions and sample sizes.
-4. Do not modify LIVE based on a single backtest.
+1. Focus the next diagnostic cycle on 1h.
+2. Run a chronological/walk-forward stability analysis of score separation by partition and market regime; do not optimize against OOS.
+3. If the 1h relationship remains stable, expand the analysis to multi-timeframe confirmation (15m + 1h) without changing LIVE logic.
+4. Only after stable evidence, evaluate realistic costs/slippage and broader robustness.
 
 ## Do not do
 - Do not launch multiple identical Historical Backtests.
 - Do not call a small sample profitable based on PF alone.
 - Do not optimize against OOS.
 - Do not move research scoring into LIVE without a dedicated validation cycle.
+- Do not treat the 1h result as a trading recommendation yet.
 
 ## Recovery rule
 For a new chat: read this file first, inspect latest commits/workflows/artifacts, then continue from Next step.
