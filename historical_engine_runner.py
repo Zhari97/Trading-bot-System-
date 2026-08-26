@@ -14,6 +14,7 @@ from historical_replay import evaluate_forward_result
 from market_regime import classify as classify_regime
 from research_config import HISTORICAL_DAYS, TRADE_PLAN
 from research_metrics import summarize
+from research_score_analysis import compare_timeframes
 from signal_analytics import analyze as analyze_signal_analytics
 from signal_engine_replay_adapter_fast import analyze_context_at
 from signal_engine import ContestoMercato
@@ -143,6 +144,10 @@ def replay_timeframe(candles: list[dict], timeframe: str) -> dict:
         "validation": [r for r in records if train_end <= r["candle_index"] < validation_end],
         "oos": [r for r in records if r["candle_index"] >= validation_end],
     }
+    for label, rows in partitions.items():
+        for row in rows:
+            row["partition"] = label
+
     allocation = float(TRADE_PLAN["max_account_allocation_pct"])
     return {
         "timeframe": timeframe,
@@ -171,10 +176,14 @@ def main() -> None:
         "allocation_pct": float(TRADE_PLAN["max_account_allocation_pct"]),
         "timeframes": {},
     }
+    timeframe_records: dict[str, list[dict]] = {}
     for timeframe, candles in datasets.items():
         print(f"REPLAY {timeframe}: {len(candles)} candles")
-        results["timeframes"][timeframe] = replay_timeframe(candles, timeframe)
+        result = replay_timeframe(candles, timeframe)
+        results["timeframes"][timeframe] = result
+        timeframe_records[timeframe] = result["records"]
 
+    results["score_stability"] = compare_timeframes(timeframe_records)
     OUT.write_text(json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"WROTE {OUT}")
 
