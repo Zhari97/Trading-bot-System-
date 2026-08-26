@@ -12,7 +12,7 @@ from pathlib import Path
 from historical_data import load_six_months
 from historical_replay import evaluate_forward_result
 from research_metrics import summarize
-from signal_engine_replay_adapter import analyze_context_at
+from signal_engine_replay_adapter_fast import analyze_context_at
 from signal_engine import ContestoMercato
 
 SYMBOL = "BTCUSDT"
@@ -22,13 +22,9 @@ OUT = Path("backtest_results.json")
 def replay_timeframe(candles: list[dict], timeframe: str) -> dict:
     ctx = ContestoMercato(candles)
     records: list[dict] = []
-    # Keep enough warm-up history and reserve future candles for outcome.
     for i in range(60, len(candles) - 1):
         analysis = analyze_context_at(ctx, i)
-        if not analysis:
-            continue
-        classification = analysis["classificazione"]
-        if classification.get("livello") != "FORTE":
+        if not analysis or analysis["classificazione"].get("livello") != "FORTE":
             continue
         plan = analysis.get("trade_plan")
         if not plan:
@@ -41,6 +37,7 @@ def replay_timeframe(candles: list[dict], timeframe: str) -> dict:
         }, future)
         if result:
             row = {
+                "candle_index": i,
                 "timestamp": candles[i].get("timestamp"),
                 "timeframe": timeframe,
                 "direction": plan["direction"],
@@ -53,12 +50,13 @@ def replay_timeframe(candles: list[dict], timeframe: str) -> dict:
             row.update(result)
             records.append(row)
 
-    split = int(len(records) * 0.5)
-    val = int(len(records) * (0.5 + 1 / 6))
+    # Split by TIME, not by signal count: 50% / 16.7% / 33.3% of candles.
+    train_end = int(len(candles) * 0.50)
+    validation_end = int(len(candles) * (0.50 + 1 / 6))
     partitions = {
-        "train": records[:split],
-        "validation": records[split:val],
-        "oos": records[val:],
+        "train": [r for r in records if r["candle_index"] < train_end],
+        "validation": [r for r in records if train_end <= r["candle_index"] < validation_end],
+        "oos": [r for r in records if r["candle_index"] >= validation_end],
     }
     return {
         "timeframe": timeframe,
