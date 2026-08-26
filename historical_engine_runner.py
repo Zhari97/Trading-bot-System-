@@ -45,6 +45,7 @@ def replay_timeframe(candles: list[dict], timeframe: str) -> dict:
         if not result:
             continue
 
+        categories = analysis.get("categorie") or analysis.get("categories") or {}
         row = {
             "candle_index": i,
             "timestamp": candles[i].get("timestamp"),
@@ -55,6 +56,9 @@ def replay_timeframe(candles: list[dict], timeframe: str) -> dict:
             "take_profit": plan["take_profit"],
             "score": analysis["score"],
             "confluence": analysis["confluenza"],
+            "trend": categories.get("trend"),
+            "momentum": categories.get("momentum"),
+            "setup": categories.get("setup"),
             "allocation_pct": float(TRADE_PLAN["max_account_allocation_pct"]),
         }
         row.update(result)
