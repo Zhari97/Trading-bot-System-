@@ -30,6 +30,8 @@ class ResearchScoreAnalysisTests(unittest.TestCase):
         self.assertEqual(report["overall"]["0-40"]["closed"], 2)
         self.assertEqual(report["overall"]["80-100"]["win_rate_pct"], 100.0)
         self.assertEqual(report["stability"]["high_minus_low_win_rate_pp"], 100.0)
+        self.assertEqual(report["stability"]["oos_high_minus_low_win_rate_pp"], 100.0)
+        self.assertEqual(report["stability"]["research_status"], "PROMISING_BUT_UNSTABLE")
 
     def test_partition_is_respected(self):
         report = analyze_records(self._records())
