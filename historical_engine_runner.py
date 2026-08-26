@@ -21,6 +21,70 @@ from signal_engine import ContestoMercato
 SYMBOL = "BTCUSDT"
 OUT = Path("backtest_results.json")
 
+# Mirror of the production strategy weights. These metrics are research-only:
+# they expose how much weighted evidence actually supports a direction instead
+# of treating "no opposition" as 100% confluence.
+STRATEGY_WEIGHTS = {
+    "EMA9/21 + RSI + conferma": 0.45,
+    "MACD crossover": 0.20,
+    "Bollinger Bands": 0.15,
+    "Ichimoku semplificato": 0.15,
+    "Fibonacci retracement": 0.10,
+    "Price Action": 0.10,
+    "ATR volatilità": 0.05,
+}
+TOTAL_STRATEGY_WEIGHT = sum(STRATEGY_WEIGHTS.values())
+
+
+def weighted_evidence(risultati: list[dict]) -> dict:
+    """Return continuous research metrics for directional evidence.
+
+    The legacy confluence metric measures agreement only among non-neutral
+    votes, so a single directional vote can become 100%. These metrics use
+    the full strategy weight budget and therefore distinguish strong evidence
+    from sparse evidence.
+    """
+    long_weight = 0.0
+    short_weight = 0.0
+    for result in risultati:
+        weight = STRATEGY_WEIGHTS.get(result.get("nome"), 0.0)
+        if result.get("voto") == "LONG":
+            long_weight += weight
+        elif result.get("voto") == "SHORT":
+            short_weight += weight
+
+    supported_weight = long_weight + short_weight
+    neutral_weight = max(0.0, TOTAL_STRATEGY_WEIGHT - supported_weight)
+    dominant_weight = max(long_weight, short_weight)
+    direction = (
+        "LONG" if long_weight > short_weight
+        else "SHORT" if short_weight > long_weight
+        else "NEUTRO"
+    )
+
+    support_coverage_pct = supported_weight / TOTAL_STRATEGY_WEIGHT * 100.0
+    neutral_weight_pct = neutral_weight / TOTAL_STRATEGY_WEIGHT * 100.0
+    weighted_confidence_pct = dominant_weight / TOTAL_STRATEGY_WEIGHT * 100.0
+    if supported_weight > 0:
+        directional_agreement_pct = dominant_weight / supported_weight * 100.0
+    else:
+        directional_agreement_pct = 0.0
+
+    evidence_score = 50.0 + (
+        (long_weight - short_weight) / TOTAL_STRATEGY_WEIGHT
+    ) * 50.0
+
+    return {
+        "evidence_score": round(evidence_score, 4),
+        "weighted_confidence_pct": round(weighted_confidence_pct, 4),
+        "support_coverage_pct": round(support_coverage_pct, 4),
+        "neutral_weight_pct": round(neutral_weight_pct, 4),
+        "directional_agreement_pct": round(directional_agreement_pct, 4),
+        "weighted_long_pct": round(long_weight / TOTAL_STRATEGY_WEIGHT * 100.0, 4),
+        "weighted_short_pct": round(short_weight / TOTAL_STRATEGY_WEIGHT * 100.0, 4),
+        "evidence_direction": direction,
+    }
+
 
 def replay_timeframe(candles: list[dict], timeframe: str) -> dict:
     ctx = ContestoMercato(candles)
@@ -48,6 +112,7 @@ def replay_timeframe(candles: list[dict], timeframe: str) -> dict:
             continue
 
         categories = analysis.get("categorie") or analysis.get("categories") or {}
+        evidence = weighted_evidence(analysis.get("risultati", []))
         row = {
             "candle_index": i,
             "timestamp": candles[i].get("timestamp"),
@@ -63,6 +128,7 @@ def replay_timeframe(candles: list[dict], timeframe: str) -> dict:
             "setup": categories.get("setup"),
             "regime": classify_regime(candles[: i + 1]),
             "allocation_pct": float(TRADE_PLAN["max_account_allocation_pct"]),
+            **evidence,
         }
         row.update(result)
         records.append(row)
