@@ -19,6 +19,15 @@ INTERVALS = {"5m": "5m", "15m": "15m", "1h": "1h"}
 TIMEOUT = 60
 
 
+def _epoch_ms(value: int) -> int:
+    """Normalize Binance archive timestamps to milliseconds.
+
+    Binance Spot public-data files use microseconds from 2025-01-01 onward,
+    while older archives use milliseconds.
+    """
+    return value // 1000 if value >= 100_000_000_000_000 else value
+
+
 def _parse_rows(raw: bytes, start_ms: int, end_ms: int) -> list[dict]:
     rows: list[dict] = []
     with zipfile.ZipFile(io.BytesIO(raw)) as archive:
@@ -28,19 +37,25 @@ def _parse_rows(raw: bytes, start_ms: int, end_ms: int) -> list[dict]:
         with archive.open(names[0]) as fh:
             reader = csv.reader(io.TextIOWrapper(fh, encoding="utf-8"))
             for row in reader:
-                if not row or not row[0].isdigit():
+                if not row:
                     continue
-                ts = int(row[0])
-                if ts < start_ms or ts >= end_ms:
+                try:
+                    raw_ts = int(row[0])
+                    ts_ms = _epoch_ms(raw_ts)
+                    close_ts_ms = _epoch_ms(int(row[6]))
+                except (ValueError, IndexError):
+                    # Skip the optional CSV header.
+                    continue
+                if ts_ms < start_ms or ts_ms >= end_ms:
                     continue
                 rows.append({
-                    "timestamp": datetime.fromtimestamp(ts / 1000, tz=timezone.utc).isoformat(),
+                    "timestamp": datetime.fromtimestamp(ts_ms / 1000, tz=timezone.utc).isoformat(),
                     "open": float(row[1]),
                     "high": float(row[2]),
                     "low": float(row[3]),
                     "close": float(row[4]),
                     "volume": float(row[5]),
-                    "close_timestamp": int(row[6]),
+                    "close_timestamp": close_ts_ms,
                 })
     return rows
 
@@ -77,7 +92,7 @@ def fetch_klines(symbol: str, interval: str, start: datetime, end: datetime) -> 
     while cursor < end:
         next_month = (cursor.replace(day=28) + timedelta(days=4)).replace(day=1)
         month_end = min(next_month, end)
-        full_month = cursor >= start and next_month <= end
+        full_month = cursor.day == 1 and cursor >= start.replace(day=1) and next_month <= end
 
         if full_month:
             raw = _download(_monthly_url(symbol, interval, cursor.year, cursor.month))
