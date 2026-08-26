@@ -11,6 +11,7 @@ from pathlib import Path
 
 from historical_data import load_six_months
 from historical_replay import evaluate_forward_result
+from market_regime import classify as classify_regime
 from research_config import HISTORICAL_DAYS, TRADE_PLAN
 from research_metrics import summarize
 from signal_analytics import analyze as analyze_signal_analytics
@@ -60,6 +61,7 @@ def replay_timeframe(candles: list[dict], timeframe: str) -> dict:
             "trend": categories.get("trend"),
             "momentum": categories.get("momentum"),
             "setup": categories.get("setup"),
+            "regime": classify_regime(candles[: i + 1]),
             "allocation_pct": float(TRADE_PLAN["max_account_allocation_pct"]),
         }
         row.update(result)
