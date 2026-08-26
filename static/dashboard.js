@@ -8,25 +8,36 @@ function card(m){
 
 function graph(h){
   if(!Array.isArray(h)||!h.length)return;
-  document.querySelector('#chart').innerHTML=`<polyline class="line" points="${h.slice(-60).map((x,i)=>`${i*(700/Math.max(1,h.slice(-60).length-1))},${170-x.score*1.6}`).join(' ')}"/>`;
+  const points=h.slice(-60);
+  const min=Math.min(...points.map(x=>Number(x.score)||0));
+  const max=Math.max(...points.map(x=>Number(x.score)||0));
+  const span=Math.max(1,max-min);
+  document.querySelector('#chart').innerHTML=`<polyline class="line" points="${points.map((x,i)=>`${i*(700/Math.max(1,points.length-1))},${170-((Number(x.score)||0)-min)*150/span}`).join(' ')}"/>`;
+}
+
+async function getJson(u){
+  const r=await fetch(u,{cache:'no-store'});
+  if(!r.ok) throw new Error(`${u}: HTTP ${r.status}`);
+  return r.json();
 }
 
 async function refresh(){
-  const [s,m,h,x]=await Promise.all(['/api/status','/api/markets','/api/history','/api/signals'].map(u=>fetch(u).then(r=>{
-    if(!r.ok) throw new Error(`${u}: HTTP ${r.status}`);
-    return r.json();
-  })));
+  const [s,m,h,x]=await Promise.all([
+    getJson('/api/status'),
+    getJson('/api/markets'),
+    getJson('/api/history'),
+    getJson('/api/signals')
+  ]);
 
-  // API responses are already the stored values: markets is an object,
-  // history/signals are arrays. Keep compatibility with wrapped responses too.
   const markets=Array.isArray(m)?m:(m?.markets&&typeof m.markets==='object'?m.markets:m);
   const history=Array.isArray(h)?h:(Array.isArray(h?.history)?h.history:[]);
   const signals=Array.isArray(x)?x:(Array.isArray(x?.signals)?x.signals:[]);
   const a=Object.values(markets||{});
+  const last=history.length?history[history.length-1]:null;
 
-  const timeframe=s?.timeframe_minutes!=null?`${s.timeframe_minutes}m`:'—';
+  const timeframe=s?.timeframe_minutes!=null?`${s.timeframe_minutes}m`:'15m';
   document.querySelector('#timeframe').textContent=timeframe;
-  document.querySelector('#updated').textContent=date(s?.updated_at);
+  document.querySelector('#updated').textContent=date(s?.updated_at||last?.timestamp);
 
   if(a.length){
     document.querySelector('#markets').innerHTML=a.map(card).join('');
@@ -37,7 +48,8 @@ async function refresh(){
     document.querySelector('#engine').innerHTML='In attesa di analisi reale.';
   }
 
-  document.querySelector('#telegram').innerHTML=`Configurato: <b>${s?.telegram?.configured?'SI':'NO'}</b><br>Ultimo alert: <b>${esc(s?.telegram?.last_alert?.telegram||'Non disponibile')}</b>`;
+  const telegramConfigured=s?.telegram?.configured;
+  document.querySelector('#telegram').innerHTML=`Configurato: <b>${telegramConfigured?'SI':'NO'}</b><br>Ultimo alert: <b>${esc(s?.telegram?.last_alert?.telegram||'Non disponibile')}</b>`;
   document.querySelector('#signals').innerHTML=signals.map(q=>`<tr><td>${date(q.timestamp)}</td><td>${esc(q.pair)}</td><td>${badge(q.classification)}</td><td>${esc(q.direction)}</td><td>${esc(q.score)}</td><td>${esc(q.confluence)}%</td><td>${esc(q.guard_rail?.status)}</td><td>${esc(q.telegram)}</td></tr>`).join('')||'<tr><td colspan="8">Nessun dato persistito.</td></tr>';
   graph(history);
 }
@@ -46,5 +58,7 @@ refresh().catch(err=>{
   console.error('Dashboard refresh error',err);
   document.querySelector('#engine').textContent='Errore caricamento dati dashboard.';
   document.querySelector('#telegram').textContent='Errore caricamento dati dashboard.';
+  document.querySelector('#markets').innerHTML='<p>Errore caricamento dati dashboard.</p>';
+  document.querySelector('#signals').innerHTML='<tr><td colspan="8">Errore caricamento dati dashboard.</td></tr>';
 });
 setInterval(()=>refresh().catch(err=>console.error('Dashboard refresh error',err)),30000);
