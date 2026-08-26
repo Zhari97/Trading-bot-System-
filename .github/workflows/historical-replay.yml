@@ -1,0 +1,41 @@
+name: Historical Replay
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'historical_*.py'
+      - 'signal_engine_replay_adapter.py'
+      - 'research_*.py'
+      - '.github/workflows/historical-replay.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run historical replay
+        run: python historical_engine_runner.py
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: historical-backtest-results
+          path: backtest_results.json
+          if-no-files-found: error
+          retention-days: 14
