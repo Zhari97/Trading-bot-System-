@@ -1,0 +1,151 @@
+"""Research-only score calibration and stability diagnostics.
+
+The analyzer deliberately avoids choosing an optimal threshold. It measures
+whether higher continuous research scores correspond to better outcomes across
+train, validation and out-of-sample partitions and across timeframes.
+"""
+from __future__ import annotations
+
+BUCKETS = ((0.0, 40.0), (40.0, 60.0), (60.0, 80.0), (80.0, 100.000001))
+PARTITIONS = ("train", "validation", "oos")
+
+
+def _closed(records: list[dict]) -> list[dict]:
+    return [r for r in records if r.get("outcome") in ("TP", "SL")]
+
+
+def _win_rate(records: list[dict]) -> float:
+    closed = _closed(records)
+    return 100.0 * sum(r.get("outcome") == "TP" for r in closed) / len(closed) if closed else 0.0
+
+
+def _mean(values: list[float]) -> float:
+    return sum(values) / len(values) if values else 0.0
+
+
+def _bucket_name(low: float, high: float) -> str:
+    return f"{int(low)}-{int(high if high <= 100 else 100)}"
+
+
+def _score(record: dict) -> float | None:
+    value = record.get("score")
+    try:
+        value = float(value)
+    except (TypeError, ValueError):
+        return None
+    return max(0.0, min(100.0, value))
+
+
+def _bucket_stats(records: list[dict]) -> dict[str, dict]:
+    stats: dict[str, dict] = {}
+    for low, high in BUCKETS:
+        selected = [r for r in records if (s := _score(r)) is not None and low <= s < high]
+        closed = _closed(selected)
+        returns = []
+        for r in closed:
+            try:
+                entry = float(r.get("entry", 0) or 0)
+                exit_price = float(r.get("exit", 0) or 0)
+                if entry <= 0 or exit_price <= 0:
+                    continue
+                raw = (exit_price / entry - 1.0) * 100.0
+                returns.append(raw if r.get("direction") == "LONG" else -raw)
+            except (TypeError, ValueError):
+                continue
+        name = _bucket_name(low, high)
+        stats[name] = {
+            "signals": len(selected),
+            "closed": len(closed),
+            "wins": sum(r.get("outcome") == "TP" for r in closed),
+            "losses": sum(r.get("outcome") == "SL" for r in closed),
+            "win_rate_pct": round(_win_rate(selected), 4),
+            "expectancy_pct": round(_mean(returns), 6),
+        }
+    return stats
+
+
+def _monotonicity(bucket_stats: dict[str, dict]) -> dict:
+    ordered = [bucket_stats[_bucket_name(low, high)] for low, high in BUCKETS]
+    available = [x for x in ordered if x["closed"] > 0]
+    if len(available) < 2:
+        return {"available_buckets": len(available), "non_decreasing_win_rate": None, "win_rate_lift_pp": None}
+    wins = [x["win_rate_pct"] for x in available]
+    non_decreasing = all(b >= a for a, b in zip(wins, wins[1:]))
+    return {
+        "available_buckets": len(available),
+        "non_decreasing_win_rate": non_decreasing,
+        "win_rate_lift_pp": round(wins[-1] - wins[0], 4),
+    }
+
+
+def _partition_records(records: list[dict], partition: str) -> list[dict]:
+    if "partition" in records[0] if records else False:
+        return [r for r in records if r.get("partition") == partition]
+    if not records:
+        return []
+    max_index = max(int(r.get("candle_index", 0)) for r in records)
+    train_end = max_index * 0.50
+    validation_end = max_index * (0.50 + 1 / 6)
+    if partition == "train":
+        return [r for r in records if int(r.get("candle_index", 0)) < train_end]
+    if partition == "validation":
+        return [r for r in records if train_end <= int(r.get("candle_index", 0)) < validation_end]
+    return [r for r in records if int(r.get("candle_index", 0)) >= validation_end]
+
+
+def analyze_records(records: list[dict]) -> dict:
+    """Return threshold-free score stability diagnostics for one timeframe."""
+    if not records:
+        return {"signals": 0, "partitions": {}, "overall": _bucket_stats([]), "stability": {}}
+
+    partitions = {}
+    for partition in PARTITIONS:
+        part = _partition_records(records, partition)
+        buckets = _bucket_stats(part)
+        partitions[partition] = {
+            "signals": len(part),
+            "closed": len(_closed(part)),
+            "win_rate_pct": round(_win_rate(part), 4),
+            "buckets": buckets,
+            "monotonicity": _monotonicity(buckets),
+        }
+
+    overall = _bucket_stats(records)
+    stable_flags = [
+        p["monotonicity"]["non_decreasing_win_rate"]
+        for p in partitions.values()
+        if p["monotonicity"]["non_decreasing_win_rate"] is not None
+    ]
+    high = overall["80-100"]
+    low = overall["0-40"]
+    stability = {
+        "partitions_with_monotonicity": len(stable_flags),
+        "partitions_monotonic": sum(flag is True for flag in stable_flags),
+        "monotonicity_consistent": bool(stable_flags) and all(stable_flags),
+        "high_score_closed": high["closed"],
+        "high_score_win_rate_pct": high["win_rate_pct"],
+        "low_score_closed": low["closed"],
+        "low_score_win_rate_pct": low["win_rate_pct"],
+        "high_minus_low_win_rate_pp": round(high["win_rate_pct"] - low["win_rate_pct"], 4),
+    }
+    return {
+        "signals": len(records),
+        "closed": len(_closed(records)),
+        "overall": overall,
+        "partitions": partitions,
+        "stability": stability,
+    }
+
+
+def compare_timeframes(timeframe_records: dict[str, list[dict]]) -> dict[str, dict]:
+    """Compare score separation by timeframe without selecting a threshold."""
+    reports = {tf: analyze_records(records) for tf, records in timeframe_records.items()}
+    ranked = sorted(
+        reports,
+        key=lambda tf: (
+            reports[tf]["stability"].get("high_minus_low_win_rate_pp", 0.0),
+            reports[tf]["stability"].get("high_score_closed", 0),
+        ),
+        reverse=True,
+    )
+    return {"timeframes": reports, "score_separation_rank": ranked}
