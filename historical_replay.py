@@ -1,10 +1,4 @@
-"""Historical replay skeleton for the 15m signal engine.
-
-Purpose: replay closed candles sequentially without future data leakage.
-The engine itself is intentionally kept unchanged; this module provides the
-walk-forward harness and dataset split used for later evaluation.
-"""
-
+"""Historical replay utilities with no future-data leakage."""
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -19,19 +13,10 @@ class ReplaySplit:
 
 
 def split_time_ordered(candles: list[dict]) -> ReplaySplit:
-    """Split chronologically: 50% train, 16.7% validation, 33.3% OOS.
-
-    For a six-month source dataset this approximates 3 / 1 / 2 months.
-    No shuffling is allowed.
-    """
     n = len(candles)
     train_end = int(n * 0.50)
     validation_end = int(n * (0.50 + 1 / 6))
-    return ReplaySplit(
-        candles[:train_end],
-        candles[train_end:validation_end],
-        candles[validation_end:],
-    )
+    return ReplaySplit(candles[:train_end], candles[train_end:validation_end], candles[validation_end:])
 
 
 def replay_closed_candles(
@@ -39,12 +24,6 @@ def replay_closed_candles(
     signal_fn: Callable[[list[dict]], dict | None],
     minimum_history: int = 60,
 ) -> list[dict]:
-    """Run signal_fn only on information available up to each closed candle.
-
-    signal_fn receives a copy of candles ending at the current closed candle;
-    therefore it cannot see future candles. Each returned signal is timestamped
-    by the candle timestamp when available.
-    """
     records = []
     for end in range(minimum_history, len(candles) + 1):
         visible = candles[:end]
@@ -56,32 +35,33 @@ def replay_closed_candles(
     return records
 
 
-def evaluate_forward_result(
-    signal: dict,
-    future_candles: list[dict],
-    tp_pct: float = 0.05,
-) -> dict | None:
-    """Evaluate TP/SL after the signal using only future candles.
+def evaluate_forward_result(signal: dict, future_candles: list[dict], tp_pct: float = 0.05) -> dict | None:
+    """Evaluate TP/SL using only candles after the signal.
 
-    Conservative tie-break: if TP and SL are touched in the same candle,
-    classify the result as SL because intrabar order is unknown.
+    If the signal contains an explicit ``take_profit`` price, that level wins
+    over the percentage fallback. If TP and SL occur in the same candle, SL is
+    selected conservatively because intrabar order is unknown.
     """
     direction = signal.get("direction")
-    entry = float(signal.get("entry", 0))
-    stop = float(signal.get("stop_loss", 0))
-    if direction not in ("LONG", "SHORT") or entry <= 0 or stop <= 0:
+    entry = float(signal.get("entry", 0) or 0)
+    stop = float(signal.get("stop_loss", 0) or 0)
+    if direction not in ("LONG", "SHORT") or entry <= 0 or stop <= 0 or not future_candles:
         return None
 
-    tp = entry * (1 + tp_pct) if direction == "LONG" else entry * (1 - tp_pct)
+    supplied_tp = signal.get("take_profit")
+    tp = float(supplied_tp) if supplied_tp is not None else (
+        entry * (1 + tp_pct) if direction == "LONG" else entry * (1 - tp_pct)
+    )
+    if tp <= 0:
+        return None
+
     for bars, candle in enumerate(future_candles, start=1):
         high = float(candle["high"])
         low = float(candle["low"])
         if direction == "LONG":
-            hit_sl = low <= stop
-            hit_tp = high >= tp
+            hit_sl, hit_tp = low <= stop, high >= tp
         else:
-            hit_sl = high >= stop
-            hit_tp = low <= tp
+            hit_sl, hit_tp = high >= stop, low <= tp
 
         if hit_sl and hit_tp:
             return {"outcome": "SL", "bars": bars, "exit": stop, "tp": tp, "sl": stop}
