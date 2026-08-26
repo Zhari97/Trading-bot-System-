@@ -27,7 +27,7 @@ class ResearchScoreAnalysisTests(unittest.TestCase):
 
     def test_score_buckets_are_threshold_free_and_bounded(self):
         report = analyze_records(self._records())
-        self.assertEqual(report["overall"]["20-40"]["closed"], 2)
+        self.assertEqual(report["overall"]["0-40"]["closed"], 2)
         self.assertEqual(report["overall"]["80-100"]["win_rate_pct"], 100.0)
         self.assertEqual(report["stability"]["high_minus_low_win_rate_pp"], 100.0)
 
