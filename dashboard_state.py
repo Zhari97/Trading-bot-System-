@@ -33,12 +33,13 @@ def _write_state(state):
 def save_analysis(analysis, guard_status="PASS", guard_reason="", telegram_status="NOT_SENT"):
     """Registra esclusivamente dati già calcolati dal motore, mai segreti."""
     classification = analysis["classificazione"]
+    ctx = analysis["ctx"]
     now = datetime.now(timezone.utc).isoformat()
     record = {
         "timestamp": now,
         "pair": analysis["pair"],
         "price": round(float(analysis["prezzo"]), 8),
-        "rsi": round(float(analysis["rsi"]), 2),
+        "rsi": round(float(ctx.rsi14[ctx.i]), 2),
         "score": analysis["score"],
         "confluence": analysis["confluenza"],
         "direction": classification.get("direzione", "NEUTRO"),
