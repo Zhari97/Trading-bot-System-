@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T09:58:20.194540+00:00",
+  "generated_at": "2026-08-26T10:16:56.355121+00:00",
   "symbol": "BTCUSDT",
   "history_days": 183,
   "tp_pct": 5.0,
@@ -7,7 +7,7 @@
   "timeframes": {
     "5m": {
       "timeframe": "5m",
-      "candles": 52584,
+      "candles": 52580,
       "signals": 150,
       "allocation_pct": 5.0,
       "train": {
@@ -54,7 +54,7 @@
       },
       "records": [
         {
-          "candle_index": 347,
+          "candle_index": 343,
           "timestamp": "2026-02-25T14:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -71,7 +71,7 @@
           "sl": 66638.334
         },
         {
-          "candle_index": 736,
+          "candle_index": 732,
           "timestamp": "2026-02-26T23:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -88,7 +88,7 @@
           "sl": 67232.35895000001
         },
         {
-          "candle_index": 1228,
+          "candle_index": 1224,
           "timestamp": "2026-02-28T16:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -105,7 +105,7 @@
           "sl": 64666.19425
         },
         {
-          "candle_index": 2220,
+          "candle_index": 2216,
           "timestamp": "2026-03-04T03:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -122,7 +122,7 @@
           "sl": 68478.94124999999
         },
         {
-          "candle_index": 2647,
+          "candle_index": 2643,
           "timestamp": "2026-03-05T14:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -139,7 +139,7 @@
           "sl": 72573.81374999999
         },
         {
-          "candle_index": 2710,
+          "candle_index": 2706,
           "timestamp": "2026-03-05T19:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -156,7 +156,7 @@
           "sl": 71290.53929999999
         },
         {
-          "candle_index": 2898,
+          "candle_index": 2894,
           "timestamp": "2026-03-06T11:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -173,7 +173,7 @@
           "sl": 70837.10339999999
         },
         {
-          "candle_index": 3336,
+          "candle_index": 3332,
           "timestamp": "2026-03-08T00:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -190,7 +190,7 @@
           "sl": 67055.50765
         },
         {
-          "candle_index": 3494,
+          "candle_index": 3490,
           "timestamp": "2026-03-08T13:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -207,7 +207,7 @@
           "sl": 67308.9705
         },
         {
-          "candle_index": 4025,
+          "candle_index": 4021,
           "timestamp": "2026-03-10T09:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -224,7 +224,7 @@
           "sl": 70871.86
         },
         {
-          "candle_index": 4209,
+          "candle_index": 4205,
           "timestamp": "2026-03-11T00:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -241,7 +241,7 @@
           "sl": 69623.3738
         },
         {
-          "candle_index": 4314,
+          "candle_index": 4310,
           "timestamp": "2026-03-11T09:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -258,7 +258,7 @@
           "sl": 69868.61505
         },
         {
-          "candle_index": 4552,
+          "candle_index": 4548,
           "timestamp": "2026-03-12T05:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -275,7 +275,7 @@
           "sl": 69615.7269
         },
         {
-          "candle_index": 4841,
+          "candle_index": 4837,
           "timestamp": "2026-03-13T05:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -292,7 +292,7 @@
           "sl": 71056.731
         },
         {
-          "candle_index": 5158,
+          "candle_index": 5154,
           "timestamp": "2026-03-14T07:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -309,7 +309,7 @@
           "sl": 70866.70065
         },
         {
-          "candle_index": 5232,
+          "candle_index": 5228,
           "timestamp": "2026-03-14T14:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -326,7 +326,7 @@
           "sl": 70586.45420000001
         },
         {
-          "candle_index": 5307,
+          "candle_index": 5303,
           "timestamp": "2026-03-14T20:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -343,7 +343,7 @@
           "sl": 70388.45915
         },
         {
-          "candle_index": 5788,
+          "candle_index": 5784,
           "timestamp": "2026-03-16T12:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -360,7 +360,7 @@
           "sl": 73393.02085
         },
         {
-          "candle_index": 6094,
+          "candle_index": 6090,
           "timestamp": "2026-03-17T13:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -377,7 +377,7 @@
           "sl": 73927.79999999999
         },
         {
-          "candle_index": 6389,
+          "candle_index": 6385,
           "timestamp": "2026-03-18T14:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -394,7 +394,7 @@
           "sl": 72010.47105
         },
         {
-          "candle_index": 7000,
+          "candle_index": 6996,
           "timestamp": "2026-03-20T17:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -411,7 +411,7 @@
           "sl": 70085.80559999999
         },
         {
-          "candle_index": 7155,
+          "candle_index": 7151,
           "timestamp": "2026-03-21T06:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -428,7 +428,7 @@
           "sl": 70437.05494999999
         },
         {
-          "candle_index": 7354,
+          "candle_index": 7350,
           "timestamp": "2026-03-21T22:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -445,7 +445,7 @@
           "sl": 70642.8771
         },
         {
-          "candle_index": 8086,
+          "candle_index": 8082,
           "timestamp": "2026-03-24T11:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -462,7 +462,7 @@
           "sl": 71456.7864
         },
         {
-          "candle_index": 8353,
+          "candle_index": 8349,
           "timestamp": "2026-03-25T10:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -479,7 +479,7 @@
           "sl": 71039.06975000001
         },
         {
-          "candle_index": 8719,
+          "candle_index": 8715,
           "timestamp": "2026-03-26T16:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -496,7 +496,7 @@
           "sl": 69200.1594
         },
         {
-          "candle_index": 9087,
+          "candle_index": 9083,
           "timestamp": "2026-03-27T23:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -513,7 +513,7 @@
           "sl": 65770.60445
         },
         {
-          "candle_index": 9590,
+          "candle_index": 9586,
           "timestamp": "2026-03-29T17:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -530,7 +530,7 @@
           "sl": 66754.46175
         },
         {
-          "candle_index": 10045,
+          "candle_index": 10041,
           "timestamp": "2026-03-31T07:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -547,7 +547,7 @@
           "sl": 67715.59349999999
         },
         {
-          "candle_index": 10207,
+          "candle_index": 10203,
           "timestamp": "2026-03-31T20:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -564,7 +564,7 @@
           "sl": 67750.943
         },
         {
-          "candle_index": 10723,
+          "candle_index": 10719,
           "timestamp": "2026-04-02T15:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -581,7 +581,7 @@
           "sl": 66593.80774999999
         },
         {
-          "candle_index": 10899,
+          "candle_index": 10895,
           "timestamp": "2026-04-03T06:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -598,7 +598,7 @@
           "sl": 66323.08815
         },
         {
-          "candle_index": 11920,
+          "candle_index": 11916,
           "timestamp": "2026-04-06T19:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -615,7 +615,7 @@
           "sl": 69470.10399999999
         },
         {
-          "candle_index": 11997,
+          "candle_index": 11993,
           "timestamp": "2026-04-07T01:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -632,7 +632,7 @@
           "sl": 68892.74999999999
         },
         {
-          "candle_index": 12311,
+          "candle_index": 12307,
           "timestamp": "2026-04-08T03:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -649,7 +649,7 @@
           "sl": 71643.82694999999
         },
         {
-          "candle_index": 12405,
+          "candle_index": 12401,
           "timestamp": "2026-04-08T11:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -666,7 +666,7 @@
           "sl": 71884.78574999998
         },
         {
-          "candle_index": 12654,
+          "candle_index": 12650,
           "timestamp": "2026-04-09T08:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -683,7 +683,7 @@
           "sl": 70728.2019
         },
         {
-          "candle_index": 12758,
+          "candle_index": 12754,
           "timestamp": "2026-04-09T17:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -700,7 +700,7 @@
           "sl": 72118.83380000001
         },
         {
-          "candle_index": 13280,
+          "candle_index": 13276,
           "timestamp": "2026-04-11T12:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -717,7 +717,7 @@
           "sl": 72597.91635
         },
         {
-          "candle_index": 13516,
+          "candle_index": 13512,
           "timestamp": "2026-04-12T08:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -734,7 +734,7 @@
           "sl": 71344.97255
         },
         {
-          "candle_index": 13701,
+          "candle_index": 13697,
           "timestamp": "2026-04-12T23:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -751,7 +751,7 @@
           "sl": 70947.65339999998
         },
         {
-          "candle_index": 13913,
+          "candle_index": 13909,
           "timestamp": "2026-04-13T17:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -768,7 +768,7 @@
           "sl": 72081.94915
         },
         {
-          "candle_index": 14141,
+          "candle_index": 14137,
           "timestamp": "2026-04-14T12:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -785,7 +785,7 @@
           "sl": 74665.01775
         },
         {
-          "candle_index": 14214,
+          "candle_index": 14210,
           "timestamp": "2026-04-14T18:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -802,7 +802,7 @@
           "sl": 74791.50705
         },
         {
-          "candle_index": 14544,
+          "candle_index": 14540,
           "timestamp": "2026-04-15T22:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -819,7 +819,7 @@
           "sl": 74624.24380000001
         },
         {
-          "candle_index": 14625,
+          "candle_index": 14621,
           "timestamp": "2026-04-16T04:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -836,7 +836,7 @@
           "sl": 75200.14004999999
         },
         {
-          "candle_index": 15283,
+          "candle_index": 15279,
           "timestamp": "2026-04-18T11:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -853,7 +853,7 @@
           "sl": 76205.5923
         },
         {
-          "candle_index": 15996,
+          "candle_index": 15992,
           "timestamp": "2026-04-20T23:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -870,7 +870,7 @@
           "sl": 76197.49199999998
         },
         {
-          "candle_index": 16817,
+          "candle_index": 16813,
           "timestamp": "2026-04-23T19:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -887,7 +887,7 @@
           "sl": 77463.34695
         },
         {
-          "candle_index": 17237,
+          "candle_index": 17233,
           "timestamp": "2026-04-25T06:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -904,7 +904,7 @@
           "sl": 77878.59569999999
         },
         {
-          "candle_index": 17424,
+          "candle_index": 17420,
           "timestamp": "2026-04-25T22:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -921,7 +921,7 @@
           "sl": 77138.22075000001
         },
         {
-          "candle_index": 18096,
+          "candle_index": 18092,
           "timestamp": "2026-04-28T06:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -938,7 +938,7 @@
           "sl": 76600.28395000001
         },
         {
-          "candle_index": 18226,
+          "candle_index": 18222,
           "timestamp": "2026-04-28T16:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -955,7 +955,7 @@
           "sl": 75771.07085
         },
         {
-          "candle_index": 19349,
+          "candle_index": 19345,
           "timestamp": "2026-05-02T14:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -972,7 +972,7 @@
           "sl": 78028.32784999999
         },
         {
-          "candle_index": 20126,
+          "candle_index": 20122,
           "timestamp": "2026-05-05T07:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -989,7 +989,7 @@
           "sl": 80590.3832
         },
         {
-          "candle_index": 20562,
+          "candle_index": 20558,
           "timestamp": "2026-05-06T19:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1006,7 +1006,7 @@
           "sl": 81685.62614999998
         },
         {
-          "candle_index": 21101,
+          "candle_index": 21097,
           "timestamp": "2026-05-08T16:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1023,7 +1023,7 @@
           "sl": 80349.74999999999
         },
         {
-          "candle_index": 21450,
+          "candle_index": 21446,
           "timestamp": "2026-05-09T21:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1040,7 +1040,7 @@
           "sl": 81196.4625
         },
         {
-          "candle_index": 21722,
+          "candle_index": 21718,
           "timestamp": "2026-05-10T20:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1057,7 +1057,7 @@
           "sl": 81597.68864999998
         },
         {
-          "candle_index": 21793,
+          "candle_index": 21789,
           "timestamp": "2026-05-11T02:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1074,7 +1074,7 @@
           "sl": 81824.33625
         },
         {
-          "candle_index": 22372,
+          "candle_index": 22368,
           "timestamp": "2026-05-13T02:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1091,7 +1091,7 @@
           "sl": 80815.89994999999
         },
         {
-          "candle_index": 23244,
+          "candle_index": 23240,
           "timestamp": "2026-05-16T03:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1108,7 +1108,7 @@
           "sl": 78760.05085
         },
         {
-          "candle_index": 23504,
+          "candle_index": 23500,
           "timestamp": "2026-05-17T00:40:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1125,7 +1125,7 @@
           "sl": 78531.17235
         },
         {
-          "candle_index": 23753,
+          "candle_index": 23749,
           "timestamp": "2026-05-17T21:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1142,7 +1142,7 @@
           "sl": 78039.3624
         },
         {
-          "candle_index": 23840,
+          "candle_index": 23836,
           "timestamp": "2026-05-18T04:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1159,7 +1159,7 @@
           "sl": 76614.99005000001
         },
         {
-          "candle_index": 24048,
+          "candle_index": 24044,
           "timestamp": "2026-05-18T22:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1176,7 +1176,7 @@
           "sl": 76735.2358
         },
         {
-          "candle_index": 24107,
+          "candle_index": 24103,
           "timestamp": "2026-05-19T02:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1193,7 +1193,7 @@
           "sl": 77000.55734999999
         },
         {
-          "candle_index": 25120,
+          "candle_index": 25116,
           "timestamp": "2026-05-22T15:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1210,7 +1210,7 @@
           "sl": 77011.1601
         },
         {
-          "candle_index": 25221,
+          "candle_index": 25217,
           "timestamp": "2026-05-22T23:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1227,7 +1227,7 @@
           "sl": 75875.59049999999
         },
         {
-          "candle_index": 25470,
+          "candle_index": 25466,
           "timestamp": "2026-05-23T20:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1244,7 +1244,7 @@
           "sl": 75909.25645
         },
         {
-          "candle_index": 26949,
+          "candle_index": 26945,
           "timestamp": "2026-05-28T23:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1261,7 +1261,7 @@
           "sl": 73905.63974999999
         },
         {
-          "candle_index": 27123,
+          "candle_index": 27119,
           "timestamp": "2026-05-29T14:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1278,7 +1278,7 @@
           "sl": 73159.98
         },
         {
-          "candle_index": 27406,
+          "candle_index": 27402,
           "timestamp": "2026-05-30T13:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1295,7 +1295,7 @@
           "sl": 73450.27315
         },
         {
-          "candle_index": 27904,
+          "candle_index": 27900,
           "timestamp": "2026-06-01T07:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1312,7 +1312,7 @@
           "sl": 73345.69394999999
         },
         {
-          "candle_index": 28335,
+          "candle_index": 28331,
           "timestamp": "2026-06-02T19:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1329,7 +1329,7 @@
           "sl": 67519.53809999999
         },
         {
-          "candle_index": 28420,
+          "candle_index": 28416,
           "timestamp": "2026-06-03T02:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1346,7 +1346,7 @@
           "sl": 67013.4
         },
         {
-          "candle_index": 28804,
+          "candle_index": 28800,
           "timestamp": "2026-06-04T10:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1363,7 +1363,7 @@
           "sl": 63091.136249999996
         },
         {
-          "candle_index": 29133,
+          "candle_index": 29129,
           "timestamp": "2026-06-05T13:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1380,7 +1380,7 @@
           "sl": 61601.71482142857
         },
         {
-          "candle_index": 29293,
+          "candle_index": 29289,
           "timestamp": "2026-06-06T03:05:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1397,7 +1397,7 @@
           "sl": 61118.52224999999
         },
         {
-          "candle_index": 29467,
+          "candle_index": 29463,
           "timestamp": "2026-06-06T17:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1414,7 +1414,7 @@
           "sl": 60954.646949999995
         },
         {
-          "candle_index": 29556,
+          "candle_index": 29552,
           "timestamp": "2026-06-07T01:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1431,7 +1431,7 @@
           "sl": 60759.615300000005
         },
         {
-          "candle_index": 29839,
+          "candle_index": 29835,
           "timestamp": "2026-06-08T00:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1448,7 +1448,7 @@
           "sl": 63498.90005
         },
         {
-          "candle_index": 29868,
+          "candle_index": 29864,
           "timestamp": "2026-06-08T03:00:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1465,7 +1465,7 @@
           "sl": 63333.100049999994
         },
         {
-          "candle_index": 29942,
+          "candle_index": 29938,
           "timestamp": "2026-06-08T09:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1482,7 +1482,7 @@
           "sl": 63020.513999999996
         },
         {
-          "candle_index": 30111,
+          "candle_index": 30107,
           "timestamp": "2026-06-08T23:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1499,7 +1499,7 @@
           "sl": 63461.729999999996
         },
         {
-          "candle_index": 30278,
+          "candle_index": 30274,
           "timestamp": "2026-06-09T13:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1516,7 +1516,7 @@
           "sl": 62869.39304999999
         },
         {
-          "candle_index": 30814,
+          "candle_index": 30810,
           "timestamp": "2026-06-11T09:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1533,7 +1533,7 @@
           "sl": 62650.2546
         },
         {
-          "candle_index": 31566,
+          "candle_index": 31562,
           "timestamp": "2026-06-14T00:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1550,7 +1550,7 @@
           "sl": 64215.01149999999
         },
         {
-          "candle_index": 32105,
+          "candle_index": 32101,
           "timestamp": "2026-06-15T21:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1567,7 +1567,7 @@
           "sl": 66742.04999999999
         },
         {
-          "candle_index": 32500,
+          "candle_index": 32496,
           "timestamp": "2026-06-17T06:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1584,7 +1584,7 @@
           "sl": 66173.2401
         },
         {
-          "candle_index": 33223,
+          "candle_index": 33219,
           "timestamp": "2026-06-19T18:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1601,7 +1601,7 @@
           "sl": 63306.33689999999
         },
         {
-          "candle_index": 33377,
+          "candle_index": 33373,
           "timestamp": "2026-06-20T07:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1618,7 +1618,7 @@
           "sl": 63473.04
         },
         {
-          "candle_index": 33541,
+          "candle_index": 33537,
           "timestamp": "2026-06-20T21:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1635,7 +1635,7 @@
           "sl": 63616.7578
         },
         {
-          "candle_index": 33961,
+          "candle_index": 33957,
           "timestamp": "2026-06-22T08:05:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1652,7 +1652,7 @@
           "sl": 63953.426
         },
         {
-          "candle_index": 34760,
+          "candle_index": 34756,
           "timestamp": "2026-06-25T02:40:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1669,7 +1669,7 @@
           "sl": 61070.15159999999
         },
         {
-          "candle_index": 34870,
+          "candle_index": 34866,
           "timestamp": "2026-06-25T11:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1686,7 +1686,7 @@
           "sl": 61475.839949999994
         },
         {
-          "candle_index": 35302,
+          "candle_index": 35298,
           "timestamp": "2026-06-26T23:50:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1703,7 +1703,7 @@
           "sl": 59789.7689
         },
         {
-          "candle_index": 35666,
+          "candle_index": 35662,
           "timestamp": "2026-06-28T06:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1720,7 +1720,7 @@
           "sl": 60141.220049999996
         },
         {
-          "candle_index": 35779,
+          "candle_index": 35775,
           "timestamp": "2026-06-28T15:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1737,7 +1737,7 @@
           "sl": 60230.10224999999
         },
         {
-          "candle_index": 36208,
+          "candle_index": 36204,
           "timestamp": "2026-06-30T03:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1754,7 +1754,7 @@
           "sl": 60127.15005
         },
         {
-          "candle_index": 36686,
+          "candle_index": 36682,
           "timestamp": "2026-07-01T19:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1771,7 +1771,7 @@
           "sl": 59978.6199
         },
         {
-          "candle_index": 36914,
+          "candle_index": 36910,
           "timestamp": "2026-07-02T14:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1788,7 +1788,7 @@
           "sl": 61771.191999999995
         },
         {
-          "candle_index": 36933,
+          "candle_index": 36929,
           "timestamp": "2026-07-02T15:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1805,7 +1805,7 @@
           "sl": 61917.57764999999
         },
         {
-          "candle_index": 37019,
+          "candle_index": 37015,
           "timestamp": "2026-07-02T22:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1822,7 +1822,7 @@
           "sl": 61772.586299999995
         },
         {
-          "candle_index": 37124,
+          "candle_index": 37120,
           "timestamp": "2026-07-03T07:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1839,7 +1839,7 @@
           "sl": 61513.59645
         },
         {
-          "candle_index": 37176,
+          "candle_index": 37172,
           "timestamp": "2026-07-03T12:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1856,7 +1856,7 @@
           "sl": 61831.29
         },
         {
-          "candle_index": 37267,
+          "candle_index": 37263,
           "timestamp": "2026-07-03T19:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1873,7 +1873,7 @@
           "sl": 61957.4958
         },
         {
-          "candle_index": 37787,
+          "candle_index": 37783,
           "timestamp": "2026-07-05T14:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1890,7 +1890,7 @@
           "sl": 62498.18875
         },
         {
-          "candle_index": 38359,
+          "candle_index": 38355,
           "timestamp": "2026-07-07T14:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1907,7 +1907,7 @@
           "sl": 63202.439999999995
         },
         {
-          "candle_index": 38431,
+          "candle_index": 38427,
           "timestamp": "2026-07-07T20:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1924,7 +1924,7 @@
           "sl": 63972.64184999999
         },
         {
-          "candle_index": 38937,
+          "candle_index": 38933,
           "timestamp": "2026-07-09T14:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1941,7 +1941,7 @@
           "sl": 62645.2199
         },
         {
-          "candle_index": 39116,
+          "candle_index": 39112,
           "timestamp": "2026-07-10T05:40:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1958,7 +1958,7 @@
           "sl": 63858.473150000005
         },
         {
-          "candle_index": 39177,
+          "candle_index": 39173,
           "timestamp": "2026-07-10T10:45:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -1975,7 +1975,7 @@
           "sl": 64163.1521
         },
         {
-          "candle_index": 39523,
+          "candle_index": 39519,
           "timestamp": "2026-07-11T15:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -1992,7 +1992,7 @@
           "sl": 64440.258299999994
         },
         {
-          "candle_index": 39665,
+          "candle_index": 39661,
           "timestamp": "2026-07-12T03:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2009,7 +2009,7 @@
           "sl": 63815.0812
         },
         {
-          "candle_index": 40714,
+          "candle_index": 40710,
           "timestamp": "2026-07-15T18:50:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2026,7 +2026,7 @@
           "sl": 65238.98205
         },
         {
-          "candle_index": 41251,
+          "candle_index": 41247,
           "timestamp": "2026-07-17T15:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2043,7 +2043,7 @@
           "sl": 62961.22195
         },
         {
-          "candle_index": 41831,
+          "candle_index": 41827,
           "timestamp": "2026-07-19T15:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2060,7 +2060,7 @@
           "sl": 64262.3934
         },
         {
-          "candle_index": 42040,
+          "candle_index": 42036,
           "timestamp": "2026-07-20T09:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2077,7 +2077,7 @@
           "sl": 63841.19
         },
         {
-          "candle_index": 42677,
+          "candle_index": 42673,
           "timestamp": "2026-07-22T14:25:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2094,7 +2094,7 @@
           "sl": 65952.12
         },
         {
-          "candle_index": 42782,
+          "candle_index": 42778,
           "timestamp": "2026-07-22T23:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2111,7 +2111,7 @@
           "sl": 66221.44995
         },
         {
-          "candle_index": 42830,
+          "candle_index": 42826,
           "timestamp": "2026-07-23T03:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2128,7 +2128,7 @@
           "sl": 65962.15995
         },
         {
-          "candle_index": 43895,
+          "candle_index": 43891,
           "timestamp": "2026-07-26T19:55:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2145,7 +2145,7 @@
           "sl": 65018.99759999999
         },
         {
-          "candle_index": 44104,
+          "candle_index": 44100,
           "timestamp": "2026-07-27T13:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2162,7 +2162,7 @@
           "sl": 65282.96084999999
         },
         {
-          "candle_index": 44367,
+          "candle_index": 44363,
           "timestamp": "2026-07-28T11:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2179,7 +2179,7 @@
           "sl": 63259.582650000004
         },
         {
-          "candle_index": 44484,
+          "candle_index": 44480,
           "timestamp": "2026-07-28T21:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2196,7 +2196,7 @@
           "sl": 63656.12
         },
         {
-          "candle_index": 44634,
+          "candle_index": 44630,
           "timestamp": "2026-07-29T09:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2213,7 +2213,7 @@
           "sl": 64159.619849999995
         },
         {
-          "candle_index": 44692,
+          "candle_index": 44688,
           "timestamp": "2026-07-29T14:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2230,7 +2230,7 @@
           "sl": 64615.469999999994
         },
         {
-          "candle_index": 44901,
+          "candle_index": 44897,
           "timestamp": "2026-07-30T07:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2247,7 +2247,7 @@
           "sl": 64323.80894999999
         },
         {
-          "candle_index": 45015,
+          "candle_index": 45011,
           "timestamp": "2026-07-30T17:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2264,7 +2264,7 @@
           "sl": 64574.1468
         },
         {
-          "candle_index": 45399,
+          "candle_index": 45395,
           "timestamp": "2026-08-01T01:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2281,7 +2281,7 @@
           "sl": 63265.75499999999
         },
         {
-          "candle_index": 45813,
+          "candle_index": 45809,
           "timestamp": "2026-08-02T11:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2298,7 +2298,7 @@
           "sl": 63419.530049999994
         },
         {
-          "candle_index": 45923,
+          "candle_index": 45919,
           "timestamp": "2026-08-02T20:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2315,7 +2315,7 @@
           "sl": 63177.047399999996
         },
         {
-          "candle_index": 46059,
+          "candle_index": 46055,
           "timestamp": "2026-08-03T08:15:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2332,7 +2332,7 @@
           "sl": 62803.69619999999
         },
         {
-          "candle_index": 46302,
+          "candle_index": 46298,
           "timestamp": "2026-08-04T04:30:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2349,7 +2349,7 @@
           "sl": 63569.86345
         },
         {
-          "candle_index": 46350,
+          "candle_index": 46346,
           "timestamp": "2026-08-04T08:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2366,7 +2366,7 @@
           "sl": 63884.975699999995
         },
         {
-          "candle_index": 46763,
+          "candle_index": 46759,
           "timestamp": "2026-08-05T18:55:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2383,7 +2383,7 @@
           "sl": 64475.1045
         },
         {
-          "candle_index": 46911,
+          "candle_index": 46907,
           "timestamp": "2026-08-06T07:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2400,7 +2400,7 @@
           "sl": 64604.18585
         },
         {
-          "candle_index": 47167,
+          "candle_index": 47163,
           "timestamp": "2026-08-07T04:35:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2417,7 +2417,7 @@
           "sl": 64597.36994999999
         },
         {
-          "candle_index": 47248,
+          "candle_index": 47244,
           "timestamp": "2026-08-07T11:20:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2434,7 +2434,7 @@
           "sl": 64812.08115
         },
         {
-          "candle_index": 48014,
+          "candle_index": 48010,
           "timestamp": "2026-08-10T03:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2451,7 +2451,7 @@
           "sl": 65287.613999999994
         },
         {
-          "candle_index": 48258,
+          "candle_index": 48254,
           "timestamp": "2026-08-10T23:30:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2468,7 +2468,7 @@
           "sl": 64279.81004999999
         },
         {
-          "candle_index": 48784,
+          "candle_index": 48780,
           "timestamp": "2026-08-12T19:20:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2485,7 +2485,7 @@
           "sl": 63687.56354999999
         },
         {
-          "candle_index": 48962,
+          "candle_index": 48958,
           "timestamp": "2026-08-13T10:10:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2502,7 +2502,7 @@
           "sl": 63939.16529999999
         },
         {
-          "candle_index": 50040,
+          "candle_index": 50036,
           "timestamp": "2026-08-17T04:00:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2519,7 +2519,7 @@
           "sl": 63177.54489999999
         },
         {
-          "candle_index": 51223,
+          "candle_index": 51219,
           "timestamp": "2026-08-21T06:35:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2536,7 +2536,7 @@
           "sl": 75325.55960000001
         },
         {
-          "candle_index": 51353,
+          "candle_index": 51349,
           "timestamp": "2026-08-21T17:25:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2553,7 +2553,7 @@
           "sl": 77170.8468
         },
         {
-          "candle_index": 51549,
+          "candle_index": 51545,
           "timestamp": "2026-08-22T09:45:00+00:00",
           "timeframe": "5m",
           "direction": "SHORT",
@@ -2570,7 +2570,7 @@
           "sl": 77365.2015
         },
         {
-          "candle_index": 51927,
+          "candle_index": 51923,
           "timestamp": "2026-08-23T17:15:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2587,7 +2587,7 @@
           "sl": 76979.17
         },
         {
-          "candle_index": 52358,
+          "candle_index": 52354,
           "timestamp": "2026-08-25T05:10:00+00:00",
           "timeframe": "5m",
           "direction": "LONG",
@@ -2607,22 +2607,22 @@
     },
     "15m": {
       "timeframe": "15m",
-      "candles": 17528,
-      "signals": 59,
+      "candles": 17526,
+      "signals": 58,
       "allocation_pct": 5.0,
       "train": {
-        "signals": 28,
-        "closed": 28,
+        "signals": 27,
+        "closed": 27,
         "wins": 5,
-        "losses": 23,
-        "win_rate_pct": 17.857142857142858,
-        "profit_factor": 2.0751648986587217,
-        "expectancy_pct": 0.023129936809773294,
-        "trade_expectancy_pct": 0.4625987361954659,
-        "portfolio_return_pct": 0.6476382306736522,
-        "max_drawdown_pct": 0.23275230011875203,
+        "losses": 22,
+        "win_rate_pct": 18.51851851851852,
+        "profit_factor": 2.1742798000756896,
+        "expectancy_pct": 0.02500359225025557,
+        "trade_expectancy_pct": 0.5000718450051115,
+        "portfolio_return_pct": 0.6750969907569004,
+        "max_drawdown_pct": 0.20529354003550382,
         "allocation_pct": 5.0,
-        "avg_bars_held": 79.14285714285714
+        "avg_bars_held": 81.62962962962963
       },
       "validation": {
         "signals": 12,
@@ -2654,24 +2654,7 @@
       },
       "records": [
         {
-          "candle_index": 60,
-          "timestamp": "2026-02-25T01:00:00+00:00",
-          "timeframe": "15m",
-          "direction": "LONG",
-          "entry": 65606.34,
-          "stop_loss": 65246.04624999999,
-          "take_profit": 68886.657,
-          "score": 100.0,
-          "confluence": 100.0,
-          "allocation_pct": 5.0,
-          "outcome": "SL",
-          "bars": 12,
-          "exit": 65246.04624999999,
-          "tp": 68886.657,
-          "sl": 65246.04624999999
-        },
-        {
-          "candle_index": 316,
+          "candle_index": 314,
           "timestamp": "2026-02-27T17:00:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2688,7 +2671,7 @@
           "sl": 65856.69357142856
         },
         {
-          "candle_index": 846,
+          "candle_index": 844,
           "timestamp": "2026-03-05T05:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2705,7 +2688,7 @@
           "sl": 72776.72324999998
         },
         {
-          "candle_index": 1123,
+          "candle_index": 1121,
           "timestamp": "2026-03-08T02:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2722,7 +2705,7 @@
           "sl": 67260.06719999999
         },
         {
-          "candle_index": 1335,
+          "candle_index": 1333,
           "timestamp": "2026-03-10T07:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -2739,7 +2722,7 @@
           "sl": 70053.97995
         },
         {
-          "candle_index": 1446,
+          "candle_index": 1444,
           "timestamp": "2026-03-11T11:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2756,7 +2739,7 @@
           "sl": 69794.1948
         },
         {
-          "candle_index": 1643,
+          "candle_index": 1641,
           "timestamp": "2026-03-13T12:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -2773,7 +2756,7 @@
           "sl": 72420.80635
         },
         {
-          "candle_index": 1747,
+          "candle_index": 1745,
           "timestamp": "2026-03-14T14:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2790,7 +2773,7 @@
           "sl": 70952.21609999999
         },
         {
-          "candle_index": 2029,
+          "candle_index": 2027,
           "timestamp": "2026-03-17T13:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2807,7 +2790,7 @@
           "sl": 74083.6353
         },
         {
-          "candle_index": 2093,
+          "candle_index": 2091,
           "timestamp": "2026-03-18T05:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2824,7 +2807,7 @@
           "sl": 74436.6516
         },
         {
-          "candle_index": 2330,
+          "candle_index": 2328,
           "timestamp": "2026-03-20T16:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2841,7 +2824,7 @@
           "sl": 70241.68392857141
         },
         {
-          "candle_index": 2487,
+          "candle_index": 2485,
           "timestamp": "2026-03-22T07:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2858,7 +2841,7 @@
           "sl": 69263.9769
         },
         {
-          "candle_index": 2783,
+          "candle_index": 2781,
           "timestamp": "2026-03-25T09:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -2875,7 +2858,7 @@
           "sl": 70989.18045
         },
         {
-          "candle_index": 3679,
+          "candle_index": 3677,
           "timestamp": "2026-04-03T17:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2892,7 +2875,7 @@
           "sl": 67189.28504999999
         },
         {
-          "candle_index": 3763,
+          "candle_index": 3761,
           "timestamp": "2026-04-04T14:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -2909,7 +2892,7 @@
           "sl": 66879.16380000001
         },
         {
-          "candle_index": 3890,
+          "candle_index": 3888,
           "timestamp": "2026-04-05T22:30:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -2926,7 +2909,7 @@
           "sl": 67624.48845
         },
         {
-          "candle_index": 4347,
+          "candle_index": 4345,
           "timestamp": "2026-04-10T16:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -2943,7 +2926,7 @@
           "sl": 72543.78267857143
         },
         {
-          "candle_index": 4523,
+          "candle_index": 4521,
           "timestamp": "2026-04-12T12:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2960,7 +2943,7 @@
           "sl": 71439.43004999998
         },
         {
-          "candle_index": 4645,
+          "candle_index": 4643,
           "timestamp": "2026-04-13T19:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -2977,7 +2960,7 @@
           "sl": 72489.32205
         },
         {
-          "candle_index": 5414,
+          "candle_index": 5412,
           "timestamp": "2026-04-21T19:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -2994,7 +2977,7 @@
           "sl": 75318.19196428571
         },
         {
-          "candle_index": 6244,
+          "candle_index": 6242,
           "timestamp": "2026-04-30T11:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3011,7 +2994,7 @@
           "sl": 75769.71765
         },
         {
-          "candle_index": 6926,
+          "candle_index": 6924,
           "timestamp": "2026-05-07T13:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3028,7 +3011,7 @@
           "sl": 80975.26199999999
         },
         {
-          "candle_index": 7203,
+          "candle_index": 7201,
           "timestamp": "2026-05-10T10:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3045,7 +3028,7 @@
           "sl": 80469.42104999999
         },
         {
-          "candle_index": 7413,
+          "candle_index": 7411,
           "timestamp": "2026-05-12T15:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3062,7 +3045,7 @@
           "sl": 80623.10999999999
         },
         {
-          "candle_index": 7451,
+          "candle_index": 7449,
           "timestamp": "2026-05-13T00:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3079,7 +3062,7 @@
           "sl": 80314.41
         },
         {
-          "candle_index": 7678,
+          "candle_index": 7676,
           "timestamp": "2026-05-15T09:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3096,7 +3079,7 @@
           "sl": 80822.09999999999
         },
         {
-          "candle_index": 8185,
+          "candle_index": 8183,
           "timestamp": "2026-05-20T16:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3113,7 +3096,7 @@
           "sl": 77473.43999999999
         },
         {
-          "candle_index": 8197,
+          "candle_index": 8195,
           "timestamp": "2026-05-20T19:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3130,7 +3113,7 @@
           "sl": 77174.89645
         },
         {
-          "candle_index": 8802,
+          "candle_index": 8800,
           "timestamp": "2026-05-27T02:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3147,7 +3130,7 @@
           "sl": 76123.62449999999
         },
         {
-          "candle_index": 8862,
+          "candle_index": 8860,
           "timestamp": "2026-05-27T17:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3164,7 +3147,7 @@
           "sl": 75282.54
         },
         {
-          "candle_index": 9319,
+          "candle_index": 9317,
           "timestamp": "2026-06-01T11:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3181,7 +3164,7 @@
           "sl": 72842.38995
         },
         {
-          "candle_index": 9505,
+          "candle_index": 9503,
           "timestamp": "2026-06-03T10:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3198,7 +3181,7 @@
           "sl": 66981.41
         },
         {
-          "candle_index": 9845,
+          "candle_index": 9843,
           "timestamp": "2026-06-06T23:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3215,7 +3198,7 @@
           "sl": 60410.0121
         },
         {
-          "candle_index": 10142,
+          "candle_index": 10140,
           "timestamp": "2026-06-10T01:30:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3232,7 +3215,7 @@
           "sl": 61947.084449999995
         },
         {
-          "candle_index": 10276,
+          "candle_index": 10274,
           "timestamp": "2026-06-11T11:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3249,7 +3232,7 @@
           "sl": 62873.960450000006
         },
         {
-          "candle_index": 10345,
+          "candle_index": 10343,
           "timestamp": "2026-06-12T04:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3266,7 +3249,7 @@
           "sl": 63478.522450000004
         },
         {
-          "candle_index": 10449,
+          "candle_index": 10447,
           "timestamp": "2026-06-13T06:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3283,7 +3266,7 @@
           "sl": 63361.59005
         },
         {
-          "candle_index": 11012,
+          "candle_index": 11010,
           "timestamp": "2026-06-19T03:00:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3300,7 +3283,7 @@
           "sl": 63048.54435
         },
         {
-          "candle_index": 11141,
+          "candle_index": 11139,
           "timestamp": "2026-06-20T11:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3317,7 +3300,7 @@
           "sl": 63381.5
         },
         {
-          "candle_index": 11311,
+          "candle_index": 11309,
           "timestamp": "2026-06-22T05:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3334,7 +3317,7 @@
           "sl": 63926.501299999996
         },
         {
-          "candle_index": 11911,
+          "candle_index": 11909,
           "timestamp": "2026-06-28T11:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3351,7 +3334,7 @@
           "sl": 60040.29
         },
         {
-          "candle_index": 12153,
+          "candle_index": 12151,
           "timestamp": "2026-07-01T00:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3368,7 +3351,7 @@
           "sl": 58685.969999999994
         },
         {
-          "candle_index": 12285,
+          "candle_index": 12283,
           "timestamp": "2026-07-02T09:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3385,7 +3368,7 @@
           "sl": 60301.88545
         },
         {
-          "candle_index": 12788,
+          "candle_index": 12786,
           "timestamp": "2026-07-07T15:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3402,7 +3385,7 @@
           "sl": 63116.505535714285
         },
         {
-          "candle_index": 13492,
+          "candle_index": 13490,
           "timestamp": "2026-07-14T23:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3419,7 +3402,7 @@
           "sl": 64694.9
         },
         {
-          "candle_index": 13537,
+          "candle_index": 13535,
           "timestamp": "2026-07-15T10:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3436,7 +3419,7 @@
           "sl": 64959.36089999999
         },
         {
-          "candle_index": 13681,
+          "candle_index": 13679,
           "timestamp": "2026-07-16T22:15:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3453,7 +3436,7 @@
           "sl": 64340.089949999994
         },
         {
-          "candle_index": 13991,
+          "candle_index": 13989,
           "timestamp": "2026-07-20T03:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3470,7 +3453,7 @@
           "sl": 64545.451
         },
         {
-          "candle_index": 14036,
+          "candle_index": 14034,
           "timestamp": "2026-07-20T15:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3487,7 +3470,7 @@
           "sl": 64634.478571428575
         },
         {
-          "candle_index": 14608,
+          "candle_index": 14606,
           "timestamp": "2026-07-26T14:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3504,7 +3487,7 @@
           "sl": 64386.4102
         },
         {
-          "candle_index": 14969,
+          "candle_index": 14967,
           "timestamp": "2026-07-30T08:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3521,7 +3504,7 @@
           "sl": 63946.659999999996
         },
         {
-          "candle_index": 15473,
+          "candle_index": 15471,
           "timestamp": "2026-08-04T14:15:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3538,7 +3521,7 @@
           "sl": 63568.07245
         },
         {
-          "candle_index": 16012,
+          "candle_index": 16010,
           "timestamp": "2026-08-10T05:00:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3555,7 +3538,7 @@
           "sl": 65312.52794999999
         },
         {
-          "candle_index": 16343,
+          "candle_index": 16341,
           "timestamp": "2026-08-13T15:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3572,7 +3555,7 @@
           "sl": 63737.110049999996
         },
         {
-          "candle_index": 16720,
+          "candle_index": 16718,
           "timestamp": "2026-08-17T14:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3589,7 +3572,7 @@
           "sl": 63380.9229
         },
         {
-          "candle_index": 17155,
+          "candle_index": 17153,
           "timestamp": "2026-08-22T02:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3606,7 +3589,7 @@
           "sl": 78048.62142857142
         },
         {
-          "candle_index": 17251,
+          "candle_index": 17249,
           "timestamp": "2026-08-23T02:45:00+00:00",
           "timeframe": "15m",
           "direction": "SHORT",
@@ -3623,7 +3606,7 @@
           "sl": 77464.8573
         },
         {
-          "candle_index": 17324,
+          "candle_index": 17322,
           "timestamp": "2026-08-23T21:00:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3640,7 +3623,7 @@
           "sl": 77309.19159999999
         },
         {
-          "candle_index": 17431,
+          "candle_index": 17429,
           "timestamp": "2026-08-24T23:45:00+00:00",
           "timeframe": "15m",
           "direction": "LONG",
@@ -3660,7 +3643,7 @@
     },
     "1h": {
       "timeframe": "1h",
-      "candles": 4382,
+      "candles": 4381,
       "signals": 20,
       "allocation_pct": 5.0,
       "train": {
@@ -3707,7 +3690,7 @@
       },
       "records": [
         {
-          "candle_index": 137,
+          "candle_index": 136,
           "timestamp": "2026-03-02T03:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3724,7 +3707,7 @@
           "sl": 66151.8297
         },
         {
-          "candle_index": 143,
+          "candle_index": 142,
           "timestamp": "2026-03-02T09:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -3741,7 +3724,7 @@
           "sl": 66830.30619999999
         },
         {
-          "candle_index": 282,
+          "candle_index": 281,
           "timestamp": "2026-03-08T04:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -3758,7 +3741,7 @@
           "sl": 67055.87875
         },
         {
-          "candle_index": 326,
+          "candle_index": 325,
           "timestamp": "2026-03-10T00:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3775,7 +3758,7 @@
           "sl": 68465.7963
         },
         {
-          "candle_index": 634,
+          "candle_index": 633,
           "timestamp": "2026-03-22T20:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -3792,7 +3775,7 @@
           "sl": 68652.76982142858
         },
         {
-          "candle_index": 672,
+          "candle_index": 671,
           "timestamp": "2026-03-24T10:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3809,7 +3792,7 @@
           "sl": 70720.6825
         },
         {
-          "candle_index": 796,
+          "candle_index": 795,
           "timestamp": "2026-03-29T14:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -3826,7 +3809,7 @@
           "sl": 66923.61321428572
         },
         {
-          "candle_index": 1083,
+          "candle_index": 1082,
           "timestamp": "2026-04-10T13:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3843,7 +3826,7 @@
           "sl": 71842.19732142857
         },
         {
-          "candle_index": 1418,
+          "candle_index": 1417,
           "timestamp": "2026-04-24T12:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3860,7 +3843,7 @@
           "sl": 77751.95910714286
         },
         {
-          "candle_index": 1513,
+          "candle_index": 1512,
           "timestamp": "2026-04-28T11:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -3877,7 +3860,7 @@
           "sl": 76679.29017857142
         },
         {
-          "candle_index": 1703,
+          "candle_index": 1702,
           "timestamp": "2026-05-06T09:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3894,7 +3877,7 @@
           "sl": 81447.16785714285
         },
         {
-          "candle_index": 2164,
+          "candle_index": 2163,
           "timestamp": "2026-05-25T14:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3911,7 +3894,7 @@
           "sl": 77325.43
         },
         {
-          "candle_index": 2317,
+          "candle_index": 2316,
           "timestamp": "2026-05-31T23:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -3928,7 +3911,7 @@
           "sl": 74042.76194999999
         },
         {
-          "candle_index": 2319,
+          "candle_index": 2318,
           "timestamp": "2026-06-01T01:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -3945,7 +3928,7 @@
           "sl": 73686.9575
         },
         {
-          "candle_index": 2575,
+          "candle_index": 2574,
           "timestamp": "2026-06-11T17:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3962,7 +3945,7 @@
           "sl": 63115.245357142856
         },
         {
-          "candle_index": 2788,
+          "candle_index": 2787,
           "timestamp": "2026-06-20T14:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3979,7 +3962,7 @@
           "sl": 63579.33660714286
         },
         {
-          "candle_index": 3104,
+          "candle_index": 3103,
           "timestamp": "2026-07-03T18:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -3996,7 +3979,7 @@
           "sl": 61807.00375
         },
         {
-          "candle_index": 3910,
+          "candle_index": 3909,
           "timestamp": "2026-08-06T08:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
@@ -4013,7 +3996,7 @@
           "sl": 64617.28005
         },
         {
-          "candle_index": 4085,
+          "candle_index": 4084,
           "timestamp": "2026-08-13T15:00:00+00:00",
           "timeframe": "1h",
           "direction": "SHORT",
@@ -4030,7 +4013,7 @@
           "sl": 63737.110049999996
         },
         {
-          "candle_index": 4246,
+          "candle_index": 4245,
           "timestamp": "2026-08-20T08:00:00+00:00",
           "timeframe": "1h",
           "direction": "LONG",
