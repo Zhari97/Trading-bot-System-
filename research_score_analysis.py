@@ -2,12 +2,14 @@
 
 The analyzer deliberately avoids choosing an optimal threshold. It measures
 whether higher continuous research scores correspond to better outcomes across
-train, validation and out-of-sample partitions and across timeframes.
+train, validation and out-of-sample partitions, chronological windows and
+market regimes.
 """
 from __future__ import annotations
 
 BUCKETS = ((0.0, 40.0), (40.0, 60.0), (60.0, 80.0), (80.0, 100.000001))
 PARTITIONS = ("train", "validation", "oos")
+WALK_FORWARD_WINDOWS = 4
 
 
 def _closed(records: list[dict]) -> list[dict]:
@@ -101,10 +103,71 @@ def _partition_separation(partitions: dict[str, dict]) -> dict[str, float | None
     }
 
 
+def _regime_reports(records: list[dict]) -> dict[str, dict]:
+    """Measure score separation independently inside each observed regime."""
+    grouped: dict[str, list[dict]] = {}
+    for record in records:
+        regime = str(record.get("regime") or "UNKNOWN")
+        grouped.setdefault(regime, []).append(record)
+
+    reports: dict[str, dict] = {}
+    for regime, rows in sorted(grouped.items()):
+        buckets = _bucket_stats(rows)
+        reports[regime] = {
+            "signals": len(rows),
+            "closed": len(_closed(rows)),
+            "win_rate_pct": round(_win_rate(rows), 4),
+            "buckets": buckets,
+            "monotonicity": _monotonicity(buckets),
+        }
+    return reports
+
+
+def _chronological_windows(records: list[dict], count: int = WALK_FORWARD_WINDOWS) -> list[dict]:
+    """Return fixed chronological stability windows without OOS optimization."""
+    if not records or count <= 0:
+        return []
+    indices = [int(r.get("candle_index", 0)) for r in records]
+    minimum, maximum = min(indices), max(indices)
+    if minimum == maximum:
+        windows = [records]
+    else:
+        width = (maximum - minimum + 1) / count
+        windows = []
+        for window_index in range(count):
+            start = minimum + window_index * width
+            end = minimum + (window_index + 1) * width
+            if window_index == count - 1:
+                selected = [r for r in records if start <= int(r.get("candle_index", 0)) <= maximum]
+            else:
+                selected = [r for r in records if start <= int(r.get("candle_index", 0)) < end]
+            windows.append(selected)
+
+    reports = []
+    for index, rows in enumerate(windows, start=1):
+        buckets = _bucket_stats(rows)
+        reports.append({
+            "window": index,
+            "signals": len(rows),
+            "closed": len(_closed(rows)),
+            "win_rate_pct": round(_win_rate(rows), 4),
+            "buckets": buckets,
+            "monotonicity": _monotonicity(buckets),
+        })
+    return reports
+
+
 def analyze_records(records: list[dict]) -> dict:
     """Return threshold-free score stability diagnostics for one timeframe."""
     if not records:
-        return {"signals": 0, "partitions": {}, "overall": _bucket_stats([]), "stability": {}}
+        return {
+            "signals": 0,
+            "partitions": {},
+            "regimes": {},
+            "walk_forward": [],
+            "overall": _bucket_stats([]),
+            "stability": {},
+        }
 
     partitions = {}
     for partition in PARTITIONS:
@@ -119,6 +182,11 @@ def analyze_records(records: list[dict]) -> dict:
         }
 
     overall = _bucket_stats(records)
+    regimes = _regime_reports(records)
+    oos_records = _partition_records(records, "oos")
+    oos_regimes = _regime_reports(oos_records)
+    walk_forward = _chronological_windows(records)
+
     stable_flags = [
         p["monotonicity"]["non_decreasing_win_rate"]
         for p in partitions.values()
@@ -132,6 +200,35 @@ def analyze_records(records: list[dict]) -> dict:
     ]
     oos_lift = partition_lifts.get("oos")
     all_partitions_covered = len(stable_flags) == len(PARTITIONS)
+
+    regime_flags = [
+        report["monotonicity"]["non_decreasing_win_rate"]
+        for report in regimes.values()
+        if report["monotonicity"]["non_decreasing_win_rate"] is not None
+    ]
+    positive_regime_lifts = [
+        report["monotonicity"]["win_rate_lift_pp"]
+        for report in regimes.values()
+        if report["monotonicity"]["win_rate_lift_pp"] is not None
+        and report["monotonicity"]["win_rate_lift_pp"] > 0
+    ]
+    positive_oos_regime_lifts = [
+        report["monotonicity"]["win_rate_lift_pp"]
+        for report in oos_regimes.values()
+        if report["monotonicity"]["win_rate_lift_pp"] is not None
+        and report["monotonicity"]["win_rate_lift_pp"] > 0
+    ]
+    walk_forward_lifts = [
+        report["monotonicity"]["win_rate_lift_pp"]
+        for report in walk_forward
+        if report["monotonicity"]["win_rate_lift_pp"] is not None
+    ]
+    walk_forward_flags = [
+        report["monotonicity"]["non_decreasing_win_rate"]
+        for report in walk_forward
+        if report["monotonicity"]["non_decreasing_win_rate"] is not None
+    ]
+
     if all_partitions_covered and all(stable_flags) and oos_lift is not None and oos_lift > 0:
         research_status = "STABLE_SIGNAL_RELATIONSHIP"
     elif oos_lift is not None and oos_lift > 0:
@@ -151,6 +248,13 @@ def analyze_records(records: list[dict]) -> dict:
         "low_score_closed": low["closed"],
         "low_score_win_rate_pct": low["win_rate_pct"],
         "high_minus_low_win_rate_pp": round(high["win_rate_pct"] - low["win_rate_pct"], 4),
+        "regimes_with_monotonicity": len(regime_flags),
+        "regimes_monotonic": sum(flag is True for flag in regime_flags),
+        "positive_separation_regimes": len(positive_regime_lifts),
+        "positive_separation_oos_regimes": len(positive_oos_regime_lifts),
+        "walk_forward_windows": len(walk_forward),
+        "walk_forward_positive_lift_windows": sum(lift > 0 for lift in walk_forward_lifts),
+        "walk_forward_monotonic_windows": sum(flag is True for flag in walk_forward_flags),
         "research_status": research_status,
     }
     return {
@@ -158,6 +262,9 @@ def analyze_records(records: list[dict]) -> dict:
         "closed": len(_closed(records)),
         "overall": overall,
         "partitions": partitions,
+        "regimes": regimes,
+        "oos_regimes": oos_regimes,
+        "walk_forward": walk_forward,
         "stability": stability,
     }
 
