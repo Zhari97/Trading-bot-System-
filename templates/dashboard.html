@@ -1,11 +1,37 @@
 <!doctype html>
-<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Trading Bot Control Room</title><link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}"></head>
-<body><main><header><div><p>TRADING SYSTEM</p><h1>Control Room</h1></div><b id="status">● ONLINE</b></header>
-<section class="meta">LIVE <b id="timeframe">{{ stato.get('status', {}).get('timeframe_minutes', 15) }}m</b> · ULTIMO CONTROLLO <b id="updated">{{ stato.get('updated_at') or '—' }}</b> · RESEARCH <b>5m / 15m / 1h</b></section>
-<section class="grid"><article class="card"><h2>Bot LIVE</h2><div id="live-summary">Caricamento…</div></article><article class="card"><h2>Telegram</h2><div id="telegram">Caricamento…</div></article><article class="card"><h2>Risk Lab</h2><div>Allocazione max: <b>5%</b><br>TP iniziale: <b>5%</b><br>Max DD target: <b>10%</b><br>Modalità: <b>OFFLINE RESEARCH</b></div></article></section>
-<h2>Mercati LIVE</h2><section id="markets" class="markets">{% for pair, record in stato.get('markets', {}).items() %}<article class="card"><h3>{{ pair }}</h3><p>{{ record.get('classification', 'WATCH') }} · {{ record.get('direction', 'NEUTRO') }} · Score {{ record.get('score', '—') }}/100</p></article>{% else %}<p>Nessuna analisi persistita.</p>{% endfor %}</section>
-<section class="card"><h2>Research Backtest</h2><p id="research-meta">In attesa dell'ultimo risultato pubblicato.</p><div class="table"><table><thead><tr><th>TF</th><th>Segnali</th><th>Win rate</th><th>PF</th><th>Expectancy</th><th>Max DD</th></tr></thead><tbody id="research-rows"><tr><td colspan="6">Caricamento…</td></tr></tbody></table></div></section>
-<section class="card"><h2>Signal Engine LIVE</h2><div id="engine">In attesa di analisi reale.</div></section>
-<section class="card"><h2>Storico score</h2><svg id="chart" viewBox="0 0 700 180"></svg></section>
-<section class="card"><h2>Ultimi segnali</h2><div class="table"><table><thead><tr><th>ORA</th><th>COPPIA</th><th>CLASSIFICAZIONE</th><th>DIREZIONE</th><th>SCORE</th><th>CONFLUENZA</th><th>GUARD-RAIL</th><th>TELEGRAM</th></tr></thead><tbody id="signals"></tbody></table></div></section>
-</main><script src="{{ url_for('static', filename='dashboard.js') }}?v=20260826-3"></script></body></html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Trading Bot — Quant Control Room</title><link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}?v=20260827-1"></head>
+<body>
+<main>
+<header class="hero"><div><p class="eyebrow">QUANT RESEARCH · LIVE CONTROL ROOM</p><h1>Trading Bot</h1><div class="subtitle">Dal mercato alla decisione — visualizzazione dei dati reali del motore.</div></div><div class="online"><i></i><span id="status">● ONLINE</span></div></header>
+<section class="meta"><span>LIVE <b id="timeframe">{{ stato.get('status', {}).get('timeframe_minutes', 15) }}m</b></span><span>ULTIMO CONTROLLO <b id="updated">{{ stato.get('updated_at') or '—' }}</b></span><span>RESEARCH <b>5m · 15m · 1h</b></span></section>
+
+<section class="hero-grid">
+ <article class="card focus"><div class="section-kicker">DECISION PIPELINE</div><h2>Come lavora il bot</h2><div class="pipeline" id="pipeline">
+  <div class="pipe active"><span>01</span><b>MARKET</b><small>price · RSI · trend</small></div><div class="connector">›</div>
+  <div class="pipe"><span>02</span><b>FEATURES</b><small>confluence</small></div><div class="connector">›</div>
+  <div class="pipe"><span>03</span><b>REGIME</b><small id="pipe-regime">—</small></div><div class="connector">›</div>
+  <div class="pipe"><span>04</span><b>SIGNAL</b><small id="pipe-signal">—</small></div><div class="connector">›</div>
+  <div class="pipe"><span>05</span><b>SCORE</b><small id="pipe-score">—</small></div><div class="connector">›</div>
+  <div class="pipe"><span>06</span><b>GUARD-RAIL</b><small id="pipe-risk">—</small></div><div class="connector">›</div>
+  <div class="pipe decision"><span>07</span><b>DECISION</b><small id="pipe-decision">—</small></div>
+ </div></article>
+ <article class="card live-card"><div class="section-kicker">LIVE ENGINE</div><div id="live-summary">Caricamento…</div><div class="live-bars"><span></span><span></span><span></span><span></span><span></span><span></span></div></article>
+</section>
+
+<section class="grid">
+ <article class="card stat"><div class="section-kicker">ENGINE</div><strong id="engine-state">—</strong><small id="engine-detail">waiting for telemetry</small></article>
+ <article class="card stat"><div class="section-kicker">RESEARCH STATE</div><strong id="research-state" class="warn">—</strong><small>evidence classification</small></article>
+ <article class="card stat"><div class="section-kicker">1H OOS RETURN</div><strong id="oos-return">—</strong><small>historical backtest</small></article>
+ <article class="card stat"><div class="section-kicker">1H OOS PF</div><strong id="oos-pf">—</strong><small>historical backtest</small></article>
+
+ <article class="card span-8"><div class="card-head"><div><div class="section-kicker">MARKET SCANNER</div><h2>Mercati analizzati</h2></div><span class="badge">LIVE DATA</span></div><div id="markets" class="markets"></div></article>
+ <article class="card span-4"><div class="card-head"><div><div class="section-kicker">EVENT STREAM</div><h2>Decision log</h2></div></div><div id="events" class="events"><div class="muted">In attesa di segnali reali…</div></div></article>
+
+ <article class="card span-7"><div class="card-head"><div><div class="section-kicker">RESEARCH</div><h2>Performance per timeframe</h2></div></div><div class="research-chart" id="research-chart"></div><div class="table"><table><thead><tr><th>TF</th><th>Signals</th><th>Win rate</th><th>PF</th><th>Expectancy</th><th>Max DD</th></tr></thead><tbody id="research-rows"><tr><td colspan="6">Caricamento…</td></tr></tbody></table></div></article>
+ <article class="card span-5"><div class="card-head"><div><div class="section-kicker">SCORE HISTORY</div><h2>Signal relationship</h2></div></div><div class="score-wrap"><svg id="chart" viewBox="0 0 760 220" preserveAspectRatio="none"></svg></div><div class="legend"><span><i></i>score nel tempo</span><span>0 ───────── 100</span></div></article>
+
+ <article class="card span-12"><div class="card-head"><div><div class="section-kicker">SIGNAL LAB</div><h2>Ultimi segnali</h2></div><div class="lab-note">Ogni riga rappresenta un'analisi reale persistita dal motore.</div></div><div class="table"><table><thead><tr><th>ORA</th><th>COPPIA</th><th>CLASSIFICAZIONE</th><th>DIREZIONE</th><th>SCORE</th><th>CONFLUENZA</th><th>GUARD-RAIL</th><th>TELEGRAM</th></tr></thead><tbody id="signals"></tbody></table></div></article>
+
+ <article class="card span-12 research-note"><div class="section-kicker">RESEARCH DISCIPLINE</div><h2>Stato della ricerca</h2><p id="research-meta">In attesa dell'ultimo risultato pubblicato.</p><div class="research-rules"><span class="r robust">ROBUST</span><span class="r promising">PROMISING · UNSTABLE</span><span class="r none">NO STABLE EDGE</span></div></article>
+</section>
+</main><script src="{{ url_for('static', filename='dashboard.js') }}?v=20260827-1"></script></body></html>
