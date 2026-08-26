@@ -3,7 +3,7 @@
 V2.2:
 - usa la classificazione complessiva del signal_engine;
 - stampa sempre nei log la qualità del setup;
-- NON abilita automaticamente nuovi alert: resta conservativo;
+- evita alert Telegram duplicati usando la cronologia persistente della dashboard;
 - MODALITA_TEST continua a funzionare come prima.
 
 Dashboard:
@@ -76,6 +76,90 @@ def invia_dashboard(record: dict) -> bool:
     except Exception as e:
         log.warning("Dashboard ingest failed: %s", e)
     return False
+
+
+def firma_alert(analisi: dict) -> tuple:
+    """Firma strutturale del segnale per evitare ripetizioni dello stesso setup.
+
+    I punteggi sono arrotondati a 1 punto: piccole oscillazioni tra due
+    scansioni non trasformano lo stesso setup in un nuovo alert.
+    """
+    classificazione = analisi["classificazione"]
+    categorie = analisi["categorie"]
+    return (
+        classificazione.get("livello", "WATCH"),
+        classificazione.get("direzione", "NEUTRO"),
+        classificazione.get("trend_direzione", "NEUTRO"),
+        classificazione.get("setup_direzione", "NEUTRO"),
+        classificazione.get("momentum_direzione", "NEUTRO"),
+        bool(classificazione.get("controtrend")),
+        round(float(analisi["score"])),
+        round(float(analisi["confluenza"])),
+        round(float(categorie["trend"])),
+        round(float(categorie["momentum"])),
+        round(float(categorie["setup"])),
+    )
+
+
+def recupera_ultimo_alert_inviato(pair: str) -> dict | None:
+    """Recupera l'ultimo alert Telegram realmente inviato per la coppia.
+
+    La cronologia della dashboard è persistente tra le diverse esecuzioni
+    GitHub Actions, a differenza del filesystem del runner.
+    """
+    if not DASHBOARD_URL:
+        log.warning("[%s] ALERT GATE -> dashboard non configurata: impossibile verificare duplicati", pair)
+        return None
+
+    try:
+        response = requests.get(f"{DASHBOARD_URL}/api/history", timeout=10)
+        if not response.ok:
+            log.warning(
+                "[%s] ALERT GATE -> history HTTP %s: fail-open",
+                pair,
+                response.status_code,
+            )
+            return None
+        history = response.json()
+        if not isinstance(history, list):
+            log.warning("[%s] ALERT GATE -> history non valida: fail-open", pair)
+            return None
+
+        for record in reversed(history):
+            if not isinstance(record, dict):
+                continue
+            if str(record.get("pair", "")).upper() != pair.upper():
+                continue
+            if record.get("telegram") == "SENT":
+                return record
+        return None
+    except (requests.RequestException, ValueError, TypeError) as e:
+        log.warning("[%s] ALERT GATE -> history unavailable (%s): fail-open", pair, e)
+        return None
+
+
+def alert_duplicato(analisi: dict, ultimo_alert: dict | None) -> bool:
+    """True se l'analisi attuale rappresenta ancora lo stesso setup già notificato."""
+    if not ultimo_alert:
+        return False
+
+    classificazione = analisi["classificazione"]
+    categorie = analisi["categorie"]
+    firma_attuale = firma_alert(analisi)
+    firma_precedente = (
+        ultimo_alert.get("classification", "WATCH"),
+        ultimo_alert.get("direction", "NEUTRO"),
+        "LONG" if float(ultimo_alert.get("categories", {}).get("trend", 50)) > 55 else "SHORT" if float(ultimo_alert.get("categories", {}).get("trend", 50)) < 45 else "NEUTRO",
+        "LONG" if float(ultimo_alert.get("categories", {}).get("setup", 50)) > 55 else "SHORT" if float(ultimo_alert.get("categories", {}).get("setup", 50)) < 45 else "NEUTRO",
+        "LONG" if float(ultimo_alert.get("categories", {}).get("momentum", 50)) > 55 else "SHORT" if float(ultimo_alert.get("categories", {}).get("momentum", 50)) < 45 else "NEUTRO",
+        bool(ultimo_alert.get("counter_trend")),
+        round(float(ultimo_alert.get("score", 50))),
+        round(float(ultimo_alert.get("confluence", 50))),
+        round(float(ultimo_alert.get("categories", {}).get("trend", 50))),
+        round(float(ultimo_alert.get("categories", {}).get("momentum", 50))),
+        round(float(ultimo_alert.get("categories", {}).get("setup", 50))),
+    )
+    return firma_attuale == firma_precedente
 
 
 def invia_telegram(testo: str, pair: str = "") -> bool:
@@ -188,7 +272,12 @@ def controlla_coppia(pair: str) -> None:
 
     telegram_status = "NOT_SENT"
     if alert_automatico and direzione in ("LONG", "SHORT"):
-        telegram_status = "SENT" if invia_telegram(costruisci_report(pair, analisi), pair=pair) else "FAILED"
+        ultimo_alert = recupera_ultimo_alert_inviato(pair)
+        if alert_duplicato(analisi, ultimo_alert):
+            telegram_status = "NOT_SENT"
+            log.info("[%s] ALERT GATE -> SUPPRESS DUPLICATE | stesso setup gia notificato", pair)
+        else:
+            telegram_status = "SENT" if invia_telegram(costruisci_report(pair, analisi), pair=pair) else "FAILED"
     else:
         log.info("[%s] TELEGRAM -> SKIP | condizione alert non soddisfatta", pair)
 
