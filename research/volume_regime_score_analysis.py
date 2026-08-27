@@ -1,7 +1,7 @@
 """Research-only analysis for 1h volume/regime/direction/score relationships.
 
-This module is deliberately outside the live signal path. It reads an existing
-backtest_results.json and produces deterministic diagnostics for each partition.
+This module is deliberately outside the live signal path. It reads the actual
+nested backtest_results.json schema and produces deterministic diagnostics.
 It does not alter signals, thresholds, sizing, or risk.
 """
 from __future__ import annotations
@@ -13,17 +13,22 @@ from pathlib import Path
 from typing import Any
 
 PARTITIONS = ("train", "validation", "oos")
+TIMEFRAME = "1h"
 
 
 def _records(payload: Any) -> list[dict[str, Any]]:
-    if isinstance(payload, list):
-        return [x for x in payload if isinstance(x, dict)]
-    if isinstance(payload, dict):
-        for key in ("records", "trades", "signals", "results"):
-            value = payload.get(key)
-            if isinstance(value, list):
-                return [x for x in value if isinstance(x, dict)]
-    raise ValueError("Could not find a record list in backtest_results.json")
+    """Read the production backtest schema: {timeframes: {1h: {records: []}}}."""
+    if not isinstance(payload, dict):
+        raise ValueError("backtest_results.json must contain an object")
+    timeframes = payload.get("timeframes")
+    if isinstance(timeframes, dict):
+        timeframe = timeframes.get(TIMEFRAME)
+        if isinstance(timeframe, dict) and isinstance(timeframe.get("records"), list):
+            return [x for x in timeframe["records"] if isinstance(x, dict)]
+    # Keep support for a simple list-shaped research fixture.
+    if isinstance(payload.get("records"), list):
+        return [x for x in payload["records"] if isinstance(x, dict)]
+    raise ValueError("Could not find 1h records in backtest_results.json")
 
 
 def _partition(row: dict[str, Any]) -> str | None:
@@ -51,23 +56,25 @@ def _score_bucket(score: float) -> str:
 
 
 def _volume_confirmation(row: dict[str, Any]) -> int | None:
-    vr = row.get("volume_research")
-    if not isinstance(vr, dict):
-        return None
+    value = row.get("volume_research", {}).get("price_volume_confirmation")
     try:
-        return int(vr.get("price_volume_confirmation"))
-    except (TypeError, ValueError):
+        return int(float(value))
+    except (TypeError, ValueError, AttributeError):
         return None
 
 
 def _trade_return(row: dict[str, Any]) -> float | None:
-    for key in ("return_pct", "pnl_pct", "trade_return_pct", "outcome_return_pct"):
-        try:
-            value = float(row[key])
-            return value if math.isfinite(value) else None
-        except (KeyError, TypeError, ValueError):
-            continue
-    return None
+    """Derive realized trade return from entry/exit because records store prices."""
+    try:
+        entry = float(row["entry"])
+        exit_price = float(row["exit"])
+        direction = str(row["direction"]).upper()
+    except (KeyError, TypeError, ValueError):
+        return None
+    if entry <= 0 or not math.isfinite(entry) or not math.isfinite(exit_price):
+        return None
+    raw = (exit_price / entry - 1.0) * 100.0
+    return raw if direction == "LONG" else -raw if direction == "SHORT" else None
 
 
 def analyse(path: Path) -> list[dict[str, Any]]:
@@ -133,7 +140,7 @@ def aggregate(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "losses": losses,
             "win_rate_pct": round(100 * wins / len(group), 2),
             "expectancy_pct": round(expectancy, 4) if expectancy is not None else None,
-            "profit_factor": round(profit_factor, 4) if math.isfinite(profit_factor) else ("inf" if profit_factor == math.inf else None),
+            "profit_factor": round(profit_factor, 4) if profit_factor is not None and math.isfinite(profit_factor) else ("inf" if profit_factor == math.inf else None),
             "return_observations": len(returns),
         })
     return result
