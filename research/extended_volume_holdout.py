@@ -8,8 +8,16 @@ signal rules, sizing, or risk logic are changed.
 from __future__ import annotations
 
 import json
+import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+
+# When invoked as ``python research/extended_volume_holdout.py``, Python puts
+# ``research/`` on sys.path rather than the repository root. Add the root so
+# this research-only script can import the existing replay/data modules.
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from historical_data import fetch_klines
 from historical_engine_runner import replay_timeframe
@@ -18,7 +26,7 @@ SYMBOL = "BTCUSDT"
 TIMEFRAME = "1h"
 CURRENT_WINDOW_DAYS = 183
 LOOKBACK_DAYS = 366
-OUT = Path("research/extended_volume_holdout_results.json")
+OUT = ROOT / "research" / "extended_volume_holdout_results.json"
 
 
 def main() -> None:
