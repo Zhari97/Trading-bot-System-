@@ -1,0 +1,33 @@
+name: Volume Holdout Research
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  holdout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip -r requirements.txt
+      - name: Compile Python files
+        run: python -m compileall -q .
+      - name: Run frozen-model holdout
+        run: python research/extended_volume_holdout.py
+      - name: Validate result file
+        run: python -m json.tool research/extended_volume_holdout_results.json >/dev/null
+      - name: Upload holdout artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: volume-holdout-results
+          path: research/extended_volume_holdout_results.json
+          retention-days: 30
