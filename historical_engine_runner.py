@@ -18,6 +18,7 @@ from research_score_analysis import compare_timeframes
 from signal_analytics import analyze as analyze_signal_analytics
 from signal_engine_replay_adapter_fast import analyze_context_at
 from signal_engine import ContestoMercato
+from volume_research import diagnostics as volume_diagnostics
 
 SYMBOL = "BTCUSDT"
 OUT = Path("backtest_results.json")
@@ -114,6 +115,7 @@ def replay_timeframe(candles: list[dict], timeframe: str) -> dict:
 
         categories = analysis.get("categorie") or analysis.get("categories") or {}
         evidence = weighted_evidence(analysis.get("risultati", []))
+        volume = volume_diagnostics(candles, i)
         row = {
             "candle_index": i,
             "timestamp": candles[i].get("timestamp"),
@@ -130,6 +132,7 @@ def replay_timeframe(candles: list[dict], timeframe: str) -> dict:
             "regime": classify_regime(candles[: i + 1]),
             "allocation_pct": float(TRADE_PLAN["max_account_allocation_pct"]),
             **evidence,
+            "volume_research": volume,
         }
         row.update(result)
         records.append(row)
