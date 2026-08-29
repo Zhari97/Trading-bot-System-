@@ -41,14 +41,16 @@ def salva_stato_dashboard(analisi: dict, *args, **kwargs) -> dict:
         return None
 
 
-def registra_segnale_live(pair: str, analisi: dict) -> None:
+def registra_segnale_live(pair: str, analisi: dict) -> dict | None:
     """Registra sempre l'analisi, anche se non genera un alert Telegram."""
     try:
         record = build_signal_record(pair, analisi)
         append_signal(record)
         log.info("[%s] SIGNAL HISTORY -> SAVED | level=%s direction=%s score=%.1f", pair, record["level"], record["direction"], record["score"])
+        return record
     except Exception as e:
         log.warning("[%s] SIGNAL HISTORY -> FAILED | %s", pair, e)
+        return None
 
 
 def invia_dashboard(record: dict) -> bool:
@@ -155,7 +157,7 @@ def costruisci_report(pair: str, analisi: dict) -> str:
 
 def controlla_coppia(pair: str) -> None:
     analisi = analizza_coppia(pair)
-    registra_segnale_live(pair, analisi)
+    record = registra_segnale_live(pair, analisi)
 
     c = analisi["classificazione"]
     log.info("=== %s | prezzo=%.5f SCORE=%.1f | %s ===", pair, analisi["prezzo"], analisi["score"], c.get("livello", "WATCH"))
