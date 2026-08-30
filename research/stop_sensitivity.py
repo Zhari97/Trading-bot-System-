@@ -1,7 +1,8 @@
 """Research-only TP/SL sensitivity experiment.
 
-Keeps the production signal entries frozen and compares the current dynamic
-ATR-based stop with fixed 5% and 10% stops. No production module is changed.
+Keeps production signal entries frozen and compares the current dynamic
+ATR-based exit with fixed 5%/5% and 10%/10% risk-reward scenarios.
+No production module is changed.
 """
 from __future__ import annotations
 
@@ -23,33 +24,41 @@ from research_metrics import summarize
 SYMBOL = "BTCUSDT"
 OUT = ROOT / "research" / "stop_sensitivity_results.json"
 SCENARIOS = {
-    "current_dynamic": None,
-    "fixed_5pct": 0.05,
-    "fixed_10pct": 0.10,
+    "current_dynamic": {"tp_pct": None, "sl_pct": None},
+    "fixed_5_5": {"tp_pct": 0.05, "sl_pct": 0.05},
+    "fixed_10_10": {"tp_pct": 0.10, "sl_pct": 0.10},
 }
 
 
-def scenario_result(row: dict, candles: list[dict], fixed_sl_pct: float | None) -> dict | None:
-    if fixed_sl_pct is None:
-        result = {
+def scenario_result(row: dict, candles: list[dict], scenario: dict) -> dict | None:
+    if scenario["sl_pct"] is None:
+        return {
             "outcome": row.get("outcome"),
             "bars": row.get("bars"),
             "exit": row.get("exit"),
             "tp": row.get("take_profit"),
             "sl": row.get("stop_loss"),
         }
-        return result
 
     entry = float(row["entry"])
     direction = row["direction"]
-    stop = entry * (1 - fixed_sl_pct) if direction == "LONG" else entry * (1 + fixed_sl_pct)
+    tp_pct = float(scenario["tp_pct"])
+    sl_pct = float(scenario["sl_pct"])
+
+    if direction == "LONG":
+        stop = entry * (1 - sl_pct)
+        take_profit = entry * (1 + tp_pct)
+    else:
+        stop = entry * (1 + sl_pct)
+        take_profit = entry * (1 - tp_pct)
+
     future = candles[int(row["candle_index"]) + 1 : min(int(row["candle_index"]) + 1 + 500, len(candles))]
     return evaluate_forward_result(
         {
             "direction": direction,
             "entry": entry,
             "stop_loss": stop,
-            "take_profit": float(row["take_profit"]),
+            "take_profit": take_profit,
         },
         future,
     )
@@ -77,12 +86,12 @@ def main() -> None:
     result = {
         "generated_at": end.isoformat(),
         "symbol": SYMBOL,
-        "method": "Frozen production signal entries; only stop-loss exit rule is changed. TP remains the production 5% level. Signal timing is not regenerated per scenario.",
+        "method": "Frozen production signal entries; only TP/SL exit levels change by scenario. Signal timing is not regenerated per scenario.",
         "allocation_pct": allocation,
         "scenarios": {
-            "current_dynamic": "Production ATR-based stop (0.5%-2.0% bounds)",
-            "fixed_5pct": "Fixed 5% stop",
-            "fixed_10pct": "Fixed 10% stop",
+            "current_dynamic": "Production ATR-based stop (0.5%-2.0% bounds) with production 5% TP",
+            "fixed_5_5": "Fixed 5% TP / 5% SL",
+            "fixed_10_10": "Fixed 10% TP / 10% SL",
         },
         "timeframes": {},
     }
@@ -94,8 +103,8 @@ def main() -> None:
         for row in base_rows:
             enriched = dict(row)
             enriched["scenarios"] = {}
-            for scenario, fixed_sl in SCENARIOS.items():
-                enriched["scenarios"][scenario] = scenario_result(row, candles, fixed_sl)
+            for scenario, config in SCENARIOS.items():
+                enriched["scenarios"][scenario] = scenario_result(row, candles, config)
             scenario_rows.append(enriched)
 
         tf_out = {"signals_frozen": len(scenario_rows), "scenarios": {}}
@@ -114,7 +123,7 @@ def main() -> None:
 
         transitions = {}
         base = attach_metrics(scenario_rows, "current_dynamic", allocation)
-        for scenario in ("fixed_5pct", "fixed_10pct"):
+        for scenario in ("fixed_5_5", "fixed_10_10"):
             alt = attach_metrics(scenario_rows, scenario, allocation)
             transitions[scenario] = {
                 "dynamic_sl_to_tp": sum(1 for a, b in zip(base, alt) if a.get("outcome") == "SL" and b.get("outcome") == "TP"),
