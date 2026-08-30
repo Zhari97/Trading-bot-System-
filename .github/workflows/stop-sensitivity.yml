@@ -1,0 +1,41 @@
+name: Stop Sensitivity Research
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'research/stop_sensitivity.py'
+      - 'historical_*.py'
+      - 'research_config.py'
+      - 'research_metrics.py'
+      - 'trade_plan.py'
+      - '.github/workflows/stop-sensitivity.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  stop-sensitivity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip -r requirements.txt
+      - name: Compile research script
+        run: python -m py_compile research/stop_sensitivity.py
+      - name: Run 5/5 vs 10/10 sensitivity
+        run: python research/stop_sensitivity.py
+      - name: Validate result file
+        run: python -m json.tool research/stop_sensitivity_results.json >/dev/null
+      - name: Upload sensitivity artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: stop-sensitivity-results
+          path: research/stop_sensitivity_results.json
+          retention-days: 30
