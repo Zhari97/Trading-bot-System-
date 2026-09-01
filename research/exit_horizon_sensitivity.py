@@ -7,7 +7,16 @@ No production strategy files are modified by this script.
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
+
+# GitHub Actions executes this file as ``python research/...py``. In that
+# mode Python puts ``research/`` (not the repository root) on sys.path, while
+# the research modules live at the repository root. Add the root explicitly
+# so the test uses the exact same modules as the historical replay.
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from historical_data import load_six_months
 from historical_replay import evaluate_forward_result
@@ -18,7 +27,7 @@ from signal_engine_replay_adapter_fast import analyze_context_at
 
 SYMBOL = "BTCUSDT"
 HORIZONS = (10, 25, 50, 100, 200, 500)
-OUT = Path("research/exit_horizon_results.json")
+OUT = ROOT / "research" / "exit_horizon_results.json"
 
 
 def level_hit(direction: str, candle: dict, level: float) -> bool:
