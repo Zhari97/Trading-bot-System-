@@ -1,0 +1,35 @@
+name: Exit Horizon Sensitivity
+
+on:
+  workflow_dispatch:
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Compile research script
+        run: python -m py_compile research/exit_horizon_sensitivity.py
+
+      - name: Run exit horizon sensitivity
+        run: python research/exit_horizon_sensitivity.py
+
+      - name: Validate result file
+        run: python -m json.tool research/exit_horizon_results.json > /dev/null
+
+      - name: Upload research results
+        uses: actions/upload-artifact@v4
+        with:
+          name: exit-horizon-results
+          path: research/exit_horizon_results.json
+          retention-days: 30
