@@ -1,0 +1,44 @@
+name: Stop Distance x Time Horizon Matrix
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'research/stop_distance_time_horizon_matrix.py'
+      - 'historical_*.py'
+      - 'signal_engine*.py'
+      - 'research_scoring.py'
+      - 'research_config.py'
+      - 'market_regime.py'
+      - 'trade_plan.py'
+      - 'requirements.txt'
+      - '.github/workflows/stop-distance-horizon.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip -r requirements.txt
+      - name: Compile research script
+        run: python -m py_compile research/stop_distance_time_horizon_matrix.py
+      - name: Run stop-distance horizon matrix
+        run: python research/stop_distance_time_horizon_matrix.py
+      - name: Validate result file
+        run: python -m json.tool research/stop_distance_time_horizon_results.json >/dev/null
+      - name: Upload matrix artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: stop-distance-horizon-results
+          path: research/stop_distance_time_horizon_results.json
+          retention-days: 30
