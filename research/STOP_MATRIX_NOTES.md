@@ -1,0 +1,1 @@
+Next research step: Stop Distance × Time Horizon Matrix. This is a research-only scaffold; wire it to the existing frozen replay schema before execution so no signal logic is duplicated or invented.
