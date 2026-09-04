@@ -25,6 +25,7 @@ from signal_engine import (
     analizza_coppia,
 )
 from signal_history import append_signal, build_signal_record
+from trade_history import append_sent_trade
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("segnale_crypto")
@@ -51,6 +52,15 @@ def registra_segnale_live(pair: str, analisi: dict) -> dict | None:
     except Exception as e:
         log.warning("[%s] SIGNAL HISTORY -> FAILED | %s", pair, e)
         return None
+
+
+def registra_trade_telegram(record: dict | None) -> None:
+    """Persist only signals that were actually sent successfully to Telegram."""
+    try:
+        append_sent_trade(record or {})
+        log.info("[%s] TRADE HISTORY -> SAVED", (record or {}).get("pair", "?"))
+    except Exception as e:
+        log.warning("[%s] TRADE HISTORY -> FAILED | %s", (record or {}).get("pair", "?"), e)
 
 
 def invia_dashboard(record: dict) -> bool:
