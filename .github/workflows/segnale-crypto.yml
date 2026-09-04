@@ -65,3 +65,11 @@ jobs:
           INTERVAL_MIN: 15
           MODALITA_TEST: ${{ inputs.modalita_test && '1' || '0' }}
         run: python run_signal_guard.py
+
+      - name: Conserva storico segnali Telegram
+        uses: actions/upload-artifact@v4
+        with:
+          name: telegram-trade-history-${{ github.run_id }}
+          path: data/trade_history/trades.jsonl
+          if-no-files-found: ignore
+          retention-days: 14
