@@ -1,0 +1,38 @@
+name: Score Stability Research
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'research_score_analysis.py'
+      - 'research_scoring.py'
+      - 'signal_engine_replay_adapter_fast.py'
+      - 'historical_replay.py'
+      - 'historical_engine_runner.py'
+      - 'research/**'
+      - '.github/workflows/score-stability.yml'
+
+jobs:
+  score-stability:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Compile Python
+        run: python -m compileall -q .
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -p 'test_*.py'
+      - name: Run 1h score stability analysis
+        run: python research/score_stability_1h.py
+      - name: Validate output
+        run: python -m json.tool research/score_stability_1h_results.json > /dev/null
+      - name: Upload score stability artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: score-stability-1h-${{ github.run_id }}
+          path: research/score_stability_1h_results.json
+          retention-days: 30
