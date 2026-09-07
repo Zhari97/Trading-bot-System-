@@ -17,6 +17,11 @@ Batch development: BUILD -> BUILD -> BUILD -> CODE QUALITY -> HISTORICAL BACKTES
 - LIVE signal path is separate from research scoring experiments.
 - Code Quality is the safety gate before a new historical backtest.
 - Historical backtest artifacts are used for quantitative analysis.
+- Research evidence is persisted separately from signal logic and linked to the source commit/artifact.
+- Operational audit events are append-only and hash chained; verification must fail loudly on tampering.
+- Strategy lifecycle transitions are explicit; nothing auto-promotes a research result to LIVE.
+- Execution realism is research-only until a dedicated validation cycle approves its use in production.
+- Market-data freshness/integrity is observable rather than silently assumed.
 
 ## Current components
 - Historical Backtest GitHub Actions workflow operational.
@@ -30,6 +35,12 @@ Batch development: BUILD -> BUILD -> BUILD -> CODE QUALITY -> HISTORICAL BACKTES
 - `signal_engine_replay_adapter_fast.py` uses research continuous categories for historical classification while retaining legacy production categories for comparison.
 - `research_score_analysis.py` measures score separation across train/validation/OOS without selecting a production threshold.
 - Dedicated research scoring and score-analysis tests exist.
+- `research/evidence_store.py` records research evidence with source commit, artifact, verdict and a hash chain.
+- `strategy_lifecycle.py` defines explicit RESEARCH -> CANDIDATE -> SHADOW -> PAPER -> LIVE stages plus MONITORING/DECAYED/DISABLED states and configurable decay diagnostics.
+- `audit_ledger.py` provides a generic append-only hash-chained operational audit ledger.
+- `trade_history.py` now adds hash-chain fields to sent Telegram trade records while retaining the existing 7-day retention requirement.
+- `execution_realism.py` provides research-only ADV capacity, fixed/linear/square-root impact and explicit net-return calculations.
+- `market_data_quality.py` provides OHLCV integrity and freshness checks.
 
 ## Last validated baseline
 - Historical Backtest #30 completed successfully on 2026-08-26 after the continuous research-scoring batch.
@@ -51,6 +62,8 @@ The continuous research-scoring batch is validated by Code Quality + Historical 
 2. Run a chronological/walk-forward stability analysis of score separation by partition and market regime; do not optimize against OOS.
 3. If the 1h relationship remains stable, expand the analysis to multi-timeframe confirmation (15m + 1h) without changing LIVE logic.
 4. Only after stable evidence, evaluate realistic costs/slippage and broader robustness.
+5. Build Whale Intelligence as a separate research feature and test it independently before any composite-score integration.
+6. Use the evidence/lifecycle/audit foundation to track research maturity and post-deployment decay.
 
 ## Do not do
 - Do not launch multiple identical Historical Backtests.
@@ -58,6 +71,8 @@ The continuous research-scoring batch is validated by Code Quality + Historical 
 - Do not optimize against OOS.
 - Do not move research scoring into LIVE without a dedicated validation cycle.
 - Do not treat the 1h result as a trading recommendation yet.
+- Do not let an LLM directly determine trade execution.
+- Do not treat whale transfers as buy/sell signals without event classification and OOS evidence.
 
 ## Recovery rule
 For a new chat: read this file first, inspect latest commits/workflows/artifacts, then continue from Next step.
@@ -70,3 +85,11 @@ For a new chat: read this file first, inspect latest commits/workflows/artifacts
 5. Walk-forward + Monte Carlo validation
 6. Shadow/paper trading
 7. Only later consider ML and real capital
+
+## Architecture additions from reviewed open-source projects
+- Evidence/provenance registry: implemented as research-only infrastructure.
+- Explicit strategy lifecycle + configurable decay monitoring: implemented, not auto-promoting.
+- Tamper-evident operational audit: implemented and Telegram trade history is hash chained.
+- Execution realism helpers: implemented separately from LIVE logic.
+- Data freshness/integrity guard: implemented separately from signal logic.
+- Future terminal/dashboard should consume these stores rather than embed business logic in the UI.
