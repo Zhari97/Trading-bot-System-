@@ -42,10 +42,10 @@ def salva_stato_dashboard(analisi: dict, *args, **kwargs) -> dict:
         return None
 
 
-def registra_segnale_live(pair: str, analisi: dict) -> dict | None:
+def registra_segnale_live(pair: str, analisi: dict, trade_plan: dict | None = None) -> dict | None:
     """Registra sempre l'analisi, anche se non genera un alert Telegram."""
     try:
-        record = build_signal_record(pair, analisi)
+        record = build_signal_record(pair, analisi, trade_plan)
         append_signal(record)
         log.info("[%s] SIGNAL HISTORY -> SAVED | level=%s direction=%s score=%.1f", pair, record["level"], record["direction"], record["score"])
         return record
