@@ -52,7 +52,7 @@ def controlla_coppia_con_timing_guard(pair: str) -> None:
     if not should_emit_signal(pair, candle_open, c.get("direzione", "NEUTRO"), float(analysis["score"]), float(analysis["confluenza"]), last_key).accepted:
         return
 
-    record = segnale_crypto_binance.registra_segnale_live(pair, analysis)
+    record = segnale_crypto_binance.registra_segnale_live(pair, analysis, trade_plan)
     if not c.get("alert_automatico"):
         _ingest_dashboard(record, "NOT_SENT")
         return
