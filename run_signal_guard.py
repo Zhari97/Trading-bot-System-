@@ -45,6 +45,9 @@ def controlla_coppia_con_timing_guard(pair: str) -> None:
         return
     c = analysis["classificazione"]
     trade_plan = costruisci_trade_plan(analysis)
+    # Research journal records every computed live analysis before alert gating.
+    # This does not change whether an alert is emitted or sent.
+    record = segnale_crypto_binance.registra_segnale_live(pair, analysis, trade_plan)
     last = segnale_crypto_binance.recupera_ultimo_alert_inviato(pair)
     last_key = None
     if last:
