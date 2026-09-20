@@ -170,6 +170,21 @@ def api_history(): return jsonify(read_state().get("history", [])), 200
 def api_signals(): return jsonify(read_state().get("signals", [])), 200
 
 
+OUTCOME_FILE = Path(os.environ.get("OUTCOME_SUMMARY_FILE", "data/outcomes/summary.json"))
+
+@app.route("/api/outcomes", methods=["GET"])
+def api_outcomes():
+    if not OUTCOME_FILE.exists():
+        return jsonify({"status": "not_ready", "signals": 0, "ready_by_horizon": {}}), 200
+    try:
+        data = json.loads(OUTCOME_FILE.read_text(encoding="utf-8"))
+        if not isinstance(data, dict):
+            return jsonify({"status": "invalid", "signals": 0, "ready_by_horizon": {}}), 200
+        data["status"] = "ready"
+        return jsonify(data), 200
+    except (OSError, json.JSONDecodeError):
+        log.exception("Impossibile leggere gli outcome")
+        return jsonify({"status": "error", "signals": 0, "ready_by_horizon": {}}), 500
 @app.route("/api/research", methods=["GET"])
 def api_research():
     if not RESEARCH_FILE.exists():
