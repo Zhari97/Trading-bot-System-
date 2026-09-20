@@ -34,6 +34,14 @@
 
  <article class="card span-12"><div class="card-head"><div><div class="section-kicker">SIGNAL LAB</div><h2>Ultimi segnali</h2></div><div class="lab-note">Ogni riga rappresenta un'analisi reale persistita dal motore.</div></div><div class="table"><table><thead><tr><th>ORA</th><th>COPPIA</th><th>CLASSIFICAZIONE</th><th>DIREZIONE</th><th>SCORE</th><th>CONFLUENZA</th><th>GUARD-RAIL</th><th>TELEGRAM</th></tr></thead><tbody id="signals"></tbody></table></div></article>
 
+ <article class="card span-12"><div class="card-head"><div><div class="section-kicker">OUTCOME BREAKDOWN</div><h2>Score → outcome</h2></div><div class="lab-note">Solo segnali con outcome 1h pronto contribuiscono a hit rate e rendimento medio.</div></div><div class="table"><table><thead><tr><th>GRUPPO</th><th>SEGNALI</th><th>1H READY</th><th>POSITIVI</th><th>HIT RATE 1H</th><th>MEAN RETURN 1H</th></tr></thead><tbody id="outcome-score-rows"><tr><td colspan="6">Caricamento…</td></tr></tbody></table></div></article>
+
+ <article class="card span-12"><div class="card-head"><div><div class="section-kicker">DIRECTION / CLASSIFICATION / PAIR</div><h2>Breakdown operativo</h2></div></div><div class="grid" style="margin:0">
+   <div><div class="section-kicker">DIRECTION</div><div class="table"><table><thead><tr><th>DIR</th><th>READY</th><th>HIT RATE</th><th>MEAN</th></tr></thead><tbody id="outcome-direction-rows"></tbody></table></div></div>
+   <div><div class="section-kicker">CLASSIFICATION</div><div class="table"><table><thead><tr><th>LEVEL</th><th>READY</th><th>HIT RATE</th><th>MEAN</th></tr></thead><tbody id="outcome-level-rows"></tbody></table></div></div>
+   <div><div class="section-kicker">PAIR</div><div class="table"><table><thead><tr><th>PAIR</th><th>READY</th><th>HIT RATE</th><th>MEAN</th></tr></thead><tbody id="outcome-pair-rows"></tbody></table></div></div>
+ </div></article>
+
  <article class="card span-12 research-note"><div class="section-kicker">RESEARCH DISCIPLINE</div><h2>Stato della ricerca</h2><p id="research-meta">In attesa dell'ultimo risultato pubblicato.</p><div class="research-rules"><span class="r robust">ROBUST</span><span class="r promising">PROMISING · UNSTABLE</span><span class="r none">NO STABLE EDGE</span></div></article>
 </section>
-</main><script src="{{ url_for('static', filename='dashboard.js') }}?v=20260827-1"></script></body></html>
+</main><script src="{{ url_for('static', filename='dashboard.js') }}?v=20260827-2"></script></body></html>
