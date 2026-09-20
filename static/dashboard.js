@@ -10,6 +10,13 @@ function graph(h){if(!Array.isArray(h)||!h.length)return;const p=h.slice(-70),mi
 function event(text,tag='SYSTEM'){const box=document.querySelector('#events');if(box.querySelector('.muted'))box.innerHTML='';const d=document.createElement('div');d.className='event';d.innerHTML=`<span class="event-time">${new Date().toLocaleTimeString()}</span><span class="event-tag">${esc(tag)}</span> ${text}`;box.prepend(d);while(box.children.length>28)box.lastChild.remove()}
 function setPipeline(q){const regime=q?.classification||q?.categories?.trend||'—',signal=q?.direction||'—',score=q?.score??'—',risk=q?.guard_rail?.status||'—';document.querySelector('#pipe-regime').textContent=regime;document.querySelector('#pipe-signal').textContent=signal;document.querySelector('#pipe-score').textContent=score;document.querySelector('#pipe-risk').textContent=risk;document.querySelector('#pipe-decision').textContent=q?.telegram?'ALERTED':(q?.classification||'WATCH');}
 
+function breakdownRows(groups){
+ return Object.entries(groups||{}).map(([name,v])=>`<tr><td><b>${esc(name)}</b></td><td>${esc(v.signals)}</td><td>${esc(v.ready_1h)}</td><td>${esc(v.positive_1h)}</td><td>${pct(v.positive_rate_1h_pct)}</td><td>${pct(v.mean_return_1h_pct)}</td></tr>`).join('')||'<tr><td colspan="6">Nessun outcome pronto.</td></tr>';
+}
+function compactRows(groups){
+ return Object.entries(groups||{}).sort((a,b)=>(b[1].ready_1h||0)-(a[1].ready_1h||0)).slice(0,12).map(([name,v])=>`<tr><td><b>${esc(name)}</b></td><td>${esc(v.ready_1h)}</td><td>${pct(v.positive_rate_1h_pct)}</td><td>${pct(v.mean_return_1h_pct)}</td></tr>`).join('')||'<tr><td colspan="4">Nessun outcome pronto.</td></tr>';
+}
+
 async function refresh(){
  const [s,m,h,x,r,o]=await Promise.all([getJson('/api/status'),getJson('/api/markets'),getJson('/api/history'),getJson('/api/signals'),getJson('/api/research'),getJson('/api/outcomes')]);
  const markets=Array.isArray(m)?m:(m?.markets&&typeof m.markets==='object'?m.markets:m);const history=Array.isArray(h)?h:(Array.isArray(h?.history)?h.history:[]);const signals=Array.isArray(x)?x:(Array.isArray(x?.signals)?x.signals:[]);const a=Object.values(markets||{});const last=history.at(-1);const q=a[0]||signals[0];
@@ -22,6 +29,10 @@ async function refresh(){
  document.querySelector('#research-chart').innerHTML=rows.map(([name,v])=>{const value=Number(v.oos?.portfolio_return_pct??v.oos?.return_pct??0),height=Math.max(8,Math.min(85,Math.abs(value)*20));return `<div class="research-bar ${value<0?'negative':''}" title="${esc(name)}: ${value.toFixed(2)}%" style="height:${height}px"></div>`}).join('');
  if(one){document.querySelector('#oos-return').textContent=pct(one.oos?.portfolio_return_pct??one.oos?.return_pct);document.querySelector('#oos-pf').textContent=num(one.oos?.profit_factor);document.querySelector('#research-state').textContent=one.signal_relationship||one.stability?.signal_relationship||'—';}
  const h1=o?.ready_by_horizon?.['1h']||{},h4=o?.ready_by_horizon?.['4h']||{};document.querySelector('#live-1h-hit').textContent=h1.count?`${(100*h1.positive_count/h1.count).toFixed(1)}%`:'—';document.querySelector('#live-1h-meta').textContent=h1.count?`${h1.count} ready · mean ${pct(h1.mean_return_pct)}`:'outcome tracker waiting';document.querySelector('#live-4h-return').textContent=h4.count?pct(h4.mean_return_pct):'—';
+ document.querySelector('#outcome-score-rows').innerHTML=breakdownRows(o?.by_score_bucket);
+ document.querySelector('#outcome-direction-rows').innerHTML=compactRows(o?.by_direction);
+ document.querySelector('#outcome-level-rows').innerHTML=compactRows(o?.by_level);
+ document.querySelector('#outcome-pair-rows').innerHTML=compactRows(o?.by_pair);
 }
 async function safeRefresh(){try{await refresh()}catch(e){console.error(e);document.querySelector('#status').textContent='● DATA ERROR';document.querySelector('#status').className='bad'}}
 safeRefresh();setInterval(safeRefresh,30000);
