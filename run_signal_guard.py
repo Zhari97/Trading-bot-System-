@@ -24,17 +24,44 @@ def _expected_closed_candle_open(now: dt.datetime, interval_minutes: int) -> dt.
     return dt.datetime.fromtimestamp((bucket - 1) * interval_seconds, tz=dt.timezone.utc)
 
 
-def _ingest_dashboard(record: dict | None, telegram_status: str) -> None:
-    """Publish the same analysis to the remote dashboard without exposing secrets."""
-    if not isinstance(record, dict):
+def _ingest_dashboard(record: dict | None, analysis: dict, telegram_status: str) -> None:
+    """Publish a normalized analysis payload to the remote dashboard."""
+    if not isinstance(record, dict) or not isinstance(analysis, dict):
         return
-    payload = dict(record)
-    payload["telegram"] = telegram_status
+    classification = analysis.get("classificazione", {})
+    categories = analysis.get("categorie", {})
+    payload = {
+        "timestamp": record.get("timestamp_utc"),
+        "pair": record.get("pair"),
+        "price": record.get("price"),
+        "rsi": record.get("rsi"),
+        "score": record.get("score"),
+        "confluence": record.get("confluence"),
+        "direction": record.get("direction", "NEUTRO"),
+        "classification": record.get("level", "WATCH"),
+        "reason": classification.get("motivo", ""),
+        "counter_trend": bool(record.get("counter_trend", False)),
+        "guard_rail": {"status": "PASS", "reason": ""},
+        "telegram": telegram_status,
+        "categories": {
+            "trend": record.get("trend", categories.get("trend", 50)),
+            "momentum": record.get("momentum", categories.get("momentum", 50)),
+            "setup": record.get("setup", categories.get("setup", 50)),
+        },
+        "weights": {
+            "long": analysis.get("peso_long", 50),
+            "short": analysis.get("peso_short", 50),
+        },
+        "strategies": [
+            {key: result[key] for key in ("nome", "voto", "motivo", "attivo")}
+            for result in analysis.get("risultati", [])
+            if isinstance(result, dict) and all(key in result for key in ("nome", "voto", "motivo", "attivo"))
+        ],
+    }
     if segnale_crypto_binance.invia_dashboard(payload):
         segnale_crypto_binance.log.info("[%s] Dashboard ingest OK | telegram=%s", payload.get("pair", "?"), telegram_status)
     else:
         segnale_crypto_binance.log.warning("[%s] Dashboard ingest FAILED | telegram=%s", payload.get("pair", "?"), telegram_status)
-
 
 def controlla_coppia_con_timing_guard(pair: str) -> None:
     """Compute once, then guard the same analysis before any live side effect."""
@@ -55,11 +82,11 @@ def controlla_coppia_con_timing_guard(pair: str) -> None:
     if not should_emit_signal(pair, candle_open, c.get("direzione", "NEUTRO"), float(analysis["score"]), float(analysis["confluenza"]), last_key).accepted:
         return
     if not c.get("alert_automatico"):
-        _ingest_dashboard(record, "NOT_SENT")
+        _ingest_dashboard(record, analysis, "NOT_SENT")
         return
 
     if last and segnale_crypto_binance.alert_duplicato(analysis, last):
-        _ingest_dashboard(record, "BLOCKED")
+        _ingest_dashboard(record, analysis, "BLOCKED")
         segnale_crypto_binance.log.info("[%s] ALERT GATE -> SUPPRESS DUPLICATE", pair)
         return
 
@@ -72,7 +99,7 @@ def controlla_coppia_con_timing_guard(pair: str) -> None:
         segnale_crypto_binance.log.info("[%s] TELEGRAM -> SENT", pair)
     else:
         segnale_crypto_binance.log.warning("[%s] TELEGRAM -> FAILED", pair)
-    _ingest_dashboard(record, telegram_status)
+    _ingest_dashboard(record, analysis, telegram_status)
 
 
 segnale_crypto_binance.controlla_coppia = controlla_coppia_con_timing_guard
