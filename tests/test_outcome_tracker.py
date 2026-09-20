@@ -15,13 +15,19 @@ class OutcomeTrackerTests(unittest.TestCase):
 
     def test_summary_keeps_signal_counts(self):
         rows = [
-            {"direction": "LONG", "level": "WATCH", "outcomes": {"1h": {"status": "READY", "directional_return_pct": 2.0}}},
-            {"direction": "SHORT", "level": "SETUP", "outcomes": {"1h": {"status": "READY", "directional_return_pct": -1.0}}},
+            {"direction": "LONG", "level": "WATCH", "pair": "ETHUSD", "score": 72.5,
+             "outcomes": {"1h": {"status": "READY", "directional_return_pct": 2.0}}},
+            {"direction": "SHORT", "level": "SETUP", "pair": "XMRUSD", "score": 10,
+             "outcomes": {"1h": {"status": "READY", "directional_return_pct": -1.0}}},
         ]
         summary = build_summary(rows)
         self.assertEqual(summary["signals"], 2)
         self.assertEqual(summary["ready_by_horizon"]["1h"]["count"], 2)
         self.assertAlmostEqual(summary["ready_by_horizon"]["1h"]["mean_return_pct"], 0.5)
+        self.assertAlmostEqual(summary["by_direction"]["LONG"]["positive_rate_1h_pct"], 100.0)
+        self.assertAlmostEqual(summary["by_direction"]["SHORT"]["positive_rate_1h_pct"], 0.0)
+        self.assertEqual(summary["by_pair"]["ETHUSD"]["signals"], 1)
+        self.assertEqual(summary["by_score_bucket"]["60-79"]["signals"], 1)
 
 
 if __name__ == "__main__":
