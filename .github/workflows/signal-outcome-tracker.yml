@@ -1,0 +1,41 @@
+name: Signal Outcome Tracker
+
+on:
+  schedule:
+    - cron: "7 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  outcomes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scarica il codice
+        uses: actions/checkout@v6
+
+      - name: Imposta Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Installa dipendenze
+        run: python -m pip install -r requirements.txt
+
+      - name: Calcola outcome segnali live
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          INTERVAL_MIN: 15
+          OUTCOME_MAX_ARTIFACTS: 100
+        run: python outcome_tracker.py
+
+      - name: Conserva outcome dataset
+        uses: actions/upload-artifact@v4
+        with:
+          name: signal-outcomes-${{ github.run_id }}
+          path: data/outcomes/
+          if-no-files-found: error
+          retention-days: 14
