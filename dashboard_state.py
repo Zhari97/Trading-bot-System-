@@ -10,7 +10,7 @@ STATE_FILE = Path(os.environ.get("DASHBOARD_STATE_FILE", "data/dashboard_state.j
 
 
 def _empty_state():
-    return {"updated_at": None, "markets": {}, "history": [], "telegram": {"configured": False}}
+    return {"updated_at": None, "status": {"state": "WAITING", "timeframe_minutes": int(os.environ.get("INTERVAL_MIN", "15"))}, "markets": {}, "history": [], "telegram": {"configured": False}}
 
 
 def read_state():
@@ -65,6 +65,7 @@ def _append_record(state, record):
     """Aggiorna lo stato usando un record già validato e senza segreti."""
     timestamp = record["timestamp"]
     state["updated_at"] = timestamp
+    state["status"] = {"state": "ACTIVE", "timeframe_minutes": int(os.environ.get("INTERVAL_MIN", "15")), "updated_at": timestamp}
     state.setdefault("markets", {})[record["pair"]] = record
     state["history"] = (state.get("history", []) + [record])[-MAX_HISTORY:]
     telegram = state.setdefault("telegram", {"configured": False})
