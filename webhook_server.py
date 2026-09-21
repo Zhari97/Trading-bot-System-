@@ -2,9 +2,11 @@
 
 import html
 import hmac
+import io
 import json
 import logging
 import os
+import zipfile
 from pathlib import Path
 
 import requests
@@ -171,18 +173,49 @@ def api_signals(): return jsonify(read_state().get("signals", [])), 200
 
 
 OUTCOME_FILE = Path(os.environ.get("OUTCOME_SUMMARY_FILE", "data/outcomes/summary.json"))
+GITHUB_REPOSITORY = os.environ.get("GITHUB_REPOSITORY", "").strip()
+GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "").strip()
+
+def _read_latest_outcome_artifact():
+    if not GITHUB_REPOSITORY or not GITHUB_TOKEN:
+        return None
+    headers = {"Authorization": f"Bearer {GITHUB_TOKEN}", "Accept": "application/vnd.github+json"}
+    response = requests.get(
+        f"https://api.github.com/repos/{GITHUB_REPOSITORY}/actions/artifacts",
+        headers=headers,
+        params={"per_page": 100},
+        timeout=15,
+    )
+    response.raise_for_status()
+    artifacts = [
+        a for a in response.json().get("artifacts", [])
+        if str(a.get("name", "")).startswith("signal-outcomes-") and not a.get("expired")
+    ]
+    if not artifacts:
+        return None
+    artifact = max(artifacts, key=lambda a: a.get("created_at", ""))
+    archive = requests.get(artifact["archive_download_url"], headers=headers, timeout=20)
+    archive.raise_for_status()
+    with zipfile.ZipFile(io.BytesIO(archive.content)) as zf:
+        member = next((n for n in zf.namelist() if n.endswith("summary.json")), None)
+        if not member:
+            return None
+        data = json.loads(zf.read(member).decode("utf-8"))
+        return data if isinstance(data, dict) else None
 
 @app.route("/api/outcomes", methods=["GET"])
 def api_outcomes():
-    if not OUTCOME_FILE.exists():
-        return jsonify({"status": "not_ready", "signals": 0, "ready_by_horizon": {}}), 200
     try:
-        data = json.loads(OUTCOME_FILE.read_text(encoding="utf-8"))
+        data = None
+        if OUTCOME_FILE.exists():
+            data = json.loads(OUTCOME_FILE.read_text(encoding="utf-8"))
         if not isinstance(data, dict):
-            return jsonify({"status": "invalid", "signals": 0, "ready_by_horizon": {}}), 200
+            data = _read_latest_outcome_artifact()
+        if not isinstance(data, dict):
+            return jsonify({"status": "not_ready", "signals": 0, "ready_by_horizon": {}}), 200
         data["status"] = "ready"
         return jsonify(data), 200
-    except (OSError, json.JSONDecodeError):
+    except (OSError, json.JSONDecodeError, requests.RequestException, zipfile.BadZipFile):
         log.exception("Impossibile leggere gli outcome")
         return jsonify({"status": "error", "signals": 0, "ready_by_horizon": {}}), 500
 @app.route("/api/research", methods=["GET"])
