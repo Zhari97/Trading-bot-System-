@@ -22,7 +22,7 @@ class OutcomeTrackerTests(unittest.TestCase):
             "direction": "LONG",
         }
         candles = [
-            {"ts": int(datetime(2026, 9, 21, 9, 45, tzinfo=timezone.utc).timestamp()), "high": 101, "low": 99, "close": 100.5},
+            {"ts": int(datetime(2026, 9, 21, 9, 30, tzinfo=timezone.utc).timestamp()), "high": 101, "low": 99, "close": 100.5},
             {"ts": int(datetime(2026, 9, 21, 10, 0, tzinfo=timezone.utc).timestamp()), "high": 103, "low": 98, "close": 102},
         ]
         now = datetime(2026, 9, 21, 10, 5, tzinfo=timezone.utc)
