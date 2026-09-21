@@ -1,6 +1,7 @@
 import unittest
+from datetime import datetime, timezone
 
-from outcome_tracker import build_summary, directional_return
+from outcome_tracker import build_summary, directional_return, evaluate_signal
 
 
 class OutcomeTrackerTests(unittest.TestCase):
@@ -12,6 +13,21 @@ class OutcomeTrackerTests(unittest.TestCase):
 
     def test_neutral_return_is_none(self):
         self.assertIsNone(directional_return("NEUTRO", 100, 105))
+
+    def test_completed_candle_is_required(self):
+        signal = {
+            "timestamp_utc": "2026-09-21T09:00:00+00:00",
+            "pair": "ETHUSD",
+            "price": 100.0,
+            "direction": "LONG",
+        }
+        candles = [
+            {"ts": int(datetime(2026, 9, 21, 9, 45, tzinfo=timezone.utc).timestamp()), "high": 101, "low": 99, "close": 100.5},
+            {"ts": int(datetime(2026, 9, 21, 10, 0, tzinfo=timezone.utc).timestamp()), "high": 103, "low": 98, "close": 102},
+        ]
+        now = datetime(2026, 9, 21, 10, 5, tzinfo=timezone.utc)
+        result = evaluate_signal(signal, candles, now)
+        self.assertEqual(result["outcomes"]["1h"]["status"], "PENDING")
 
     def test_summary_keeps_signal_counts(self):
         rows = [
