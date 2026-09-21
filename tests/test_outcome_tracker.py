@@ -36,9 +36,15 @@ class OutcomeTrackerTests(unittest.TestCase):
             {"direction": "SHORT", "level": "SETUP", "pair": "XMRUSD", "score": 10,
              "outcomes": {"1h": {"status": "READY", "directional_return_pct": -1.0, "mfe_pct": 1.5, "mae_pct": -2.5}}},
         ]
+        rows[0]["evaluated_at_utc"] = "2026-09-21T10:00:00+00:00"
+        rows[0]["outcomes"]["1h"]["observed_until_utc"] = "2026-09-21T10:00:00+00:00"
+        rows[1]["evaluated_at_utc"] = "2026-09-21T10:05:00+00:00"
+        rows[1]["outcomes"]["1h"]["observed_until_utc"] = "2026-09-21T10:05:00+00:00"
         summary = build_summary(rows)
         self.assertEqual(summary["signals"], 2)
         self.assertEqual(summary["outcome_errors"], 0)
+        self.assertEqual(summary["latest_evaluated_at_utc"], "2026-09-21T10:05:00+00:00")
+        self.assertEqual(summary["latest_observed_until_utc"], "2026-09-21T10:05:00+00:00")
         self.assertEqual(summary["ready_by_horizon"]["1h"]["pending_count"], 0)
         self.assertEqual(summary["ready_by_horizon"]["4h"]["pending_count"], 0)
         self.assertEqual(summary["ready_by_horizon"]["1h"]["count"], 2)
