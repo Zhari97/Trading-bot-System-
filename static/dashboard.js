@@ -32,7 +32,7 @@ async function refresh(){
  document.querySelector('#live-1h-coverage').textContent=pct(h1.coverage_pct);document.querySelector('#live-1h-coverage-meta').textContent=h1.count?(h1.count+' ready · '+(h1.pending_count??0)+' pending'):'no ready outcomes';
  document.querySelector('#live-4h-coverage').textContent=pct(h4.coverage_pct);document.querySelector('#live-4h-coverage-meta').textContent=h4.count?(h4.count+' ready · '+(h4.pending_count??0)+' pending'):'no ready outcomes';
  document.querySelector('#live-1h-mfe').textContent=pct(h1.mean_mfe_pct);document.querySelector('#live-1h-mae').textContent=pct(h1.mean_mae_pct);
- document.querySelector('#outcome-errors').textContent=o?.outcome_errors??'—';document.querySelector('#outcome-errors-meta').textContent=o?.latest_signal_timestamp_utc?('latest signal '+date(o.latest_signal_timestamp_utc)):'tracker quality';
+ document.querySelector('#outcome-errors').textContent=o?.outcome_errors??'—';document.querySelector('#outcome-errors-meta').textContent=o?.latest_signal_timestamp_utc?('latest signal '+date(o.latest_signal_timestamp_utc)):'tracker quality';document.querySelector('#outcome-freshness').textContent=o?.latest_evaluated_at_utc?('evaluated '+date(o.latest_evaluated_at_utc)+' · observed '+date(o.latest_observed_until_utc)):'freshness —';
  document.querySelector('#outcome-score-rows').innerHTML=breakdownRows(o?.by_score_bucket);
  document.querySelector('#outcome-direction-rows').innerHTML=compactRows(o?.by_direction);
  document.querySelector('#outcome-level-rows').innerHTML=compactRows(o?.by_level);
