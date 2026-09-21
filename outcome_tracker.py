@@ -106,7 +106,11 @@ def evaluate_signal(signal: dict, candles: list[dict], now: datetime) -> dict:
     entry = float(signal.get("price", 0) or 0)
     direction = str(signal.get("direction", "NEUTRO")).upper()
     interval = timedelta(minutes=INTERVAL_MIN)
-    future = [c for c in candles if datetime.fromtimestamp(c["ts"], tz=timezone.utc) >= ts]
+    future = [
+        c for c in candles
+        if datetime.fromtimestamp(c["ts"], tz=timezone.utc) >= ts
+        and datetime.fromtimestamp(c["ts"], tz=timezone.utc) + interval <= now
+    ]
     result = dict(signal)
     result["evaluated_at_utc"] = now.isoformat()
     result["outcomes"] = {}
@@ -185,6 +189,8 @@ def _group_stats(rows: list[dict], field: str) -> dict:
                 "ready_1h": 0,
                 "positive_1h": 0,
                 "_returns": [],
+                "_mfe": [],
+                "_mae": [],
             },
         )
         groups[value]["signals"] += 1
@@ -194,10 +200,18 @@ def _group_stats(rows: list[dict], field: str) -> dict:
             groups[value]["ready_1h"] += 1
             groups[value]["positive_1h"] += int(ret > 0)
             groups[value]["_returns"].append(ret)
+            if outcome.get("mfe_pct") is not None:
+                groups[value]["_mfe"].append(float(outcome["mfe_pct"]))
+            if outcome.get("mae_pct") is not None:
+                groups[value]["_mae"].append(float(outcome["mae_pct"]))
 
     for stats in groups.values():
         values = stats.pop("_returns")
+        mfe = stats.pop("_mfe")
+        mae = stats.pop("_mae")
         stats["mean_return_1h_pct"] = sum(values) / len(values) if values else None
+        stats["mean_mfe_1h_pct"] = sum(mfe) / len(mfe) if mfe else None
+        stats["mean_mae_1h_pct"] = sum(mae) / len(mae) if mae else None
         stats["positive_rate_1h_pct"] = (
             100 * stats["positive_1h"] / stats["ready_1h"] if stats["ready_1h"] else None
         )
