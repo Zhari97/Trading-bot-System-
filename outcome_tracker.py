@@ -105,6 +105,7 @@ def evaluate_signal(signal: dict, candles: list[dict], now: datetime) -> dict:
     ts = _parse_ts(signal["timestamp_utc"])
     entry = float(signal.get("price", 0) or 0)
     direction = str(signal.get("direction", "NEUTRO")).upper()
+    interval = timedelta(minutes=INTERVAL_MIN)
     future = [c for c in candles if datetime.fromtimestamp(c["ts"], tz=timezone.utc) >= ts]
     result = dict(signal)
     result["evaluated_at_utc"] = now.isoformat()
@@ -112,13 +113,20 @@ def evaluate_signal(signal: dict, candles: list[dict], now: datetime) -> dict:
 
     for hours in HORIZONS_H:
         target = ts + timedelta(hours=hours)
-        window = [c for c in future if datetime.fromtimestamp(c["ts"], tz=timezone.utc) <= target]
+        horizon_candle = next(
+            (
+                c for c in future
+                if datetime.fromtimestamp(c["ts"], tz=timezone.utc) + interval >= target
+            ),
+            None,
+        )
         key = f"{hours}h"
-        if not window:
+        if horizon_candle is None:
             result["outcomes"][key] = {"status": "PENDING"}
             continue
 
-        close = window[-1]["close"]
+        window = [c for c in future if c["ts"] <= horizon_candle["ts"]]
+        close = horizon_candle["close"]
         returns = directional_return(direction, entry, close)
         favorable = None
         adverse = None
@@ -129,13 +137,14 @@ def evaluate_signal(signal: dict, candles: list[dict], now: datetime) -> dict:
             favorable = max((entry - c["low"]) / entry for c in window) if entry else None
             adverse = min((entry - c["high"]) / entry for c in window) if entry else None
 
+        candle_close_ts = datetime.fromtimestamp(horizon_candle["ts"], tz=timezone.utc) + interval
         result["outcomes"][key] = {
-            "status": "READY" if datetime.fromtimestamp(window[-1]["ts"], tz=timezone.utc) >= target else "PENDING",
+            "status": "READY" if candle_close_ts >= target else "PENDING",
             "close": close,
             "directional_return_pct": returns * 100 if returns is not None else None,
             "mfe_pct": favorable * 100 if favorable is not None else None,
             "mae_pct": adverse * 100 if adverse is not None else None,
-            "observed_until_utc": datetime.fromtimestamp(window[-1]["ts"], tz=timezone.utc).isoformat(),
+            "observed_until_utc": candle_close_ts.isoformat(),
         }
 
     plan = signal.get("trade_plan") or {}
@@ -149,9 +158,55 @@ def evaluate_signal(signal: dict, candles: list[dict], now: datetime) -> dict:
     return result
 
 
+def _score_bucket(value) -> str:
+    try:
+        score = float(value)
+    except (TypeError, ValueError):
+        return "UNKNOWN"
+    if score < 20:
+        return "0-19"
+    if score < 40:
+        return "20-39"
+    if score < 60:
+        return "40-59"
+    if score < 80:
+        return "60-79"
+    return "80-100"
+
+
+def _group_stats(rows: list[dict], field: str) -> dict:
+    groups = {}
+    for row in rows:
+        value = str(row.get(field, "UNKNOWN"))
+        groups.setdefault(
+            value,
+            {
+                "signals": 0,
+                "ready_1h": 0,
+                "positive_1h": 0,
+                "_returns": [],
+            },
+        )
+        groups[value]["signals"] += 1
+        outcome = row.get("outcomes", {}).get("1h", {})
+        if outcome.get("status") == "READY" and outcome.get("directional_return_pct") is not None:
+            ret = float(outcome["directional_return_pct"])
+            groups[value]["ready_1h"] += 1
+            groups[value]["positive_1h"] += int(ret > 0)
+            groups[value]["_returns"].append(ret)
+
+    for stats in groups.values():
+        values = stats.pop("_returns")
+        stats["mean_return_1h_pct"] = sum(values) / len(values) if values else None
+        stats["positive_rate_1h_pct"] = (
+            100 * stats["positive_1h"] / stats["ready_1h"] if stats["ready_1h"] else None
+        )
+    return groups
+
+
 def build_summary(rows: list[dict]) -> dict:
     ready = [r for r in rows if r.get("outcomes")]
-    summary = {"signals": len(rows), "ready_by_horizon": {}, "direction": {}, "level": {}}
+    summary = {"signals": len(rows), "ready_by_horizon": {}}
     for h in HORIZONS_H:
         values = [
             r["outcomes"].get(f"{h}h", {}).get("directional_return_pct")
@@ -164,13 +219,17 @@ def build_summary(rows: list[dict]) -> dict:
             "positive_count": sum(v > 0 for v in values),
             "negative_count": sum(v < 0 for v in values),
         }
-    for field in ("direction", "level"):
-        groups = {}
-        for r in rows:
-            value = str(r.get(field, "UNKNOWN"))
-            groups.setdefault(value, 0)
-            groups[value] += 1
-        summary[field] = groups
+
+    summary["by_direction"] = _group_stats(rows, "direction")
+    summary["by_level"] = _group_stats(rows, "level")
+    summary["by_pair"] = _group_stats(rows, "pair")
+
+    score_rows = []
+    for row in rows:
+        item = dict(row)
+        item["score_bucket"] = _score_bucket(row.get("score"))
+        score_rows.append(item)
+    summary["by_score_bucket"] = _group_stats(score_rows, "score_bucket")
     return summary
 
 
