@@ -220,18 +220,32 @@ def _group_stats(rows: list[dict], field: str) -> dict:
 
 def build_summary(rows: list[dict]) -> dict:
     ready = [r for r in rows if r.get("outcomes")]
-    summary = {"signals": len(rows), "ready_by_horizon": {}}
+    summary = {
+        "signals": len(rows),
+        "outcome_errors": sum(1 for r in rows if r.get("outcomes", {}).get("error")),
+        "latest_signal_timestamp_utc": max(
+            (str(r.get("timestamp_utc")) for r in rows if r.get("timestamp_utc")),
+            default=None,
+        ),
+        "ready_by_horizon": {},
+    }
     for h in HORIZONS_H:
-        values = [
-            r["outcomes"].get(f"{h}h", {}).get("directional_return_pct")
+        horizon_key = f"{h}h"
+        horizon_outcomes = [
+            r.get("outcomes", {}).get(horizon_key, {})
             for r in ready
-            if r["outcomes"].get(f"{h}h", {}).get("status") == "READY"
+            if r.get("outcomes", {}).get(horizon_key)
+        ]
+        values = [
+            o.get("directional_return_pct")
+            for o in horizon_outcomes
+            if o.get("status") == "READY" and o.get("directional_return_pct") is not None
         ]
         horizon_rows = [
-            r.get("outcomes", {}).get(f"{h}h", {})
-            for r in ready
-            if r.get("outcomes", {}).get(f"{h}h", {}).get("status") == "READY"
+            o for o in horizon_outcomes
+            if o.get("status") == "READY"
         ]
+        pending_count = sum(o.get("status") == "PENDING" for o in horizon_outcomes)
         mfe_values = [
             float(o["mfe_pct"]) for o in horizon_rows if o.get("mfe_pct") is not None
         ]
@@ -240,6 +254,7 @@ def build_summary(rows: list[dict]) -> dict:
         ]
         summary["ready_by_horizon"][f"{h}h"] = {
             "count": len(values),
+            "pending_count": pending_count,
             "coverage_pct": 100 * len(values) / len(rows) if rows else None,
             "mean_return_pct": sum(values) / len(values) if values else None,
             "positive_count": sum(v > 0 for v in values),
