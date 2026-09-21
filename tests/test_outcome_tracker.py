@@ -32,14 +32,17 @@ class OutcomeTrackerTests(unittest.TestCase):
     def test_summary_keeps_signal_counts(self):
         rows = [
             {"direction": "LONG", "level": "WATCH", "pair": "ETHUSD", "score": 72.5,
-             "outcomes": {"1h": {"status": "READY", "directional_return_pct": 2.0}}},
+             "outcomes": {"1h": {"status": "READY", "directional_return_pct": 2.0, "mfe_pct": 3.0, "mae_pct": -1.0}}},
             {"direction": "SHORT", "level": "SETUP", "pair": "XMRUSD", "score": 10,
-             "outcomes": {"1h": {"status": "READY", "directional_return_pct": -1.0}}},
+             "outcomes": {"1h": {"status": "READY", "directional_return_pct": -1.0, "mfe_pct": 1.5, "mae_pct": -2.5}}},
         ]
         summary = build_summary(rows)
         self.assertEqual(summary["signals"], 2)
         self.assertEqual(summary["ready_by_horizon"]["1h"]["count"], 2)
+        self.assertAlmostEqual(summary["ready_by_horizon"]["1h"]["coverage_pct"], 100.0)
         self.assertAlmostEqual(summary["ready_by_horizon"]["1h"]["mean_return_pct"], 0.5)
+        self.assertAlmostEqual(summary["ready_by_horizon"]["1h"]["mean_mfe_pct"], 2.25)
+        self.assertAlmostEqual(summary["ready_by_horizon"]["1h"]["mean_mae_pct"], -1.75)
         self.assertAlmostEqual(summary["by_direction"]["LONG"]["positive_rate_1h_pct"], 100.0)
         self.assertAlmostEqual(summary["by_direction"]["SHORT"]["positive_rate_1h_pct"], 0.0)
         self.assertEqual(summary["by_pair"]["ETHUSD"]["signals"], 1)
