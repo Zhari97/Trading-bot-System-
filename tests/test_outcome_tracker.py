@@ -38,6 +38,9 @@ class OutcomeTrackerTests(unittest.TestCase):
         ]
         summary = build_summary(rows)
         self.assertEqual(summary["signals"], 2)
+        self.assertEqual(summary["outcome_errors"], 0)
+        self.assertEqual(summary["ready_by_horizon"]["1h"]["pending_count"], 0)
+        self.assertEqual(summary["ready_by_horizon"]["4h"]["pending_count"], 0)
         self.assertEqual(summary["ready_by_horizon"]["1h"]["count"], 2)
         self.assertAlmostEqual(summary["ready_by_horizon"]["1h"]["coverage_pct"], 100.0)
         self.assertAlmostEqual(summary["ready_by_horizon"]["1h"]["mean_return_pct"], 0.5)
