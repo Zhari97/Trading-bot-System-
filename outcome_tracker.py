@@ -227,6 +227,19 @@ def build_summary(rows: list[dict]) -> dict:
             (str(r.get("timestamp_utc")) for r in rows if r.get("timestamp_utc")),
             default=None,
         ),
+        "latest_evaluated_at_utc": max(
+            (str(r.get("evaluated_at_utc")) for r in rows if r.get("evaluated_at_utc")),
+            default=None,
+        ),
+        "latest_observed_until_utc": max(
+            (
+                str(outcome.get("observed_until_utc"))
+                for row in rows
+                for outcome in (row.get("outcomes") or {}).values()
+                if isinstance(outcome, dict) and outcome.get("observed_until_utc")
+            ),
+            default=None,
+        ),
         "ready_by_horizon": {},
     }
     for h in HORIZONS_H:
