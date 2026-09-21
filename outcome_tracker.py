@@ -227,11 +227,25 @@ def build_summary(rows: list[dict]) -> dict:
             for r in ready
             if r["outcomes"].get(f"{h}h", {}).get("status") == "READY"
         ]
+        horizon_rows = [
+            r.get("outcomes", {}).get(f"{h}h", {})
+            for r in ready
+            if r.get("outcomes", {}).get(f"{h}h", {}).get("status") == "READY"
+        ]
+        mfe_values = [
+            float(o["mfe_pct"]) for o in horizon_rows if o.get("mfe_pct") is not None
+        ]
+        mae_values = [
+            float(o["mae_pct"]) for o in horizon_rows if o.get("mae_pct") is not None
+        ]
         summary["ready_by_horizon"][f"{h}h"] = {
             "count": len(values),
+            "coverage_pct": 100 * len(values) / len(rows) if rows else None,
             "mean_return_pct": sum(values) / len(values) if values else None,
             "positive_count": sum(v > 0 for v in values),
             "negative_count": sum(v < 0 for v in values),
+            "mean_mfe_pct": sum(mfe_values) / len(mfe_values) if mfe_values else None,
+            "mean_mae_pct": sum(mae_values) / len(mae_values) if mae_values else None,
         }
 
     summary["by_direction"] = _group_stats(rows, "direction")
