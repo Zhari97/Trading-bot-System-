@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import datetime as dt
+import os
 
 from signal_timing_guard import candle_is_closed, should_emit_signal
 import signal_engine
