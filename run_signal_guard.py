@@ -85,7 +85,22 @@ def controlla_coppia_con_timing_guard(pair: str) -> None:
     last_key = None
     if last:
         last_key = (str(last.get("pair", pair)).upper(), str(last.get("candle_open_time", candle_open.isoformat())), str(last.get("direction", "NEUTRO")).upper(), float(last.get("score", 50)))
-    if not should_emit_signal(pair, candle_open, c.get("direzione", "NEUTRO"), float(analysis["score"]), float(analysis["confluenza"]), last_key).accepted:
+    signal_decision = should_emit_signal(
+        pair,
+        candle_open,
+        c.get("direzione", "NEUTRO"),
+        float(analysis["score"]),
+        float(analysis["confluenza"]),
+        last_key,
+    )
+    if not signal_decision.accepted:
+        _ingest_dashboard(
+            record,
+            analysis,
+            "BLOCKED",
+            guard_status="BLOCKED",
+            guard_reason=signal_decision.reason,
+        )
         return
     if not c.get("alert_automatico"):
         _ingest_dashboard(
