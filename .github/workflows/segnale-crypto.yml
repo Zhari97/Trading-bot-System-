@@ -2,7 +2,7 @@ name: Controllo Segnale Crypto
 
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "7,22,37,52 * * * *"
   workflow_dispatch:
     inputs:
       modalita_test:
@@ -62,6 +62,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           DASHBOARD_URL: ${{ vars.DASHBOARD_URL }}
           DASHBOARD_INGEST_TOKEN: ${{ secrets.DASHBOARD_INGEST_TOKEN }}
+          DASHBOARD_ONLY: 1
           INTERVAL_MIN: 15
           MODALITA_TEST: ${{ inputs.modalita_test && '1' || '0' }}
         run: python run_signal_guard.py
