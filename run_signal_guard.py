@@ -24,8 +24,14 @@ def _expected_closed_candle_open(now: dt.datetime, interval_minutes: int) -> dt.
     return dt.datetime.fromtimestamp((bucket - 1) * interval_seconds, tz=dt.timezone.utc)
 
 
-def _ingest_dashboard(record: dict | None, analysis: dict, telegram_status: str) -> None:
-    """Publish a normalized analysis payload to the remote dashboard."""
+def _ingest_dashboard(
+    record: dict | None,
+    analysis: dict,
+    telegram_status: str,
+    guard_status: str = "PASS",
+    guard_reason: str = "",
+) -> None:
+    """Publish a normalized analysis payload with truthful guard status."""
     if not isinstance(record, dict) or not isinstance(analysis, dict):
         return
     classification = analysis.get("classificazione", {})
@@ -41,7 +47,7 @@ def _ingest_dashboard(record: dict | None, analysis: dict, telegram_status: str)
         "classification": record.get("level", "WATCH"),
         "reason": classification.get("motivo", ""),
         "counter_trend": bool(record.get("counter_trend", False)),
-        "guard_rail": {"status": "PASS", "reason": ""},
+        "guard_rail": {"status": guard_status, "reason": guard_reason},
         "telegram": telegram_status,
         "categories": {
             "trend": record.get("trend", categories.get("trend", 50)),
@@ -82,11 +88,23 @@ def controlla_coppia_con_timing_guard(pair: str) -> None:
     if not should_emit_signal(pair, candle_open, c.get("direzione", "NEUTRO"), float(analysis["score"]), float(analysis["confluenza"]), last_key).accepted:
         return
     if not c.get("alert_automatico"):
-        _ingest_dashboard(record, analysis, "NOT_SENT")
+        _ingest_dashboard(
+            record,
+            analysis,
+            "NOT_SENT",
+            guard_status="WARN",
+            guard_reason=str(c.get("motivo", "Alert automatico non autorizzato")),
+        )
         return
 
     if last and segnale_crypto_binance.alert_duplicato(analysis, last):
-        _ingest_dashboard(record, analysis, "BLOCKED")
+        _ingest_dashboard(
+            record,
+            analysis,
+            "BLOCKED",
+            guard_status="BLOCKED",
+            guard_reason="Segnale duplicato soppresso dal controllo anti-duplicati",
+        )
         segnale_crypto_binance.log.info("[%s] ALERT GATE -> SUPPRESS DUPLICATE", pair)
         return
 
