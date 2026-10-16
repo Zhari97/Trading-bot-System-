@@ -169,7 +169,7 @@ def api_history(): return jsonify(read_state().get("history", [])), 200
 
 
 @app.route("/api/signals", methods=["GET"])
-def api_signals(): return jsonify(read_state().get("signals", [])), 200
+def api_signals(): return jsonify(read_state().get("history", [])), 200
 
 
 OUTCOME_FILE = Path(os.environ.get("OUTCOME_SUMMARY_FILE", "data/outcomes/summary.json"))
