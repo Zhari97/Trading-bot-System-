@@ -1,0 +1,65 @@
+name: BTCUSDT 15m + 1h Research
+
+on:
+  pull_request:
+    paths:
+      - 'historical_*.py'
+      - 'research_metrics.py'
+      - 'research_quality_gate.py'
+      - 'research/mtf_15m_1h.py'
+      - 'tests/test_mtf_15m_1h.py'
+      - '.github/workflows/mtf-15m-1h-research.yml'
+  push:
+    paths:
+      - 'historical_*.py'
+      - 'research_metrics.py'
+      - 'research_quality_gate.py'
+      - 'research/mtf_15m_1h.py'
+      - 'tests/test_mtf_15m_1h.py'
+      - '.github/workflows/mtf-15m-1h-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip -r requirements.txt
+      - name: Compile Python
+        run: python -m compileall -q .
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -v
+
+  mtf-research:
+    needs: quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip -r requirements.txt
+      - name: Run one fresh historical replay
+        run: python historical_engine_runner.py
+      - name: Analyze fixed BTCUSDT 15m + 1h alignment
+        run: python research/mtf_15m_1h.py
+      - name: Validate research output
+        run: python -m json.tool research/mtf_15m_1h_results.json > /dev/null
+      - name: Upload research artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: btcusdt-mtf-15m-1h-${{ github.run_id }}
+          path: |
+            backtest_results.json
+            research/mtf_15m_1h_results.json
+          retention-days: 30
